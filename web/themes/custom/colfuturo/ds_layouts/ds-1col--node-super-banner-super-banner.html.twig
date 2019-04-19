@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Display Suite 1 column template.
+ *
+ * Available variables:
+ * - ds_content_wrapper: wrapper around content
+ * - attributes: content region attributes
+ * - ds_content: content region
+ */
+#}
+
+
+
+<{{ ds_content_wrapper }}{{ attributes.addClass('ds-1col', 'clearfix') }}>
+
+  {{ title_suffix.contextual_links }}
+
+  <div class="large-12 medium-12 nopadding">
+    <div class="image-wrapper ">
+        {{ds_content.field_image}}
+    </div>
+    <div class="wrapper-absolute columns">
+        <div class="row">
+            <div class="large-12 medium-12 columns">{{ds_content.node_title}}</div>
+            <div class="large-12 medium-12 columns">{{ds_content.body}}</div>
+            <div class="large-12 medium-12 columns">{{ds_content.field_button_to_link}}</div>
+        </div>
+    </div>
+  </div>
+
+</{{ ds_content_wrapper }}>
