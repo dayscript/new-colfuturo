@@ -178,26 +178,27 @@
         {% endif %}
       </div>
       {% if page.sub_content %}
-        <div id="sub-content" class="row">
+        <div id="sub-content" class="">
           <section class="{{ sub_content }} columns">
                 {{ page.sub_content }}
           </section>
         </div>
       {% endif %}
-      {% if page.sub_content %}
+      {% if page.sub_content_first %}
         <div id="sub-content-first" class="row">
           <section class="{{ sub_content_first }} columns">
                 {{ page.sub_content_first }}
           </section>
         </div>
       {% endif %}
-      {% if page.sub_content %}
-        <div id="sub-content-second" class="row">
+      {% if page.sub_content_second %}
+        <div id="sub-content-second" class="">
           <section class="{{ sub_content_second }} columns">
                 {{ page.sub_content_second }}
           </section>
         </div>
       {% endif %}
+
       {% if page.footer_first or page.footer_middle or page.footer_last %}
         <footer class="row">
           {% if page.footer_first %}
@@ -217,6 +218,7 @@
           {% endif %}
         </footer>
       {% endif %}
+      
       <div class="bottom-bar callout secondary">
         <div class="row">
           <div class="large-12 columns">
