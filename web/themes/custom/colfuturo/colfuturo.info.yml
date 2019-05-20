@@ -25,6 +25,8 @@ regions:
   sub_content: 'Sub Content'
   sub_content_first: 'Sub Content First'
   sub_content_second: 'Sub Content Second'
+  sub_content_third: 'Sub Content Third'
+  sub_content_quarter: 'Sub Content Quarter'
   sidebar_first: 'Left Sidebar'
   sidebar_second: 'Right Sidebar'
   footer_first: 'Footer first column'

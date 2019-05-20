@@ -144,13 +144,19 @@
         </div>
       </div>
       {% endif %}
-      {% if page.highlighted %}
+      
+      <div class="row">
+        <div class="large-12 medium-12 columns">
+        {% if page.highlighted %}
             {% spaceless %}
               {{ page.highlighted }}
             {% endspaceless %}
-          {% endif %}
+        {% endif %}
+        </div>
+      </div>
+
       {% if page.help %}
-      <div class="l-help nopadding {{ is_front ?  'columns':'row'}}">
+      <div class="l-help nopadding columns">
         <div class="large-12 nopadding columns">
           {{ page.help }}
         </div>
@@ -159,7 +165,6 @@
 
       <div class="row">
         <main id="main" class="{{ main_grid }} columns" role="main">
-          
           <a id="main-content"></a>
           {% if breadcrumb %} {{ breadcrumb }} {% endif %}
           <section>
@@ -177,27 +182,53 @@
           </div>
         {% endif %}
       </div>
+
       {% if page.sub_content %}
-        <div id="sub-content" class="">
-          <section class="{{ sub_content }} columns">
+        <div id="sub-content" class="row">
+          <section class="{{ sub_content }} large-12 medium-12 columns">
                 {{ page.sub_content }}
           </section>
         </div>
       {% endif %}
+
       {% if page.sub_content_first %}
-        <div id="sub-content-first" class="row">
-          <section class="{{ sub_content_first }} columns">
+        <div id="sub-content-first" class="full-region">
+          <section class="{{ sub_content_first }} row">
+            <div class="large-12 medium-12">
                 {{ page.sub_content_first }}
+            </div>
           </section>
         </div>
       {% endif %}
       {% if page.sub_content_second %}
         <div id="sub-content-second" class="">
-          <section class="{{ sub_content_second }} columns">
+          <section class="{{ sub_content_second }}">
                 {{ page.sub_content_second }}
           </section>
         </div>
       {% endif %}
+
+      {% if page.sub_content_third %}
+        <div id="sub-content-third" class="full-region">
+          <section class="{{ sub_content_third }} row">
+            <div class="columns large-12 medium-12">
+                {{ page.sub_content_third }}
+            </div>
+          </section>
+        </div>
+      {% endif %}
+
+      {% if page.sub_content_quarter %}
+        <div id="sub-content-quarter" class="">
+          <section class="{{ sub_content_quarter }} row">
+            <div class="columns large-12 medium-12">
+                {{ page.sub_content_quarter }}
+            </div>
+          </section>
+        </div>
+      {% endif %}
+
+      
 
       {% if page.footer_first or page.footer_middle or page.footer_last %}
         <footer class="row">

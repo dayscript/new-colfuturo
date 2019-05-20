@@ -27,7 +27,7 @@
         width: 100%;
     }
     .wrapper-absolute{
-        padding: 0px 20%;
+        // padding: 0px 20%;
         position: absolute;
         display: inline-block;
         bottom: 100px; 
@@ -46,3 +46,26 @@
         }
     }
 }
+
+#block-views-block-nuestros-programas-block-1{
+    ul{
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        padding: 10px;
+    }
+    img{
+        width: 100%;
+    }
+    div.taxonomy-term--type-menu-principal{
+        background: #ededef;
+    }
+    .field-wrapper.field{
+        padding: 10px 34px;
+    }
+    .field-wrapper.field.image{
+        padding: 0px 0px;
+    }
+}
+

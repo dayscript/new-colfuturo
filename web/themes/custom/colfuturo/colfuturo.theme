@@ -46,9 +46,11 @@ function colfuturo_preprocess_page(&$variables) {
 
 
   // class grid
-  $variables['sub_content'] = 'large-12 medium-12';
-  $variables['sub_content_first'] = 'large-12 medium-12';
+  $variables['sub_content'] = 'large-12 medium-12 columns';
+  $variables['sub_content_first'] = 'large-12 medium-12 columns';
   $variables['sub_content_second'] = 'large-12 medium-12';
+  $variables['sub_content_quarter'] = 'large-12 medium-12';
+
 
   
 }
