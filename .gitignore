@@ -56,8 +56,8 @@
 web/sites/default/files
 
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-sites/*/services*.yml
+web/sites/*/settings*.php
+web/sites/*/services*.yml
 
 # Pantheon commits a settings.php for environment-specific settings.
 # Place local settings in settings.local.php
