@@ -1,0 +1,61 @@
+<?php
+
+// Add your custom theme override functions here.
+
+/**
+ * Implements hook_preprocess_block()
+ */
+function colfuturo_preprocess_block(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function colfuturo_preprocess_field(&$variables, $hook) {
+}
+
+/**
+ * Implements template_preprocess_html().
+ *
+ * Adds additional classes
+ */
+function colfuturo_preprocess_html(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+function colfuturo_preprocess_node(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_page
+ *
+ * Add convenience variables and template suggestions
+ */
+function colfuturo_preprocess_page(&$variables) {
+
+  //Unable bock-view main-content in the front page
+  // kpr($variables);
+  if($variables['is_front']){
+    unset($variables['page']['content']['colfuturo_content']);
+    
+  }
+
+
+  // class grid
+  $variables['sub_content'] = 'large-12 medium-12 columns';
+  $variables['sub_content_first'] = 'large-12 medium-12 columns';
+  $variables['sub_content_second'] = 'large-12 medium-12';
+  $variables['sub_content_quarter'] = 'large-12 medium-12';
+
+
+  
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function colfuturo_preprocess_views_view(&$variables) {}

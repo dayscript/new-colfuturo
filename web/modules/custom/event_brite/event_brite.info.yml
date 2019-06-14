@@ -1,0 +1,5 @@
+name: 'Event Brite'
+type: module
+description: 'Integration with event brite platform'
+core: 8.x
+package: 'dayscript'

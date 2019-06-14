@@ -1,0 +1,14 @@
+{
+  "name": "drupal/event_brite",
+  "type": "drupal-module",
+  "description": "Integration with event brite platform",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/event_brite",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/event_brite",
+    "source": "http://cgit.drupalcode.org/event_brite"
+  },
+  "require": { }
+}

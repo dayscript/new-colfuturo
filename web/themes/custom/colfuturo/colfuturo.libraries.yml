@@ -1,0 +1,7 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/colfuturo.css: {}
+  js:
+    js/colfuturo.js: {}
