@@ -3,6 +3,7 @@
     "type": "project",
     "require": {
         "cweagans/composer-patches": "^1.6.0",
+        "drupal/admin_toolbar": "^1.27",
         "drupal/adminimal_theme": "^1.4",
         "drupal/back_to_top": "^1.0",
         "drupal/block_class": "^1.0",
@@ -13,6 +14,7 @@
         "drupal/ds": "^3.3",
         "drupal/entityqueue": "^1.0",
         "drupal/field_collection": "^1.0",
+        "drupal/menu_block": "^1.5",
         "drupal/menu_link_attributes": "^1.0",
         "drupal/metatag": "^1.8",
         "drupal/module_filter": "^3.1",
