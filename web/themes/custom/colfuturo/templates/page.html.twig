@@ -145,7 +145,7 @@
       </div>
       {% endif %}
       
-      <div class="row">
+<!--       <div class="row">
         <div class="large-12 medium-12 columns">
         {% if page.highlighted %}
             {% spaceless %}
@@ -153,7 +153,7 @@
             {% endspaceless %}
         {% endif %}
         </div>
-      </div>
+      </div> -->
 
       {% if page.help %}
       <div class="l-help nopadding columns">
@@ -231,31 +231,32 @@
       
 
       {% if page.footer_first or page.footer_middle or page.footer_last %}
-        <footer class="row">
+        <footer class="bottom-bar">
           {% if page.footer_first %}
-            <div id="footer-first" class="large-4 columns">
-              {{ page.footer_first }}
+            <div class="row">
+              <div id="footer-first" class="large-12 columns">
+                {{ page.footer_first }}
+              </div>
             </div>
           {% endif %}
           {% if page.footer_middle %}
-            <div id="footer-middle" class="large-4 columns">
-              {{ page.footer_middle }}
-            </div>
-          {% endif %}
-          {% if page.footer_last %}
-            <div id="footer-last" class="large-4 columns">
-              {{ page.footer_last }}
+            <div class="row">
+              <div id="footer-middle" class="large-12 columns">
+                {{ page.footer_middle }}
+              </div>
             </div>
           {% endif %}
         </footer>
       {% endif %}
       
-      <div class="bottom-bar callout secondary">
-        <div class="row">
-          <div class="large-12 columns">
-          &copy; {{ "now"|date('Y') }} {{ site_name }} {{ 'All rights reserved.'|t }}
-          </div>
-        </div>
+      <div class="bottom-bar">
+          {% if page.footer_last %}
+            <div class="row">
+              <div id="footer-last" class="large-12 columns">
+                {{ page.footer_last }}
+              </div>
+            </div>
+          {% endif %}
       </div>
     </div>
   </div>
