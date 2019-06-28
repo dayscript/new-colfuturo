@@ -1,1 +1,54 @@
-// Non-modular or client styles for .l-footer region.
+//Footer
+footer.bottom-bar {
+    background: $dark-gray;
+    padding-top: 50px;
+    padding-bottom: 50px; 
+    color: $white;
+    font-size: 0.9em;
+    h2{
+        font-size: 1.3em;
+        color: $white;
+        letter-spacing: 0;
+        margin-bottom: 4px;
+        &:before{
+            display: none;
+        }
+    }
+    a{
+        color: $white;
+    }
+    #block-menufooter{
+        ul{
+            li{
+                display: block;
+                width: 100%;
+                a{
+                    padding: 0.4em 0;
+                }
+            }
+        }
+    }
+    #block-informaciondecontacto{
+        strong{
+            font-size: 1.3em;
+        }
+    }
+    ul.social-media-links--platforms.platforms.inline.horizontal{
+        margin-left: 0;
+    }
+}
+.bottom-bar{
+    background: $medium-black;
+    color: $white;
+    font-size: 0.8em;
+    padding: 8px 0;
+    p{
+        margin-bottom: 0;
+    }
+    .block-legales{
+        a{
+            color: $white;
+            padding-left: 20px;
+        }
+    }
+}

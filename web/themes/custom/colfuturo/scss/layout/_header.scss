@@ -1,1 +1,67 @@
-// Non-modular or client styles for .l-header region.
+//Metaheader
+.meta-header-wrapper{
+    background: $dark-gray;
+    a{
+        font-size: 0.8em;
+        color: $white;
+    }
+    #block-socialmedialinks{
+        ul{
+            margin-bottom: 0;
+            margin-left: 0;
+            display: inline-block;
+        }
+    }
+}
+section#block-colfuturo-branding {
+    padding: 16px 0;
+}
+#block-navegacionprincipal {
+    padding: 36px 0 14px 0 !important;  
+    ul{
+        li{
+            a{
+                font-size: 1em;
+                color: $gray;
+            }
+        }
+    }
+}
+
+//Superbanner
+.superbanner{
+    .info{
+        position: absolute;
+        max-width: 87.5rem;
+        margin-right: auto;
+        margin-left: auto;
+        z-index: 3;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-right: 40%;
+        h1{
+            a{
+                color: $white;
+            }
+        }
+        .resume{
+            color: $white;
+            font-size: 1.2em;
+        }
+    }
+
+    .banner{
+        position: relative;
+        &:after{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.36);
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
