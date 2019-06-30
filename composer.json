@@ -13,6 +13,7 @@
         "drupal/devel": "^2.0",
         "drupal/ds": "^3.3",
         "drupal/entityqueue": "^1.0",
+        "drupal/fancy_login": "^2.2",
         "drupal/field_collection": "^1.0",
         "drupal/focal_point": "^1.0",
         "drupal/menu_block": "^1.5",
