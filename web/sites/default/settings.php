@@ -770,12 +770,16 @@ $settings['entity_update_batch_size'] = 50;
 # }
 $config_directories['sync'] = '../config/sync';
 $databases['default']['default'] = array (
-  'database' => 'colfuturo',
-  'username' => 'root',
-  'password' => 'root',
+  'database' => 'new_colfuturo',
+  'username' => 'mysql',
+  'password' => 'p0p01234',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+
+$settings['trusted_host_patterns'] = [
+  '^dev.new-colfuturo$',
+];

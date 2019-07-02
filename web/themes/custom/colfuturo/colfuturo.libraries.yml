@@ -5,3 +5,8 @@ global:
       css/colfuturo.css: {}
   js:
     js/colfuturo.js: {}
+
+fonts:
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Roboto:400,400i,500,700,900&display=swap': { type: external, minified: true }

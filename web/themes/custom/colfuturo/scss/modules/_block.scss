@@ -1,0 +1,78 @@
+//BLoque programas home
+.block-views-block-nuestros-programas-block-1 {
+	> div {
+		.programas .columns:first-child {
+            padding-left: 0;
+        }
+        .programas .columns:nth-child(2) {
+				padding: 0 0.45rem; 
+		}
+		.programas .columns:last-child {
+				padding-right: 0;
+		}
+		
+	}
+}
+.container-programa{
+    .info{
+        padding: 24px;
+        background: $light-gray;
+        .title{
+            font-weight: 500;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: $black;
+            position: relative;
+            &:before{
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 20px;
+                height: 4px;
+                background: $primary-color;
+            }
+        }
+        .enlace{
+            margin-top: 30px;
+            a{
+                text-indent: -10000px;
+                position: relative;
+                display: inline-block;
+                &:after{
+                    background-image: url(../images/more.png);
+                    content: "";
+                    width: 36px;
+                    height: 25px;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
+//Bloque asesoria
+.block-views-block-asesoria-home-block-1{
+    background: $light-gray;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    overflow: hidden;
+    a{
+        color: $secondary-color !important;
+        &:hover{
+            color: $dark-blue !important;
+        }
+    }
+    .info{
+        padding: 40px 0;
+    }
+    img{
+        position: absolute;
+        width: 50%;
+        @media only screen and (max-width: 600px) {
+                position: relative;
+                width: 100%; 
+          }
+    }
+}
