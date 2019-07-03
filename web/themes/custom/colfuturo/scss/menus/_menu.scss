@@ -1,3 +1,5 @@
+$background: #dd1f21;
+
 #block-navegacionprincipal{
     padding: 24px 0;
     ul li a{
@@ -15,4 +17,31 @@
         }
     }
 
+}
+
+/** menu responsive **/
+.block-superfishhome-menu {
+  li {
+    a {
+      &.is-active,
+      &:hover,
+      &:focus {
+        background: $background;
+      }
+    }
+  }
+}
+
+.block-sidrtriggerbuttonblock {
+  display: none;
+}
+
+@include breakpoint(small down) {
+  .block-navegacionprincipal {
+    display: none;
+  }
+
+  .block-sidrtriggerbuttonblock {
+    display: block;
+  }
 }

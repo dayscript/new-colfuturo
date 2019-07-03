@@ -1,14 +1,120 @@
-.block-views-block-view-super-banner-home-block-1{
-    img{
-        width: 100%;
+$bg-link: #008cc7;
+$bg-color: #d71924;
+
+.block-nextevents,
+.block-views-blockasesoria-home-block-1,
+.block-views-blockbeneficiarios-block-1,
+.block-views-blockgestion-en-cifras-block-1,
+.block-views-block-nuestros-programas-block-1,
+.block-views-blocknoticias-block-1 {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 80px;
+
+  .block-title {
+    margin-bottom: 60px;
+  }
+}
+
+.block-views-blocknoticias-block-1 {
+  .button {
+    color: #ffffff;
+    background: $bg-link;
+    width: 65%;
+  }
+
+  .enlace {
+    position: relative;
+    display: inline-block;
+    background: url(../images/more.png) no-repeat;
+    margin-top: 20px;
+    
+    a {
+      color: transparent;
+    }
+  }
+}
+
+.block-views-block-beneficiarios-block-1 {
+  header {
+    padding-bottom: 50px;
+    font-size: 1.2em;
+  }
+
+  .views-field-title {
+    color: $bg-color;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .views-field-body {
+    font-size: 0.8em;
+  }
+
+  .owl-pagination {
+    margin-top: 30px;
+
+    .owl-page {
+      span {
+        background: #9ca4ab;
+      }
+    }
+  }
+}
+
+.block-menuasesoria {
+  background: #F7F7F7;
+}
+
+.block-views-blockgestion-en-cifras-block-1 {
+  background: #464a55;
+  color: #ffffff;
+  padding-bottom: 100px;
+
+  header {
+
+    h2 {
+      font-size: 35px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+  }
+
+  .owl-pagination {
+    margin-top: 30px;
+
+    .owl-page {
+      span {
+        background: #ffffff;
+      }
+
+      &.active {
+        span {
+          background: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.block-views-block-view-super-banner-home-block-1 {
+    img {
+      width: 100%;
     }
 
     .owl-controls {
-        position: absolute;
-        bottom: 0px;
-        width: 100%;
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
     }
-    
+
+    .superbanner {
+      .info {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+
     // .field-type-text-with-summary{
     //     position: absolute;
     //     top: 0;

@@ -1,0 +1,20 @@
+$bg-color: #d71924;
+
+.owl-carousel {
+  .owl-pagination {
+    margin-bottom: 20px;
+
+    .owl-page {
+      span {
+        background: #ffffff;
+        width: 10px;
+        height: 10px;
+      }
+      &.active {
+        span {
+          background: $bg-color;
+        }
+      }
+    }
+  }
+}
