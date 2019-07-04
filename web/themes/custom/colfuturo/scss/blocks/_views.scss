@@ -7,8 +7,8 @@ $bg-color: #d71924;
 .block-views-blockgestion-en-cifras-block-1,
 .block-views-block-nuestros-programas-block-1,
 .block-views-blocknoticias-block-1 {
-  padding-left: 50px;
-  padding-right: 50px;
+  /*padding-left: 50px;
+  padding-right: 50px;*/
   padding-top: 80px;
 
   .block-title {
@@ -110,8 +110,10 @@ $bg-color: #d71924;
 
     .superbanner {
       .info {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-right: 0;
+        /*padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;*/
       }
     }
 

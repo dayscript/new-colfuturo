@@ -1,0 +1,128 @@
+//programas
+$bg-sidebar: #eff0f1;
+$bg-default: #DC2223;
+$text-color: #ffffff;
+
+
+.path-noticias,
+.node--type-gestion-en-cifras,
+.node--type-colfuturo,
+.node--type-asesoria,
+.node--type-programa {
+  .superbanner {
+    .info {
+      left: 0;
+      top: 0;
+      margin-top: 330px;
+      color: $text-color;
+      font-weight: bold;
+      padding-right: unset;
+
+      .link {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .l-help {
+    .block-breadcrumbs {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      position: absolute;
+      z-index: 9;
+
+      li {
+        &:not(:last-child) {
+          &::after {
+            position: relative;
+            margin: 0.4rem;
+            opacity: 1;
+            content: "/";
+            color: $text-color;
+          }
+        }
+
+        a {
+          color: $text-color;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.node--type-gestion-en-cifras,
+.node--type-colfuturo,
+.node--type-asesoria,
+.node--type-programa {
+  .content-programs {
+    padding-top: 50px;
+
+    main {
+      padding: 20px;
+    }
+
+    .sidebar {
+      background: $bg-sidebar;
+
+      h2 {
+        font-size: 1.6em;
+        padding: 20px;
+        margin-bottom: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      nav {
+        margin-left: -15px;
+        margin-right: -15px;
+
+        .menu {
+          margin-bottom: 20px;
+
+          li {
+            width: 100%;
+            padding-top: 0;
+            padding-bottom: 0;
+            line-height: 1.4;
+
+            .is-active {
+              background: $bg-default;
+              color: $text-color;
+            }
+
+            a {
+               padding-left: 30px;
+            }
+
+            ul {
+              border-left: 2px solid #e6e6e6;
+              margin-top: 20px;
+              margin-left: 30px;
+
+              li {
+                &::before {
+                  content: "•";
+                  color: #e6e6e6;
+                  float: left;
+                  margin-top: -15px;
+                  font-size: 45px;
+                  margin-left: -9px;
+                }
+
+                &:first-child {
+                  &::before {
+                    color: #E02222;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

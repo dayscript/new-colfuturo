@@ -1,13 +1,29 @@
 $background: #dd1f21;
 
-#block-navegacionprincipal{
-    padding: 24px 0;
-    ul li a{
-        text-transform: uppercase;
-    }
+ul.sf-menu .sf-sub-indicator::after {
+  color: $background;
+  height: 16px;
 }
 
-#block-navegacionprincipal-2{
+ul.sf-menu.sf-style-white li,
+ul.sf-menu.sf-style-white.sf-navbar {
+  background: transparent;
+
+  /*&:hover > *,
+  &:focus > * {
+    background: transparent;
+  }*/
+}
+
+#block-navegacionprincipal {
+  padding: 24px 0;
+
+  ul li a{
+    text-transform: uppercase;
+  }
+}
+
+#block-navegacionprincipal-2 {
     .block-title{
         font-size: 1.5rem;
     }

@@ -1,9 +1,120 @@
 //BLoque programas home
+$bg-button: #0189C7;
+$bg-border: #A3A4A8;
+$bg-text: #d71924;
+
+#fancy_login_dim_screen {
+  background: #423F46 !important;
+  z-index: 999 !important;
+}
+
+#fancy_login_login_box {
+  border-radius: 0;
+  width: 42%;
+  top: 87%;
+  margin-left: -19% !important;
+  z-index: 999 !important;
+  padding-top: 30px;
+  padding-right: 60px;
+  padding-left: 60px;
+  position: absolute;
+
+  h2 {
+    font-size: 2.2em;
+    padding-bottom: 10px;
+  }
+
+  ul:not(.link) {
+    li {
+      text-align: center;
+      padding-top: 0;
+
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: $bg-button;
+  }
+
+  .popup-title {
+    margin-bottom: 10px;
+  }
+
+  label {
+    color: #51545b;
+    font-size: 1em;
+  }
+
+  .form-actions {
+    margin-bottom: 20px;
+    margin-top: 45px;
+  }
+
+  input {
+    box-shadow: 0 0 1px #CFCFCF !important;
+    border-color: #CFCFCF;
+  }
+
+  .link,
+  input {
+    border-radius: 8px;
+    box-shadow: initial;
+    height: 50px;
+
+    &.button {
+      background: $bg-button;
+      width: 100%;
+
+      a {
+        color: #ffffff;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  #fancy_login_close_button {
+    background: transparent;
+    color: $bg-text;
+    border: 0;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    margin-right: -50px;
+  }
+
+  .fancy_login_newuser_wrapper {
+    border-top: 1px solid $bg-border;
+    padding-top: 50px;
+    margin-top: 50px;
+    margin-left: -50px;
+    margin-right: -50px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    .description {
+      color: $bg-border;
+      font-size: 1.1em;
+    }
+  } 
+}
+
 .block-logoblanco {
   img {
     width: 180px;
   }
 }
+
+#block-system-branding-block {
+  padding-left: 50px;
+}
+
 
 .block-views-block-nuestros-programas-block-1 {
   > div {
@@ -71,7 +182,7 @@
   padding-right: 0rem;
   padding-left: 0rem;
   overflow-y: hidden;
-  height: 633px;
+  height: 553px;
 
   @include breakpoint(medium down) {
     height: auto;
