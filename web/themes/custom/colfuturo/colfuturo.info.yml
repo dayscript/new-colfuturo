@@ -11,6 +11,7 @@ base theme: zurb_foundation
 # need to add custom CSS or JS
 libraries:
  - colfuturo/global
+ - colfuturo/fonts
 
 # Regions are output in the page.html.twig
 
