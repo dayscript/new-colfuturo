@@ -1,168 +1,59 @@
 //BLoque programas home
-$bg-button: #0189C7;
-$bg-border: #A3A4A8;
-$bg-text: #d71924;
-
-#fancy_login_dim_screen {
-  background: #423F46 !important;
-  z-index: 999 !important;
-}
-
-#fancy_login_login_box {
-  border-radius: 0;
-  width: 42%;
-  top: 87%;
-  margin-left: -19% !important;
-  z-index: 999 !important;
-  padding-top: 30px;
-  padding-right: 60px;
-  padding-left: 60px;
-  position: absolute;
-
-  h2 {
-    font-size: 2.2em;
-    padding-bottom: 10px;
-  }
-
-  ul:not(.link) {
-    li {
-      text-align: center;
-      padding-top: 0;
-
-      &:nth-child(1) {
-        display: none;
-      }
-    }
-  }
-
-  ul {
-    list-style-type: none;
-  }
-
-  a {
-    color: $bg-button;
-  }
-
-  .popup-title {
-    margin-bottom: 10px;
-  }
-
-  label {
-    color: #51545b;
-    font-size: 1em;
-  }
-
-  .form-actions {
-    margin-bottom: 20px;
-    margin-top: 45px;
-  }
-
-  input {
-    box-shadow: 0 0 1px #CFCFCF !important;
-    border-color: #CFCFCF;
-  }
-
-  .link,
-  input {
-    border-radius: 8px;
-    box-shadow: initial;
-    height: 50px;
-
-    &.button {
-      background: $bg-button;
-      width: 100%;
-
-      a {
-        color: #ffffff;
-        font-size: 1.1em;
-      }
-    }
-  }
-
-  #fancy_login_close_button {
-    background: transparent;
-    color: $bg-text;
-    border: 0;
-    font-size: 25px;
-    font-weight: bold;
-    padding-bottom: 15px;
-    margin-right: -50px;
-  }
-
-  .fancy_login_newuser_wrapper {
-    border-top: 1px solid $bg-border;
-    padding-top: 50px;
-    margin-top: 50px;
-    margin-left: -50px;
-    margin-right: -50px;
-    padding-left: 50px;
-    padding-right: 50px;
-
-    .description {
-      color: $bg-border;
-      font-size: 1.1em;
-    }
-  } 
-}
-
-.block-logoblanco {
-  img {
-    width: 180px;
-  }
-}
-
-#block-system-branding-block {
-  padding-left: 50px;
-}
-
+$background: #d71924;
 
 .block-views-block-nuestros-programas-block-1 {
   > div {
     .programas .columns:first-child {
       padding-left: 0;
+      padding-right: 15px;
     }
+
     .programas .columns:nth-child(2) {
-      padding: 0 0.45rem; 
+      padding-right: 15px;
+      padding-left: 15px;
     }
+
     .programas .columns:last-child {
       padding-right: 0;
-    }
+      padding-left: 15px;
+    }	
+  }
+}
+.container-programa {
+  img {
+    max-height: 140px;
   }
 
-  margin-bottom: 100px;
-}
+    .info {
+        padding: 24px;
+        background: $light-gray;
+        .title{
+            font-weight: 500;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: $black;
+            position: relative;
+            &:before{
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 20px;
+                height: 4px;
+                background: $primary-color;
+            }
+  }
 
-.container-programa {
-  .info {
-    padding: 24px;
-    background: $light-gray;
+  .enlace {
+    margin-top: 40px;
+    margin-bottom: 20px;
 
-    .title {
-      font-weight: 500;
-      font-size: 1.5em;
-      margin-bottom: 20px;
-      color: $black;
+    a {
+      text-indent: -10000px;
       position: relative;
+      display: inline-block;
 
-      &:before {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 20px;
-        height: 4px;
-        background: $primary-color;
-      }
-    }
-    .enlace {
-      margin-top: 30px;
-
-      a {
-        text-indent: -10000px;
-        position: relative;
-        display: inline-block;
-
-        &:after {
+      &:after {
           background-image: url(../images/more.png);
           content: "";
           width: 36px;
@@ -176,37 +67,77 @@ $bg-text: #d71924;
   }
 }
 
+#block-views-block-beneficiarios-block-1 {
+  .block-title {
+    padding-top: 80px;
+  }
+}
+
 //Bloque asesoria
 .block-views-block-asesoria-home-block-1 {
-  background: $light-gray;
-  padding-right: 0rem;
-  padding-left: 0rem;
-  overflow-y: hidden;
-  height: 553px;
+    background: $light-gray;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    overflow: hidden;
 
-  @include breakpoint(medium down) {
-    height: auto;
-  }
+    //pendiente
+    #asesoria-banner img {
+      width: 100%;
+      max-height: 450px;
+    }
 
-  a {
-    color: $secondary-color !important;
+    a{
+        color: $secondary-color !important;
+        &:hover{
+            color: $dark-blue !important;
+        }
+    }
+    .info{
+        padding: 40px 0;
+    }
+    img{
 
-    &:hover {
-      color: $dark-blue !important;
+        @media only screen and (max-width: 600px) {
+                position: relative;
+                width: 100%; 
+          }
+    }
+}
+
+#block-socialmedialinks {
+  li {
+    padding-left: 7px;
+    padding-right: 0px;
+
+    .fa {
+      font-size: 1rem;
+      padding-top: 0.8em;
+      padding-left: 0.8em;
+
+      &:hover,
+      &:focus {
+        color: $background;
+      }
     }
   }
+}
 
-  .info {
-    padding: 40px 0;
-  }
-
+#block-colfuturo-branding {
   img {
-    position: absolute;
-    width: 50%;
-
-    @media only screen and (max-width: 600px) {
-      position: relative;
-      width: 100%; 
-    }
+    max-width: 170px;
+    padding-left: 10px;
+    margin-top: -3px;
   }
+}
+
+.block-logoblanco {
+  img {
+    width: 180px;
+    margin-left: 30px;
+    margin-top: 15px;
+  }
+}
+
+#block-copyright {
+  margin-left: 30px;
 }

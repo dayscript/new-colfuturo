@@ -17,4 +17,44 @@ $bg-color: #d71924;
       }
     }
   }
+
+  .owl-buttons {
+    position: absolute;
+    width: 100%;
+    margin-top: -250px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .owl-prev {
+      background: transparent !important;
+      color: transparent !important;
+      float: left;
+
+      &:after {
+        background: url(../images/left.png) no-repeat;
+        content: "";
+        width: 70px;
+        height: 50px;
+        top: 0;
+        position: absolute;
+        margin-left: -60px;
+      }
+    }
+
+    .owl-next {
+      background: transparent !important;
+      color: transparent !important;
+      float: right;
+
+      &:after {
+        background: url(../images/right.png) no-repeat;
+        content: "";
+        width: 70px;
+        height: 50px;
+        top: 0;
+        position: absolute;
+        margin-left: -40px;
+      }
+    }
+  }
 }

@@ -1,47 +1,78 @@
 //Footer
+$bg-hover: #008cc7;
+
 footer.bottom-bar {
-    background: $dark-gray;
-    padding-top: 50px;
-    padding-bottom: 50px; 
+  background: $dark-gray;
+  padding-top: 63px;
+  padding-bottom: 63px; 
+  color: $white;
+  font-size: 1em;
+
+  h2 {
+    font-size: 1.2em;
     color: $white;
-    font-size: 0.9em;
-    h2{
-        font-size: 1.3em;
-        color: $white;
-        letter-spacing: 0;
-        margin-bottom: 4px;
-        &:before{
-            display: none;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+    font-weight: bold;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  a {
+    color: $white;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $bg-hover;
+    }
+  }
+
+  #block-menufooter {
+    ul {
+      li {
+        display: block;
+        width: 100%;
+
+        a {
+          padding: 0.4em 0;
+          line-height: 0.8;
+
+          &:hover,
+          &:focus,
+          &.active {
+            text-decoration: underline;
+          }
         }
+      }
     }
-    a{
-        color: $white;
+  }
+
+  #block-informaciondecontacto {
+    strong {
+      font-size: 1.2em;
     }
-    #block-menufooter{
-        ul{
-            li{
-                display: block;
-                width: 100%;
-                a{
-                    padding: 0.4em 0;
-                }
-            }
-        }
+  }
+
+  ul.social-media-links--platforms.platforms.inline.horizontal{
+    margin-left: 0;
+  }
+
+  #block-socialmedialinks-2 {
+    li {
+      padding-right: 13px;
     }
-    #block-informaciondecontacto{
-        strong{
-            font-size: 1.3em;
-        }
-    }
-    ul.social-media-links--platforms.platforms.inline.horizontal{
-        margin-left: 0;
-    }
+  }
 }
-.bottom-bar{
-    background: $medium-black;
-    color: $white;
-    font-size: 0.8em;
-    padding: 8px 0;
+
+.bottom-bar {
+  background: $medium-black;
+  color: $white;
+  font-size: 0.8em;
+  padding: 25px 0;
+
     p{
         margin-bottom: 0;
     }

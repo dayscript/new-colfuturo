@@ -1,25 +1,67 @@
-$background: #dd1f21;
-
-ul.sf-menu .sf-sub-indicator::after {
-  color: $background;
-  height: 16px;
-}
-
-ul.sf-menu.sf-style-white li,
-ul.sf-menu.sf-style-white.sf-navbar {
-  background: transparent;
-
-  /*&:hover > *,
-  &:focus > * {
-    background: transparent;
-  }*/
-}
+$bg-color: #d71924;
+$bg-hover: #008cc7;
 
 #block-navegacionprincipal {
-  padding: 24px 0;
+  ul {
+    margin-bottom: 0;
 
-  ul li a{
-    text-transform: uppercase;
+    .sf-main {
+      padding-left: 20px;
+    }
+
+    .sf-sub-indicator {
+      color: $bg-color;
+      border: solid #d71924;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      top: 10px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    li {
+      &.sf-depth-1 {
+        background-color: transparent;
+
+        &:nth-last-child(3) {
+          margin-right: 65px;
+        }
+
+        &:nth-last-child(2) {
+          width: 60px;
+
+          a {
+            color: transparent;
+            background: url("../images/spy-glass.png") no-repeat right;
+          }
+        }
+
+        &:last-child {
+          width: 70px;
+
+          a {
+            color: transparent;
+            background: url("../images/usr-icon.png") no-repeat right;
+          }
+        }
+      }
+
+      a {
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus,
+        &.active {
+          color: $bg-hover;
+          background-color: transparent !important;
+        }
+      }
+    }
   }
 }
 
@@ -35,29 +77,17 @@ ul.sf-menu.sf-style-white.sf-navbar {
 
 }
 
-/** menu responsive **/
 .block-superfishhome-menu {
   li {
     a {
+      font-size: 0.9rem;
+      padding: 1em 3.4em;
+
       &.is-active,
       &:hover,
       &:focus {
-        background: $background;
+        background: $bg-color;
       }
     }
-  }
-}
-
-.block-sidrtriggerbuttonblock {
-  display: none;
-}
-
-@include breakpoint(small down) {
-  .block-navegacionprincipal {
-    display: none;
-  }
-
-  .block-sidrtriggerbuttonblock {
-    display: block;
   }
 }

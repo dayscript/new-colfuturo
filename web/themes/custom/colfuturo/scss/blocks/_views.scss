@@ -1,18 +1,16 @@
 $bg-link: #008cc7;
 $bg-color: #d71924;
 
-.block-nextevents,
-.block-views-blockasesoria-home-block-1,
-.block-views-blockbeneficiarios-block-1,
-.block-views-blockgestion-en-cifras-block-1,
-.block-views-block-nuestros-programas-block-1,
-.block-views-blocknoticias-block-1 {
-  /*padding-left: 50px;
-  padding-right: 50px;*/
-  padding-top: 80px;
+.columns {
+  .block-views {
+    .title,
+    .block-title {
+      margin-bottom: 50px;
 
-  .block-title {
-    margin-bottom: 60px;
+      &::before {
+        width:45px;
+      }
+    }
   }
 }
 
@@ -23,6 +21,7 @@ $bg-color: #d71924;
     width: 65%;
   }
 
+  .content-link,
   .enlace {
     position: relative;
     display: inline-block;
@@ -31,6 +30,21 @@ $bg-color: #d71924;
     
     a {
       color: transparent;
+    }
+  }
+
+  .field-tags-info {
+    .link {
+      border-right: 1px solid #ADADAD;
+      color: #ADADAD;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      a {
+        color: #ADADAD;
+      }
     }
   }
 }
@@ -62,22 +76,22 @@ $bg-color: #d71924;
   }
 }
 
-.block-menuasesoria {
-  background: #F7F7F7;
-}
-
 .block-views-blockgestion-en-cifras-block-1 {
   background: #464a55;
   color: #ffffff;
   padding-bottom: 100px;
 
   header {
-
     h2 {
       font-size: 35px;
       font-weight: bold;
       color: #ffffff;
     }
+  }
+
+  .owl-wrapper-outer {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .owl-pagination {
@@ -97,26 +111,30 @@ $bg-color: #d71924;
   }
 }
 
+#block-views-block-noticias-block-1 {
+   margin-top: 50px;
+}
+
+#block-nextevents {
+  background: #EDEDEF;
+  margin-top: 50px;
+
+  button {
+
+  }
+}
+
 .block-views-block-view-super-banner-home-block-1 {
     img {
-      width: 100%;
+        width: 100%;
     }
 
     .owl-controls {
-      position: absolute;
-      bottom: 0px;
-      width: 100%;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
     }
-
-    .superbanner {
-      .info {
-        padding-right: 0;
-        /*padding-left: 0;
-        margin-right: 0;
-        margin-left: 0;*/
-      }
-    }
-
+    
     // .field-type-text-with-summary{
     //     position: absolute;
     //     top: 0;
@@ -139,6 +157,7 @@ $bg-color: #d71924;
         position: absolute;
         display: inline-block;
         bottom: 100px; 
+
         .field-item{
             margin: 17px 0;
         }
