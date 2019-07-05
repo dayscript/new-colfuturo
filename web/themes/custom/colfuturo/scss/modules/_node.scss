@@ -1,0 +1,168 @@
+//programas
+$bg-sidebar: #ecedee;
+$bg-default: #d71924;
+$text-color: #ffffff;
+$text-hover: #2087c5;
+$bg-ul: #f8f8f8;
+
+
+.path-noticias,
+.node--type-gestion-en-cifras,
+.node--type-colfuturo,
+.node--type-asesoria,
+.node--type-programa {
+  .superbanner {
+    .info {
+      position: absolute;
+      max-width: 87.5rem;
+      z-index: 3;
+      top: 18rem;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding-left: 7rem;
+      margin-left: 0;
+
+      .link {
+        margin-top: 20px;
+      }
+
+      h1 {
+        font-size: 2.8em;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .l-help {
+    .column-breadcrumb {
+      .info {
+        top: 10.5rem;
+        margin-left: -25px;
+      }
+    }
+
+    .block-breadcrumbs {
+      ul {
+        li {
+          &:not(:last-child) {
+            &::after {
+              position: relative;
+              margin: 0.4rem;
+              opacity: 1;
+              content: "/";
+              color: $text-color;
+            }
+          }
+
+          a {
+            color: $text-color;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.node--type-gestion-en-cifras,
+.node--type-colfuturo,
+.node--type-asesoria,
+.node--type-programa {
+  .content-node {
+    main {
+      padding: 20px 20px 20px 40px;
+    }
+
+    .sidebar {
+      margin-top: 50px;
+      background: $bg-sidebar;
+
+      h2 {
+        font-size: 1.6em;
+        padding: 20px;
+        margin-bottom: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      nav {
+        margin-left: -15px;
+        margin-right: -15px;
+
+        .menu {
+          margin-bottom: 20px;
+
+          li {
+            width: 100%;
+            padding-top: 0;
+            padding-bottom: 0;
+            line-height: 1.4;
+
+            .is-active {
+              background: $bg-default;
+              color: $text-color;
+            }
+
+            a {
+               padding-left: 30px;
+               color: #000000;
+
+               &:hover,
+               &:focus {
+                 color: $text-hover;
+               }
+            }
+
+            ul {
+              background: $bg-ul;
+              padding-top: 20px;
+              margin-left: 0;
+              padding-left: 30px;
+
+              li {
+                &:first-of-type::before {
+                  background: $bg-ul url(../images/li-line.png);
+                  height: 30px;
+                  margin-top: 15px;
+                }
+
+                &::before {
+                  background: $bg-ul url(../images/li-bullet.png);
+                }
+
+                &::before {
+                  content: " ";
+                  width: 20px;
+                  height: 51px;
+                  margin: -5px 10px 0 20px;
+                  float: left;
+                }
+
+                &:first-child {
+                  &::before {
+                    color: #E02222;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #block-views-block-beneficiarios-block-2 {
+    header {
+      margin-bottom: 70px;
+    }
+
+    footer {
+      .padding-top {
+        padding-top: 0;
+      }
+    }
+  }
+}

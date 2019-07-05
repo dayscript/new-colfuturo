@@ -1,5 +1,33 @@
 //BLoque programas home
 $background: #d71924;
+$bg-sidebar: #eff0f1;
+
+.block-colfuturo-content {
+  .body {
+    img {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .field-item {
+      h2 {
+        &:not(:first-of-type) {
+          border-top: 1px solid $bg-sidebar;
+          padding-top: 30px;
+        }
+      }
+
+      ul {
+        margin-left: 50px;
+        /*list-style-type: url();*/
+
+        li {
+
+        }
+      }
+    }
+  }
+}
 
 .block-views-block-nuestros-programas-block-1 {
   > div {
@@ -138,6 +166,72 @@ $background: #d71924;
   }
 }
 
-#block-copyright {
-  margin-left: 30px;
+#footer-first {
+  @include breakpoint(medium down) {
+    padding: 0;
+  }
+}
+
+#block-informaciondecontacto {
+  @include breakpoint(medium down) {
+    width: 80%;
+    margin: auto;
+    float: none;
+    text-align: center;
+    padding-bottom: 20px;
+
+    span {
+      width: 100%;
+      display: inline;
+      font-size: 0.7em;
+
+      &:first-child {
+        display: block;
+        width: 100%;
+        font-size: 1em;
+        font-weight: bold;
+        letter-spacing: -1px;
+      }
+    }
+  }
+}
+
+#block-socialmedialinks-2 {
+  @include breakpoint(medium down) {
+    padding-top: 20px;
+    margin-bottom: -60px;
+
+    .block-title {
+      display: none;
+    }
+
+    ul {
+      margin: auto;
+      width: 75%;
+
+      .fa {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+#block-menufooter {
+  @include breakpoint(medium down) {
+    padding: 0;
+
+    ul {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-top: 1px solid #555964;
+      border-bottom: 1px solid #555964;
+
+      li {
+        padding: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+      }
+    }
+  }
 }

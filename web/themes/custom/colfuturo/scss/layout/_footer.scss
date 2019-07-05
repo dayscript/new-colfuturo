@@ -8,6 +8,10 @@ footer.bottom-bar {
   color: $white;
   font-size: 1em;
 
+  @include breakpoint(medium down) {
+    margin-top: -40px !important;
+  }
+
   h2 {
     font-size: 1.2em;
     color: $white;
@@ -67,19 +71,53 @@ footer.bottom-bar {
   }
 }
 
+#block-legales {
+  a {
+    width: 100%;
+    display: inline;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+    @include breakpoint(medium down) {
+      display: inline-block;
+    }
+  }
+}
+
 .bottom-bar {
   background: $medium-black;
   color: $white;
   font-size: 0.8em;
   padding: 25px 0;
 
-    p{
-        margin-bottom: 0;
-    }
-    .block-legales{
-        a{
-            color: $white;
-            padding-left: 20px;
+  #block-copyright {
+    margin-left: 30px;
+
+    @include breakpoint(medium down) {
+      margin-left: 0;
+
+      p {
+        span {
+          padding-left: 10px;
+          width: 100%;
+          display: inline-block;
+          text-align: center;
+          padding-top: 10px;
+          padding-bottom: 5px;
         }
+      }
     }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .block-legales {
+    a {
+      color: $white;
+      padding-left: 20px;
+    }
+  }
 }

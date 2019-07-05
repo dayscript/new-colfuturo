@@ -56,7 +56,6 @@
 #}
 
 {% set sub_content = sub_content.removeClass('large-12') %}
-{% set main_grid = main_grid.removeClass('medium-9') %}
 {% set sidebar_first_grid = sidebar_first_grid.removeClass('medium-3') %}
 
 <div class="off-canvas-wrapper">
@@ -176,7 +175,7 @@
             </div>
           {% endif %}
 
-          <main id="main" class="{{ main_grid }} large-8 columns" role="main">
+          <main id="main" class="{{ main_grid }} columns" role="main">
             <a id="main-content"></a>
             {% if breadcrumb %} {{ breadcrumb }} {% endif %}
             <section>

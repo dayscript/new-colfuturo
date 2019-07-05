@@ -14,11 +14,20 @@ $bg-color: #d71924;
   }
 }
 
+#block-views-block-beneficiarios-block-2 {
+  margin-top: -20px;
+}
+
 .block-views-blocknoticias-block-1 {
   .button {
     color: #ffffff;
     background: $bg-link;
     width: 65%;
+
+    @include breakpoint(medium down) {
+      width: 100%;
+      margin-top: -40px;
+    }
   }
 
   .content-link,
