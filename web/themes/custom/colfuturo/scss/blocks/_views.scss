@@ -61,7 +61,7 @@ $bg-color: #d71924;
 .block-views-block-beneficiarios-block-1 {
   header {
     padding-bottom: 50px;
-    font-size: 1.2em;
+    font-size: 1.5rem;
   }
 
   .views-field-title {
@@ -71,7 +71,7 @@ $bg-color: #d71924;
   }
 
   .views-field-body {
-    font-size: 0.8em;
+    font-size: 1rem;
   }
 
   .owl-pagination {
@@ -90,17 +90,32 @@ $bg-color: #d71924;
   color: #ffffff;
   padding-bottom: 100px;
 
+  @include breakpoint(medium down) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   header {
     h2 {
       font-size: 35px;
       font-weight: bold;
       color: #ffffff;
+
+      @include breakpoint(medium down) {
+        text-align: center;
+      }
     }
   }
 
   .owl-wrapper-outer {
     padding-left: 20px;
     padding-right: 20px;
+
+    .owl-wrapper {
+      @include breakpoint(medium down) {
+        margin-left: -20px;
+      }
+    }
   }
 
   .owl-pagination {
@@ -121,7 +136,26 @@ $bg-color: #d71924;
 }
 
 #block-views-block-noticias-block-1 {
-   margin-top: 50px;
+  margin-top: 50px;
+  @include breakpoint(medium down) {
+    .columns {
+      .views-field {
+        margin-top: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #cacaca;
+        margin-left: -20px;
+        padding-left: 20px;
+        margin-right: -20px;
+        padding-right: 20px;
+      }
+
+      &:last-of-type {
+        .views-field {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
 }
 
 #block-nextevents {

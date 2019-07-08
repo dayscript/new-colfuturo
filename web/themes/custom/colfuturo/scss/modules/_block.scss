@@ -29,66 +29,121 @@ $bg-sidebar: #eff0f1;
   }
 }
 
-.block-views-block-nuestros-programas-block-1 {
-  > div {
-    .programas .columns:first-child {
-      padding-left: 0;
-      padding-right: 15px;
-    }
-
-    .programas .columns:nth-child(2) {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-
-    .programas .columns:last-child {
-      padding-right: 0;
-      padding-left: 15px;
-    }	
+#sub-content {
+  #block-views-block-nuestros-programas-block-1 {
+    padding: 15px !important;
+    margin-bottom: 0px;
   }
 }
-.container-programa {
-  img {
-    max-height: 140px;
-  }
 
-    .info {
+.programas {
+  .columns {
+    &:first-child {
+      padding-left: 0;
+      padding-right: 15px;
+
+      @include breakpoint(medium down) {
+        padding-right: 0;
+      }
+    }
+
+    &:nth-child(2) {
+      padding-right: 15px;
+      padding-left: 15px;
+
+      @include breakpoint(medium down) {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    &:last-child {
+      padding-right: 0;
+      padding-left: 15px;
+
+      @include breakpoint(medium down) {
+        padding-left: 0;
+      }
+    }
+
+    .container-programa {
+      @include breakpoint(medium down) {
+        margin-top: 50px;
+        border-bottom: 1px solid #cacaca;
+        margin-left: -15px;
+        padding-left: 15px;
+        margin-right: -15px;
+        padding-right: 15px;
+      }
+
+      img {
+        max-height: 140px;
+      }
+
+      .info {
         padding: 24px;
         background: $light-gray;
-        .title{
-            font-weight: 500;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            color: $black;
-            position: relative;
-            &:before{
-                content: "";
-                position: absolute;
-                bottom: -10px;
-                left: 0;
-                width: 20px;
-                height: 4px;
-                background: $primary-color;
+
+        @include breakpoint(medium down) {
+          background: transparent;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+
+        .block-title,
+        .title {
+          font-weight: 500;
+          font-size: 1.4em;
+          margin-bottom: 40px;
+          color: $black;
+          position: relative;
+
+          @include breakpoint(medium down) {
+            text-align: center;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 30px;
+            height: 4px;
+            background: $primary-color; 
+
+            @include breakpoint(medium down) {
+              left: auto;
             }
-  }
+          }
+        }
 
-  .enlace {
-    margin-top: 40px;
-    margin-bottom: 20px;
+        .enlace {
+          margin-top: 40px;
+          margin-bottom: 20px;
 
-    a {
-      text-indent: -10000px;
-      position: relative;
-      display: inline-block;
+          a {
+            text-indent: -10000px;
+            position: relative;
+            display: inline-block;
+  
+            &:after {
+              background-image: url(../images/more.png);
+              content: "";
+              width: 36px;
+              height: 25px;
+              top: 0;
+              left: 0;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
 
-      &:after {
-          background-image: url(../images/more.png);
-          content: "";
-          width: 36px;
-          height: 25px;
-          top: 0;
-          left: 0;
-          position: absolute;
+    &:last-of-type {
+      @include breakpoint(medium down) {
+        .container-programa {
+          border: 0;
         }
       }
     }

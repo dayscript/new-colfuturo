@@ -1,4 +1,6 @@
 //Metaheader
+$bg-color: #d71924;
+
 .meta-header-wrapper {
   background: $dark-gray;
 
@@ -17,8 +19,21 @@
   }
 }
 
-section#block-colfuturo-branding {
-  padding: 16px 0 16px 20px;
+header {
+  section#block-colfuturo-branding {
+    padding: 16px 0 16px 20px;
+
+    @include breakpoint(medium down) {
+      background: $bg-color;
+      padding-left: 50px;
+    }
+  }
+
+  @include breakpoint(medium down) {
+    .columns.large-centered {
+      padding: 0;
+    }
+  }
 }
 
 #block-navegacionprincipal {

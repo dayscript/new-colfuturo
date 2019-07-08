@@ -14,21 +14,26 @@ h1 {
   line-height: 1.1;
   font-weight: 600;
 }
-h2{
-    color: $black;
-    letter-spacing: -1px;
-    position: relative;
-    margin-bottom: 40px;
-    font-weight: 500;
-    &:before{
-        content: "";
-        position: absolute;
-        bottom: -12px;
-        left: 0;
-        width: 40px;
-        height: 4px;
-        background: $primary-color;
+h2 {
+  color: $black;
+  letter-spacing: -1px;
+  position: relative;
+  margin-bottom: 40px;
+  font-weight: 500;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background: $primary-color;
+
+    @include breakpoint(medium down) {
+      left: auto;
     }
+  }
 }
 .padding-top{
     padding-top: 80px; 

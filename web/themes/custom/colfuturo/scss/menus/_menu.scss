@@ -1,5 +1,100 @@
 $bg-color: #d71924;
 $bg-hover: #008cc7;
+$mmenu-color: #464a54;
+$text-color: #ffffff;
+
+.block-responsive-menu {
+  padding-top: 20px;
+
+  ul {
+    li {
+      ul {
+        li {
+          width: 100% !important;
+
+          a {
+            color: #000 !important;
+            background: none !important;
+          }
+        }
+      }
+
+      &:nth-last-child(3) {
+        margin-right: 65px;
+      }
+
+      &:nth-last-child(2) {
+        width: 60px;
+
+        a {
+          color: transparent;
+          background: url("../images/spy-glass.png") no-repeat right;
+        }
+      }
+
+      &:last-child {
+        width: 70px;
+
+        a {
+          color: transparent;
+          background: url("../images/usr-icon.png") no-repeat right;
+        }
+      }
+    }
+
+    li {
+      a {
+        color: #000;
+        text-transform: uppercase;
+      }
+
+      ul {
+        border: 1px solid #ecedee;
+        background: rgba(255,255,255,0.9);
+        padding: 3px;
+      }
+    }
+  }
+}
+
+.mm-menu {
+  @include breakpoint(medium down) {
+    background: $mmenu-color !important;
+    width: 80%;
+
+    .mm-panels {
+      .menu {
+
+        li {
+          border: transparent;
+          width: 100%;
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          a {
+            &.mm-next {
+              border: transparent;
+            }
+
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+#block-responsivemenumobileicon {
+  @include breakpoint(medium down) {
+    position: absolute;
+    display: block;
+    padding-top: 0px !important;
+ 
+    .label {
+      display: none;
+    }
+  }
+}
 
 #block-navegacionprincipal {
   ul {
@@ -87,6 +182,45 @@ $bg-hover: #008cc7;
       &:hover,
       &:focus {
         background: $bg-color;
+      }
+    }
+  }
+}
+
+.node--type-gestion-en-cifras,
+.node--type-colfuturo,
+.node--type-asesoria,
+.node--type-programa {
+  .content-node {
+    .sidebar {
+      nav {
+        @include breakpoint(medium down) {
+          .menu {
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            display: block;
+            width: auto;
+            margin-bottom: 0;
+            background: $bg-color;
+
+            li {
+              display: inline-block;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              width: auto;
+
+              a {
+                background: transparent !important;
+                color: #ADADAD;
+              }
+
+              ul {
+                display: none;
+              }
+            }
+          }
+        }
       }
     }
   }

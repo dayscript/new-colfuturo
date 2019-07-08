@@ -72,6 +72,10 @@ $bg-ul: #f8f8f8;
   .content-node {
     main {
       padding: 20px 20px 20px 40px;
+
+      @include breakpoint(medium down) {
+        padding: 15px;
+      }
     }
 
     .sidebar {
