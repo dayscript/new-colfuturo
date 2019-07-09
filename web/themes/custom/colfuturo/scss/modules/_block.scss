@@ -117,6 +117,13 @@ $bg-color: #d71924;
 }
 
 .block-views-blockbeneficiarios-block-1 {
+  header {
+    .medium-12.columns {
+      padding-right: .625rem;
+      padding-left: .625rem;
+    }
+  }
+
   h2 {
     margin-top: 80px;
     padding-left: 15px;
@@ -171,7 +178,7 @@ $bg-color: #d71924;
 
     .owl-page {
       span {
-        background: #E0E0E0;
+        background: #A1A1A1;
       }
 
       &.active {

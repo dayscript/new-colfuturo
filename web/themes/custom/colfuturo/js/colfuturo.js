@@ -26,7 +26,7 @@
           $(this).insertBefore($(this).prev());
         });
 
-        $("#block-colfuturo-branding img").attr("src", "http://localhost/drupal8/newcolf/new-colfuturo/web/sites/default/files/logo_blanco.png");
+        $("#block-colfuturo-branding img").attr("src", window.location.href + "sites/default/files/logo_blanco.png");
       }
     }
   };

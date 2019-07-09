@@ -108,6 +108,12 @@ $bg-color: #d71924;
 }
 
 .block-views-block-view-super-banner-home-block-1 {
+   @include breakpoint(small down) {
+     h1 {
+       font-size: 1.675rem;
+     }
+  }
+
     img{
         width: 100%;
     }
