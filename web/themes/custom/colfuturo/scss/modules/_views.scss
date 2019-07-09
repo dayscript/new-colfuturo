@@ -1,8 +1,19 @@
+$bg-content: #464a55;
+$text-content: #ffffff;
 $bg-color: #d71924;
+
+.views-blockgestion-en-cifras-block-1 {
+  background: $bg-content;
+  color: $text-content;
+}
 
 .owl-carousel {
   .owl-pagination {
     margin-bottom: 20px;
+    bottom: 0;
+    position: absolute;
+    left: 50%;
+    z-index: 2;
 
     .owl-page {
       span {
@@ -18,12 +29,28 @@ $bg-color: #d71924;
     }
   }
 
+  .owl-controls {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+  }
+    
+  .owl-wrapper {
+    z-index: 1;
+  }
+
   .owl-buttons {
     position: absolute;
     width: 100%;
-    margin-top: -250px;
     padding-left: 20px;
     padding-right: 20px;
+    bottom: 50%;
+    z-index: 2;
+
+    @include breakpoint(small down) {
+      display: none;
+    }
 
     .owl-prev {
       background: transparent !important;
@@ -58,14 +85,3 @@ $bg-color: #d71924;
     }
   }
 }
-
-.owl-carousel .owl-wrapper-outer {
-  .owl-item {
-    .views-field-title {
-      margin-top: 20px;
-      font-size: 1.4em;
-    }
-  }
-
-}
-

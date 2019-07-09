@@ -1,64 +1,40 @@
-$bg-color: #d71924;
-$bg-hover: #008cc7;
-$mmenu-color: #464a54;
-$text-color: #ffffff;
-
-.block-responsive-menu {
-  padding-top: 20px;
-
-  ul {
-    li {
-      ul {
-        li {
-          width: 100% !important;
-
-          a {
-            color: #000 !important;
-            background: none !important;
-          }
-        }
-      }
-
-      &:nth-last-child(3) {
-        margin-right: 65px;
-      }
-
-      &:nth-last-child(2) {
-        width: 60px;
-
-        a {
-          color: transparent;
-          background: url("../images/spy-glass.png") no-repeat right;
-        }
-      }
-
-      &:last-child {
-        width: 70px;
-
-        a {
-          color: transparent;
-          background: url("../images/usr-icon.png") no-repeat right;
-        }
-      }
-    }
-
-    li {
-      a {
-        color: #000;
-        text-transform: uppercase;
-      }
-
-      ul {
-        border: 1px solid #ecedee;
-        background: rgba(255,255,255,0.9);
-        padding: 3px;
-      }
+#block-responsivemenumobileicon {
+  @include breakpoint(small down) {
+    position: absolute;
+    display: block;
+    padding-top: 0px !important;
+ 
+    .label {
+      display: none;
     }
   }
 }
 
+#block-navegacionprincipal{
+    padding: 24px 0;
+    ul li a{
+        text-transform: uppercase;
+    }
+}
+
+#block-navegacionprincipal-2{
+    .block-title{
+        font-size: 1.5rem;
+    }
+    ul{
+        li{
+            width: 100%;
+        }
+    }
+
+}
+
+.block-superfishhome-menu {
+  margin-left: -30px;
+}
+
 .mm-menu {
-  @include breakpoint(medium down) {
+  @include breakpoint(small down) {
     background: $mmenu-color !important;
     width: 80%;
 
@@ -77,148 +53,6 @@ $text-color: #ffffff;
             }
 
             color: $text-color;
-          }
-        }
-      }
-    }
-  }
-}
-
-#block-responsivemenumobileicon {
-  @include breakpoint(medium down) {
-    position: absolute;
-    display: block;
-    padding-top: 0px !important;
- 
-    .label {
-      display: none;
-    }
-  }
-}
-
-#block-navegacionprincipal {
-  ul {
-    margin-bottom: 0;
-
-    .sf-main {
-      padding-left: 20px;
-    }
-
-    .sf-sub-indicator {
-      color: $bg-color;
-      border: solid #d71924;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      top: 10px;
-
-      &::after {
-        display: none;
-      }
-    }
-
-    li {
-      &.sf-depth-1 {
-        background-color: transparent;
-
-        &:nth-last-child(3) {
-          margin-right: 65px;
-        }
-
-        &:nth-last-child(2) {
-          width: 60px;
-
-          a {
-            color: transparent;
-            background: url("../images/spy-glass.png") no-repeat right;
-          }
-        }
-
-        &:last-child {
-          width: 70px;
-
-          a {
-            color: transparent;
-            background: url("../images/usr-icon.png") no-repeat right;
-          }
-        }
-      }
-
-      a {
-        text-transform: uppercase;
-
-        &:hover,
-        &:focus,
-        &.active {
-          color: $bg-hover;
-          background-color: transparent !important;
-        }
-      }
-    }
-  }
-}
-
-#block-navegacionprincipal-2 {
-    .block-title{
-        font-size: 1.5rem;
-    }
-    ul{
-        li{
-            width: 100%;
-        }
-    }
-
-}
-
-.block-superfishhome-menu {
-  li {
-    a {
-      font-size: 0.9rem;
-      padding: 1em 3.4em;
-
-      &.is-active,
-      &:hover,
-      &:focus {
-        background: $bg-color;
-      }
-    }
-  }
-}
-
-.node--type-gestion-en-cifras,
-.node--type-colfuturo,
-.node--type-asesoria,
-.node--type-programa {
-  .content-node {
-    .sidebar {
-      nav {
-        @include breakpoint(medium down) {
-          .menu {
-            overflow-x: scroll;
-            overflow-y: hidden;
-            white-space: nowrap;
-            display: block;
-            width: auto;
-            margin-bottom: 0;
-            background: $bg-color;
-
-            li {
-              display: inline-block;
-              padding-top: 5px;
-              padding-bottom: 5px;
-              width: auto;
-
-              a {
-                background: transparent !important;
-                color: #ADADAD;
-              }
-
-              ul {
-                display: none;
-              }
-            }
           }
         }
       }

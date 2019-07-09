@@ -1,217 +1,5 @@
-//BLoque programas home
-$background: #d71924;
-$bg-sidebar: #eff0f1;
-
-.block-colfuturo-content {
-  .body {
-    img {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    .field-item {
-      h2 {
-        &:not(:first-of-type) {
-          border-top: 1px solid $bg-sidebar;
-          padding-top: 30px;
-        }
-      }
-
-      ul {
-        margin-left: 50px;
-        /*list-style-type: url();*/
-
-        li {
-
-        }
-      }
-    }
-  }
-}
-
-#sub-content {
-  #block-views-block-nuestros-programas-block-1 {
-    padding: 15px !important;
-    margin-bottom: 0px;
-  }
-}
-
-.programas {
-  .columns {
-    &:first-child {
-      padding-left: 0;
-      padding-right: 15px;
-
-      @include breakpoint(medium down) {
-        padding-right: 0;
-      }
-    }
-
-    &:nth-child(2) {
-      padding-right: 15px;
-      padding-left: 15px;
-
-      @include breakpoint(medium down) {
-        padding-right: 0;
-        padding-left: 0;
-      }
-    }
-
-    &:last-child {
-      padding-right: 0;
-      padding-left: 15px;
-
-      @include breakpoint(medium down) {
-        padding-left: 0;
-      }
-    }
-
-    .container-programa {
-      @include breakpoint(medium down) {
-        margin-top: 50px;
-        border-bottom: 1px solid #cacaca;
-        margin-left: -15px;
-        padding-left: 15px;
-        margin-right: -15px;
-        padding-right: 15px;
-      }
-
-      img {
-        max-height: 140px;
-      }
-
-      .info {
-        padding: 24px;
-        background: $light-gray;
-
-        @include breakpoint(medium down) {
-          background: transparent;
-          padding-left: 0px;
-          padding-right: 0px;
-        }
-
-        .block-title,
-        .title {
-          font-weight: 500;
-          font-size: 1.4em;
-          margin-bottom: 40px;
-          color: $black;
-          position: relative;
-
-          @include breakpoint(medium down) {
-            text-align: center;
-          }
-
-          &:before {
-            content: "";
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            width: 30px;
-            height: 4px;
-            background: $primary-color; 
-
-            @include breakpoint(medium down) {
-              left: auto;
-            }
-          }
-        }
-
-        .enlace {
-          margin-top: 40px;
-          margin-bottom: 20px;
-
-          a {
-            text-indent: -10000px;
-            position: relative;
-            display: inline-block;
-  
-            &:after {
-              background-image: url(../images/more.png);
-              content: "";
-              width: 36px;
-              height: 25px;
-              top: 0;
-              left: 0;
-              position: absolute;
-            }
-          }
-        }
-      }
-    }
-
-    &:last-of-type {
-      @include breakpoint(medium down) {
-        .container-programa {
-          border: 0;
-        }
-      }
-    }
-  }
-}
-
-#block-views-block-beneficiarios-block-1 {
-  .block-title {
-    padding-top: 80px;
-  }
-}
-
-//Bloque asesoria
-.block-views-block-asesoria-home-block-1 {
-    background: $light-gray;
-    padding-right: 0rem;
-    padding-left: 0rem;
-    overflow: hidden;
-
-    //pendiente
-    #asesoria-banner img {
-      width: 100%;
-      max-height: 450px;
-    }
-
-    a{
-        color: $secondary-color !important;
-        &:hover{
-            color: $dark-blue !important;
-        }
-    }
-    .info{
-        padding: 40px 0;
-    }
-    img{
-
-        @media only screen and (max-width: 600px) {
-                position: relative;
-                width: 100%; 
-          }
-    }
-}
-
-#block-socialmedialinks {
-  li {
-    padding-left: 7px;
-    padding-right: 0px;
-
-    .fa {
-      font-size: 1rem;
-      padding-top: 0.8em;
-      padding-left: 0.8em;
-
-      &:hover,
-      &:focus {
-        color: $background;
-      }
-    }
-  }
-}
-
-#block-colfuturo-branding {
-  img {
-    max-width: 170px;
-    padding-left: 10px;
-    margin-top: -3px;
-  }
-}
+$bg-link: #008cc7;
+$bg-color: #d71924;
 
 .block-logoblanco {
   img {
@@ -221,72 +9,356 @@ $bg-sidebar: #eff0f1;
   }
 }
 
-#footer-first {
-  @include breakpoint(medium down) {
-    padding: 0;
-  }
-}
-
-#block-informaciondecontacto {
-  @include breakpoint(medium down) {
-    width: 80%;
-    margin: auto;
-    float: none;
-    text-align: center;
-    padding-bottom: 20px;
-
-    span {
-      width: 100%;
-      display: inline;
-      font-size: 0.7em;
-
-      &:first-child {
-        display: block;
-        width: 100%;
-        font-size: 1em;
-        font-weight: bold;
-        letter-spacing: -1px;
-      }
-    }
-  }
-}
-
-#block-socialmedialinks-2 {
-  @include breakpoint(medium down) {
-    padding-top: 20px;
-    margin-bottom: -60px;
+//BLoque programas home
+.block-views-block-nuestros-programas-block-1 {
+  @include breakpoint(small down) {
+    padding-bottom: 0px;
+    padding-top: 0;
 
     .block-title {
       display: none;
     }
+  }
 
-    ul {
-      margin: auto;
-      width: 75%;
+  .programas {
+    margin-top: 70px;
 
-      .fa {
-        font-size: 2em;
+    @include breakpoint(small down) {
+      margin-top: 30px;
+
+      .container-programa {
+        .info {
+          background: transparent;
+          padding-left: 0;
+          padding-right: 0;
+
+          .enlace {
+            position: relative;
+            margin-top: 50px;
+          }
+        }
+      }
+    }
+  }
+
+
+
+	> div {
+          .programas .columns:first-child {
+            padding-left: 0;
+
+          @include breakpoint(small down) {
+            padding-left: .625rem;
+          }
+        }
+        .programas .columns:nth-child(2) {
+				padding: 0 0.45rem; 
+		}
+		.programas .columns:last-child {
+				padding-right: 0;
+		}
+		
+	}
+}
+.container-programa{
+  height: 300px;
+  position: relative;
+
+  @include breakpoint(small down) {
+    height: auto;
+  }
+
+  .info {
+    padding: 24px;
+    background: $light-gray;
+    height: 100%;
+    position: relative;
+
+    .title {
+            font-weight: 500;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: $black;
+            position: relative;
+            line-height: 27px;
+            height: 50px;
+
+            &:before{
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 40px;
+                height: 4px;
+                background: $primary-color;
+            }
+        }
+        .enlace{
+            margin-top: 30px;
+            position: absolute;
+            bottom: 30px;
+
+            a{
+                text-indent: -10000px;
+                position: relative;
+                display: inline-block;
+                &:after{
+                    background-image: url(../images/more.png);
+                    content: "";
+                    width: 36px;
+                    height: 25px;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
+
+.block-views-blockbeneficiarios-block-1 {
+  header {
+    .medium-12.columns {
+      padding-right: .625rem;
+      padding-left: .625rem;
+    }
+  }
+
+  h2 {
+    margin-top: 80px;
+    padding-left: 15px;
+
+    @include breakpoint(small down) {
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    &::before {
+      margin-left: 15px;
+    }
+  }
+
+  h5 {
+    color: $bg-color;
+    padding-top: 30px;
+
+    @include breakpoint(small down) {
+      padding-top: 15px;
+    }
+  }
+
+  .field-content {
+    line-height: 1.2;
+    font-size: 0.8em;
+    margin-top: -10px;
+  }
+
+  .owl-carousel .owl-buttons {
+    bottom: 65%;
+  }
+
+  .owl-carousel .owl-buttons .owl-next::after {
+    background: url(../images/flecha_negra_der.png) no-repeat;
+  }
+
+  .owl-carousel .owl-buttons .owl-prev::after {
+    background: url(../images/flecha_negra_izq.png) no-repeat;
+  }
+
+  .owl-carousel .owl-pagination {
+    margin-bottom: -50px;
+
+    @include breakpoint(small down) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .owl-page {
+      span {
+        background: #A1A1A1;
+      }
+
+      &.active {
+        span {
+          background: $bg-color;
+        }
       }
     }
   }
 }
 
-#block-menufooter {
-  @include breakpoint(medium down) {
-    padding: 0;
+.block-nextevents {
+  background: #EDEDEF;
+  margin-top: 60px;
+  margin-bottom: 60px;
 
-    ul {
-      padding-top: 20px;
-      padding-bottom: 20px;
-      border-top: 1px solid #555964;
-      border-bottom: 1px solid #555964;
+  h2 {
+    padding-left: 15px;
 
-      li {
-        padding: 5px;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: -1px;
+    &::before {
+      margin-left: 15px;
+    }
+  }
+
+  @include breakpoint(small down) {
+    background: #EDEDEF;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.block-views-blocknoticias-block-1 {
+  .button {
+    color: #ffffff;
+    background: $bg-link;
+    width: 65%;
+
+    @include breakpoint(small down) {
+      width: 100%;
+      margin-top: -40px;
+    }
+  }
+
+  .content-link,
+  .enlace {
+    position: relative;
+    display: inline-block;
+    background: url(../images/more.png) no-repeat;
+    margin-top: 20px;
+    
+    a {
+      color: transparent;
+    }
+  }
+
+  .field-tags-info {
+    .link {
+      border-right: 1px solid #A0A0A0;
+      color: #A0A0A0;
+      margin-top: 30px;
+      line-height: 12px;
+      margin-bottom: 10px;
+
+      @include breakpoint(small down) {
+        font-size: 0.8em;
       }
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      a {
+        color: #A0A0A0;
+      }
+
+      &.columns.link.large-3 {
+        width: auto;
+      }
+
+      &.columns.link.large-8 {
+        float: left;
+      }
+
+    }
+
+    .field-title {
+      h5 {
+        font-weight: bold;
+        text-transform: lowercase;
+
+        @include breakpoint(small down) { 
+          padding-bottom: 10px;
+        }
+
+        &::first-letter {
+         text-transform: uppercase;
+        }
+      }
+    }
+
+    .field-body {
+      height: 200px;
+      overflow-y: hidden;
+    }
+  }
+}
+
+//Bloque asesoria
+.block-views-block-asesoria-home-block-1 {
+  background: $light-gray;
+  padding-right: 0rem;
+  padding-left: 0rem;
+  overflow: hidden;
+
+  a {
+    color: $secondary-color !important;
+    &:hover{
+      color: $dark-blue !important;
+    }
+  }
+
+  .views-field-nothing {
+    height: 500px;
+    overflow-y: hidden;
+
+    @include breakpoint(small down) {
+      height: auto;
+    }
+  }
+
+  .info {
+    padding: 60px 0;
+
+    a {
+     &::after {
+        content: '';
+        border: solid #0E87C5;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(315deg);
+        webkit-transform: rotate(45deg);
+        top: 15px;
+        margin-left: 10px;
+      }
+    }
+
+    @include breakpoint(small down) {
+      padding: 20px 0;
+
+      h2 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @include breakpoint(small down) {
+    .field-image {
+      padding-left: 0;
+      padding-right: 0;
+
+      img {
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    width: 50%;
+    height: 145vh;
+    object-fit: cover;
+    max-height: 500px;
+
+    @media only screen and (max-width: 600px) {
+      position: relative;
+      width: 100%; 
     }
   }
 }

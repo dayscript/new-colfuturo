@@ -15,4 +15,8 @@ $bg-hover: #a21019;
   &.is-active {
     background: $bg-hover;
   }
+
+  @include breakpoint(small down) {
+    padding: 10px 35px;
+  }
 }
