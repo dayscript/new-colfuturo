@@ -26,7 +26,7 @@
           $(this).insertBefore($(this).prev());
         });
 
-        $("#block-colfuturo-branding img").attr("src", window.location.href + "sites/default/files/logo_blanco.png");
+        $("#block-colfuturo-branding img").attr("src", window.location.href + "/theme/custom/colfuturo/images/logo_blanco.png");
       }
     }
   };
