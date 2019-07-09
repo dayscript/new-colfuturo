@@ -1,0 +1,101 @@
+$bg-color: #d71924;
+$bg-hover: #008cc7;
+$mmenu-color: #464a54;
+$text-color: #ffffff;
+
+.block-socialmedialinks {
+
+}
+
+.block-superfishhome-menu {
+  margin-left: -20px;
+
+  li {
+    a {
+      font-size: 0.9rem;
+      padding: 1em 2em;
+
+      &.is-active,
+      &:hover,
+      &:focus {
+        background: $bg-color;
+      }
+    }
+  }
+}
+
+
+.block-responsive-menu {
+  padding-top: 20px;
+
+  ul.sub-nav {
+    li {
+      margin-right: 0 !important;
+    }
+  }
+
+  ul {
+    li {
+      &.menu-item--expanded {
+        &:before {
+          content: '';
+          color: $bg-color;
+          border: solid #d71924;
+          border-width: 0 3px 3px 0;
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          margin-top: 10px;
+          float: right;
+        }
+      }
+
+      ul {
+        li {
+          width: 100% !important;
+
+          a {
+            color: #000 !important;
+            background: none !important;
+          }
+        }
+      }
+
+      &:nth-last-child(2) {
+        float: right;
+        width: 70px;
+        margin-right: 30px;
+
+        a {
+          color: transparent;
+          background: url("../images/spy-glass.png") no-repeat right;
+        }
+      }
+
+      &:last-child {
+        float: right;
+        width: 70px;
+
+        a {
+          color: transparent;
+          background: url("../images/usr-icon.png") no-repeat right;
+        }
+      }
+    }
+
+    li {
+      a {
+        color: #000;
+        text-transform: uppercase;
+      }
+
+      ul {
+        border: 1px solid #ecedee;
+        background: rgba(255,255,255,0.9);
+        padding: 3px;
+      }
+    }
+  }
+}
+

@@ -1,6 +1,89 @@
 //Metaheader
 $bg-color: #d71924;
 
+#block-responsivemenumobileicon {
+  .toggle.responsive-menu-toggle-icon {
+    margin-top: -5px;
+  }
+}
+
+#block-homemenu {
+  @include breakpoint(small down) {
+    margin-left: 0;
+  }
+}
+
+.block-superfishhome-menu {
+  @include breakpoint(small down) {
+    margin-left: -30px;
+    height: 50px;
+
+    #superfish-home-menu-accordion {
+      background: #464a54;
+      display: block;
+      position: absolute;
+      margin-left: -20px;
+      margin-top: -9px;
+    }
+
+    #superfish-home-menu-toggle {
+      color: transparent;
+      text-align: right;
+      padding-top: 25px;
+      width: 100%;
+      display: block;
+      padding-bottom: 15px;
+
+      &::before {
+        content: '';
+        border: solid #ffffff;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        top: 15px;
+        float: right;
+      }
+
+      &.sf-expanded {
+        &::before {
+          transform: rotate(225deg);
+          -webkit-transform: rotate(225deg);
+        }
+      }
+    }
+  }
+}
+
+header {
+  .columns {
+    @include breakpoint(small down) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  section#block-colfuturo-branding {
+    @include breakpoint(small down) {
+      background: $bg-color;
+      padding-left: 50px;
+      margin-left: 0;
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+
+  @include breakpoint(small down) {
+    .columns.large-centered {
+      padding: 0;
+    }
+  }
+}
+
+
 .meta-header-wrapper {
   background: $dark-gray;
 
@@ -11,72 +94,69 @@ $bg-color: #d71924;
 
   #block-socialmedialinks {
     ul {
+      padding-top: 5px;
       margin-bottom: 0;
-      float: left;
+      margin-left: 0;
       display: inline-block;
-      padding-left: 45px;
-    }
-  }
-}
 
-header {
-  section#block-colfuturo-branding {
-    padding: 16px 0 16px 20px;
-
-    @include breakpoint(medium down) {
-      background: $bg-color;
-      padding-left: 50px;
-    }
-  }
-
-  @include breakpoint(medium down) {
-    .columns.large-centered {
-      padding: 0;
-    }
-  }
-}
-
-#block-navegacionprincipal {
-  padding: 30px 0 14px 0 !important; 
- 
-  ul  {
-    li {
-      a {
-        font-size: 1em;
-        color: $gray;
+      li {
+        a {
+          &:hover,
+          &:focus {
+            color: $bg-color;
+          }
+        }
       }
     }
   }
+}
+
+section#block-colfuturo-branding {
+  padding: 16px 0;
+  margin-left: -15px;
+}
+#block-navegacionprincipal {
+    padding: 36px 0 14px 0 !important;  
+    ul{
+        li{
+            a{
+                font-size: 1em;
+                color: $gray;
+            }
+        }
+    }
 }
 
 //Superbanner
 .superbanner {
-  .info {
-     position: absolute;
-     max-width: 87.5rem;
-     z-index: 3;
-     top: 50%;
-     -ms-transform: translateY(-50%);
-     transform: translateY(-50%);
-     padding-left: 7rem;
-     margin-left: 0;
+  .info{
+        position: absolute;
+        max-width: 90rem;
+        margin-right: auto;
+        margin-left: auto;
+        z-index: 3;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-right: 40%;
 
-    .link,
-    h1 {
-      margin-left: -30px;
-
-      a {
-        color: $white;
-      }
+    @include breakpoint(small down) {
+        padding-right: .625rem;
+      padding-left: .625rem;
     }
 
-    .resume {
-      color: $white;
-      font-size: 1.2em;
-      margin-left: -30px;
-      margin-bottom: 40px;
+        h1{
+            a{
+                color: $white;
+            }
+        }
+        .resume {
+            color: $white;
+            font-size: 1.2em;
+            padding-bottom: 20px;
+        }
     }
-  }
 
     .banner{
         position: relative;
@@ -90,4 +170,20 @@ header {
             height: 100%;
         }
     }
+}
+
+.banner-overlay {
+  &.banner {
+     position: relative;
+
+     &:after {
+       position: absolute;
+       content: "";
+       top: 0;
+       left: 0;
+       background-color: rgba(0, 0, 0, 0.36);
+       width: 100%;
+       height: 100%;
+    }
+  }
 }

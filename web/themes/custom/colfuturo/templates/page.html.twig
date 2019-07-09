@@ -55,8 +55,6 @@
  */
 #}
 
-{% set sub_content = sub_content.removeClass('large-12') %}
-
 <div class="off-canvas-wrapper">
   <div class="inner-wrap off-canvas-wrapper-inner" id="inner-wrap" data-off-canvas-wrapper>
     <aside id="left-off-canvas-menu" class="off-canvas left-off-canvas-menu position-left" role="complementary" data-off-canvas>
@@ -72,7 +70,7 @@
         {% if meta_header_grid %}
         <div class="meta-header-wrapper">
           <div class="row">
-            <div class="large-11 small-12 large-centered columns">
+            <div class="large-12 columns">
         {% endif %}
         {{ page.meta_header }}
         {% if meta_header_grid %}
@@ -98,7 +96,7 @@
           </div>
         {% endif %}
         {% if page.header %}
-          <div class="large-11 small-12 large-centered columns">
+          <div class="large-12 columns">
             {{ page.header }}
           </div>
         {% endif %}
@@ -141,14 +139,14 @@
 
       {% if messages and not zurb_foundation_messages_modal %}
       <div class="l-messages row">
-        <div class="large-11 small-12 large-centered columns">
+        <div class="large-12 columns">
           {{ messages }}
         </div>
       </div>
       {% endif %}
       
 <!--       <div class="row">
-        <div class="large-11 small-12 large-centered columns">
+        <div class="large-12 medium-12 columns">
         {% if page.highlighted %}
             {% spaceless %}
               {{ page.highlighted }}
@@ -187,7 +185,7 @@
 
       {% if page.sub_content %}
         <div id="sub-content" class="row">
-          <section class="{{ sub_content }} large-11 small-12 large-centered columns">
+          <section class="{{ sub_content }} large-12 medium-12 columns">
                 {{ page.sub_content }}
           </section>
         </div>
@@ -196,7 +194,7 @@
       {% if page.sub_content_first %}
         <div id="sub-content-first" class="full-region">
           <section class="{{ sub_content_first }} row">
-            <div class="large-11 small-12 large-centered columns">
+            <div class="large-12 medium-12">
                 {{ page.sub_content_first }}
             </div>
           </section>
@@ -212,8 +210,8 @@
 
       {% if page.sub_content_third %}
         <div id="sub-content-third" class="full-region">
-          <section class="{{ sub_content_third }} row">
-            <div class="large-11 small-12 large-centered columns">
+          <section class="{{ sub_content_third }}">
+            <div class="columns large-12 medium-12">
                 {{ page.sub_content_third }}
             </div>
           </section>
@@ -223,7 +221,7 @@
       {% if page.sub_content_quarter %}
         <div id="sub-content-quarter" class="">
           <section class="{{ sub_content_quarter }} row">
-            <div class="large-11 small-12 large-centered columns">
+            <div class="columns large-12 medium-12">
                 {{ page.sub_content_quarter }}
             </div>
           </section>
@@ -235,15 +233,15 @@
       {% if page.footer_first or page.footer_middle or page.footer_last %}
         <footer class="bottom-bar">
           {% if page.footer_first %}
-            <div class="row large-11 small-12 large-centered">
-              <div id="footer-first" class="columns">
+            <div class="row">
+              <div id="footer-first" class="large-12 columns">
                 {{ page.footer_first }}
               </div>
             </div>
           {% endif %}
           {% if page.footer_middle %}
-            <div class="row large-11 small-12 large-centered">
-              <div id="footer-middle" class="columns">
+            <div class="row">
+              <div id="footer-middle" class="large-12 columns">
                 {{ page.footer_middle }}
               </div>
             </div>
@@ -253,8 +251,8 @@
       
       <div class="bottom-bar">
           {% if page.footer_last %}
-            <div class="row large-11 small-12 large-centered">
-              <div id="footer-last" class="columns">
+            <div class="row">
+              <div id="footer-last" class="large-12 columns">
                 {{ page.footer_last }}
               </div>
             </div>
