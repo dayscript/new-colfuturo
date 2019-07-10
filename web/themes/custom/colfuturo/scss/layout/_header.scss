@@ -1,20 +1,29 @@
 //Metaheader
 $bg-color: #d71924;
 
+header {
+  .columns {
+    @include breakpoint(medium down) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
 #block-responsivemenumobileicon {
   .toggle.responsive-menu-toggle-icon {
-    margin-top: -5px;
+    margin-top: -50px;
   }
 }
 
 #block-homemenu {
-  @include breakpoint(small down) {
+  @include breakpoint(medium down) {
     margin-left: 0;
   }
 }
 
 .block-superfishhome-menu {
-  @include breakpoint(small down) {
+  @include breakpoint(medium down) {
     margin-left: -30px;
     height: 50px;
 
@@ -56,33 +65,15 @@ $bg-color: #d71924;
   }
 }
 
-header {
-  .columns {
-    @include breakpoint(small down) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
+section#block-colfuturo-branding {
+  padding-bottom: 15px;
+  padding-top: 10px;
+  margin-left: -15px;
 
-  section#block-colfuturo-branding {
-    @include breakpoint(small down) {
-      background: $bg-color;
-      padding-left: 50px;
-      margin-left: 0;
-
-      img {
-        max-width: 100px;
-      }
-    }
-  }
-
-  @include breakpoint(small down) {
-    .columns.large-centered {
-      padding: 0;
-    }
+  img {
+    max-width: 150px;
   }
 }
-
 
 .meta-header-wrapper {
   background: $dark-gray;
@@ -111,10 +102,6 @@ header {
   }
 }
 
-section#block-colfuturo-branding {
-  padding: 16px 0;
-  margin-left: -15px;
-}
 #block-navegacionprincipal {
     padding: 36px 0 14px 0 !important;  
     ul{
@@ -131,7 +118,7 @@ section#block-colfuturo-branding {
 .superbanner {
   .info{
         position: absolute;
-        max-width: 90rem;
+        max-width: 70rem;
         margin-right: auto;
         margin-left: auto;
         z-index: 3;
@@ -141,7 +128,7 @@ section#block-colfuturo-branding {
         transform: translateY(-50%);
         padding-right: 40%;
 
-    @include breakpoint(small down) {
+    @include breakpoint(medium down) {
         padding-right: .625rem;
       padding-left: .625rem;
     }
@@ -175,6 +162,10 @@ section#block-colfuturo-branding {
 .banner-overlay {
   &.banner {
      position: relative;
+
+     img {
+       width: 100%;
+     }
 
      &:after {
        position: absolute;

@@ -80,12 +80,6 @@ footer.bottom-bar {
     }
   }
 
-  #block-logoblanco {
-    @include breakpoint(small down) {
-      display: none;
-    }
-  }
-
   #block-informaciondecontacto {
     strong {
       font-size: 1.2em;

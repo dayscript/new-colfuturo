@@ -25,8 +25,6 @@
         $('.block-views-block-asesoria-home-block-1 .views-field-nothing .columns:last-child').each(function () {
           $(this).insertBefore($(this).prev());
         });
-
-        $("#block-colfuturo-branding img").attr("src", window.location.href + "/themes/custom/colfuturo/images/logo_blanco.png");
       }
     }
   };
