@@ -1,6 +1,7 @@
 $bg-content: #464a55;
 $text-content: #ffffff;
 $bg-color: #d71924;
+$bg-tag: #A0A0A0;
 
 .views-blockgestion-en-cifras-block-1 {
   background: $bg-content;
@@ -81,6 +82,111 @@ $bg-color: #d71924;
         top: 0;
         position: absolute;
         margin-left: -40px;
+      }
+    }
+  }
+}
+
+.views-exposed-form {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  max-width: 300px;
+  margin-top: 20px;
+
+  select {
+    border-radius: 8px;
+    margin-left: 15px;
+    border: 1px solid #cacaca;
+    background-image: url("../images/menu.png");
+    color: #A0A0A0;
+
+    option {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.block-colfuturo-content {
+  .field-tags-info {
+    padding-bottom: 70px;
+
+    .link {
+      color: $bg-tag;
+      margin-top: 30px;
+      line-height: 12px;
+      margin-bottom: 10px;
+    }
+
+    .field-tags {
+      border-right: 1px solid $bg-tag;
+      width: auto;
+
+      a {
+        color: $bg-tag;
+      }
+    }
+  }
+
+  .field-title {
+    a {
+      color: #0a0a0a;
+      font-weight: 400;
+    }
+  }
+
+  .field-body {
+    height: 200px;
+    overflow-y: hidden;
+  }
+
+  .content-link {
+    position: relative;
+    display: inline-block;
+    background: url(../images/more.png) no-repeat;
+    margin-top: 20px;
+    
+    a {
+      color: transparent;
+    }
+  }
+
+  ul {
+    padding-bottom: 50px;
+
+    .pager__item {
+      max-width: 300px;
+      margin: auto;
+      list-style-type: none;
+      max-width: 380px;
+
+      a {
+        margin-left: -15px;
+        width: 100%;
+      }
+    }
+  }
+
+  .body {
+    img {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .field-item {
+      h2 {
+        &:not(:first-of-type) {
+          border-top: 1px solid $bg-sidebar;
+          padding-top: 30px;
+        }
+      }
+
+      ul {
+        margin-left: 50px;
+
+        li {
+
+        }
       }
     }
   }
