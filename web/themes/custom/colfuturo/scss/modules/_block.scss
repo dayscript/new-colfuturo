@@ -1,55 +1,8 @@
-$bg-link: #008cc7;
-$bg-color: #d71924;
-
-.block-logoblanco {
-  img {
-    width: 180px;
-    margin-left: 30px;
-    margin-top: 15px;
-  }
-}
-
 //BLoque programas home
 .block-views-block-nuestros-programas-block-1 {
-  @include breakpoint(small down) {
-    padding-bottom: 0px;
-    padding-top: 0;
-
-    .block-title {
-      display: none;
-    }
-  }
-
-  .programas {
-    margin-top: 70px;
-
-    @include breakpoint(small down) {
-      margin-top: 30px;
-
-      .container-programa {
-        .info {
-          background: transparent;
-          padding-left: 0;
-          padding-right: 0;
-
-          .enlace {
-            position: relative;
-            margin-top: 50px;
-          }
-        }
-      }
-    }
-  }
-
-
-
 	> div {
-          .programas .columns:first-child {
+		.programas .columns:first-child {
             padding-left: 0;
-
-          @include breakpoint(small down) {
-            padding-left: .625rem;
-          }
         }
         .programas .columns:nth-child(2) {
 				padding: 0 0.45rem; 
@@ -61,43 +14,27 @@ $bg-color: #d71924;
 	}
 }
 .container-programa{
-  height: 300px;
-  position: relative;
-
-  @include breakpoint(small down) {
-    height: auto;
-  }
-
-  .info {
-    padding: 24px;
-    background: $light-gray;
-    height: 100%;
-    position: relative;
-
-    .title {
+    .info{
+        padding: 24px;
+        background: $light-gray;
+        .title{
             font-weight: 500;
             font-size: 1.5em;
             margin-bottom: 20px;
             color: $black;
             position: relative;
-            line-height: 27px;
-            height: 50px;
-
             &:before{
                 content: "";
                 position: absolute;
                 bottom: -10px;
                 left: 0;
-                width: 40px;
+                width: 20px;
                 height: 4px;
                 background: $primary-color;
             }
         }
         .enlace{
             margin-top: 30px;
-            position: absolute;
-            bottom: 30px;
-
             a{
                 text-indent: -10000px;
                 position: relative;
@@ -115,251 +52,186 @@ $bg-color: #d71924;
         }
     }
 }
-
-.block-views-blockbeneficiarios-block-1 {
-  header {
-    .medium-12.columns {
-      padding-right: .625rem;
-      padding-left: .625rem;
-    }
-  }
-
-  h2 {
-    margin-top: 80px;
-    padding-left: 15px;
-
-    @include breakpoint(small down) {
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-
-    &::before {
-      margin-left: 15px;
-    }
-  }
-
-  h5 {
-    color: $bg-color;
-    padding-top: 30px;
-
-    @include breakpoint(small down) {
-      padding-top: 15px;
-    }
-  }
-
-  .field-content {
-    line-height: 1.2;
-    font-size: 0.8em;
-    margin-top: -10px;
-  }
-
-  .owl-carousel .owl-buttons {
-    bottom: 65%;
-  }
-
-  .owl-carousel .owl-buttons .owl-next::after {
-    background: url(../images/flecha_negra_der.png) no-repeat;
-  }
-
-  .owl-carousel .owl-buttons .owl-prev::after {
-    background: url(../images/flecha_negra_izq.png) no-repeat;
-  }
-
-  .owl-carousel .owl-pagination {
-    margin-bottom: -50px;
-
-    @include breakpoint(small down) {
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .owl-page {
-      span {
-        background: #A1A1A1;
-      }
-
-      &.active {
-        span {
-          background: $bg-color;
-        }
-      }
-    }
-  }
-}
-
-.block-nextevents {
-  background: #EDEDEF;
-  margin-top: 60px;
-  margin-bottom: 60px;
-
-  h2 {
-    padding-left: 15px;
-
-    &::before {
-      margin-left: 15px;
-    }
-  }
-
-  @include breakpoint(small down) {
-    background: #EDEDEF;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-}
-
-.block-views-blocknoticias-block-1 {
-  .button {
-    color: #ffffff;
-    background: $bg-link;
-    width: 65%;
-
-    @include breakpoint(small down) {
-      width: 100%;
-      margin-top: -40px;
-    }
-  }
-
-  .content-link,
-  .enlace {
-    position: relative;
-    display: inline-block;
-    background: url(../images/more.png) no-repeat;
-    margin-top: 20px;
-    
-    a {
-      color: transparent;
-    }
-  }
-
-  .field-tags-info {
-    .link {
-      border-right: 1px solid #A0A0A0;
-      color: #A0A0A0;
-      margin-top: 30px;
-      line-height: 12px;
-      margin-bottom: 10px;
-
-      @include breakpoint(small down) {
-        font-size: 0.8em;
-      }
-
-      &:last-child {
-        border-right: 0;
-      }
-
-      a {
-        color: #A0A0A0;
-      }
-
-      &.columns.link.large-3 {
-        width: auto;
-      }
-
-      &.columns.link.large-8 {
-        float: left;
-        width: auto;
-      }
-
-    }
-
-    .field-title {
-      h5 {
-        font-weight: bold;
-        text-transform: lowercase;
-
-        @include breakpoint(small down) { 
-          padding-bottom: 10px;
-        }
-
-        &::first-letter {
-         text-transform: uppercase;
-        }
-      }
-    }
-
-    .field-body {
-      height: 200px;
-      overflow-y: hidden;
-    }
-  }
-}
-
 //Bloque asesoria
-.block-views-block-asesoria-home-block-1 {
-  background: $light-gray;
-  padding-right: 0rem;
-  padding-left: 0rem;
-  overflow: hidden;
-
-  a {
-    color: $secondary-color !important;
-    &:hover{
-      color: $dark-blue !important;
+.block-views-block-asesoria-home-block-1{
+    background: $light-gray;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    overflow: hidden;
+    a{
+        color: $secondary-color !important;
+        &:hover{
+            color: $dark-blue !important;
+        }
     }
-  }
-
-  .views-field-nothing {
-    height: 500px;
-    overflow-y: hidden;
-
-    @include breakpoint(small down) {
-      height: auto;
+    .info{
+        padding: 3rem 0.7rem;
+        h2{
+            color: $black;
+            letter-spacing: -1px;
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 500;
+            padding-left: 0;
+            padding-right: 0;
+            &:before{
+                content: "";
+                position: absolute;
+                bottom: -12px;
+                left: 0rem;
+                width: 40px;
+                height: 4px;
+                background: $primary-color;
+            }
+        }
+        a{
+            position: relative;
+            &:before{
+                content: "";
+                background: url(../images/arrow.png);
+                width: 7px;
+                height: 11px;
+                right: -17px;
+                top: 4px;
+                position: absolute;
+            }
+        }
     }
-  }
+    img{
+        position: absolute;
+        width: 50%;
+        @media only screen and (max-width: 600px) {
+                position: relative;
+                width: 100%; 
+          }
+    }
+}
+//Bloque cifras
+.block-views-block-gestion-en-cifras-block-1{
+    background: $dark-gray;
+    color: $white;
+    h2{
+        color: $white;
+    }
+}
+.container-cifra {
+    min-height: 10rem;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    .cifra {
+        font-size: 4rem;
+        font-weight: 600;
+        letter-spacing: -2px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .description {
+        font-size: 1.2rem;
+        bottom: 1rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+    
+//Bloque beneficiarios
+.block-views-block-beneficiarios-block-1{
+    header {
+        font-size: 1.2rem;
+    }
+    .views-field-field-image{
+        img{
+            margin-bottom: 1rem;
+        }
+    }
+    .views-field-title{
+        color: $primary-color;
+    }
+    .views-field.views-field-body {
+        font-size: 0.9rem;
+    }
+    footer{
+        margin-top: 2rem;
+    }
+}
 
-  .info {
-    padding: 60px 0;
-
-    a {
-     &::after {
-        content: '';
-        border: solid #0E87C5;
-        border-width: 0 3px 3px 0;
+//Bloque noticias
+.block-views-block-noticias-block-1{
+    .views-field-field-image{
+        img{
+            margin-bottom: 1rem;
+        }
+    }
+    h3{
+        color: $black;
+        margin-bottom: 0.4rem;
+        margin-top: 0.4rem;
+    }
+    .views-field-field-tags, .views-field-created{
+        color: $medium-gray;
+    }
+    footer {
+        margin-top: 2rem;
+        position: relative;
+        clear: both;
         display: inline-block;
-        padding: 3px;
-        transform: rotate(315deg);
-        webkit-transform: rotate(45deg);
-        top: 15px;
-        margin-left: 10px;
-      }
+        width: 100%;
+    } 
+    .views-field-view-node{
+        a{
+            position: relative;
+            text-indent: -10000px;
+            display: inline-block;
+            margin-top: 20px;
+            &:after{
+                position: absolute;
+                content: "";
+                width: 36px;
+                height: 25px;
+                left: 0;
+                top: 0;
+                background: url(../images/more.png);
+                text-indent: -10000px;
+            }
+        }
     }
-
-    @include breakpoint(small down) {
-      padding: 20px 0;
-
-      h2 {
-        margin-bottom: 20px;
-      }
+}
+//Submenu
+.submenu{
+    background: $light-gray;
+    h2{
+        font-size: 1.4rem;
+        letter-spacing: 0;
+        font-weight: 500;
+        padding-top: 1.6rem;
+        padding-left: 1.6rem;
+        margin-bottom: 1.6rem;
+        &:before{
+            display: none;
+        }
     }
-  }
-
-  @include breakpoint(small down) {
-    .field-image {
-      padding-left: 0;
-      padding-right: 0;
-
-      img {
-        height: auto;
-        width: auto;
-      }
+    ul{
+        li{
+            display: inline-block;
+                width: 100%;
+            a{
+                padding: 1rem 1.6rem;
+            }
+        }
     }
-  }
+}
 
-  img {
-    position: absolute;
-    width: 50%;
-    height: 145vh;
-    object-fit: cover;
-    max-height: 500px;
-
-    @media only screen and (max-width: 600px) {
-      position: relative;
-      width: 100%; 
-    }
-  }
+//Contenidos generales
+#block-colfuturo-content{
+h2{
+    padding-left: 0;
+    padding-right: 0;
+}
 }

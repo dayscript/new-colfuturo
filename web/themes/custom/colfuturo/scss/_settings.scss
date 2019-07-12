@@ -79,7 +79,7 @@ $dark-blue: #127aae;
 $light-gray: #f0f1f1;
 $medium-gray: #a1a1a1;
 $dark-gray: #464a54;
-$medium-black: #3E424B;
+$medium-black: #3E424B; 
 $gray: #3e3e3e;
 $black: #0a0a0a;
 $white: #fefefe;
@@ -92,7 +92,7 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 8px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -144,7 +144,7 @@ $header-styles: (
   small: (
     'h1': ('font-size': 30),
     'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
+    'h3': ('font-size': 18),
     'h4': ('font-size': 18),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
@@ -152,8 +152,8 @@ $header-styles: (
   medium: (
     'h1': ('font-size': 60),
     'h2': ('font-size': 38),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
+    'h3': ('font-size': 22),
+    'h4': ('font-size': 20),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
   ),
@@ -282,7 +282,7 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-padding: 0.85em 1em;
+$button-padding: 0.85em 1.4em !important;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;

@@ -1,4 +1,36 @@
-<div class="row">
+<ul>
+{% for group in events %}
+        <li>
+            {% set end = group|length %}
+            {% for key, event in group %}
+                <div class="large-3 medium-3 columns {{ key == end - 1 ? 'end':''}}">
+                    <figure class="orbit-figure">
+                        <div class="columns large-12 medium-12 wrapper">
+                          <span class="date">
+                            {{ event.start.local | date('U') | format_date('colfuturo_d_m_y_') }}
+                          </span>
+                          <br>
+                          <span class="time">
+                            {{ event.start.local | date('h:i A') }} - {{ event.end.local | date('h:i A') }}
+                          </span>
+                          <br>
+                          <h3>
+                            {{ event.name.text }}
+                          </h3>
+                          <br>
+                          {# <img class="img" src="{{ event.logo.url }}"/> #}
+                        </div>
+                        <div class="large-12 medium-12 button">        
+                            <a href="{{ event.url }}">registrese al evento </a>
+                        </div>        
+                      
+                    </figure>
+                </div>
+            {% endfor %}
+        </li>
+{% endfor %}
+</ul>  
+<!-- <div class="row">
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
     <div class="orbit-wrapper">
       <div class="orbit-controls">
@@ -43,4 +75,4 @@
       <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
     </nav>
   </div>
-</div>
+</div> -->

@@ -1,14 +1,1 @@
 // Non-modular or client styles for the .l-content region.
-#sub-content-third {
-  .columns.large-12.medium-12 {
-    @include breakpoint(small down) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-
-//limit 
-.row {
-  max-width: 70rem;
-}

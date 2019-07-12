@@ -51,7 +51,35 @@ function colfuturo_preprocess_page(&$variables) {
   $variables['sub_content_second'] = 'large-12 medium-12';
   $variables['sub_content_quarter'] = 'large-12 medium-12';
 
+ // Convenience variables
+ if (isset($variables['page']['sidebar_first'])) {
+  $left = $variables['page']['sidebar_first'];
+}
+if (isset($variables['page']['sidebar_second'])) {
+  $right = $variables['page']['sidebar_second'];
+}
 
+// Dynamic sidebars
+if (!empty($left) && !empty($right)) {
+  $variables['main_grid'] = 'medium-6 medium-push-3';
+  $variables['sidebar_first_grid'] = 'medium-3 medium-pull-6';
+  $variables['sidebar_sec_grid'] = 'medium-3';
+}
+elseif (empty($left) && !empty($right)) {
+  $variables['main_grid'] = 'medium-8';
+  $variables['sidebar_first_grid'] = '';
+  $variables['sidebar_sec_grid'] = 'medium-4';
+}
+elseif (!empty($left) && empty($right)) {
+  $variables['main_grid'] = 'medium-8 medium-push-4';
+  $variables['sidebar_first_grid'] = 'medium-4 medium-pull-8';
+  $variables['sidebar_sec_grid'] = '';
+}
+else {
+  $variables['main_grid'] = 'large-12';
+  $variables['sidebar_first_grid'] = '';
+  $variables['sidebar_sec_grid'] = '';
+}
   
 }
 

@@ -20,19 +20,17 @@ h2{
     position: relative;
     margin-bottom: 40px;
     font-weight: 500;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
     &:before{
         content: "";
         position: absolute;
         bottom: -12px;
-        left: 0;
+        left: 0.7rem;
         width: 40px;
         height: 4px;
         background: $primary-color;
     }
-
-  @include breakpoint(small down) {
-    font-size: 2em;
-  }
 }
 .padding-top{
     padding-top: 80px; 
@@ -41,6 +39,12 @@ h2{
     padding-bottom: 80px;
 }
 
+.button{
+    font-size: 1rem;
+}
+.button.secondary {
+    color: $white;
+}
 // Anchors
 //-----------------------------------------------------------------------------
 // a {}
@@ -87,3 +91,30 @@ h2{
 // }
 
 // select {}
+
+.owl-pagination{
+    .owl-page.active{
+        span{
+            background: $white;
+        }
+    }
+}
+#block-breadcrumbs{
+    position: absolute;
+    z-index: 3; 
+    max-width: 87.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    left: 0;
+    right: 0;
+    margin-top: 1.2rem;
+
+    a{
+        color: $white;
+    }
+}
+hr{
+    border-bottom: 1px solid $light-gray;
+}
