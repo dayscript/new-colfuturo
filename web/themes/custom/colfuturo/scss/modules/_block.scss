@@ -11,7 +11,13 @@
 				padding-right: 0;
 		}
 		
-	}
+    }
+    h2.block-title{
+        display: block;
+        @media only screen and (max-width: 600px){
+            display: none;
+        }
+    }
 }
 .container-programa{
     .info{
@@ -50,6 +56,9 @@
                 }
             }
         }
+    }
+    @media only screen and (max-width: 600px){
+        margin-bottom: 1.2rem;
     }
 }
 //Bloque asesoria
@@ -113,6 +122,9 @@
     h2{
         color: $white;
     }
+    header{
+        background: none;  
+    }
 }
 .container-cifra {
     min-height: 10rem;
@@ -142,7 +154,7 @@
 }
     
 //Bloque beneficiarios
-.block-views-block-beneficiarios-block-1{
+.block-views-block-beneficiarios-block-1, .block-views-block-beneficiarios-block-2{
     header {
         font-size: 1.2rem;
     }
@@ -161,44 +173,59 @@
         margin-top: 2rem;
     }
 }
-
+.block-views-block-beneficiarios-block-2{
+h2{
+    padding-right: 0;
+    padding-left: 0;
+}
+}
 //Bloque noticias
 .block-views-block-noticias-block-1{
-    .views-field-field-image{
-        img{
-            margin-bottom: 1rem;
-        }
-    }
-    h3{
-        color: $black;
-        margin-bottom: 0.4rem;
-        margin-top: 0.4rem;
-    }
-    .views-field-field-tags, .views-field-created{
-        color: $medium-gray;
-    }
-    footer {
-        margin-top: 2rem;
+    .noticia{
         position: relative;
-        clear: both;
-        display: inline-block;
-        width: 100%;
-    } 
-    .views-field-view-node{
-        a{
+        min-height: 40rem;
+        margin-bottom: 1rem;
+        @media only screen and (max-width: 600px){
+            min-height: 35rem;
+        }
+        .views-field-field-image{
+            img{
+                margin-bottom: 1rem;
+            }
+        }
+        h3{
+            color: $black;
+            margin-bottom: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        .views-field-field-tags, .views-field-created{
+            color: $medium-gray;
+        }
+        footer {
+            margin-top: 2rem;
             position: relative;
-            text-indent: -10000px;
+            clear: both;
             display: inline-block;
-            margin-top: 20px;
-            &:after{
-                position: absolute;
-                content: "";
-                width: 36px;
-                height: 25px;
-                left: 0;
-                top: 0;
-                background: url(../images/more.png);
+            width: 100%;
+        } 
+        .views-field-view-node{
+            position: absolute;
+            bottom: 2rem;
+            a{
+                position: relative;
                 text-indent: -10000px;
+                display: inline-block;
+                margin-top: 20px;
+                &:after{
+                    position: absolute;
+                    content: "";
+                    width: 36px;
+                    height: 25px;
+                    left: 0;
+                    top: 0;
+                    background: url(../images/more.png);
+                    text-indent: -10000px;
+                }
             }
         }
     }
@@ -217,7 +244,7 @@
             display: none;
         }
     }
-    ul{
+    ul.menu{
         li{
             display: inline-block;
                 width: 100%;
@@ -226,6 +253,105 @@
             }
         }
     }
+}
+//Eventos
+#block-nextevents{
+    background: $light-gray;
+h2{
+    max-width: 87.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+.container-events {
+    background: white;
+    padding: 1.6rem;
+    min-height: 20rem;
+    position: relative;
+    border-radius: 0.6rem;
+    box-shadow: 0 11px 12px -11px rgb(133, 133, 133);
+    margin-bottom: 1.4rem;
+    .type {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $medium-gray;
+        padding: 0.6rem 2rem;
+        border-radius: 0.6rem 0 0 0;
+        margin-bottom: 1rem;
+        color: $white;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    .share {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0.6rem 2rem;
+        a{
+            color: $medium-gray;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+        &:after{
+            position: absolute;
+            content: "";
+            width: 17px;
+            height: 14px;
+            top: 14px;
+            right: 10px;
+            background: url(../images/share.png);
+        }
+    }
+    a.button.secondary {
+        position: absolute;
+        bottom: 1em;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: inline-block;
+        width: 200px;
+    }
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    .date {
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 1.2rem;
+        position: relative;
+        padding-left: 32px;
+        margin-top: 2rem;
+        &:after{
+            position: absolute;
+            content: "";
+            width: 23px;
+            height: 23px;
+            top: 0;
+            left: 0;
+            background: url(../images/time.png);
+        }
+    }
+    .time {
+        text-transform: lowercase;
+        font-size: 0.9rem;
+    }
+
+    .address {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    p{
+        margin-bottom: 0;
+    }
+}
 }
 
 //Contenidos generales

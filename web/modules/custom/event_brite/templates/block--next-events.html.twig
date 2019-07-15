@@ -1,35 +1,43 @@
-<ul>
-{% for group in events %}
-        <li>
-            {% set end = group|length %}
-            {% for key, event in group %}
-                <div class="large-3 medium-3 columns {{ key == end - 1 ? 'end':''}}">
-                    <figure class="orbit-figure">
-                        <div class="columns large-12 medium-12 wrapper">
-                          <span class="date">
-                            {{ event.start.local | date('U') | format_date('colfuturo_d_m_y_') }}
-                          </span>
-                          <br>
-                          <span class="time">
-                            {{ event.start.local | date('h:i A') }} - {{ event.end.local | date('h:i A') }}
-                          </span>
-                          <br>
-                          <h3>
-                            {{ event.name.text }}
-                          </h3>
-                          <br>
-                          {# <img class="img" src="{{ event.logo.url }}"/> #}
-                        </div>
-                        <div class="large-12 medium-12 button">        
-                            <a href="{{ event.url }}">registrese al evento </a>
-                        </div>        
-                      
-                    </figure>
-                </div>
-            {% endfor %}
-        </li>
-{% endfor %}
-</ul>  
+<div class="row">
+  <div id="events">
+  {% for group in events %}
+  <div>
+    {% set end = group|length %}
+    {% for key, event in group %}
+    <div class="medium-4 columns">
+      <div class="container-events">
+        <div>
+          <div class="type">
+            <p>Evento online</p>
+          </div>
+          <div class="share">
+            <a href="#">Compartir</a>
+          </div>
+          <div class="date">
+            <p>{{ event.start.local | date('U') | format_date('colfuturo_d_m_y_') }}</p>
+          </div>
+          <div class="time">
+            <p>{{ event.start.local | date('h:i A') }} - {{ event.end.local | date('h:i A') }}</p>
+          </div>
+          <div class="address">
+            <p>address</p>
+          </div>
+          <div class="title">
+            <h3>
+              {{ event.name.text }}
+            </h3>
+          </div>
+        </div>
+        <div class="medium-12 columns text-center ">
+          <a href="{{ event.url }}" class="button secondary">Regístrate</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  </div>
+</div>
 <!-- <div class="row">
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
     <div class="orbit-wrapper">

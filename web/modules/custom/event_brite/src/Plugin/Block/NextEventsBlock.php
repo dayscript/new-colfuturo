@@ -57,12 +57,10 @@ class NextEventsBlock extends BlockBase {
     return $build;
   }
 
-
-
   public function getEventsData(){
-    $data = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=BJHRZYF254GXBOV7A6J6');
+    //$data = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=BJHRZYF254GXBOV7A6J6');
+    $data = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=Z5PUBQ6ROR7OYZM7YARV');
     return json_decode($data);
   }
-
-
+  
 }

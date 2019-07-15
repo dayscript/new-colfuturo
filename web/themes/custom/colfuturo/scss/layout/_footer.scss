@@ -5,6 +5,10 @@ footer.bottom-bar {
     padding-bottom: 50px; 
     color: $white;
     font-size: 0.9em;
+    @media only screen and (max-width: 600px){
+        padding-top: 30px;
+        padding-bottom: 0px; 
+    }
     h2{
         font-size: 1.3em;
         color: $white;
@@ -32,9 +36,35 @@ footer.bottom-bar {
         strong{
             font-size: 1.3em;
         }
+        @media only screen and (max-width: 600px){
+            text-align: center;
+            border-bottom: 1px solid $medium-gray;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
     }
     ul.social-media-links--platforms.platforms.inline.horizontal{
         margin-left: 0;
+    }
+    nav#block-menufooter {
+        @media only screen and (max-width: 600px){
+            text-align: center;
+            border-bottom: 1px solid $medium-gray;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+    #block-socialmedialinks-2{
+        @media only screen and (max-width: 600px){
+            text-align: center;
+            h2{
+                display: none;
+            }
+        }
+    }
+    h2{
+        padding-left: 0rem;
+        padding-right: 0rem;
     }
 }
 .bottom-bar{
@@ -42,13 +72,27 @@ footer.bottom-bar {
     color: $white;
     font-size: 0.8em;
     padding: 8px 0;
+    @media only screen and (max-width: 600px){
+        padding: 16px 0;
+    }
     p{
         margin-bottom: 0;
+        @media only screen and (max-width: 600px){
+            text-align: center;
+            margin-bottom: 1em;
+        }
     }
     .block-legales{
         a{
             color: $white;
             padding-left: 20px;
+            @media only screen and (max-width: 600px){
+                padding-left: 0px;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+            }
         }
     }
+
 }

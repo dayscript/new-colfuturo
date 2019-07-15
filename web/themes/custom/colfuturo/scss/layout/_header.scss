@@ -13,21 +13,51 @@
         }
     }
 }
+
 section#block-colfuturo-branding {
-    padding: 16px 0;
+    margin-top: 18px; 
+    @media only screen and (max-width: 600px){
+        padding: 16px 0;
+    }
+}
+header{
+    background: $white;
+    position: relative;
+    @media only screen and (max-width: 600px){
+        background: $primary-color;
+        padding: 0.7rem;
+        position: relative;
+    }
+}
+section#block-logoblanco-2 {
+    z-index: 3;
+    margin-top: 7px;
+    margin-left: 2.2em
 }
 //Menu
 #block-navegacionprincipal {
-    padding: 36px 0 14px 0 !important;  
+    padding: 34px 0 0px 0 !important;  
+    @media only screen and (max-width: 600px){
+        position: absolute;
+        top: -14px;
+    }
     ul{
         float: right;
         li{
             a{
                 font-size: 1em;
-                color: $gray; 
+                color: $gray;
                 &:hover{
                     color: $primary-color;
                     background: $white;
+                }
+                ul{
+                        box-shadow: none; 
+                        li{
+                            a{
+
+                            }
+                        }
                 }
             }
             a.search{
@@ -64,7 +94,102 @@ section#block-colfuturo-branding {
     }
     }
 }
+    ul.sf-menu.sf-style-white li, ul {
+        background: $white;
+    }
+    ul.sf-menu.sf-style-white li li,
+    ul.sf-menu.sf-style-white.sf-navbar > li > ul {
+    background: #f4f4f4 !important;
+    top: 2rem;
+    }
+    ul#superfish-main-accordion {
+        margin-top: 16px;
+        left: -21px !important;
+        li{
+            background: $dark-gray;
+            a{
+                padding: 1.4rem 1rem;
+                color: $white;
+                &:hover{
+                    background: $dark-gray !important;
+                }
+
+            }
+            li{
+                background: $dark-gray !important;
+                top: 0rem;
+
+            }
+            a.sf-depth-2{
+                padding-left: 2rem;
+            }
+        }
+    }
 } 
+nav#block-menusearchloginmobile{
+    margin-top: 1rem;
+    a.search-2{
+        position: relative;
+        text-indent: -10000px;
+        display: inline-block;
+        margin-left: 1rem;
+        &::after{
+            position: absolute;
+            content: "";
+            width: 28px;
+            height: 28px;
+            background: url(../images/search-white.png);
+            top: 0;
+            right: 0;
+
+            }
+    }
+    a.login-2{
+        position: relative;
+        text-indent: -10000px;
+        display: inline-block; 
+        margin-left: 1rem;
+        &::after{
+            position: absolute;
+            content: "";
+            width: 28px;
+            height: 28px;
+            background: url(../images/login-white.png);
+            top: 0;
+            right: 0;
+         }
+    }
+}
+li.sf-clone-parent {
+    display: none;
+}
+#block-navegacionprincipal ul li a {
+    text-transform: uppercase;
+    &.sf-depth-2{
+        text-transform: none;
+    }
+}
+
+a#superfish-main-toggle{
+    span{
+        display: none;
+    }
+}
+
+//Ajustes menu mobile
+
+div.sf-accordion-toggle.sf-style-white a {
+    background: none;
+    border: 0px;
+    color: $white;
+    padding: 1em 2em 1em 1em;
+}
+a#superfish-main-toggle{
+        &:after{
+            font-size: 3rem;
+            font-weight: 500;
+        }
+}
 
 //Superbanner
 .superbanner{
@@ -123,10 +248,18 @@ section#block-colfuturo-branding {
         height: 100%;
     }
 }
-//Bloque eventos
-#block-nextevents{
-    background: $dark-gray;
-    h2{
-        color: $white;
+.fondo-encabezado{
+    height: 700px;
+    @media only screen and (max-width: 600px){
+        height: 420px;
+    }
+    &:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.36);
+        width: 100%;
+        height: 100%;
     }
 }

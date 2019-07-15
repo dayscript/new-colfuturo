@@ -34,16 +34,32 @@ h2{
 }
 .padding-top{
     padding-top: 80px; 
+    @media only screen and (max-width: 600px){
+        padding-top: 30px;
+    }
 }
 .padding-bottom{
     padding-bottom: 80px;
+    @media only screen and (max-width: 600px){
+        padding-bottom: 30px;
+    }
 }
 
 .button{
     font-size: 1rem;
+
+        &:hover{
+            color: $white;
+        }
+
 }
 .button.secondary {
     color: $white;
+
+        &:hover{
+            color: $white;
+        }
+
 }
 // Anchors
 //-----------------------------------------------------------------------------
