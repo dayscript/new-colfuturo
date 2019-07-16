@@ -106,7 +106,10 @@ h2{
 
 // }
 
-// select {}
+select {
+    background-image: url(../images/select.png) !important;
+    background-size: 16px 10px !important; 
+}
 
 .owl-pagination{
     .owl-page.active{
@@ -133,4 +136,26 @@ h2{
 }
 hr{
     border-bottom: 1px solid $light-gray;
+}
+//Bullets
+#block-colfuturo-content{
+.field-node--body {
+    ul{
+        li{
+            list-style: none;
+            position: relative;
+            padding: 0.4rem 1.2em;
+            &:after{
+                position: absolute;
+                background: url(../images/bullet.png);
+                width: 9px;
+                height: 14px;
+                content: "";
+                left: 0;
+                top: 11px;
+    
+            }
+        }
+    }
+}
 }

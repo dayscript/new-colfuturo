@@ -9,18 +9,37 @@
         ul{
             margin-bottom: 0;
             margin-left: 0;
-            display: inline-block;
+        }
+    }
+}
+section#block-homemenu {
+    @media only screen and (max-width: 600px){
+        padding: 0.8rem 0;
+    }
+}
+#block-homemenu{
+    ul#superfish-home-menu-accordion{
+        a {
+            padding: 1.6em 0em;
         }
     }
 }
 
+
+
+//logo
+
 section#block-colfuturo-branding {
     margin-top: 18px; 
+    margin-bottom: 34px;
     @media only screen and (max-width: 600px){
         padding: 16px 0;
     }
+    &.columns{
+        padding-left: 0rem;
+    }
 }
-header{
+header.header-page{
     background: $white;
     position: relative;
     @media only screen and (max-width: 600px){
@@ -46,7 +65,7 @@ section#block-logoblanco-2 {
         li{
             a{
                 font-size: 1em;
-                color: $gray;
+                color: $gray; 
                 &:hover{
                     color: $primary-color;
                     background: $white;
@@ -103,7 +122,7 @@ section#block-logoblanco-2 {
     top: 2rem;
     }
     ul#superfish-main-accordion {
-        margin-top: 16px;
+        margin-top: 12px;
         left: -21px !important;
         li{
             background: $dark-gray;
@@ -125,14 +144,24 @@ section#block-logoblanco-2 {
             }
         }
     }
+    ul.sf-menu .sf-sub-indicator {
+        height: 12px;
+        width: 13px;
+        &:after{
+            font-size: 0.6rem;
+        }
+    }
 } 
 nav#block-menusearchloginmobile{
-    margin-top: 1rem;
+    margin-top: 0.7rem;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    width: 26%;
     a.search-2{
         position: relative;
         text-indent: -10000px;
         display: inline-block;
-        margin-left: 1rem;
         &::after{
             position: absolute;
             content: "";
@@ -158,6 +187,10 @@ nav#block-menusearchloginmobile{
             top: 0;
             right: 0;
          }
+    }
+    &.columns{
+        padding-right: .0rem;
+        padding-left: 0rem;
     }
 }
 li.sf-clone-parent {
@@ -193,15 +226,14 @@ a#superfish-main-toggle{
 
 //Superbanner
 .superbanner{
-    .info{
         position: absolute;
         max-width: 87.5rem;
         margin-right: auto;
         margin-left: auto;
-        z-index: 3;
+        z-index: 4;
         left: 0;
         right: 0;
-        top: 50%;
+        bottom: 2rem; 
         transform: translateY(-50%);
         padding-right: 0.7rem;
         padding-left: 0.7rem;
@@ -231,10 +263,11 @@ a#superfish-main-toggle{
                 }
             }
         }
-    }
-    &.encabezado{
-        margin-bottom: 60px;
-    }
+}
+.block-views-block-encabezado-programas-block-1{
+.views-row{
+    position: relative;
+}
 }
 .banner{
     position: relative;
@@ -252,6 +285,23 @@ a#superfish-main-toggle{
     height: 700px;
     @media only screen and (max-width: 600px){
         height: 420px;
+    }
+    &:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.36);
+        width: 100%;
+        height: 100%;
+    }
+}
+.fondo-encabezado-section{
+    height: 500px;
+    margin-bottom: 2rem;
+    position: relative;
+    @media only screen and (max-width: 600px){
+        height: 400px;
     }
     &:after{
         position: absolute;

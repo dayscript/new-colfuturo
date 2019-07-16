@@ -114,6 +114,16 @@
                 width: 100%; 
           }
     }
+    .views-row{
+        position: relative;
+    }
+}
+.fondo-asesoria{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    right: 0; 
 }
 //Bloque cifras
 .block-views-block-gestion-en-cifras-block-1{
@@ -180,7 +190,7 @@ h2{
 }
 }
 //Bloque noticias
-.block-views-block-noticias-block-1{
+.block-views-block-noticias-block-1, #block-colfuturo-content{
     .noticia{
         position: relative;
         min-height: 40rem;
@@ -194,9 +204,11 @@ h2{
             }
         }
         h3{
-            color: $black;
-            margin-bottom: 0.4rem;
-            margin-top: 0.4rem;
+            a{
+                color: $black;
+                margin-bottom: 0.4rem;
+                margin-top: 0.4rem;
+            }
         }
         .views-field-field-tags, .views-field-created{
             color: $medium-gray;
@@ -228,6 +240,12 @@ h2{
                 }
             }
         }
+    }
+    form#views-exposed-form-noticias-page-1{
+        padding-right: 0.7rem;
+        padding-left: 0.7rem;
+        width: 33.33333%;
+        margin-bottom: 1.2rem;
     }
 }
 //Submenu
@@ -292,7 +310,7 @@ h2{
         position: absolute;
         right: 0;
         top: 0;
-        padding: 0.6rem 2rem;
+        padding: 0.6rem 3rem;
         a{
             color: $medium-gray;
             &:hover{
@@ -305,7 +323,7 @@ h2{
             width: 17px;
             height: 14px;
             top: 14px;
-            right: 10px;
+            right: 22px;
             background: url(../images/share.png);
         }
     }
@@ -319,8 +337,9 @@ h2{
         width: 200px;
     }
     h3 {
-        font-size: 1.2rem;
-        font-weight: 500;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1.4em;
     }
     .date {
         color: $primary-color;
@@ -342,11 +361,13 @@ h2{
     .time {
         text-transform: lowercase;
         font-size: 0.9rem;
+        margin-left: 32px;
     }
 
     .address {
         font-size: 0.9rem;
         margin-bottom: 1rem;
+        margin-left: 32px;
     }
     p{
         margin-bottom: 0;
