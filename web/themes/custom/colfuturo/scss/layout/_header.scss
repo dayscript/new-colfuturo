@@ -145,10 +145,11 @@ section#block-logoblanco-2 {
         }
     }
     ul.sf-menu .sf-sub-indicator {
-        height: 12px;
-        width: 13px;
-        &:after{
-            font-size: 0.6rem;
+        height: 5px;
+        width: 8px;
+        background: url(../images/indicator.png);
+       &:after{
+         display: none;
         }
     }
 } 
@@ -298,7 +299,7 @@ a#superfish-main-toggle{
 }
 .fondo-encabezado-section{
     height: 500px;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     position: relative;
     @media only screen and (max-width: 600px){
         height: 400px;

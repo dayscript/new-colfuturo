@@ -382,3 +382,56 @@ h2{
     padding-right: 0;
 }
 }
+
+//COnvenios
+.convenio.views-row {
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    h3{
+        font-size: 1.4rem; 
+        margin-bottom: 0;
+    }
+    h4{
+        font-size: 1.3rem;
+    }
+    .views-field-field-convenio{
+    margin-bottom: 1rem;
+        a{
+            position: relative;
+            color: $secondary-color;
+            padding-left: 30px;
+            padding-top: 4px;
+            &:after{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 23px;
+                background: url(../images/descarga.png);
+                top: 0;
+                left: 1px;
+            }
+        }
+    }
+    .views-field-field-link-universidad{
+        margin-bottom: 1rem;
+        a{
+            position: relative;
+            color: $secondary-color;
+            padding-left: 30px;
+            padding-top: 4px;
+            &:after{
+                content: "";
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                background: url(../images/enlace.png);
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+    a{
+        color: $secondary-color;
+    }
+}
