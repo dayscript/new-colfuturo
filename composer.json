@@ -42,7 +42,7 @@
         "drupal/vardumper": "^1.4",
         "drupal/views_infinite_scroll": "^1.6",
         "drupal/zurb_foundation": "^6.0",
-        "drush/drush": "~8.0|^9.0.0-beta8",
+        "drush/drush": "^9.7",
         "hussainweb/drupal-composer-helper": "^1.0",
         "symfony/var-dumper": "~3.4"
     },
