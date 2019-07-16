@@ -24,6 +24,7 @@
         "drupal/menu_block": "^1.5",
         "drupal/menu_link_attributes": "^1.0",
         "drupal/metatag": "^1.8",
+        "drupal/miniorange_oauth_client": "^2.3",
         "drupal/module_filter": "^3.1",
         "drupal/owlcarousel": "^1.0",
         "drupal/pathauto": "^1.4",
