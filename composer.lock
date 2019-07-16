@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15f40ebc5cf9254078eaf9599900eb17",
+    "content-hash": "f66b648af84febae7f41e7de1c4c9dd0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5230,16 +5230,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "9.7.0",
+            "version": "9.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "ed1314a88f7ef947b56f0c9da9ca7a0f4aeef40e"
+                "reference": "6f9a8d235daec06fd6f47b2d84da675750566479"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/ed1314a88f7ef947b56f0c9da9ca7a0f4aeef40e",
-                "reference": "ed1314a88f7ef947b56f0c9da9ca7a0f4aeef40e",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/6f9a8d235daec06fd6f47b2d84da675750566479",
+                "reference": "6f9a8d235daec06fd6f47b2d84da675750566479",
                 "shasum": ""
             },
             "require": {
@@ -5251,7 +5251,7 @@
                 "consolidation/output-formatters": "^3.3.1",
                 "consolidation/robo": "^1.4.6",
                 "consolidation/site-alias": "^3.0.0@stable",
-                "consolidation/site-process": "^2.0.2",
+                "consolidation/site-process": "^2.0.3",
                 "ext-dom": "*",
                 "grasmash/yaml-expander": "^1.1.1",
                 "league/container": "~2",
@@ -5375,7 +5375,7 @@
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2019-06-04T16:01:18+00:00"
+            "time": "2019-06-30T19:46:39+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
