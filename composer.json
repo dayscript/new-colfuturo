@@ -12,6 +12,7 @@
         "drupal/block_class": "^1.0",
         "drupal/chosen": "^2.7",
         "drupal/cognito": "^1.0@beta",
+        "drupal/colorbox": "^1.4",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.6",
         "drupal/devel": "^2.0",
