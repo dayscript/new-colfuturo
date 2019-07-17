@@ -36,7 +36,7 @@ h2{
         background: $primary-color;
     }
 }
-.block-views-block-convenios-block-1{
+.block-views-block-convenios-block-1, .block-views-block-convenios-block-2{
     h2{
         padding-left: 0;
         padding-right: 0;
@@ -192,5 +192,19 @@ blockquote {
         color: $white;
         margin-bottom: 0;
         line-height: 1.2;
+    }
+}
+
+//paginador infinito
+ul.js-pager__items.pager{
+    margin-left: 0;
+    list-style-type: disc;
+    text-align: center;
+    li{
+        list-style: none;
+        a.button{
+            color: $secondary-color;
+            color: $white;
+        }
     }
 }

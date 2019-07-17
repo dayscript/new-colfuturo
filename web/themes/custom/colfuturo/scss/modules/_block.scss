@@ -384,6 +384,32 @@ h2{
 }
 
 //COnvenios
+.block-views-block-convenios-block-1 {
+header {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+    form#views-exposed-form-convenios-block-1 {
+        border-bottom: 1px solid $light-gray;  
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+        width: 100%;
+        .form-item-field-convenio-pais-target-id {
+            padding-right: 0.7rem;
+            display: inline-block;
+            float: left;
+            width: 50%
+        }
+        .form-item-field-tipo-de-apoyo-value{
+            padding-left: 0.7rem;
+            display: inline-block;
+            float: left;
+            padding-right: 0.7rem;
+            width: 50%
+        }
+    }
+}
 .convenio.views-row {
     border-bottom: 1px solid $light-gray;
     padding-bottom: 2rem;
