@@ -54,6 +54,12 @@
                     left: 0;
                     position: absolute;
                 }
+                &:hover{
+                    &:after{
+                        left: 10px;
+                        transition: ease all 0.4s;
+                    }
+                }
             }
         }
     }
@@ -164,7 +170,8 @@
 }
     
 //Bloque beneficiarios
-.block-views-block-beneficiarios-block-1, .block-views-block-beneficiarios-block-2{
+.block-views-block-beneficiarios-block-1, .block-views-block-beneficiarios-block-2, .block-views-block-beneficiarios-block-3{
+    margin-bottom: 1.2rem;
     header {
         font-size: 1.2rem;
     }
@@ -173,8 +180,34 @@
             margin-bottom: 1rem;
         }
     }
+    .video-embed-field-launch-modal {
+        margin-bottom: 1rem;
+        cursor: pointer;
+        position: relative;
+        &:after{
+            position: absolute;
+            content: "";
+            width: 89px;
+            height: 89px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(../images/player.png);
+            transform: translateY(-50%);
+        }
+        &:before{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.36);
+            width: 100%;
+            height: 100%;
+        }
+    }
     .views-field-title{
-        color: $primary-color;
+        color: $black;
     }
     .views-field.views-field-body {
         font-size: 0.9rem;
@@ -208,10 +241,12 @@ h2{
                 color: $black;
                 margin-bottom: 0.4rem;
                 margin-top: 0.4rem;
+                text-decoration: none;
             }
         }
         .views-field-field-tags, .views-field-created{
             color: $medium-gray;
+            font-size: 0.9rem;
         }
         footer {
             margin-top: 2rem;
@@ -238,6 +273,12 @@ h2{
                     background: url(../images/more.png);
                     text-indent: -10000px;
                 }
+                &:hover{
+                    &:after{
+                        left: 10px;
+                        transition: ease all 0.4s;
+                    }
+                }
             }
         }
     }
@@ -251,6 +292,7 @@ h2{
 //Submenu
 .submenu{
     background: $light-gray;
+    padding-bottom: 1.6rem;
     h2{
         font-size: 1.4rem;
         letter-spacing: 0;
@@ -268,6 +310,11 @@ h2{
                 width: 100%;
             a{
                 padding: 1rem 1.6rem;
+                text-decoration: none;
+                color: $gray;
+                &:hover{
+                    color: $primary-color;
+                }
             }
         }
     }
@@ -327,14 +374,14 @@ h2{
             background: url(../images/share.png);
         }
     }
-    a.button.secondary {
+    a.button {
         position: absolute;
         bottom: 1em;
         left: 0;
         right: 0;
         margin: auto;
         display: inline-block;
-        width: 200px;
+        width: 160px;
     }
     h3 {
         font-size: 1.4rem;
@@ -460,4 +507,113 @@ header {
     a{
         color: $secondary-color;
     }
+}
+//VIdeos convocatorias
+.block-views-block-videos-convocatorias-block-1, .block-views-block-videos-convocatorias-block-2, .block-views-block-videos-convocatorias-block-3{
+    background: $light-gray;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    .video-embed-field-launch-modal {
+        margin-bottom: 1rem;
+        cursor: pointer;
+        position: relative;
+        &:after{
+            position: absolute;
+            content: "";
+            width: 89px;
+            height: 89px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(../images/player.png);
+            transform: translateY(-50%);
+        }
+        &:before{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.36);
+            width: 100%;
+            height: 100%;
+        }
+    }
+    footer{
+    border-bottom: 1px solid $medium-gray;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    h2{
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+        &:before{
+            display: none;
+        }
+    }
+    }
+    h2{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    h3{
+        font-size: 1.2rem;
+    }
+    .views-field.views-field-field-video {
+        min-height: 270px;
+    }
+}
+
+//Bloque gestion den cifras
+#block-gestioncifras{
+    background: $light-gray;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    h2{
+        padding-left: 0;
+    }
+    img {
+        margin-bottom: 1.6rem;
+    }
+}
+
+//Calendario
+.block-views-block-calendario-convocatorias-block-1, .block-views-block-calendario-convocatorias-block-2 {
+    background: $light-gray;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    display: inline-block;
+    width: 100%;
+    h2{
+        padding-left: 0;
+    } 
+    form#views-exposed-form-calendario-convocatorias-block-1{
+        width: 50%;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+        @media only screen and (max-width: 600px){
+            width: 100%;
+        }
+    }
+    .label{
+        background: none;
+        padding: 0;
+        color: $gray;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    .fecha{
+        font-size: 1.4rem;
+        color: $black;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+}
+
+//Cronograma planeacion de estudios
+#block-cronogramadeplaneaciondeestudios{
+    margin-bottom: 2rem;
 }

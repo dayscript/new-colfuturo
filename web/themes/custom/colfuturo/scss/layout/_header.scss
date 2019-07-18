@@ -4,23 +4,40 @@
     a{
         font-size: 0.8em;
         color: $white;
+        text-decoration: none;
     }
     #block-socialmedialinks{
         ul{
             margin-bottom: 0;
             margin-left: 0;
+            a{
+                &:hover{
+                    color: $secondary-color;
+                }
+            }
         }
     }
 }
 section#block-homemenu {
+    font-size: 1rem;
     @media only screen and (max-width: 600px){
         padding: 0.8rem 0;
+    }
+    a{
+        &.is-active {
+            background: $primary-color;
+        }
+    }
+    &.columns{
+        padding-right: 0;
+        padding-left: 0;
     }
 }
 #block-homemenu{
     ul#superfish-home-menu-accordion{
         a {
             padding: 1.6em 0em;
+            text-decoration: none;
         }
     }
 }
@@ -66,6 +83,7 @@ section#block-logoblanco-2 {
             a{
                 font-size: 1em;
                 color: $gray; 
+                text-decoration: none;
                 &:hover{
                     color: $primary-color;
                     background: $white;
@@ -243,6 +261,7 @@ a#superfish-main-toggle{
             color: $white;
             a{
                 color: $white;
+                text-decoration: none;
             }
             @media only screen and (max-width: 600px){
                 padding-right: 0;
@@ -259,8 +278,11 @@ a#superfish-main-toggle{
                 padding: 0.6rem 1rem;
                 color: $white;
                 border-radius: 8px;
+                text-decoration: none;
                 &:hover{
                     color: $white;
+                    background: $secondary-color;
+                    transition: all ease 0.6s;
                 }
             }
         }

@@ -36,7 +36,7 @@ h2{
         background: $primary-color;
     }
 }
-.block-views-block-convenios-block-1, .block-views-block-convenios-block-2{
+.block-views-block-convenios-block-1, .block-views-block-convenios-block-2, .block-views-block-beneficiarios-block-3, #block-cronogramadeplaneaciondeestudios{
     h2{
         padding-left: 0;
         padding-right: 0;
@@ -51,15 +51,15 @@ h2{
 
 }
 .padding-top{
-    padding-top: 80px; 
+    padding-top: 60px; 
     @media only screen and (max-width: 600px){
-        padding-top: 30px;
+        padding-top: 20px;
     }
 }
 .padding-bottom{
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     @media only screen and (max-width: 600px){
-        padding-bottom: 30px;
+        padding-bottom: 20px;
     }
 }
 
@@ -155,6 +155,9 @@ select {
 hr{
     border-bottom: 1px solid $light-gray;
     margin: 2.2rem auto;
+    @media only screen and (max-width: 600px){
+        margin: 1rem auto;
+    }
 }
 //Bullets
 #block-colfuturo-content{
@@ -208,3 +211,12 @@ ul.js-pager__items.pager{
         }
     }
 }
+//Link
+a{
+    color: $secondary-color;
+    &:hover{
+        color: #127aae;
+        text-decoration: underline;
+    }
+}
+//Boton secundario

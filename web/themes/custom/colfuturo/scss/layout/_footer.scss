@@ -45,6 +45,11 @@ footer.bottom-bar {
     }
     ul.social-media-links--platforms.platforms.inline.horizontal{
         margin-left: 0;
+        a{
+            &:hover{
+                color: $secondary-color;
+            }
+        }
     }
     nav#block-menufooter {
         @media only screen and (max-width: 600px){
