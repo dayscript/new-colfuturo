@@ -11,6 +11,7 @@
         "drupal/bg_image_formatter": "^1.10",
         "drupal/block_class": "^1.0",
         "drupal/chosen": "^2.7",
+        "drupal/ckeditor_accordion": "^1.2",
         "drupal/cognito": "^1.0@beta",
         "drupal/colorbox": "^1.4",
         "drupal/console": "^1.0.2",
