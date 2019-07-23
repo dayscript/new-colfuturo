@@ -36,7 +36,7 @@ h2{
         background: $primary-color;
     }
 }
-.block-views-block-convenios-block-1, .block-views-block-convenios-block-2, .block-views-block-beneficiarios-block-3, #block-cronogramadeplaneaciondeestudios, .block-views-block-servicios-block-1{
+.block-views-block-convenios-block-1, .block-views-block-convenios-block-2, .block-views-block-beneficiarios-block-3, #block-cronogramadeplaneaciondeestudios, .block-views-block-servicios-block-1, #block-articulos, .block-views-block-terminos-de-ayuda-block-1{
     h2{
         padding-left: 0;
         padding-right: 0;
@@ -160,7 +160,7 @@ hr{
     }
 }
 //Bullets
-#block-colfuturo-content{
+#block-colfuturo-{
 .field-node--body {
     ul{
         li{
@@ -181,6 +181,25 @@ hr{
     }
 }
 }
+#block-articulos{
+        ul{
+            li{
+                list-style: none;
+                position: relative;
+                padding: 0.4rem 1.2em;
+                &:after{
+                    position: absolute;
+                    background: url(../images/bullet.png);
+                    width: 9px;
+                    height: 14px;
+                    content: "";
+                    left: 0;
+                    top: 11px;
+        
+                }
+            }
+        }
+    }
 
 //Destacado - Citas - Blocquote
 blockquote {
@@ -263,8 +282,6 @@ $timeline-item-card-radius: $global-radius;
   }
 
   a {
-    color: $timeline-item-font-color;
-    font-weight: bold;
     transition: $timeline-transition;
 
     &:hover {
@@ -302,7 +319,7 @@ $timeline-item-card-radius: $global-radius;
     }
 
     .timeline-content {
-      padding: 20px;
+      padding: 0px 20px 20px 20px;
       text-align: right;
       transition: $timeline-transition;
       width: 94%;
@@ -323,8 +340,7 @@ $timeline-item-card-radius: $global-radius;
       }
 
       p {
-        font-size: 16px;
-        line-height: 1.4;
+        font-size: 16px; 
         margin-bottom: 0;
       }
 
@@ -377,5 +393,23 @@ $timeline-item-card-radius: $global-radius;
     }
   }
 }
-
+.block-colfuturo-content{
+    margin-bottom: 1rem;
+}
+//Descargable
+a.descargable{
+    position: relative;
+    color: $secondary-color;
+    padding-left: 30px;
+    padding-top: 4px;
+    &:after{
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 23px;
+        background: url(../images/descarga.png);
+        top: 0;
+        left: 1px;
+    }
+}
 

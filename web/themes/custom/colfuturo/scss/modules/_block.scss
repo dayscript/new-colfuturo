@@ -323,6 +323,9 @@ h2{
             ul{
                 background: #f7f7f7;
                 margin-left: 0;
+                li{
+                    margin-left: 1rem;
+                }
             }
         }
     }
@@ -469,6 +472,10 @@ header {
     border-bottom: 1px solid $light-gray;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+    h2{
+        font-size: 1.8rem; 
+    }
+
     h3{
         font-size: 1.4rem; 
         margin-bottom: 0;
@@ -514,6 +521,13 @@ header {
     }
     a{
         color: $secondary-color;
+    }
+}
+.block-views-block-convenios-block-2{
+    form#views-exposed-form-convenios-block-2 {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: 1rem; 
     }
 }
 //VIdeos convocatorias
@@ -622,21 +636,91 @@ header {
 }
 //Servicios - asesoria
 .block-views-block-servicios-block-1{
+    background: $light-gray;
+    padding: 2rem;
     .views-row {
         padding-bottom: 1rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid $light-gray;
-    }
-    footer{
-        margin-bottom: 1rem;
-        display: inline-block;
-        width: 100%;
-        li{
-            list-style: none;
+        border-bottom: 1px solid $medium-gray; 
+        h2{
+            font-size: 1.8rem; 
         }
     }
+}
+#block-articulos{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 //Cronograma planeacion de estudios
 #block-cronogramadeplaneaciondeestudios{
     margin-bottom: 2rem;
+}
+
+//Categorias de noticias
+.section-categorias-noticias{
+    .field-node--node-post-date{
+        color: $medium-gray;
+        font-size: 0.9rem;
+    }
+    .field-node--field-categoria{
+        font-size: 0.9rem;
+        ul.shs.shs-linked{
+            line-height: 0;
+            li{
+                list-style: none;
+            }
+        }
+    }
+}
+//Detalle de noticias
+.section-noticias-de-colfuturo{
+    .block-colfuturo-content {
+            padding-bottom: 60px;
+            padding-top: 60px; 
+            padding-left: 12rem;
+            padding-right: 12rem;
+            @media only screen and (max-width: 600px){
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 0.9rem;
+                padding-right: 0.9rem;
+            }
+            .field-node--field-image{
+                img{
+                    margin-bottom: 2rem;
+                    margin-top: 1rem;
+                    @media only screen and (max-width: 600px){
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+            .field-node--field-categoria {
+                display: inline-block;
+                float: left;
+                margin-right: 1rem;
+                font-size: 0.9rem;
+            }
+            .field-node--node-post-date {
+                color: $medium-gray;
+                font-size: 0.9rem;
+            }
+    }
+}
+//GLosario
+.block-views-block-terminos-de-ayuda-block-1 {
+    background: $light-gray;
+    padding: 2rem; 
+    h3{
+        background: $dark-gray;
+        padding: 0.5rem;
+        color: $white;
+    }
+    h4 {
+        display: inline-block;
+        color: black;
+        margin-top: 1rem;
+    }
+    .views-field-body{
+        margin-bottom: 1rem;
+    }
 }
