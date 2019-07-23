@@ -315,6 +315,14 @@ h2{
                 &:hover{
                     color: $primary-color;
                 }
+                &.is-active{
+                    background: $primary-color;
+                    color: $white;
+                }
+            }
+            ul{
+                background: #f7f7f7;
+                margin-left: 0;
             }
         }
     }
@@ -612,7 +620,22 @@ header {
         font-weight: 500;
     }
 }
-
+//Servicios - asesoria
+.block-views-block-servicios-block-1{
+    .views-row {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $light-gray;
+    }
+    footer{
+        margin-bottom: 1rem;
+        display: inline-block;
+        width: 100%;
+        li{
+            list-style: none;
+        }
+    }
+}
 //Cronograma planeacion de estudios
 #block-cronogramadeplaneaciondeestudios{
     margin-bottom: 2rem;
