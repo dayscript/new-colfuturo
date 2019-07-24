@@ -412,4 +412,44 @@ a.descargable{
         left: 1px;
     }
 }
-
+//Acordeones
+.ckeditor-accordion-container{
+    margin: 2rem 0;
+    dl.styled {
+        border: 0px solid !important;
+        dt{
+            a{
+                background: $light-gray;
+                border-bottom: 1px solid $medium-gray;
+                color: $gray;
+                font-weight: normal;
+            }
+            span.ckeditor-accordion-toggle{
+                &:after{
+                    background: $primary-color;
+                }
+                &:before{
+                    background: $primary-color;
+                }
+            }
+        }
+        dt.active{
+            a{
+                background: $primary-color;
+                color: $white;
+                font-weight: normal;
+            }
+            span.ckeditor-accordion-toggle{
+                &:after{
+                    background: $white;
+                }
+                &:before{
+                    background: $white;
+                }
+            }
+        }
+        dd{
+            padding: 2rem 0.6rem;
+        }
+    }
+}
