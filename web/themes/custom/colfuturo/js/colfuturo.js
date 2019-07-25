@@ -12,7 +12,7 @@
     attach: function (context, settings) {
       //alert("I'm alive!");
 		jQuery(window).scroll(function() {
-			console.log(jQuery(window).scrollTop());
+			//console.log(jQuery(window).scrollTop());
 		    if (jQuery(window).scrollTop() > 706) {
 					jQuery("#sidebar-first").addClass("submenu-fixed");
 		    } else {

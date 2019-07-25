@@ -333,8 +333,12 @@ h2{
 .submenu-fixed{
     position: fixed;
     top: 0;
-    left: 13.2%;
-    width: 24.5%;
+    left: 51.1%;
+    margin-left: -49.5%;
+    @media only screen and (min-width: 1400px){
+        margin-left: -45rem;
+        width: 465px;
+    }
 }
 //Eventos
 #block-nextevents{
