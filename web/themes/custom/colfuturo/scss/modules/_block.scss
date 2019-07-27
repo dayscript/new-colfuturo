@@ -76,7 +76,8 @@
     a{
         color: $secondary-color !important;
         &:hover{
-            color: $dark-blue !important;
+            color: $primary-color !important;
+            transition: all ease 0.3s;
         }
     }
     .info{
@@ -207,7 +208,7 @@
         }
     }
     .views-field-title{
-        color: $black;
+        color: $primary-color;
     }
     .views-field.views-field-body {
         font-size: 0.9rem;
@@ -226,7 +227,7 @@ h2{
 .block-views-block-noticias-block-1, #block-colfuturo-content{
     .noticia{
         position: relative;
-        min-height: 40rem;
+        min-height: 37rem;
         margin-bottom: 1rem;
         @media only screen and (max-width: 600px){
             min-height: 35rem;
@@ -324,7 +325,32 @@ h2{
                 background: #f7f7f7;
                 margin-left: 0;
                 li{
-                    margin-left: 1rem;
+                    a{
+                        padding-left: 3rem;
+                        position: relative; 
+                        line-height: 1.6rem;
+                        &.active{
+                            background: $light-gray;
+                            &:after{
+                                content: "•";
+                                color: $primary-color;
+                                position: absolute;
+                                left: 24px;
+                                top: 18px;
+                                font-style: 3rem;
+                                font-size: 44px;
+                            }
+                        }
+                        &:after{
+                            content: "•";
+                            color: $light-gray;
+                            position: absolute;
+                            left: 24px;
+                            top: 18px;
+                            font-style: 3rem;
+                            font-size: 44px;
+                        }
+                    }
                 }
             }
         }
@@ -333,7 +359,7 @@ h2{
 .submenu-fixed{
     position: fixed;
     top: 0;
-    left: 51.1%;
+    left: 50%;
     margin-left: -49.5%;
     @media only screen and (min-width: 1400px){
         margin-left: -45rem;

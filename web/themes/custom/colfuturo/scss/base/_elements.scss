@@ -234,8 +234,8 @@ ul.js-pager__items.pager{
 a{
     color: $secondary-color;
     &:hover{
-        color: #127aae;
-        text-decoration: underline;
+        color: $primary-color;
+        transition: all ease 0.2s;
     }
 }
 //Timeline
@@ -285,8 +285,8 @@ $timeline-item-card-radius: $global-radius;
     transition: $timeline-transition;
 
     &:hover {
-      box-shadow: 0 1px 0px 0px $timeline-item-font-color;
       transition: $timeline-transition;
+      text-decoration: none;
     }
   }
 
@@ -411,6 +411,10 @@ a.descargable{
         top: 0;
         left: 1px;
     }
+    &:hover{
+      color: $primary-color;
+      transition: all ease 0.2s;
+  }
 }
 //Acordeones
 .ckeditor-accordion-container{
@@ -452,4 +456,47 @@ a.descargable{
             padding: 2rem 0.6rem;
         }
     }
+}
+//Buscador
+section#block-formularioexpuestobuscadorpage-1{
+    background: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    form#views-exposed-form-buscador-page-1 {
+        max-width: 80.16304rem;
+        margin-right: auto;
+        margin-left: auto;
+        right: 0;
+        left: 0;
+        top: 290px;
+        z-index: 10;
+        input[type="text"], [type='text']{
+            border-radius: 0;
+            border: 0;
+            border-bottom: 1px solid #db2820;
+            box-shadow: none;
+            color: #3e3e3e;
+            background: rgba(0,0,0,0);
+            font-size: 1.6rem;
+            padding-bottom: 18px;
+        }
+    }
+}
+#views-exposed-form-buscador-page-1 {
+  position: relative;
+  .form-actions {
+    #edit-submit-buscador {
+      position: absolute;
+      bottom: 8px;
+      right: 0;
+      margin: 0;
+      background: rgba(230, 15, 75, 0) url("../images/search.png") no-repeat center center;
+      text-indent: -99999px;
+      width: 44px;
+    }
+  }
 }

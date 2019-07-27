@@ -20,6 +20,10 @@ footer.bottom-bar {
     }
     a{
         color: $white;
+        &:hover{
+            color: $primary-color;
+            transition: all ease 0.3s;
+        }
     }
     #block-menufooter{
         ul{

@@ -1,16 +1,20 @@
 //Metaheader
 .meta-header-wrapper{
     background: $dark-gray;
-    a{
-        font-size: 0.8em;
-        color: $white;
-        text-decoration: none;
+    ul.sf-menu{
+        a{
+            font-size: 0.8em;
+            color: $white;
+            text-decoration: none;
+            padding: 1em 1.2em !important;
+        }
     }
     #block-socialmedialinks{
         ul{
             margin-bottom: 0;
             margin-left: 0;
-            a{
+            a{ 
+                color: $white;
                 &:hover{
                     color: $secondary-color;
                 }
@@ -21,7 +25,7 @@
 section#block-homemenu {
     font-size: 1rem;
     @media only screen and (max-width: 600px){
-        padding: 0.8rem 0;
+        padding: 0;
     }
     a{
         &.is-active, &.active-trail{

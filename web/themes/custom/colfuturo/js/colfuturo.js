@@ -19,7 +19,25 @@
 					jQuery("#sidebar-first").removeClass("submenu-fixed");
 		    }
 		});
-    }
+		jQuery('.submenu ul li ul li a').on('click', function (e) {
+			jQuery('.submenu ul li ul li a').each(function () {
+				jQuery(this).removeClass('active');
+			})
+			jQuery(this).addClass('active');
+			var target = this.hash;
+			jQuerytarget = jQuery(target);
+			jQuery('html, body').stop().animate({
+				'scrollTop': jQuerytarget.offset().top+2
+			}, 800, 'swing', function () {
+			});
+		});
+		/**
+		* Bloque de búsqueda
+		**/
+		jQuery('.search').click(function(e) {
+			e.preventDefault();
+			jQuery('.searchBox').toggleClass('invisible');
+		});
+	}
   };
-
 })(jQuery, Drupal);
