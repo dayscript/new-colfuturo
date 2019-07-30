@@ -69,6 +69,13 @@ header.header-page{
         position: relative;
     }
 }
+//Menu Fixed
+header.header-fixed{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 5;
+}
 section#block-logoblanco-2 {
     z-index: 3;
     margin-top: 7px;

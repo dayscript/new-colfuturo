@@ -13,6 +13,11 @@
       //alert("I'm alive!");
 		jQuery(window).scroll(function() {
 			//console.log(jQuery(window).scrollTop());
+		    if (jQuery(window).scrollTop() > 37) {
+					jQuery("header.header-page").addClass("header-fixed");
+		    } else {
+					jQuery("header.header-page").removeClass("header-fixed");
+		    }
 		    if (jQuery(window).scrollTop() > 706) {
 					jQuery("#sidebar-first").addClass("submenu-fixed");
 		    } else {
