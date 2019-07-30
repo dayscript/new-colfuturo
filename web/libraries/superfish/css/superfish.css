@@ -123,9 +123,9 @@ ul.sf-menu li.sfHover > span.nolink > .sf-sub-indicator {
 ul.sf-menu.sf-horizontal.sf-shadow ul,
 ul.sf-menu.sf-vertical.sf-shadow ul,
 ul.sf-menu.sf-navbar.sf-shadow ul ul {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 ul.sf-menu.sf-shadow ul.sf-shadow-off {
   -webkit-box-shadow: none;
@@ -315,7 +315,7 @@ ul.sf-menu.sf-accordion ul {
 }
 ul.sf-menu.sf-accordion.sf-expanded,
 ul.sf-menu.sf-accordion li.sf-expanded > ul {
-  left: auto  !important;
+  left: auto !important;
   position: relative;
   top: auto !important;
 }

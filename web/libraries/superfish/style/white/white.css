@@ -1,6 +1,6 @@
 ul.sf-menu.sf-style-white {
   float: left;
-  margin-bottom: 0em;
+  margin-bottom: 1em;
   padding: 0;
 }
 ul.sf-menu.sf-style-white.sf-navbar {
@@ -40,8 +40,7 @@ ul.sf-menu.sf-style-white.sf-navbar {
 }
 ul.sf-menu.sf-style-white li li,
 ul.sf-menu.sf-style-white.sf-navbar > li > ul {
-  background: #f4f4f4;
-  top: 2rem;
+  background: #f7f7f7;
 }
 ul.sf-menu.sf-style-white li li li {
   background: #f4f4f4;
@@ -62,7 +61,7 @@ ul.sf-menu.sf-style-white span.nolink:hover {
 }
 div.sf-accordion-toggle.sf-style-white a {
   background: #210c02;
-  border: 0px solid #381301;
+  border: 1px solid #381301;
   color: #fff;
   display: inline-block;
   font-weight: bold;
@@ -83,7 +82,7 @@ div.sf-accordion-toggle.sf-style-white  > a:after {
 }
 div.sf-accordion-toggle.sf-style-white a.sf-expanded,
 ul.sf-menu.sf-style-white.sf-accordion li.sf-expanded {
-  background: none !important;
+  background: #52250f;
 }
 div.sf-accordion-toggle.sf-style-white a.sf-expanded,
 ul.sf-menu.sf-style-white.sf-accordion li.sf-expanded > a,

@@ -45,11 +45,7 @@ section#block-homemenu {
         }
     }
 }
-
-
-
 //logo
-
 section#block-colfuturo-branding {
     margin-top: 18px; 
     margin-bottom: 34px;
@@ -69,13 +65,29 @@ header.header-page{
         position: relative;
     }
 }
+
+
 //Menu Fixed
-header.header-fixed{
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: 5;
+.header-fixed{
+    header.header-page {
+        z-index: 10;
+        left: 0;
+        right: 0;
+        width: auto;
+        padding: 0.8em 0em 0em 0;
+        background: $white;
+        top: 0;
+        position: fixed;
+        transition: ease-in-out all 0.3s;
+        -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
+        -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
+        box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
+    }
 }
+
+
+
+
 section#block-logoblanco-2 {
     z-index: 3;
     margin-top: 7px;
@@ -232,15 +244,12 @@ li.sf-clone-parent {
         text-transform: none;
     }
 }
-
 a#superfish-main-toggle{
     span{
         display: none;
     }
 }
-
 //Ajustes menu mobile
-
 div.sf-accordion-toggle.sf-style-white a {
     background: none;
     border: 0px;
@@ -253,55 +262,54 @@ a#superfish-main-toggle{
             font-weight: 500;
         }
 }
-
 //Superbanner
 .superbanner{
-        position: absolute;
-        max-width: 87.5rem;
-        margin-right: auto;
-        margin-left: auto;
-        z-index: 4;
-        left: 0;
-        right: 0;
-        bottom: 2rem; 
-        transform: translateY(-50%);
-        padding-right: 0.7rem;
-        padding-left: 0.7rem;
-        h1{
-            padding-right: 46%;
+    position: absolute;
+    max-width: 87.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    bottom: 2rem; 
+    transform: translateY(-50%);
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    h1{
+        padding-right: 46%;
+        color: $white;
+        a{
             color: $white;
-            a{
-                color: $white;
-                text-decoration: none;
-            }
-            @media only screen and (max-width: 600px){
-                padding-right: 0;
-            }
+            text-decoration: none;
         }
-        .resume{
+        @media only screen and (max-width: 600px){
+            padding-right: 0;
+        }
+    }
+    .resume{
+        color: $white;
+        font-size: 1.2em;
+        margin-bottom: 1.2rem;
+    }
+    .enlace.link {
+        a{
+            background: $primary-color;
+            padding: 0.6rem 1rem;
             color: $white;
-            font-size: 1.2em;
-            margin-bottom: 1.2rem;
-        }
-        .enlace.link {
-            a{
-                background: $primary-color;
-                padding: 0.6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            &:hover{
                 color: $white;
-                border-radius: 8px;
-                text-decoration: none;
-                &:hover{
-                    color: $white;
-                    background: $secondary-color;
-                    transition: all ease 0.6s;
-                }
+                background: $secondary-color;
+                transition: all ease 0.6s;
             }
         }
+    }
 }
 .block-views-block-encabezado-programas-block-1{
-.views-row{
-    position: relative;
-}
+    .views-row{
+        position: relative;
+    }
 }
 .banner{
     position: relative;

@@ -12,7 +12,25 @@
     attach: function (context, settings) {
       //alert("I'm alive!");
 		jQuery(window).scroll(function() {
-			//console.log(jQuery(window).scrollTop());
+			console.log(jQuery(window).scrollTop());
+		    if (jQuery(window).scrollTop() > 37) {
+		    	jQuery(".off-canvas-content").addClass("header-fixed");
+/*		    	if (Foundation.MediaQuery.is('small only')) {
+		    		
+		    	}else{
+					jQuery(".off-canvas-content").addClass("header-fixed");
+		    	}*/
+		    } else {
+					jQuery(".off-canvas-content").removeClass("header-fixed");
+		    }
+		    if (jQuery(window).scrollTop() > 531) {
+					jQuery("#sidebar-first").addClass("submenu-fixed");
+		    } else {
+					jQuery("#sidebar-first").removeClass("submenu-fixed");
+		    }
+		});
+
+/*		jQuery(window).scroll(function() {
 		    if (jQuery(window).scrollTop() > 37) {
 					jQuery("header.header-page").addClass("header-fixed");
 		    } else {
@@ -23,7 +41,8 @@
 		    } else {
 					jQuery("#sidebar-first").removeClass("submenu-fixed");
 		    }
-		});
+		});*/
+
 		jQuery('.submenu ul li ul li a').on('click', function (e) {
 			jQuery('.submenu ul li ul li a').each(function () {
 				jQuery(this).removeClass('active');

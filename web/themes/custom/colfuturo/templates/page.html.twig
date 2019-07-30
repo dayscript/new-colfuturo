@@ -80,7 +80,7 @@
         {% endif %}
       {% endif %}
 
-      <header class="header-page row" role="banner" aria-label="{{ 'Site header'|t }}">
+      <header class="header-page" role="banner" aria-label="{{ 'Site header'|t }}">
         {% if linked_site_name or linked_logo %}
           <div class="large-2 columns">
             {% if linked_logo %}
@@ -96,7 +96,7 @@
           </div>
         {% endif %}
         {% if page.header %}
-          <div class="large-12 columns">
+          <div class="row">
             {{ page.header }}
           </div>
         {% endif %}
