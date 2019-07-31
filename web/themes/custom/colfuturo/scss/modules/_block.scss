@@ -23,6 +23,7 @@
     .info{
         padding: 24px;
         background: $light-gray;
+        min-height: 250px;
         .title{
             font-weight: 500;
             font-size: 1.5em;
@@ -181,10 +182,14 @@
             margin-bottom: 1rem;
         }
     }
+
     .video-embed-field-launch-modal {
         margin-bottom: 1rem;
         cursor: pointer;
         position: relative;
+        img{
+            min-height: 246px;
+        }
         &:after{
             position: absolute;
             content: "";
@@ -358,7 +363,7 @@ h2{
 }
 .submenu-fixed{
     position: fixed;
-    top: 120px;
+    top: 76px;
     left: 50%;
     margin-left: -49.5%;
     @media only screen and (min-width: 1400px){
@@ -510,6 +515,7 @@ header {
     margin-bottom: 2rem;
     h2{
         font-size: 1.8rem; 
+        padding-left: 0;
     }
 
     h3{
@@ -758,5 +764,53 @@ header {
     }
     .views-field-body{
         margin-bottom: 1rem;
+    }
+}
+
+//SImulador CB
+#block-simuladorcreditobeca{
+h2{
+    padding-left: 0;
+}
+}
+#simuladorCB{
+    margin-bottom: 2rem;
+    label.button.expanded{
+        [type='radio'] {
+            display: none !important;
+        }
+    }
+    span#valueSlider {
+        display: inline-block;
+        white-space: nowrap;
+        bottom: 2rem;
+        position: absolute;
+    }
+    .meses{
+        margin-bottom: 2rem;
+    }
+    h5{
+        color: $black;
+        margin-top: 1rem;
+    }
+    .container-data {
+        background: $dark-gray;
+        padding: 1.6rem;
+        color: $white;
+        h5{
+            color: $white;
+            margin-top: 0rem;
+        }
+        span{
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        span#totalDescuento{
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+    }
+    hr {
+        margin: 1rem 0 2rem 0;
     }
 }

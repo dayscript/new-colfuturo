@@ -160,7 +160,7 @@ hr{
     }
 }
 //Bullets
-#block-colfuturo-{
+#block-colfuturo-content{
 .field-node--body {
     ul{
         li{
@@ -499,4 +499,10 @@ section#block-formularioexpuestobuscadorpage-1{
       width: 44px;
     }
   }
+}
+
+//Progres bar
+progress[value]::-webkit-progress-bar {
+  background-color: $primary-color !important;
+  border-radius: 2px; 
 }
