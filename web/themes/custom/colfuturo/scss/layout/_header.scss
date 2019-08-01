@@ -1,7 +1,7 @@
 //Metaheader
 .meta-header-wrapper{
     background: $dark-gray;
-    ul.sf-menu{
+    ul.menu{
         a{
             font-size: 0.8em;
             color: $white;
@@ -22,7 +22,7 @@
         }
     }
 }
-section#block-homemenu {
+nav#block-homemenu-4 {
     font-size: 1rem;
     @media only screen and (max-width: 600px){
         padding: 0;
@@ -60,13 +60,13 @@ header.header-page{
     background: $white;
     position: relative;
     @media only screen and (max-width: 600px){
-        background: $primary-color;
-        padding: 0.7rem;
-        position: relative;
+        background: $primary-color !important;
+        padding: 0.7rem !important;
+    }
+    .responsive-menu-toggle-icon span.label{
+        display: none;
     }
 }
-
-
 //Menu Fixed
 header.header-page {
     z-index: 10;
@@ -82,7 +82,6 @@ header.header-page {
     -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
     box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
 }
-
 .header-fixed{
     header.header-page {
         z-index: 10;
@@ -109,17 +108,19 @@ header.header-page {
         }
     }
 }
-
-
-
-
+section#block-responsivemenumobileicon{
+    margin-top: 7px;
+}
+#off-canvas li{
+    width: 100%;
+}
 section#block-logoblanco-2 {
     z-index: 3;
     margin-top: 7px;
     margin-left: 2.2em
 }
 //Menu
-#block-navegacionprincipal {
+#block-nicemenus {
     transition: ease-in-out all 0.4s; 
     padding: 34px 0 0px 0 !important;  
     @media only screen and (max-width: 600px){
@@ -180,10 +181,10 @@ section#block-logoblanco-2 {
     }
     }
 }
-    ul.sf-menu.sf-style-white li, ul {
+    ul.nice-menu-main.menu li, ul {
         background: $white;
     }
-    ul.sf-menu.sf-style-white li li,
+    ul.nice-menu-main.menu li li,
     ul.sf-menu.sf-style-white.sf-navbar > li > ul {
     background: #ffffff !important;
     top: 0rem;
@@ -220,7 +221,7 @@ section#block-logoblanco-2 {
          display: none;
         }
     }
-    ul.sf-menu.sf-horizontal.sf-shadow {
+    ul.nice-menu-main.menu{
         -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
         -moz-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
         box-shadow: 0px 0px 0px rgba(0,0,0,0.5) !important;
@@ -230,7 +231,7 @@ section#block-logoblanco-2 {
         }
     }
 } 
-ul.sf-menu.sf-horizontal.sf-shadow {
+ul.nice-menu-main.menu{
     -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 0px rgba(0,0,0,0.5) !important;

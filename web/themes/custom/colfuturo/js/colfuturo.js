@@ -12,7 +12,7 @@
     attach: function (context, settings) {
       //alert("I'm alive!");
 		jQuery(window).scroll(function() {
-			console.log(jQuery(window).scrollTop());
+			/*console.log(jQuery(window).scrollTop());*/
 		    if (jQuery(window).scrollTop() > 37) {
 		    	jQuery(".off-canvas-content").addClass("header-fixed");
 /*		    	if (Foundation.MediaQuery.is('small only')) {

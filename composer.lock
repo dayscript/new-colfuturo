@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2a1b4a2ee4d64819c3382ec6ad39e93",
+    "content-hash": "1eb1cb72c404198ea5625653f04703d6",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4665,6 +4665,72 @@
             "homepage": "https://www.drupal.org/project/module_filter",
             "support": {
                 "source": "https://git.drupalcode.org/project/module_filter"
+            }
+        },
+        {
+            "name": "drupal/nice_menus",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/nice_menus.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/nice_menus-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "9c490c7ffcbec531e436b9b41e48da6000584165"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1488271683",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Xiukun zhou",
+                    "homepage": "https://www.drupal.org/u/xiukun.zhou",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "davidtrainer",
+                    "homepage": "https://www.drupal.org/user/70776"
+                },
+                {
+                    "name": "vordude",
+                    "homepage": "https://www.drupal.org/user/150473"
+                },
+                {
+                    "name": "wuxiaogu",
+                    "homepage": "https://www.drupal.org/user/2780955"
+                },
+                {
+                    "name": "xiukun.zhou",
+                    "homepage": "https://www.drupal.org/user/2239768"
+                }
+            ],
+            "description": "CSS/jQuery drop-down, drop-right and drop-left menus to be placed in blocks.",
+            "homepage": "https://drupal.org/project/nice_menus",
+            "support": {
+                "source": "http://cgit.drupalcode.org/nice_menus",
+                "issues": "https://drupal.org/project/issues/nice_menus",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -10898,7 +10964,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/cognito": 10,
-        "drupal/feeds": 15
+        "drupal/feeds": 15,
+        "drupal/nice_menus": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
