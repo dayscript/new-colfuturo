@@ -16,3 +16,33 @@
     }
 
 }
+
+nav.submenumobile-fixed{
+    h2{
+        display: none;
+    }
+    .menu{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        display: block;
+        width: auto;
+        margin-bottom: 0;
+        background: #d71924;
+        li{
+            display: inline-block;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: auto;
+            a{
+                color: #adadad;
+            }
+            a.is-active{
+                color: #fff;
+            }
+            ul{
+                display: none;
+            }
+        }
+    }
+}

@@ -11,15 +11,14 @@
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
       //alert("I'm alive!");
-		jQuery(window).scroll(function() {
-			/*console.log(jQuery(window).scrollTop());*/
+      if (Foundation.MediaQuery.is('small only')) {
+      	jQuery("#sidebar-first nav").addClass("submenumobile-fixed");
+		jQuery(".submenu").removeClass("submenu");
+	}else{}
+	jQuery(window).scroll(function() {
+		/*console.log(jQuery(window).scrollTop());*/
 		    if (jQuery(window).scrollTop() > 37) {
 		    	jQuery(".off-canvas-content").addClass("header-fixed");
-/*		    	if (Foundation.MediaQuery.is('small only')) {
-		    		
-		    	}else{
-					jQuery(".off-canvas-content").addClass("header-fixed");
-		    	}*/
 		    } else {
 					jQuery(".off-canvas-content").removeClass("header-fixed");
 		    }
@@ -28,7 +27,7 @@
 		    } else {
 					jQuery("#sidebar-first").removeClass("submenu-fixed");
 		    }
-		});
+	});
 
 /*		jQuery(window).scroll(function() {
 		    if (jQuery(window).scrollTop() > 37) {
