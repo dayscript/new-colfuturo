@@ -13,46 +13,32 @@
       //alert("I'm alive!");
       if (Foundation.MediaQuery.is('small only')) {
       	jQuery("#sidebar-first nav").addClass("submenumobile-fixed");
-		jQuery(".submenu").removeClass("submenu");
-	}else{}
-	jQuery(window).scroll(function() {
-		/*console.log(jQuery(window).scrollTop());*/
-		    if (jQuery(window).scrollTop() > 37) {
-		    	jQuery(".off-canvas-content").addClass("header-fixed");
-		    } else {
-					jQuery(".off-canvas-content").removeClass("header-fixed");
-		    }
+      }else{
+      	jQuery("#sidebar-first nav").addClass("submenu");
+      	jQuery(window).scroll(function() {
+      		if (jQuery(window).scrollTop() > 37) {
+      			jQuery(".off-canvas-content").addClass("header-fixed");
+      		}else{
+      			jQuery(".off-canvas-content").removeClass("header-fixed");
+      		}
 		    if (jQuery(window).scrollTop() > 531) {
 					jQuery("#sidebar-first").addClass("submenu-fixed");
 		    } else {
 					jQuery("#sidebar-first").removeClass("submenu-fixed");
 		    }
-	});
-
-/*		jQuery(window).scroll(function() {
-		    if (jQuery(window).scrollTop() > 37) {
-					jQuery("header.header-page").addClass("header-fixed");
-		    } else {
-					jQuery("header.header-page").removeClass("header-fixed");
-		    }
-		    if (jQuery(window).scrollTop() > 706) {
-					jQuery("#sidebar-first").addClass("submenu-fixed");
-		    } else {
-					jQuery("#sidebar-first").removeClass("submenu-fixed");
-		    }
-		});*/
-
-		jQuery('.submenu ul li ul li a').on('click', function (e) {
-			jQuery('.submenu ul li ul li a').each(function () {
-				jQuery(this).removeClass('active');
-			})
-			jQuery(this).addClass('active');
-			var target = this.hash;
-			jQuerytarget = jQuery(target);
-			jQuery('html, body').stop().animate({
-				'scrollTop': jQuerytarget.offset().top+2
-			}, 800, 'swing', function () {
-			});
+      	});
+      }
+      jQuery('.submenu ul li ul li a').on('click', function (e) {
+      	jQuery('.submenu ul li ul li a').each(function () {
+      		jQuery(this).removeClass('active');
+      	})
+      	jQuery(this).addClass('active');
+      	var target = this.hash;
+      	jQuerytarget = jQuery(target);
+      	jQuery('html, body').stop().animate({
+      		'scrollTop': jQuerytarget.offset().top+2
+      	}, 800, 'swing', function () {
+      	});
 		});
 		/**
 		* Bloque de búsqueda

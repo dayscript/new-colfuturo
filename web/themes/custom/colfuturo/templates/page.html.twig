@@ -164,12 +164,12 @@
       {% endif %}
 
       <div class="row">
-        {% if page.sidebar_first %}
-          <div id="sidebar-first" class="medium-4 columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
+        {% if page.sidebar_first %} 
+          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">  
+            {{ page.sidebar_first }}  
+          </div>  
         {% endif %}
-        <main id="main" class="medium-8 columns" role="main">
+        <main id="main" class="{{ main_grid }} columns" role="main">
           <a id="main-content"></a>
           {% if breadcrumb %} {{ breadcrumb }} {% endif %}
           <section>

@@ -71,8 +71,8 @@ elseif (empty($left) && !empty($right)) {
   $variables['sidebar_sec_grid'] = 'medium-4';
 }
 elseif (!empty($left) && empty($right)) {
-  $variables['main_grid'] = 'medium-8 medium-push-4';
-  $variables['sidebar_first_grid'] = 'medium-4 medium-pull-8';
+  $variables['main_grid'] = 'medium-8';
+  $variables['sidebar_first_grid'] = 'medium-4';
   $variables['sidebar_sec_grid'] = '';
 }
 else {
