@@ -22,7 +22,7 @@
         }
     }
 }
-nav#block-homemenu-4 {
+nav#block-homemenu{
     font-size: 1rem;
     @media only screen and (max-width: 600px){
         padding: 0;
@@ -37,14 +37,14 @@ nav#block-homemenu-4 {
         padding-left: 0;
     }
 }
-#block-homemenu{
+/*#block-homemenu{
     ul#superfish-home-menu-accordion{
         a {
             padding: 1.6em 0em;
             text-decoration: none;
         }
     }
-}
+}*/
 //logo
 section#block-colfuturo-branding {
     margin-top: 18px; 
