@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1eb1cb72c404198ea5625653f04703d6",
+    "content-hash": "ab607f33adab39f51348f4f95e96ea50",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5662,6 +5662,63 @@
             "homepage": "https://www.drupal.org/project/views_infinite_scroll",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_infinite_scroll"
+            }
+        },
+        {
+            "name": "drupal/we_megamenu",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/we_megamenu.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/we_megamenu-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "e96a042f874d13bd87f752f5c6c7bb4e44c4a326"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1550114284",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Hai Nguyen Ngoc (HaiNN)",
+                    "homepage": "https://www.drupal.org/u/hainn",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "WeebPal",
+                    "homepage": "https://www.drupal.org/user/1861072"
+                },
+                {
+                    "name": "buivankim2020",
+                    "homepage": "https://www.drupal.org/user/2959439"
+                }
+            ],
+            "description": "This powerful Drupal module helps you create custom menu, video and Drupal Blocks.",
+            "homepage": "https://www.drupal.org/project/we_megamenu",
+            "support": {
+                "source": "https://git.drupalcode.org/project/we_megamenu",
+                "issues": "https://www.drupal.org/project/issues/we_megamenu"
             }
         },
         {
