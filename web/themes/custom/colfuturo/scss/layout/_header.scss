@@ -48,7 +48,7 @@ nav#block-homemenu{
 //logo
 section#block-colfuturo-branding {
     margin-top: 18px; 
-    margin-bottom: 34px;
+    margin-bottom: 22px;
     @media only screen and (max-width: 600px){
         padding: 16px 0;
     }
@@ -100,12 +100,16 @@ header.header-page {
             padding: 18px 0 0px 0 !important;
         }
         section#block-colfuturo-branding {
-            margin-top: 10px;
-            margin-bottom: 0px;
+            margin-top: 0px;
+            margin-bottom: 13px;
             img{
                 width: 40%;
             }
         }
+    }
+    .block-we-megamenu {
+        transition: all ease 0.4s;
+        margin-top: 1rem; 
     }
 }
 section#block-responsivemenumobileicon{
@@ -120,54 +124,101 @@ section#block-logoblanco-2 {
     margin-left: 2.2em
 }
 //Menu
-#block-nicemenus {
-    transition: ease-in-out all 0.4s; 
-    padding: 34px 0 0px 0 !important;  
-    @media only screen and (max-width: 600px){
-        position: absolute;
-        top: -14px;
+.block-we-megamenu {
+    margin-top: 2.4rem; 
+    .navbar{
+        margin-bottom: 0;
     }
-    ul{
-        float: right;
-        li{
-            a{
-                font-size: 1em;
-                color: $gray; 
-                text-decoration: none;
-                &:hover{
-                    color: $primary-color;
-                    background: $white;
-                }
-                ul{
-                        box-shadow: 0px 0px 0px rgba(0,0,0,0) !important;
-                        li{
-                            a{
+    .container-fluid{
+        background: $white;  
 
-                            }
-                        }
+    }
+    ul.we-mega-menu-ul {
+        float: right;
+        li.we-mega-menu-li {
+            border-left: 0px;
+            a{
+                font-family: $body-font-family;
+                font-weight: 500;
+                font-size: 0.9rem;
+                background-color: $white;
+                padding: 0rem 1.5625rem 0rem 1.5625rem;
+                &:hover{
+                    background-color: none;
+                    color: $primary-color;
                 }
             }
-            a.search{
+            span{
+                font-family: $body-font-family;
+                font-weight: 500;
+                font-size: 0.9rem;
+                background-color: $white;
+                padding: 0rem 1.5625rem 0rem 1.5625rem;
                 position: relative;
-                text-indent: -10000px;
-                display: inline-block;
-                margin-left: 1rem;
-                &::after{
+                &:hover, &:focus{
+                    background-color: none;
+                    color: $primary-color;
+                }
+                &:before{
                     position: absolute;
                     content: "";
                     width: 28px;
                     height: 28px;
-                    background: url(../images/search.png);
-                    top: 0;
-                    left: 0;
-
+                    background: url(../images/arrow-down.png);
+                    top: 50%;
+                    right: 0;
+                    width: 10px;
+                    height: 6px;
                 }
+            }
+            .we-mega-menu-submenu{
+                margin-top: 0.6rem;
+                box-shadow: 0 0px 0px rgba(0,0,0,0.11765) !important;
+                border: 0px solid rgba(0,0,0,0.1);
+                ul{
+                    li{
+                        a{
+                            padding: 0.6rem 1rem;
+                            border-bottom: 0px solid rgba(0,0,0,0.1);
+                            &:hover{
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                }
+                .we-mega-menu-submenu-inner {
+                    min-height: auto;
+                }
+            }
         }
-        a.login{
+        li.search{
             position: relative;
-            text-indent: -10000px;
-            display: inline-block; 
-            margin-left: 1rem;
+            margin-top: -7px;
+            width: 50px;
+            &::after{
+                position: absolute;
+                content: "";
+                width: 28px;
+                height: 28px;
+                background: url(../images/search.png);
+                top: 0;
+                left: 0;
+                cursor: pointer;
+                }
+                a{
+                    text-indent: -10000px;
+                    display: inline-block;
+                    padding: 0rem 0.1rem 0rem 1.5625rem;
+                    width: 50px;
+                    &:hover, &:focus{
+                        background-color: none;
+                    }
+                }
+           }
+           li.login{
+            position: relative;
+            margin-top: -7px;
+            width: 50px; 
             &::after{
                 position: absolute;
                 content: "";
@@ -176,67 +227,25 @@ section#block-logoblanco-2 {
                 background: url(../images/login.png);
                 top: 0;
                 left: 0;
+                cursor: pointer;
 
             }
-    }
-    }
-}
-    ul.nice-menu-main.menu li, ul {
-        background: $white;
-    }
-    ul.nice-menu-main.menu li li,
-    ul.sf-menu.sf-style-white.sf-navbar > li > ul {
-    background: #ffffff !important;
-    top: 0rem;
-    box-shadow: none;
-    }
-    ul#superfish-main-accordion {
-        margin-top: 12px;
-        left: -21px !important;
-        li{
-            background: $dark-gray;
             a{
-                padding: 1.4rem 1rem;
-                color: $white;
-                &:hover{
-                    background: $dark-gray !important;
+                text-indent: -10000px;
+                display: inline-block;
+                padding: 0rem 0.1rem 0rem 1.5625rem;
+                width: 50px;
+                &:hover, &:focus{
+                    background-color: none;
                 }
-
+                &:before{
+                    display: none;
+                }
             }
-            li{
-                background: $dark-gray !important;
-                top: 0rem;
-
-            }
-            a.sf-depth-2{
-                padding-left: 2rem;
-            }
-        }
     }
-    ul.sf-menu .sf-sub-indicator {
-        height: 5px;
-        width: 8px;
-        background: url(../images/indicator.png);
-       &:after{
-         display: none;
-        }
     }
-    ul.nice-menu-main.menu{
-        -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
-        -moz-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
-        box-shadow: 0px 0px 0px rgba(0,0,0,0.5) !important;
-        ul{
-            box-shadow: 0px 0px 0px rgba(0,0,0,0.5) !important; 
-            margin-top: 1rem !important;
-        }
-    }
-} 
-ul.nice-menu-main.menu{
-    -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 0px rgba(0,0,0,0.5) !important;
-    ul{
-        box-shadow: 0px 0px 0px rgba(0,0,0,0.5) !important;
+    .we-mega-menu-ul>.we-mega-menu-li.active-trail>a:hover, .we-mega-menu-ul>.we-mega-menu-li.active-trail>a:focus {
+        background-color: rgba(255, 255, 255, 0);
     }
 }
 nav#block-menusearchloginmobile{
@@ -338,16 +347,19 @@ a#superfish-main-toggle{
     }
     .enlace.link {
         a{
-            background: $primary-color;
-            padding: 0.6rem 1rem;
             color: $white;
-            border-radius: 8px;
             text-decoration: none;
             &:hover{
                 color: $white;
-                background: $secondary-color;
                 transition: all ease 0.6s;
             }
+        }
+    }
+    span.button{
+        background: $primary-color;
+        &:hover{
+            transition: all ease 0.6s;
+            background: $secondary-color;
         }
     }
 }
