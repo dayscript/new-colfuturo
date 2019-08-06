@@ -34,6 +34,7 @@
         "drupal/miniorange_oauth_client": "^2.3",
         "drupal/module_filter": "^3.1",
         "drupal/nice_menus": "^1.0@beta",
+        "drupal/nodeaccess": "^1.0",
         "drupal/owlcarousel": "^1.0",
         "drupal/pathauto": "^1.4",
         "drupal/promote_disable": "^1.0",
