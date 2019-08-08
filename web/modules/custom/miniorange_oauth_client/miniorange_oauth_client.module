@@ -1,0 +1,92 @@
+<?php
+
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController;
+function miniorange_oauth_client_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $UG)
+{
+    global $base_url;
+    if (!empty(\Drupal::config("\x6d\x69\156\x69\157\162\141\x6e\147\x65\x5f\157\x61\x75\x74\150\137\x63\154\151\145\156\164\x2e\163\145\x74\164\x69\x6e\147\163")->get("\x6d\151\x6e\x69\157\162\141\x6e\x67\145\x5f\157\141\165\x74\x68\x5f\143\x6c\x69\145\156\x74\137\142\141\163\145\x5f\x75\x72\x6c"))) {
+        goto P_;
+    }
+    $OK = $base_url;
+    goto V5;
+    P_:
+    $OK = \Drupal::config("\155\x69\x6e\151\157\x72\141\156\147\145\x5f\x6f\141\x75\x74\150\x5f\143\x6c\x69\x65\156\164\56\163\145\x74\x74\151\x6e\147\163")->get("\x6d\x69\156\x69\157\x72\x61\x6e\x67\x65\x5f\157\141\165\x74\150\137\x63\x6c\x69\x65\x6e\164\x5f\x62\141\x73\145\x5f\165\162\154");
+    V5:
+    $W6 = \Drupal::config("\x6d\151\x6e\151\x6f\x72\x61\156\147\x65\x5f\x6f\x61\165\x74\x68\137\143\x6c\x69\x65\156\164\x2e\x73\145\164\x74\151\156\x67\163")->get("\155\151\x6e\151\157\162\x61\x6e\147\145\x5f\157\x61\x75\164\x68\x5f\143\x6c\151\145\156\x74\x5f\x66\157\x72\x63\145\x5f\x61\x75\x74\x68");
+    if (!empty($W6)) {
+        goto r_;
+    }
+    $W6 = FALSE;
+    r_:
+    $KC = \Drupal::config("\x6d\151\x6e\151\x6f\x72\141\156\147\x65\x5f\157\x61\165\x74\x68\x5f\x63\x6c\x69\145\156\164\56\163\145\x74\x74\151\156\147\163")->get("\x6d\x69\156\151\157\x72\141\x6e\x67\x65\137\157\141\x75\164\150\137\x63\154\x69\145\x6e\164\x5f\141\x75\164\x6f\137\x72\x65\x64\151\x72\145\143\x74\137\164\157\137\x69\x64\x70");
+    if (!empty($KC)) {
+        goto Hy;
+    }
+    $KC = FALSE;
+    Hy:
+    $EW = \Drupal::config("\x6d\151\x6e\151\157\x72\x61\x6e\x67\145\x5f\x6f\141\x75\164\150\x5f\143\x6c\x69\x65\156\164\x2e\163\x65\164\164\x69\x6e\147\163")->get("\155\151\x6e\x69\157\x72\141\x6e\x67\x65\x5f\157\141\165\164\150\137\x63\154\x69\x65\156\164\x5f\x65\156\x61\x62\154\x65\137\x62\x61\x63\153\x64\x6f\157\x72");
+    if (!empty($EW)) {
+        goto hw;
+    }
+    $EW = FALSE;
+    hw:
+    $be = $_GET;
+    if (substr($_SERVER["\x52\105\x51\125\105\x53\x54\137\x55\x52\111"], "\x6d\157\x5f\154\x6f\x67\151\x6e") == false) {
+        goto hg;
+    }
+    $CI = true;
+    goto FX;
+    hg:
+    $CI = false;
+    FX:
+    if (!($CI == false)) {
+        goto E9;
+    }
+    if (!($W6 && !\Drupal::currentUser()->isAuthenticated() && !isset($_POST["\x70\x61\163\163"]))) {
+        goto Pb;
+    }
+    if (!(!$EW || !isset($be["\157\x61\x75\164\150\137\143\154\x69\145\156\164\137\154\157\x67\151\156"]) || $be["\x6f\x61\x75\164\x68\x5f\x63\x6c\x69\x65\x6e\164\137\x6c\157\147\x69\156"] != "\146\x61\x6c\163\145")) {
+        goto KW;
+    }
+    miniorange_oauth_clientController::miniorange_oauth_client_mologin();
+    KW:
+    Pb:
+    $qI = '';
+    if (!($UG == "\x75\163\x65\162\x5f\154\157\x67\151\156\x5f\x62\x6c\157\143\153" || $UG == "\165\163\x65\162\x5f\154\x6f\x67\151\156\x5f\x66\x6f\x72\155" && !isset($_POST["\160\141\x73\x73"]))) {
+        goto jw;
+    }
+    if (!isset($be["\x6f\x61\x75\x74\150\137\x63\x6c\x69\x65\156\164\x5f\154\x6f\x67\x69\156"])) {
+        goto FC;
+    }
+    $qI = $be["\x6f\141\165\x74\x68\137\143\154\151\145\x6e\x74\137\154\157\147\151\x6e"];
+    FC:
+    if ($EW) {
+        goto pV;
+    }
+    if (!($KC && !\Drupal::currentUser()->isAuthenticated())) {
+        goto Jm;
+    }
+    miniorange_oauth_clientController::miniorange_oauth_client_mologin();
+    Jm:
+    goto wo;
+    pV:
+    if ($AG && isset($_GET["\x6f\x61\x75\x74\x68\137\x63\154\x69\145\x6e\164\137\154\157\x67\x69\156"]) && $_GET["\x6f\141\x75\164\150\137\x63\154\x69\x65\x6e\164\x5f\x6c\157\147\x69\156"] == "\x66\141\x6c\163\x65") {
+        goto Sa;
+    }
+    if (!($KC && strtolower($qI) != "\146\x61\x6c\x73\x65" && !\Drupal::currentUser()->isAuthenticated())) {
+        goto s_;
+    }
+    miniorange_oauth_clientController::miniorange_oauth_client_mologin();
+    s_:
+    goto eJ;
+    Sa:
+    eJ:
+    wo:
+    $yi = $OK . "\x2f\x6d\x6f\x4c\157\147\x69\x6e";
+    $Bs = \Drupal::config("\x6d\x69\156\151\157\x72\141\x6e\147\x65\x5f\157\141\165\x74\150\137\143\154\151\145\156\x74\56\x73\145\164\164\x69\x6e\x67\x73")->get("\155\x69\x6e\151\157\162\x61\x6e\x67\145\137\x61\x75\x74\150\137\x63\154\x69\x65\x6e\164\137\x61\x70\160\x5f\156\x61\155\145");
+    $form["\x6c\157\147\151\156\165\x72\154"] = array(array("\43\155\x61\162\x6b\x75\x70" => "\74\x61\x20\x68\162\x65\146\75\42" . $yi . "\x22\76\x4c\x6f\x67\151\156\40\165\163\x69\x6e\x67\x20" . $Bs . "\x3c\57\141\76"));
+    jw:
+    E9:
+}
