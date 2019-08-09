@@ -4,6 +4,7 @@
     "require": {
         "cweagans/composer-patches": "^1.6.0",
         "drupal/accordion_menus": "^3.0",
+        "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^1.27",
         "drupal/adminimal_theme": "^1.4",
         "drupal/anchor_link": "^1.6",
