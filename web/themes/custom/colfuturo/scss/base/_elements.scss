@@ -291,7 +291,7 @@ $timeline-item-card-radius: $global-radius;
   }
 
   .timeline-item {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     position: relative;
     @extend %clearfix;
 
@@ -319,7 +319,7 @@ $timeline-item-card-radius: $global-radius;
     }
 
     .timeline-content {
-      padding: 0px 20px 20px 20px;
+      padding: 0px 20px 0px 20px;
       text-align: right;
       transition: $timeline-transition;
       width: 94%;
@@ -505,4 +505,16 @@ section#block-formularioexpuestobuscadorpage-1{
 progress[value]::-webkit-progress-bar {
   background-color: $primary-color !important;
   border-radius: 2px; 
+}
+
+//enlace banners
+.enlace.link {
+  a{
+    background: $primary-color;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    &:hover{
+      background: $secondary-color;
+    }
+  }
 }

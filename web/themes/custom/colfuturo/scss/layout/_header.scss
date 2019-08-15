@@ -53,7 +53,7 @@ section#block-colfuturo-branding {
         padding: 16px 0;
     }
     &.columns{
-        padding-left: 0rem;
+        padding-left: 0.9rem;
     }
 }
 header.header-page{
@@ -361,6 +361,49 @@ a#superfish-main-toggle{
             transition: all ease 0.6s;
             background: $secondary-color;
         }
+    }
+}
+#block-views-block-view-super-banner-home-block-1{
+    .owl-buttons {
+        position: absolute;
+        bottom: 19rem;
+        display: block;
+        width: 100%;
+        text-align: justify;
+        .owl-next {
+            float: right;
+            text-indent: -10000px;
+            position: relative;
+            &:after{
+                position: absolute;
+                top: 0;
+                right: 1rem;
+                content: "";
+                background: url(../images/right.png);
+                width: 55px;
+                height: 38px; 
+            }
+        }
+        .owl-prev {
+            float: left;
+            text-indent: -10000px;
+            position: relative;
+            &:after{
+                position: absolute;
+                top: 0;
+                left: 1rem;
+                content: "";
+                background: url(../images/left.png);
+                width: 55px;
+                height: 38px; 
+            }
+        }
+        div{
+            background: rgba(134, 151, 145, 0)!important;
+        }
+    }
+    .owl-pagination .owl-page.active span {
+        background: $primary-color;
     }
 }
 .block-views-block-encabezado-programas-block-1{

@@ -814,3 +814,87 @@ h2{
         margin: 1rem 0 2rem 0;
     }
 }
+
+//Dashboard
+.path-dashboard{
+    #block-colfuturo-content{
+        margin-top: 2rem;
+    }
+    .apps{
+        border-bottom: 1px solid $light-gray;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        a{
+            color: $gray;
+            .content{
+                background: $light-gray;
+                padding: 1rem;
+                height: 140px;
+                margin-bottom: 2rem;
+                position: relative;
+                .icon{
+                    transform: translateY(50%);
+                    padding-top: 6px;
+                }
+                .info{
+                    padding-top: 0.8rem;
+                    p{
+                        margin-bottom: 0;
+                    }
+                }
+        }
+        &:hover{
+            -webkit-box-shadow: 5px 5px 8px -4px rgba(0,0,0,0.23);
+            -moz-box-shadow: 5px 5px 8px -4px rgba(0,0,0,0.23);
+            box-shadow: 5px 5px 8px -4px rgba(0,0,0,0.23);
+            display: block;
+        }
+    }
+    header{
+        padding-left: 0.9rem !important;
+        padding-right: 0.9rem !important;
+
+}
+}
+}
+#block-paraestudiantesenelexterior{
+    border-bottom: 1px solid $light-gray;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+    h2{
+        &:before{
+            left: 0.9rem;
+        }
+    }
+}
+#block-llameacolfuturodesdeelexterioralcostodellamadalocal{
+    border-bottom: 1px solid $light-gray;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+h2{
+    &:before{
+        left: 0.9rem;
+    }
+}
+.item{
+    height: 200px;
+    margin-bottom: 1rem;
+    p{
+        margin-bottom: 0;
+        font-size: 1.4rem;
+    }
+    .phone{
+        font-size: 1.6rem;
+        color: $black;
+        font-weight: 600;
+    }
+}
+}
+#block-serviciosparabeneficiarios{
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+h2{
+    padding-left: 0;
+    padding-right: 0;
+}
+}
