@@ -121,7 +121,8 @@ section#block-responsivemenumobileicon{
 section#block-logoblanco-2 {
     z-index: 3;
     margin-top: 7px;
-    margin-left: 2.2em
+    margin-left: 1rem;
+    cursor: pointer;
 }
 //Menu
 .block-we-megamenu {
@@ -363,7 +364,7 @@ a#superfish-main-toggle{
         }
     }
 }
-#block-views-block-view-super-banner-home-block-1{
+#block-views-block-view-super-banner-home-block-1{ 
     .owl-buttons {
         position: absolute;
         bottom: 19rem;
@@ -406,6 +407,11 @@ a#superfish-main-toggle{
         background: $primary-color;
     }
 }
+#block-views-block-gestion-en-cifras-block-1, #block-views-block-beneficiarios-block-1, #block-views-block-beneficiarios-block-2{
+    .owl-pagination .owl-page.active span {
+        background: $primary-color;
+    }
+}
 .block-views-block-encabezado-programas-block-1{
     .views-row{
         position: relative;
@@ -444,6 +450,7 @@ a#superfish-main-toggle{
     position: relative;
     @media only screen and (max-width: 600px){
         height: 400px;
+        margin-bottom: 0rem;
     }
     &:after{
         position: absolute;
@@ -461,4 +468,14 @@ a#superfish-main-toggle{
     @media only screen and (max-width: 600px){
         height: 400px;
     }
+}
+
+//Menu contenidos mobile
+#sidebar-first{
+    @media only screen and (max-width: 600px){
+        &.columns {
+            padding-right: 0rem;
+            padding-left: 0rem;
+    }
+}
 }

@@ -27,22 +27,24 @@ nav.submenumobile-fixed{
         white-space: nowrap;
         display: block;
         width: auto;
-        margin-bottom: 0;
-        background: #d71924;
+        margin-bottom: 1rem;
+        background: $primary-color;
         li{
             display: inline-block;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 8px;
             width: auto;
             a{
-                color: #adadad;
+                color: rgba(255, 255, 255, 0.5);
+                display: inline-block;
+                padding-bottom: 18px;
+                &.is-active{
+                    color: $white;
+                border-bottom: 5px solid $black;
             }
-            a.is-active{
-                color: #fff;
             }
             ul{
-                display: none;
+                display: none !important;
             }
-        }
     }
+}
 }
