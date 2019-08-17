@@ -10,9 +10,28 @@
    */
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
+
+      //MENU #block-homemenu
+      var pathArray = window.location.pathname.split('/');
+      if (pathArray[1] == 'for-international-universities') {
+        jQuery("#block-homemenu .menu .international-universities").addClass("is-active");
+      }else if(pathArray[1] == 'servicios-corporativos'){
+        console.log('SI');
+        jQuery("#block-homemenu .menu .servicios-corporativos").addClass("is-active");
+      }else{
+        jQuery("#block-homemenu .menu .estudios-exterior").addClass("is-active");
+      }
+
       //alert("I'm alive!");
       if (Foundation.MediaQuery.is('small only')) {
+        jQuery(window).scroll(function() {
+          console.log(jQuery(window).scrollTop());
+          if (jQuery(window).scrollTop() > 336) {
+            //jQuery(".off-canvas-content").removeClass("header-fixed");
+          }
+        });
       	jQuery("#sidebar-first nav").addClass("submenumobile-fixed");
+        jQuery(".off-canvas-content").addClass("header-fixed");
       }else{
       	jQuery("#sidebar-first nav").addClass("submenu");
       	jQuery(window).scroll(function() {

@@ -407,11 +407,18 @@ a#superfish-main-toggle{
         background: $primary-color;
     }
 }
-#block-views-block-gestion-en-cifras-block-1, #block-views-block-beneficiarios-block-1, #block-views-block-beneficiarios-block-2{
+#block-views-block-gestion-en-cifras-block-1, #block-views-block-beneficiarios-block-1, #block-views-block-beneficiarios-block-2, #block-views-block-view-super-banner-home-block-2{
     .owl-pagination .owl-page.active span {
         background: $primary-color;
     }
 }
+#block-views-block-view-super-banner-home-block-2{
+    .owl-theme .owl-controls {
+        margin-top: -27px;
+        text-align: center;
+    }
+}
+
 .block-views-block-encabezado-programas-block-1{
     .views-row{
         position: relative;

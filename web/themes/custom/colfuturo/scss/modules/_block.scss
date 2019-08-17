@@ -139,6 +139,9 @@
     color: $white;
     h2{
         color: $white;
+        @media only screen and (max-width: 600px){
+            margin-bottom: 0;
+        }
     }
     header{
         background: none;  
@@ -232,10 +235,10 @@ h2{
 .block-views-block-noticias-block-1, #block-colfuturo-content{
     .noticia{
         position: relative;
-        min-height: 37rem;
+        min-height: 33rem;
         margin-bottom: 1rem;
         @media only screen and (max-width: 600px){
-            min-height: 35rem;
+            min-height: 30rem;
         }
         .views-field-field-image{
             img{
