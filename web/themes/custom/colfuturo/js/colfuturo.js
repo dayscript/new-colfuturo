@@ -26,11 +26,13 @@
       if (Foundation.MediaQuery.is('small only')) {
         jQuery(window).scroll(function() {
           console.log(jQuery(window).scrollTop());
-          if (jQuery(window).scrollTop() > 336) {
-            //jQuery(".off-canvas-content").removeClass("header-fixed");
+          if (jQuery(window).scrollTop() >= 430) {
+            jQuery("#sidebar-first nav").addClass("second-sticky");
+          }else{
+            jQuery("#sidebar-first nav").removeClass("second-sticky");
           }
         });
-      	jQuery("#sidebar-first nav").addClass("submenumobile-fixed");
+        jQuery("#sidebar-first nav").addClass("submenumobile-fixed");
         jQuery(".off-canvas-content").addClass("header-fixed");
       }else{
       	jQuery("#sidebar-first nav").addClass("submenu");

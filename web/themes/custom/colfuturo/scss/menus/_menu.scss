@@ -18,6 +18,7 @@
 }
 
 nav.submenumobile-fixed{
+    z-index: 100;
     h2{
         display: none;
     }
@@ -47,4 +48,8 @@ nav.submenumobile-fixed{
             }
     }
 }
+}
+nav.second-sticky{
+    position: fixed;
+    top: 8px;
 }
