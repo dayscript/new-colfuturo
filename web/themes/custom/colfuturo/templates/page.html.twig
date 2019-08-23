@@ -80,7 +80,7 @@
         {% endif %}
       {% endif %}
 
-      <header class="row" role="banner" aria-label="{{ 'Site header'|t }}">
+      <header class="header-page" role="banner" aria-label="{{ 'Site header'|t }}">
         {% if linked_site_name or linked_logo %}
           <div class="large-2 columns">
             {% if linked_logo %}
@@ -96,7 +96,7 @@
           </div>
         {% endif %}
         {% if page.header %}
-          <div class="large-12 columns">
+          <div class="row">
             {{ page.header }}
           </div>
         {% endif %}
@@ -145,7 +145,7 @@
       </div>
       {% endif %}
       
-<!--       <div class="row">
+      <div class="row">
         <div class="large-12 medium-12 columns">
         {% if page.highlighted %}
             {% spaceless %}
@@ -153,7 +153,7 @@
             {% endspaceless %}
         {% endif %}
         </div>
-      </div> -->
+      </div>
 
       {% if page.help %}
       <div class="l-help">
@@ -164,6 +164,11 @@
       {% endif %}
 
       <div class="row">
+        {% if page.sidebar_first %} 
+          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">  
+            {{ page.sidebar_first }}  
+          </div>  
+        {% endif %}
         <main id="main" class="{{ main_grid }} columns" role="main">
           <a id="main-content"></a>
           {% if breadcrumb %} {{ breadcrumb }} {% endif %}
@@ -171,11 +176,6 @@
             {{ page.content }}
           </section>
         </main>
-        {% if page.sidebar_first %}
-          <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
-            {{ page.sidebar_first }}
-          </div>
-        {% endif %}
         {% if page.sidebar_second %}
           <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
             {{ page.sidebar_second }}

@@ -1,4 +1,44 @@
 <div class="row">
+  <div id="events">
+  {% for group in events %}
+  <div>
+    {% set end = group|length %}
+    {% for key, event in group %}
+    <div class="medium-4 columns">
+      <div class="container-events">
+        <div>
+          <div class="type">
+            <p>Online</p>
+          </div>
+          <div class="share">
+            <a href="#">Compartir</a>
+          </div>
+          <div class="date">
+            <p>{{ event.start.local | date('U') | format_date('colfuturo_d_m_y_') }}</p>
+          </div>
+          <div class="time">
+            <p>{{ event.start.local | date('h:i A') }} - {{ event.end.local | date('h:i A') }}</p>
+          </div>
+          <div class="address">
+            <p>address</p>
+          </div>
+          <div class="title">
+            <h3>
+              {{ event.name.text }}
+            </h3>
+          </div>
+        </div>
+        <div class="medium-12 columns text-center ">
+          <a href="{{ event.url }}" class="button" target="_blank">Regístrate</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  </div>
+</div>
+<!-- <div class="row">
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
     <div class="orbit-wrapper">
       <div class="orbit-controls">
@@ -43,4 +83,4 @@
       <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
     </nav>
   </div>
-</div>
+</div> -->

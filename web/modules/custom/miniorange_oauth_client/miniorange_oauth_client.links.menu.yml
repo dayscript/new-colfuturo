@@ -1,0 +1,48 @@
+
+miniorange_oauth_client.customer_setup:
+  route_name: miniorange_oauth_client.customer_setup
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: user.admin_index
+
+miniorange_oauth_client.config_clc:
+  route_name: miniorange_oauth_client.config_clc
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup
+
+miniorange_oauth_client.mapping:
+  route_name: miniorange_oauth_client.mapping
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup
+
+miniorange_oauth_client.settings:
+  route_name: miniorange_oauth_client.settings
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup
+
+miniorange_oauth_client.reports:
+  route_name: miniorange_oauth_client.reports
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup
+
+miniorange_oauth_client.licensing:
+  route_name: miniorange_oauth_client.licensing
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup
+
+miniorange_oauth_client.faq:
+  route_name: miniorange_oauth_client.faq
+  title: 'Drupal OAuth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup
+
+miniorange_oauth_client.support:
+  route_name: miniorange_oauth_client.support
+  title: 'Drupal Oauth client Configuration'
+  description: 'Drupal OAuth client Configuration'
+  parent: miniorange_oauth_client.customer_setup

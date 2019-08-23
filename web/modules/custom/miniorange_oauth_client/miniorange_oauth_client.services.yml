@@ -1,0 +1,4 @@
+services:
+  init_subscriber:
+    class: Drupal\miniorange_oauth_client\EventSubscriber\InitSubscriber
+    tags: [name: event_subscriber]

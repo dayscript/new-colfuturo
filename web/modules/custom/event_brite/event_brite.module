@@ -6,6 +6,9 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_help().
@@ -38,4 +41,52 @@ function event_brite_theme($existing, $type, $theme, $path) {
         'template' => 'block--next-events'
       ]
     ];
+}
+
+/**
+ * Implementation of hook_form_alter()
+ */
+function event_brite_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'fancy_login_user_login_form') {
+    if (\Drupal::config('user.settings')->get('register') != USER_REGISTER_ADMINISTRATORS_ONLY) {
+      $url = Url::fromRoute('user.register', [], ['attributes' => ['title' => t('Registrate')]]);
+      $items['create_account'] = Link::fromTextAndUrl(t('Registrate'), $url);
+
+      $form['pass']['#weight'] = -1;
+      $form['actions']['#weight'] = 0;
+      $form['user_links']['#weight'] = 10;
+
+      $form['title'] = [
+        '#markup' => t('<h2 class="block-title">Ingresar</h2>'),
+        '#weight' => -2,
+      ];
+
+      $form['newuser'] = [
+        '#type' => 'container',
+        '#weight' => 99,
+        '#attributes' => [
+          'class' => ['fancy_login_newuser_wrapper']
+        ]
+      ];
+
+      $form['newuser']['title'] = [
+        '#markup' => t('<h4 class="medium-text-center block-title margin-bottom-20">¿Eres usuario nuevo?</h4>'),
+        '#weight' => 1
+      ];
+
+      $form['newuser']['links'] = [
+        '#theme' => 'item_list',
+        '#items' => $items,
+        '#weight' => 2,
+        '#attributes' => [
+          'class' => ['button', 'link', 'medium-text-center', 'margin-top-20', 'margin-bottom-20']
+        ]
+      ];
+
+      $form['newuser']['description'] = [
+        '#markup' => t('<p class="description padding-left-50 padding-right-50 medium-text-center">Y accede a todos los servicios que ofrece COLFUTURO.</p>'),
+        '#weight' => 3,
+      ];
+    }
+  }
 }

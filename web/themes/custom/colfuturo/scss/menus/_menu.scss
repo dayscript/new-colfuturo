@@ -16,3 +16,40 @@
     }
 
 }
+
+nav.submenumobile-fixed{
+    z-index: 100;
+    h2{
+        display: none;
+    }
+    .menu{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        display: block;
+        width: auto;
+        margin-bottom: 1rem;
+        background: $primary-color;
+        li{
+            display: inline-block;
+            padding-top: 8px;
+            width: auto;
+            a{
+                color: rgba(255, 255, 255, 0.5);
+                display: inline-block;
+                padding-bottom: 18px;
+                &.is-active{
+                    color: $white;
+                border-bottom: 5px solid $black;
+            }
+            }
+            ul{
+                display: none !important;
+            }
+    }
+}
+}
+nav.second-sticky{
+    position: fixed;
+    top: 8px;
+}
