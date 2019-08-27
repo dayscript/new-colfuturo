@@ -26,9 +26,10 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
     $build['#cache'] = [
       'max-age' => 0,
     ];
-    $response = new Response();
-    $cookie = new Cookie('drupal-session-cognito',$_SESSION['access_token_cognito']);
-    $response->headers->setCookie($cookie);
+    // $response = new Response();
+    // $cookie = new Cookie('drupal-session-cognito',$_SESSION['access_token_cognito']);
+    // $response->headers->setCookie($cookie);
+    user_cookie_save(array('drupal-session-cognito'=>$_SESSION['access_token_cognito']));
     return $build;
   }
 
