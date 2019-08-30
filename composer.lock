@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4cc8b7d9afc84464e9f7f78f1419a46",
+    "content-hash": "ae0d1e9312b4a12be624b56dc5312b59",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4488,6 +4488,54 @@
             "homepage": "https://www.drupal.org/project/field_collection",
             "support": {
                 "source": "https://git.drupalcode.org/project/field_collection"
+            }
+        },
+        {
+            "name": "drupal/field_token_value",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/field_token_value.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/field_token_value-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "ba0c70108ca09589b9fa2ecce4c7a7194cdca897"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/token": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1503548344",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "haydent",
+                    "homepage": "https://www.drupal.org/user/2763191"
+                }
+            ],
+            "description": "Provides a field allowing the value to be set using a string containing tokens.",
+            "homepage": "https://www.drupal.org/project/field_token_value",
+            "support": {
+                "source": "https://git.drupalcode.org/project/field_token_value"
             }
         },
         {

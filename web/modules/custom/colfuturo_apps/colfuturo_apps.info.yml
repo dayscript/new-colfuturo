@@ -1,0 +1,5 @@
+name: 'Colfuturo Apps'
+type: module
+description: 'This module allow integrate apps of colfuturo with drupal session'
+core: 8.x
+package: 'colfuturo'

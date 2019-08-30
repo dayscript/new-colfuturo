@@ -945,3 +945,18 @@ section#block-views-block-encabezado-noticias-block-1 {
         }
     }
 }
+
+
+#block-micuenta{
+    ul{
+        list-style: none;
+        
+        li, a{
+            font-family: "Roboto",Helvetica,Roboto,Arial,sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            background-color: #fefefe;
+            padding: 0rem 1.5625rem 0rem 1.5625rem;
+        }
+    }
+}

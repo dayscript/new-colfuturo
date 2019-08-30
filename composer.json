@@ -28,6 +28,7 @@
         "drupal/fancy_login": "^2.2",
         "drupal/feeds": "^3.0@alpha",
         "drupal/field_collection": "^1.0",
+        "drupal/field_token_value": "^1.0",
         "drupal/focal_point": "^1.0",
         "drupal/form_placeholder": "^1.0",
         "drupal/menu_block": "^1.5",
