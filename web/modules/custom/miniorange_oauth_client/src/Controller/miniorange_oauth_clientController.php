@@ -507,7 +507,7 @@ class miniorange_oauth_clientController extends ControllerBase
         aQ:
         die($Uc["\145\x72\162\157\x72\137\144\145\163\x63\162\151\x70\164\151\157\x6e"]);
         D8:
-        $_SESSION['access_token_cognito'] = $X0;
+        $_SESSION['access_token_cognito'] = $Uc;
         return $X0;
     }
     public function getResourceOwner($pY, $X0)
