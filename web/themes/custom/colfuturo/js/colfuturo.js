@@ -25,8 +25,8 @@
       //alert("I'm alive!");
       if (Foundation.MediaQuery.is('small only')) {
         jQuery(window).scroll(function() {
-          console.log(jQuery(window).scrollTop());
-          if (jQuery(window).scrollTop() >= 430) {
+          //console.log(jQuery(window).scrollTop());
+          if (jQuery(window).scrollTop() >= 392) {
             jQuery("#sidebar-first nav").addClass("second-sticky");
           }else{
             jQuery("#sidebar-first nav").removeClass("second-sticky");
@@ -70,4 +70,20 @@
 		});
 	}
   };
+
+$(document).ready(function() {
+    /**
+    * scrollLeft .submenumobile-fixed
+    **/
+    var x = $('nav.submenumobile-fixed .menu li a.is-active').position();
+    //alert("Top: " + x.top + " Left: " + x.left);
+    $('nav.submenumobile-fixed .menu').animate({
+      scrollLeft: x.left
+    }, 200);
+    /**
+    * scrollLeft .submenumobile-fixed
+    **/
+});
+
+
 })(jQuery, Drupal);

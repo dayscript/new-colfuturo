@@ -378,7 +378,7 @@ h2{
 #block-nextevents{
     background: $light-gray;
 h2{
-    max-width: 87.5rem;
+    max-width: 81.5rem;
     margin-right: auto;
     margin-left: auto;
     left: 0;
@@ -637,6 +637,9 @@ header {
     }
     .views-field.views-field-field-video {
         min-height: 270px;
+        .field-content {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -664,6 +667,10 @@ header {
     h2{
         padding-left: 0;
     } 
+    .views-field-nothing {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+    }
     form#views-exposed-form-calendario-convocatorias-block-1{
         width: 50%;
         padding-left: 0.7rem;
@@ -921,9 +928,9 @@ section#block-views-block-encabezado-noticias-block-1 {
     .views-field.views-field-field-correo {
         font-size: 1.2rem;
         a{
-            color: $black;
+            color: $primary-color;
             &:hover{
-                color: $primary-color;
+                color: $secondary-color; 
             }
         }
     }

@@ -23,6 +23,7 @@ nav.submenumobile-fixed{
         display: none;
     }
     .menu{
+        z-index: 11;
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
@@ -52,4 +53,5 @@ nav.submenumobile-fixed{
 nav.second-sticky{
     position: fixed;
     top: 8px;
+    width: 100%;
 }

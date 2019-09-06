@@ -139,7 +139,7 @@ select {
 #block-breadcrumbs{
     position: absolute;
     z-index: 3; 
-    max-width: 87.5rem;
+    max-width: 81.5rem;
     margin-right: auto;
     margin-left: auto;
     padding-left: 0.7rem;
@@ -158,6 +158,10 @@ hr{
     @media only screen and (max-width: 600px){
         margin: 1rem auto;
     }
+    &.dark{
+      border-bottom: 1px solid $medium-gray;
+      margin: 0.9rem auto;
+    } 
 }
 //Bullets
 #block-colfuturo-content{
@@ -227,6 +231,9 @@ ul.js-pager__items.pager{
         a.button{
             background-color: $secondary-color;
             color: $white;
+            &:hover{
+              background-color: $primary-color;
+            }
         }
     }
 }
@@ -453,7 +460,7 @@ a.descargable{
             }
         }
         dd{
-            padding: 2rem 0.6rem;
+          padding: 2rem 0.6rem 2rem 3rem;
         }
     }
 }
@@ -467,7 +474,7 @@ section#block-formularioexpuestobuscadorpage-1{
     width: 100%;
     height: 100%;
     form#views-exposed-form-buscador-page-1 {
-        max-width: 80.16304rem;
+        max-width: 81.5rem;
         margin-right: auto;
         margin-left: auto;
         right: 0;
@@ -517,4 +524,17 @@ progress[value]::-webkit-progress-bar {
       background: $secondary-color;
     }
   }
+}
+
+#cboxClose {
+  top: -30px;
+  bottom: auto;
+}
+#cboxContent {
+  background: #fff;
+  overflow: inherit;
+}
+#cboxTopCenter {
+  height: 36px;
+  z-index: -1;
 }
