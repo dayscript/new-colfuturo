@@ -1,0 +1,4 @@
+colfuturo_apps:
+  version: 1.x
+  js:
+    js/colfuturo_apps.js: {}
