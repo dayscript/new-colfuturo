@@ -139,7 +139,7 @@ select {
 #block-breadcrumbs{
     position: absolute;
     z-index: 3; 
-    max-width: 81.5rem;
+    max-width: $global-width;
     margin-right: auto;
     margin-left: auto;
     padding-left: 0.7rem;
@@ -474,7 +474,7 @@ section#block-formularioexpuestobuscadorpage-1{
     width: 100%;
     height: 100%;
     form#views-exposed-form-buscador-page-1 {
-        max-width: 81.5rem;
+        max-width: $global-width;
         margin-right: auto;
         margin-left: auto;
         right: 0;
