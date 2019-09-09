@@ -320,7 +320,7 @@ a#superfish-main-toggle{
 //Superbanner
 .superbanner{
     position: absolute;
-    max-width: 80.5rem;
+    max-width: $global-width;
     margin-right: auto;
     margin-left: auto;
     z-index: 4;
