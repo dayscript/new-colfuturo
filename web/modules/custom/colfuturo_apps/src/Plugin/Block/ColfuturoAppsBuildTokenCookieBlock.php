@@ -17,21 +17,52 @@ use \Symfony\Component\HttpFoundation\Cookie;
  */
 class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
 
+
+  protected $is_token;
+
+
+
+  public function __construct(){
+    $this->is_token = false;
+    $this->SetTokenCognito();
+
+  }
   /**
    * {@inheritdoc}
    */
   public function build() {
+    
+    
+
     $build = [];
     $build['colfuturo_apps_build_token_cookie_block']['#markup'] = 'Implement ColfuturoAppsBuildTokenCookieBlock.';
     $build['#cache'] = [
       'max-age' => 0,
     ];
-    $build['#attached'] = array(
-      'library' => array('colfuturo_apps/colfuturo_apps'),
+
+    if($this->is_token){
+      $build['#attached'] = array(
+        'library' => array('colfuturo_apps/colfuturo_apps'),
+        'vars'    => $_SESSION['access_token_cognito']
+      );
+    }else{
+      drupal_set_message('Se ha detectado una operacion ilegal, por favor contacte al administrador del sitio.', 'error');
+    }
+    return $build;
+  }
+
+
+  public function SetTokenCognito(){
+    
+    $is_token = user_cookie_save(
+      [ 
+      'drupal-session-cognito' => $_SESSION['access_token_cognito']['id_token'] 
+      ] 
     );
     
-    user_cookie_save(array('drupal-session-cognito'=>$_SESSION['access_token_cognito']));
-    return $build;
+    if($is_token){
+      $this->is_token =  true;
+    }
   }
 
 }
