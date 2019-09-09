@@ -1,0 +1,7 @@
+"id","titulo","texto","body","autor"
+"1","titulo de prueba","hola texto de prueba","texto de prueba body","ariel"
+"2","titulo de prueba2","hola texto de prueba2","texto de prueba body2","fernando"
+<<<<<<< HEAD
+=======
+"3","titulo de prueba3","hola texto de prueba2","texto de prueba body3","acevedo"
+>>>>>>> 13f951fa0ca7a0ae5ecb57c89fad8468ea3bed3a
