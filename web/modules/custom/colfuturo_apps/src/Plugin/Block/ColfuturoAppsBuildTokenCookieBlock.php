@@ -31,8 +31,6 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    
-    
 
     $build = [];
     $build['colfuturo_apps_build_token_cookie_block']['#markup'] = 'Implement ColfuturoAppsBuildTokenCookieBlock.';
@@ -53,16 +51,13 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
 
 
   public function SetTokenCognito(){
-    
-    $is_token = user_cookie_save(
-      [ 
-      'drupal-session-cognito' => $_SESSION['access_token_cognito']['id_token'] 
-      ] 
-    );
-    
-    if($is_token){
+      user_cookie_save(
+        [ 
+        'drupal-session-cognito' => $_SESSION['access_token_cognito']['id_token'] 
+        ] 
+      );
       $this->is_token =  true;
     }
-  }
+  
 
 }
