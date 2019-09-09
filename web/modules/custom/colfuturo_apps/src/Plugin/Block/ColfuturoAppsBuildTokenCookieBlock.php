@@ -41,7 +41,9 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
     if($this->is_token){
       $build['#attached'] = array(
         'library' => array('colfuturo_apps/colfuturo_apps'),
-        'drupalSettings'  => ['vars' => $_SESSION['access_token_cognito'] ]
+        'drupalSettings'  => [
+            'cognito' => $_SESSION['access_token_cognito']
+            ]
       );
     }else{
       drupal_set_message('Se ha detectado una operacion ilegal, por favor contacte al administrador del sitio.', 'error');
