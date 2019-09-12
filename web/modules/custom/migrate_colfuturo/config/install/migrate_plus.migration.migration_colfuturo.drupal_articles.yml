@@ -26,13 +26,22 @@ source:
     4:
       name: created
       label: 'Fecha de creación'
+    5:
+      name: changed
+      label: 'Fecha de modificación'
+    # 6:
+    #   name: field_etiquetas
+    #   label: 'Etiquetas'
 
 process:
   type: 
     plugin: default_value
     default_value: article
   title: title
-  body: body
+  body/value: body
+  body/format:
+    plugin: default_value
+    default_value: full_html
   field_image: 
     plugin: colfuturo_images
     source: field_image
@@ -42,6 +51,8 @@ process:
     file_destiny: public://imagenes-articulos
     domain: https://www.colfuturo.org
   created: created
+  changed: changed
+  #field_etiquetas: field_etiquetas
   uid:
     plugin: default_value
     default_value: 1
@@ -51,7 +62,3 @@ destination:
 migration_dependencies:
   required: {  }
   optional: {  }
-# dependencies:
-#   enforced:
-#     module:
-#       - migrate_example_i18n

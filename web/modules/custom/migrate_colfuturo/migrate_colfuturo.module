@@ -31,10 +31,7 @@ function migrate_colfuturo_help($route_name, RouteMatchInterface $route_match) {
  */ 
 
  function migrate_colfuturo_migrate_drupal_articles_prepare_row(Row $row, MigrateSourceInterface $source, $migration){
-    var_dump($row->getSourceProperty('field_image'));
-    /*var_dump($row->getSourceProperty('nid'));*/
-    //$node = $row->getSource();
-
+    //var_dump($row);
     // Load Images
     if($row->getSourceProperty('field_image')){
         $row->setSourceProperty('field_image', $row->getSourceProperty('field_image'));
