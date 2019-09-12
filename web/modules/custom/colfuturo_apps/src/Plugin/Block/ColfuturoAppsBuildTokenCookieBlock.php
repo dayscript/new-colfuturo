@@ -38,11 +38,14 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
       'max-age' => 0,
     ];
 
-    if($this->is_token){
+    if($this->is_token || 0 == 0){
       $build['#attached'] = array(
         'library' => array('colfuturo_apps/colfuturo_apps'),
         'drupalSettings'  => [
-            'cognito' => $_SESSION['access_token_cognito']
+            'colfuturo_apps' => [
+              'colftuturo_apps_cognito' => $_SESSION['access_token_cognito'],
+              'item_class' => '.colfu-app'
+              ]
             ]
       );
     }else{
