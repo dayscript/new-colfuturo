@@ -17,7 +17,7 @@ Drupal.behaviors.colfuturo_apps = {
             
             redirect({
               url: $(item).attr('link'),
-              id_token: colfuturo_apps.colftuturo_apps_cognito
+              id_token: colfuturo_apps.colftuturo_apps_cognito.id_token
             });
 
             $(item).html(html)  
