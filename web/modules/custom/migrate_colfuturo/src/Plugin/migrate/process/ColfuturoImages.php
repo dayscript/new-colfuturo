@@ -22,7 +22,6 @@ class ColfuturoImages extends ProcessPluginBase {
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    
     $opts = array(
       'http'=>array(
         'method'=>"GET",
@@ -31,16 +30,9 @@ class ColfuturoImages extends ProcessPluginBase {
         "Referer: http://colombia.travel\r\n"
       )
     );
-    
-
-    var_dump($value);
     $path = $value;
-    
-    //$path['dirname'] = str_replace('public:','sites/default/files',$path['dirname']);
     $http_uri = str_replace(' ','%20',$this->configuration['domain'] . $value);
     var_dump($http_uri);
-    // $http_uri = 'https://www.colfuturo.org/sites/default/files/u129369/img_0.jpg';
-    // $data = file_get_contents( $http_uri );
     $data = file_get_contents( $http_uri, false, stream_context_create($opts));
     $status_line = $http_response_header[0];
     preg_match('{HTTP\/\S*\s(\d{3})}', $status_line, $match);
@@ -48,24 +40,18 @@ class ColfuturoImages extends ProcessPluginBase {
     if($status == '200'){
       if(  strpos($data, 'noindex,nofollow') === false ){
         $name_file = explode('/', $http_uri);
-        
+
         $file = $this->saveFile($data,end($name_file));
         return $file;  
       }
     }
   }
 
-
   public function getPathDestiny($file_name){
     return $this->configuration['file_destiny']. '/'. $file_name;
   }
 
-
   public function saveFile($contents, $file_name){
-
-
     return file_save_data($contents, $this->getPathDestiny($file_name), FILE_EXISTS_REPLACE);
   }
-
-
 }
