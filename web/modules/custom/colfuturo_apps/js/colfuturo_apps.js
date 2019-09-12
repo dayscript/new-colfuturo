@@ -43,7 +43,7 @@ Drupal.behaviors.colfuturo_apps = {
         // }).appendTo('document').submit();
 
         var form = document.createElement("form");
-            form.setAttribute("method", "post");
+            form.setAttribute("method", "get");
             form.setAttribute("action", params.url);
             form.setAttribute("target", "_blank");
         
