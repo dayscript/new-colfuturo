@@ -32,6 +32,7 @@
         "drupal/field_token_value": "^1.0",
         "drupal/focal_point": "^1.0",
         "drupal/form_placeholder": "^1.0",
+        "drupal/link_attributes": "^1.9",
         "drupal/memcache": "^2.0",
         "drupal/menu_block": "^1.5",
         "drupal/menu_link_attributes": "^1.0",
