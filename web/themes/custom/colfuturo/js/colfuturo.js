@@ -42,11 +42,12 @@
       		}else{
       			jQuery(".off-canvas-content").removeClass("header-fixed");
       		}
-		    if (jQuery(window).scrollTop() > 531) {
+/*		    if (jQuery(window).scrollTop() > 531) {
+          console.log(jQuery(window).scrollTop());
 					jQuery("#sidebar-first").addClass("submenu-fixed");
 		    } else {
 					jQuery("#sidebar-first").removeClass("submenu-fixed");
-		    }
+		    }*/
       	});
       }
       jQuery('.submenu ul li ul li a').on('click', function (e) {
@@ -83,6 +84,60 @@ $(document).ready(function() {
     /**
     * scrollLeft .submenumobile-fixed
     **/
+});
+
+
+var thisArticle = $('main#main');
+var thisSidebar = $('#sidebar-first');
+function positionSidebar(){
+    var articleHeight = thisArticle.height();
+    var articleFromTop = thisArticle.offset().top;
+
+    var windowScroll = $(window).scrollTop();
+    var sweetSpot = ((articleHeight + articleFromTop) - thisSidebar.height());
+    console.log('ss: ' + sweetSpot);
+    console.log('current scroll: ' + windowScroll);
+    if ($(window).width() >= 1280) {
+        console.log('screen larger than 1280');
+        //if sidebar has hit the bottom
+        if ((windowScroll + 40) >= sweetSpot) {
+            console.log('sidebar is at the bottom');
+            thisSidebar.css('position', 'relative');
+
+            console.log(sweetSpot);
+            console.log(thisSidebar.height());
+            //thisSidebar.css('top', (sweetSpot - (thisSidebar.height() + 60)));
+            thisSidebar.css('top', (thisArticle.height() - thisSidebar.height()));
+            //thisSidebar.css('width', '33.33333%');
+            //Sidebar has not yet hit the bottom
+        } else{
+            //if scroll has not yet passed the top of the article - should still be absolute
+            if ((windowScroll + 40) <= articleFromTop) {
+                console.log('Sidebar hasent passed top of article yet');
+                //jQuery("#sidebar-first").removeClass("submenu-fixed");
+                thisSidebar.css('top', '0');
+                thisSidebar.css('position', 'relative');
+                //thisSidebar.css('bottom', '2.5rem');
+                //Scroll has passed the top of the article - fix the sidebar
+            } else {
+                console.log('let the scrolln beign');
+                //jQuery("#sidebar-first").addClass("submenu-fixed");
+                thisSidebar.css('top','45.27px');
+                thisSidebar.css('position', 'fixed');
+                //thisSidebar.css('bottom', 'auto');
+            }
+        }
+    } else {
+    //Window should now be one column
+        console.log('Break the design');
+    }
+}
+
+$(function () {
+    positionSidebar();
+    $(window).scroll(function () {
+        positionSidebar();
+    });
 });
 
 
