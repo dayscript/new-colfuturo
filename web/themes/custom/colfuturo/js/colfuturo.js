@@ -108,7 +108,7 @@ function positionSidebar(){
             console.log(thisSidebar.height());
             //thisSidebar.css('top', (sweetSpot - (thisSidebar.height() + 60)));
             thisSidebar.css('top', (thisArticle.height() - thisSidebar.height()));
-            //thisSidebar.css('width', '33.33333%');
+            thisSidebar.css('max-width', '433px');
             //Sidebar has not yet hit the bottom
         } else{
             //if scroll has not yet passed the top of the article - should still be absolute
