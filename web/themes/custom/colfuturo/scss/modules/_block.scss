@@ -235,7 +235,7 @@ h2{
 .block-views-block-noticias-block-1, #block-colfuturo-content{
     .noticia{
         position: relative;
-        min-height: 33rem;
+        min-height: 34rem;
         margin-bottom: 1rem;
         @media only screen and (max-width: 600px){
             min-height: 30rem;
@@ -952,8 +952,6 @@ section#block-views-block-encabezado-noticias-block-1 {
         }
     }
 }
-
-
 #block-micuenta{
     ul{
         list-style: none;
@@ -965,5 +963,23 @@ section#block-views-block-encabezado-noticias-block-1 {
             background-color: #fefefe;
             padding: 0rem 1.5625rem 0rem 1.5625rem;
         }
+    }
+}
+//BLOCK REBECA
+#block-blockrebeca{
+	background: url(../images/rebeca.png);
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 112px;
+    background-repeat: no-repeat;
+    text-indent: -10000px;
+    height: 112px;
+    cursor: pointer;
+}
+
+.section-servicios-corporativos{
+    .banner{
+        margin-bottom: 2rem;
     }
 }
