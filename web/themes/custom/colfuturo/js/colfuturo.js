@@ -27,6 +27,11 @@
       //alert("I'm alive!");
       if (Foundation.MediaQuery.is('small only')) {
         jQuery(window).scroll(function() {
+          if (jQuery(window).scrollTop() > 37) {
+            jQuery(".header-page").addClass("header-fixed");
+          }else{
+            jQuery(".header-page").removeClass("header-fixed");
+          }
           //console.log(jQuery(window).scrollTop());
           if (jQuery(window).scrollTop() >= 392) {
             jQuery("#sidebar-first nav").addClass("second-sticky");
@@ -40,9 +45,9 @@
       	jQuery("#sidebar-first nav").addClass("submenu");
       	jQuery(window).scroll(function() {
       		if (jQuery(window).scrollTop() > 37) {
-      			jQuery(".off-canvas-content").addClass("header-fixed");
+      			jQuery(".header-page").addClass("header-fixed");
       		}else{
-      			jQuery(".off-canvas-content").removeClass("header-fixed");
+      			jQuery(".header-page").removeClass("header-fixed");
       		}
 /*		    if (jQuery(window).scrollTop() > 531) {
           console.log(jQuery(window).scrollTop());

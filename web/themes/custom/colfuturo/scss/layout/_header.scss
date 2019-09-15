@@ -38,6 +38,18 @@
                     }
                 }
             }
+            &::after{
+                position: absolute;
+                content: "";
+                background: url(../images/arrow-down.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                top: 0;
+                right: 0;
+                z-index: 1;
+                margin: 0.1rem 1rem;
+                padding: 1rem;
+            }
         }
     }
 }
@@ -101,8 +113,7 @@ header.header-page {
     -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
     box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.39);
 }
-.header-fixed{
-    header.header-page {
+header.header-fixed{
         z-index: 10;
         left: 0;
         right: 0;
@@ -125,7 +136,6 @@ header.header-page {
                 width: 40%;
             }
         }
-    }
     .block-we-megamenu {
         transition: all ease 0.4s;
         margin-top: 1rem; 
