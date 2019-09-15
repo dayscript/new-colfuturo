@@ -14,11 +14,13 @@
       //MENU #block-homemenu
       var pathArray = window.location.pathname.split('/');
       if (pathArray[1] == 'for-international-universities') {
+        jQuery("#block-homemenu .menu .international-universities").parent().addClass("is-active");
         jQuery("#block-homemenu .menu .international-universities").addClass("is-active");
       }else if(pathArray[1] == 'servicios-corporativos'){
-        console.log('SI');
+        jQuery("#block-homemenu .menu .servicios-corporativos").parent().addClass("is-active");
         jQuery("#block-homemenu .menu .servicios-corporativos").addClass("is-active");
       }else{
+        jQuery("#block-homemenu .menu .estudios-exterior").parent().addClass("is-active");
         jQuery("#block-homemenu .menu .estudios-exterior").addClass("is-active");
       }
 
@@ -69,6 +71,21 @@
 			e.preventDefault();
 			jQuery('.searchBox').toggleClass('invisible');
 		});
+
+    /**
+    * Menu meta-header
+    **/
+    $('#block-homemenu .menu', context).once('exampleBehavior').on('click','li.is-active',function(e){
+        e.stopPropagation()
+
+        let menu = $(this).parent().toggleClass('opened')
+        $('.header-page').toggleClass('opened')
+        
+        menu.prepend($(this))
+
+        e.preventDefault()
+    })
+
 	}
   };
 
