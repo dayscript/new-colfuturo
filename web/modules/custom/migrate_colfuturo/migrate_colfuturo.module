@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains migrate_colfuturo.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
+
+
+/**
+ * Implements hook_help().
+ */
+function migrate_colfuturo_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the migrate_colfuturo module.
+    case 'help.page.migrate_colfuturo':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Modulo de migracion para Colfuturo') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_migrate_prepare_row
+ */ 
+
+ function migrate_colfuturo_migrate_drupal_articles_prepare_row(Row $row, MigrateSourceInterface $source, $migration){
+    //var_dump($row);
+    // Load Images
+    if($row->getSourceProperty('field_image')){
+        $row->setSourceProperty('field_image', $row->getSourceProperty('field_image'));
+    }
+ }

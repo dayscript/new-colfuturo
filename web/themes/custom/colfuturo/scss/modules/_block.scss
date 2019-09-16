@@ -235,7 +235,7 @@ h2{
 .block-views-block-noticias-block-1, #block-colfuturo-content{
     .noticia{
         position: relative;
-        min-height: 33rem;
+        min-height: 34rem;
         margin-bottom: 1rem;
         @media only screen and (max-width: 600px){
             min-height: 30rem;
@@ -366,19 +366,13 @@ h2{
 }
 .submenu-fixed{
     position: fixed;
-    top: 76px;
-    left: 50%;
-    margin-left: -49.5%;
-    @media only screen and (min-width: 1400px){
-        margin-left: -43.74rem;
-        width: 465px;
-    }
+    top: 45.27px;
 }
 //Eventos
 #block-nextevents{
     background: $light-gray;
 h2{
-    max-width: 87.5rem;
+    max-width: $global-width;
     margin-right: auto;
     margin-left: auto;
     left: 0;
@@ -637,6 +631,9 @@ header {
     }
     .views-field.views-field-field-video {
         min-height: 270px;
+        .field-content {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -664,6 +661,10 @@ header {
     h2{
         padding-left: 0;
     } 
+    .views-field-nothing {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+    }
     form#views-exposed-form-calendario-convocatorias-block-1{
         width: 50%;
         padding-left: 0.7rem;
@@ -921,9 +922,9 @@ section#block-views-block-encabezado-noticias-block-1 {
     .views-field.views-field-field-correo {
         font-size: 1.2rem;
         a{
-            color: $black;
+            color: $primary-color;
             &:hover{
-                color: $primary-color;
+                color: $secondary-color; 
             }
         }
     }
@@ -945,8 +946,6 @@ section#block-views-block-encabezado-noticias-block-1 {
         }
     }
 }
-
-
 #block-micuenta{
     ul{
         list-style: none;
@@ -958,5 +957,23 @@ section#block-views-block-encabezado-noticias-block-1 {
             background-color: #fefefe;
             padding: 0rem 1.5625rem 0rem 1.5625rem;
         }
+    }
+}
+//BLOCK REBECA
+#block-blockrebeca{
+	background: url(../images/rebeca.png);
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 112px;
+    background-repeat: no-repeat;
+    text-indent: -10000px;
+    height: 112px;
+    cursor: pointer;
+}
+
+.section-servicios-corporativos{
+    .banner{
+        margin-bottom: 2rem;
     }
 }

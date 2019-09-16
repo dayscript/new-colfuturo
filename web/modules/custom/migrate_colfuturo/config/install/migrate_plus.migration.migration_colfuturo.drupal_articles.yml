@@ -1,0 +1,64 @@
+id: drupal_articles
+migration_tags:
+  - Drupal7
+label: Import Articles node from drupal7 database
+migration_group: Colfuturo
+source:
+  plugin: csv
+  path: 'public://articles.csv'
+  delimiter: '|'
+  header_row_count: 1
+  ids:
+    - id
+  fields:
+    0:
+      name: id
+      label: 'Unique Id'
+    1:
+      name: title
+      label: 'Title'
+    2:
+      name: body
+      label: 'Post body'
+    3:
+      name: field_image
+      label: 'Imagen'
+    4:
+      name: created
+      label: 'Fecha de creación'
+    5:
+      name: changed
+      label: 'Fecha de modificación'
+    # 6:
+    #   name: field_etiquetas
+    #   label: 'Etiquetas'
+
+process:
+  type: 
+    plugin: default_value
+    default_value: article
+  title: title
+  body/value: body
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  field_image: 
+    plugin: colfuturo_images
+    source: field_image
+    # field name in drupal 7
+    key: field_principal_image
+    # path folder to save
+    file_destiny: public://imagenes-articulos
+    domain: https://www.colfuturo.org
+  created: created
+  changed: changed
+  #field_etiquetas: field_etiquetas
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+  default_bundle: article
+migration_dependencies:
+  required: {  }
+  optional: {  }

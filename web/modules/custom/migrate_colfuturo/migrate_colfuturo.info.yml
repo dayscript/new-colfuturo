@@ -1,0 +1,14 @@
+name: 'Migrate Colfuturo'
+type: module
+description: 'Modulo de migracion para Colfuturo'
+core: 8.x
+package: 'dayscript'
+dependencies:
+  - config_devel
+  - migrate_tools
+  - migrate_plus
+  - migrate
+  - migrate_source_csv
+config_devel:
+  install:
+    - migrate_plus.migration.migrate_colfuturo.drupal_articles.yml
