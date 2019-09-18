@@ -961,15 +961,22 @@ section#block-views-block-encabezado-noticias-block-1 {
 }
 //BLOCK REBECA
 #block-blockrebeca{
-	background: url(../images/rebeca.png);
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    width: 112px;
-    background-repeat: no-repeat;
-    text-indent: -10000px;
-    height: 112px;
-    cursor: pointer;
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+    .btn-rebeca{
+            text-indent: -10000px;
+            display: inline-block;
+        &::after{
+            content: "";
+            width: 112px;
+            height: 120px;
+            background: url(../images/rebeca.png);
+            cursor: pointer;
+            display: block;
+            background-repeat: no-repeat;
+        }
+    }
 }
 
 .section-servicios-corporativos{
