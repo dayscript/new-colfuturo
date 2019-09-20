@@ -39,6 +39,26 @@ function event_brite_theme($existing, $type, $theme, $path) {
         'render element' => 'elements',
         'variables' => array( 'events' => array() ),
         'template' => 'block--next-events'
+      ],
+      'next_events_home' => [
+        'render element' => 'elements',
+        'variables' => array( 'events' => array() ),
+        'template' => 'block--next-events'
+      ],
+      'next_events_pcb' => [
+        'render element' => 'elements',
+        'variables' => array( 'events' => array() ),
+        'template' => 'block--next-event-program'
+      ],
+      'next_events_pi' => [
+        'render element' => 'elements',
+        'variables' => array( 'events' => array() ),
+        'template' => 'block--next-event-program'
+      ],
+      'next_events_asesoria' => [
+        'render element' => 'elements',
+        'variables' => array( 'events' => array() ),
+        'template' => 'block--next-event-program'
       ]
     ];
 }
