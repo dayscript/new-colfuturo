@@ -11,6 +11,15 @@
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
 
+      $("#events .share a").click(function(){
+        $('.share-social-media').addClass('visible-block');
+      });
+      $(document).on("click", function(event){
+        if(!$(event.target).closest("#events .share a").length){
+          $('.share-social-media').removeClass('visible-block');
+        }
+      });
+
       //MENU #block-homemenu
       var pathArray = window.location.pathname.split('/');
       if (pathArray[1] == 'for-international-universities') {

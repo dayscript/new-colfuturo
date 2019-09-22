@@ -423,6 +423,23 @@ h2{
                 background: url(../images/share.png);
             }
         }
+        div.visible-block{
+            display: block;
+            z-index: 1;
+            padding: 0 1rem;  
+        }
+        .share-social-media{
+            display: none;
+            position: absolute;
+            right: 0;
+            padding: 0 1rem;
+            z-index: 1;
+        }
+        .share-social-media li{
+            display: inline-block;
+            text-align: center;
+            padding: .2em .35em;
+        }
         a.button {
             position: absolute;
             bottom: 1em;
