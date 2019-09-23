@@ -11,6 +11,15 @@
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
 
+      $("#events .share a").click(function(){
+        $('.share-social-media').addClass('visible-block');
+      });
+      $(document).on("click", function(event){
+        if(!$(event.target).closest("#events .share a").length){
+          $('.share-social-media').removeClass('visible-block');
+        }
+      });
+
       //MENU #block-homemenu
       var pathArray = window.location.pathname.split('/');
       if (pathArray[1] == 'for-international-universities') {
@@ -56,7 +65,7 @@
       	var target = this.hash;
       	jQuerytarget = jQuery(target);
       	jQuery('html, body').stop().animate({
-      		'scrollTop': jQuerytarget.offset().top+2
+      		'scrollTop': jQuerytarget.offset().top-150
       	}, 800, 'swing', function () {
       	});
 		});
@@ -82,8 +91,22 @@
         e.preventDefault()
     })
 
+    /**
+    * buscador-tesis-articulos
+    **/
+    $('#buscador-tesis-articulos #buscar', context).once('exampleBehavior').on('click',function(e){
+      console.log('entro 1');
+      var url = 'http://babel.banrepcultural.org/cdm/search/collection/p17054coll23/searchterm/@url!Colfuturo/field/all!subcol/mode/all!all/conn/and!and/order/nosort';
+      var txt = $('#busqueda').val();
+      var fin =  url.replace('@url',txt);
+      window.open(fin,'_blank');
+      e.preventDefault();
+    })
+    /**
+    * buscador-tesis-articulos
+    **/
 	}
-  };
+};
 
 $(document).ready(function() {
     /**
@@ -96,14 +119,14 @@ $(document).ready(function() {
     }, 200);
     /**
     * scrollLeft .submenumobile-fixed
-    **/
+    **/  
 });
+
 var thisArticle = $('main#main');
 var thisSidebar = $('#sidebar-first');
 function positionSidebar(){
     var articleHeight = thisArticle.height();
     var articleFromTop = thisArticle.offset().top;
-
     var windowScroll = $(window).scrollTop();
     var sweetSpot = ((articleHeight + articleFromTop) - thisSidebar.height());
     //console.log('ss: ' + sweetSpot);
@@ -133,7 +156,7 @@ function positionSidebar(){
         }
     } else {
     //Window should now be one column
-        //console.log('Break the design');
+    //console.log('Break the design');
     }
 }
 $(function () {

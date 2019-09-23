@@ -6,14 +6,14 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a 'NextEventsBlock' block.
+ * Provides a 'NextEventsHomeBlock' block.
  *
  * @Block(
- *  id = "nextevents",
- *  admin_label = @Translation("Next Events"),
+ *  id = "next_events_home",
+ *  admin_label = @Translation("Next Events Home"),
  * )
  */
-class NextEventsBlock extends BlockBase {
+class NextEventsHomeBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -49,7 +49,7 @@ class NextEventsBlock extends BlockBase {
    */
   public function build() {
     $build = [];
-    $build['#theme']  = 'nextevents';
+    $build['#theme']  = 'next_events_home';
     $build['default_block_inputtext']['#markup'] = '<p>' . $this->configuration['inputtext'] . '</p>';
     $build['#events']   = $this->getEventsData()->events;  
     $build['#events'] = array_chunk($build['#events'], 3, true);
@@ -60,16 +60,6 @@ class NextEventsBlock extends BlockBase {
   public function getEventsData(){
     # Get next 3 events of all programs
     $data = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&page_size=3&time_filter=current_future&token=Z5PUBQ6ROR7OYZM7YARV');
-    
-    # Get events of Programa Crédito Beca id=27056775865
-    $dataPcb = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&page_size=1&time_filter=current_future&organizer_filter=27056775865&token=Z5PUBQ6ROR7OYZM7YARV');
-
-    # Get events of Programa de idiomas id=27056802047
-    $dataPi = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&page_size=1&time_filter=current_future&organizer_filter=27056802047&token=Z5PUBQ6ROR7OYZM7YARV');
-
-    # Get events of Asesoria id=20071073871
-    $dataAsesoria = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&page_size=1&time_filter=current_future&organizer_filter=20071073871&token=Z5PUBQ6ROR7OYZM7YARV');
-
     return json_decode($data);
   } 
 }
