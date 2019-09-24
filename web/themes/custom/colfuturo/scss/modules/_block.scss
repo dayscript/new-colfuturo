@@ -522,11 +522,17 @@ header {
             width: 50%
         }
         .form-item-field-convenio-ciudad-target-id{
-            padding-left: 0.7rem;
+            padding-right: 0.7rem;
             display: inline-block;
             float: left;
-            padding-right: 0.7rem;
             width: 50%
+            #edit-field-convenio-ciudad-target-id{
+                position: initial !important;
+                width: 100% !important;
+            }
+            div.form-select{
+                display: none !important;
+            }
         }
     }
 }
