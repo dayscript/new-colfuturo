@@ -48,6 +48,15 @@ class NextEventsPcbBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+/*    $data = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?order_by=start_asc&time_filter=current_future&organizer_filter=27056775865&token=Z5PUBQ6ROR7OYZM7YARV');
+    $results = json_decode($data);
+    dpm($results->events);
+    //dpm($data["events"]);
+
+    $builtForm = \Drupal::formBuilder()->getForm('Drupal\event_brite\Form\NextEventsForm');
+    $renderArray['form'] = $builtForm;
+
+    return $renderArray;*/
     $build = [];
     $build['#theme']  = 'next_events_pcb';
     $build['default_block_inputtext']['#markup'] = '<p>' . $this->configuration['inputtext'] . '</p>';
