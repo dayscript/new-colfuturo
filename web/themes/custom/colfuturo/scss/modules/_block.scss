@@ -501,6 +501,7 @@ h2{
 header {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+    color: #0e87c5;
 }
     form#views-exposed-form-convenios-block-1 {
         border-bottom: 1px solid $light-gray;  
@@ -512,26 +513,23 @@ header {
             padding-right: 0.7rem;
             display: inline-block;
             float: left;
-            width: 50%
+            width: 33.33333%;
         }
         .form-item-field-tipo-de-apoyo-value{
             padding-left: 0.7rem;
             display: inline-block;
             float: left;
             padding-right: 0.7rem;
-            width: 50%
+            width: 33.33333%;
         }
         .form-item-field-convenio-ciudad-target-id{
-            padding-right: 0.7rem;
+            padding-left: 0.7rem;
             display: inline-block;
             float: left;
-            width: 50%
-            #edit-field-convenio-ciudad-target-id{
-                position: initial !important;
-                width: 100% !important;
-            }
-            div.form-select{
-                display: none !important;
+            padding-right: 0.7rem;
+            width: 33.33333%;
+            .shs-widget-container{
+                display: block;
             }
         }
     }
