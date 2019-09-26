@@ -8,7 +8,7 @@
   /**
    * Use this behavior as a template for custom Javascript.
    */
-  Drupal.behaviors.exampleBehavior = {
+  Drupal.behaviors.colfuturo = {
     attach: function (context, settings) {
       
       //only file pdf
@@ -76,15 +76,14 @@
 		/**
 		* Bloque de búsqueda
 		**/
-		jQuery('.search').click(function(e) {
-			e.preventDefault();
-			jQuery('.searchBox').toggleClass('invisible');
-		});
+    $('#block-navegacionprincipal-3 .search', context).once('colfuturo').on('click',function(e){
+      $('.searchBox').toggleClass('invisible')
+    });
 
     /**
     * Menu meta-header
     **/
-    $('#block-homemenu .menu', context).once('exampleBehavior').on('click','li.is-active',function(e){
+    $('#block-homemenu .menu', context).once('colfuturo').on('click','li.is-active',function(e){
         e.stopPropagation()
 
         let menu = $(this).parent().toggleClass('opened')
@@ -93,19 +92,19 @@
         menu.prepend($(this))
 
         e.preventDefault()
-    })
+    });
 
     /**
     * buscador-tesis-articulos
     **/
-    $('#buscador-tesis-articulos #buscar', context).once('exampleBehavior').on('click',function(e){
+    $('#buscador-tesis-articulos #buscar', context).once('colfuturo').on('click',function(e){
       console.log('entro 1');
       var url = 'http://babel.banrepcultural.org/cdm/search/collection/p17054coll23/searchterm/@url!Colfuturo/field/all!subcol/mode/all!all/conn/and!and/order/nosort';
       var txt = $('#busqueda').val();
       var fin =  url.replace('@url',txt);
       window.open(fin,'_blank');
       e.preventDefault();
-    })
+    });
     /**
     * buscador-tesis-articulos
     **/
