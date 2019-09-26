@@ -496,13 +496,13 @@ h2{
 }
 }
 
-//COnvenios
+//Convenios PCB
 .block-views-block-convenios-block-1 {
-header {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #0e87c5;
-}
+    header {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #0e87c5;
+    }
     form#views-exposed-form-convenios-block-1 {
         border-bottom: 1px solid $light-gray;  
         padding-bottom: 2rem;
@@ -534,6 +534,39 @@ header {
         }
     }
 }
+
+//Convenios idiomas
+.block-views-block-convenios-block-2{
+    header {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #0e87c5;
+    }
+    form#views-exposed-form-convenios-block-2 {
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+        width: 100%;
+    }
+    .form-item-field-convenio-pais-target-id{
+        padding-right: 0.7rem;
+        display: inline-block;
+        float: left;
+        width: 50%;
+    }
+    .form-item-field-convenio-ciudad-target-id{
+        padding-left: 0.7rem;
+        display: inline-block;
+        float: left;
+        padding-right: 0.7rem;
+        width: 50%;
+        .shs-widget-container{
+            display: block;
+        }
+    }
+}
+
 .convenio.views-row {
     border-bottom: 1px solid $light-gray;
     padding-bottom: 2rem;
@@ -592,13 +625,6 @@ header {
     }
     a{
         color: $secondary-color;
-    }
-}
-.block-views-block-convenios-block-2{
-    form#views-exposed-form-convenios-block-2 {
-        margin-bottom: 2rem;
-        border-bottom: 1px solid $light-gray;
-        padding-bottom: 1rem; 
     }
 }
 //VIdeos convocatorias
@@ -994,16 +1020,15 @@ section#block-views-block-encabezado-noticias-block-1 {
             right: 1rem;
     .btn-rebeca{
             text-indent: -10000px;
-            display: inline-block;
-        &::after{
-            content: "";
-            width: 112px;
-            height: 120px;
+            width: 230px;
+            height: 108px;
             background: url(../images/rebeca.png);
             cursor: pointer;
             display: block;
             background-repeat: no-repeat;
-        }
+            &:hover{
+                background: url(../images/rebeca-hover.png);
+            }
     }
 }
 
