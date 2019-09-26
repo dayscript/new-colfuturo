@@ -14,8 +14,8 @@ class miniorange_oauth_clientController extends ControllerBase
 {
     public static function miniorange_oauth_client_mo_login()
     {
-        $ES = Html::escape($_GET["\x63\x6f\144\x65"]);
-        $NA = Html::escape($_GET["\x73\x74\x61\x74\145"]);
+        $ES = Html::escape($_GET["code"]);
+        $NA = Html::escape($_GET["state"]);
         if (!(isset($ES) && isset($NA))) {
             goto Fh;
         }
@@ -28,7 +28,7 @@ class miniorange_oauth_clientController extends ControllerBase
             goto Ml;
         }
         $f6 = '';
-        if (isset($_SESSION["\141\x70\160\x6e\141\x6d\145"]) && !empty($_SESSION["\x61\160\x70\x6e\x61\155\x65"])) {
+        if (isset($_SESSION["appname"]) && !empty($_SESSION["appname"])) {
             goto bK;
         }
         if (!(isset($NA) && !empty($NA))) {
@@ -38,81 +38,81 @@ class miniorange_oauth_clientController extends ControllerBase
         pW:
         goto gH;
         bK:
-        $f6 = $_SESSION["\141\x70\160\x6e\141\x6d\145"];
+        $f6 = $_SESSION["appname"];
         gH:
         if (!empty($f6)) {
             goto ly;
         }
-        die("\x4e\157\40\x72\x65\x71\x75\x65\x73\x74\40\146\x6f\165\156\144\x20\x66\x6f\162\x20\x74\x68\x69\163\40\x61\160\160\154\x69\x63\x61\x74\151\x6f\156\x2e");
+        die("No request found for this application.");
         ly:
         goto Cb;
         Ml:
-        if (isset($_GET["\x65\162\x72\x6f\162\137\x64\145\163\x63\x72\151\160\x74\151\x6f\x6e"])) {
+        if (isset($_GET["error_description"])) {
             goto MG;
         }
-        if (!isset($_GET["\145\x72\162\x6f\x72"])) {
+        if (!isset($_GET["error"])) {
             goto rC;
         }
-        die($_GET["\145\162\162\157\162"]);
+        die($_GET["error"]);
         rC:
         goto nA;
         MG:
-        die($_GET["\145\x72\x72\x6f\162\137\x64\145\x73\143\x72\x69\160\x74\x69\157\156"]);
+        die($_GET["error_description"]);
         nA:
-        die("\x49\156\166\x61\x6c\x69\144\40\x72\x65\163\x70\157\156\x73\145");
+        die("Invalid response");
         Cb:
         Fh:
         $VH = array();
-        $VH = \Drupal::config("\x6d\151\x6e\151\157\162\x61\x6e\147\x65\x5f\157\141\x75\164\150\x5f\143\x6c\151\145\156\x74\56\x73\x65\164\x74\x69\x6e\x67\x73")->get("\x6d\151\x6e\151\157\x72\141\156\x67\x65\x5f\x6f\x61\x75\x74\x68\x5f\143\x6c\151\145\156\164\137\141\160\x70\166\x61\154");
+        $VH = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_appval");
         $nJ = '';
         $EE = '';
         $o6 = '';
         $UQ = '';
-        if (!isset($VH["\x6d\151\156\x69\x6f\162\x61\x6e\x67\145\x5f\157\141\165\x74\150\137\143\x6c\x69\145\156\x74\x5f\x65\155\x61\x69\154\137\x61\x74\x74\162"])) {
+        if (!isset($VH["miniorange_oauth_client_email_attr"])) {
             goto UK;
         }
-        $EE = $VH["\x6d\151\x6e\x69\x6f\162\141\x6e\147\x65\137\157\x61\165\x74\150\x5f\x63\x6c\151\x65\156\164\137\145\x6d\x61\151\x6c\x5f\x61\x74\x74\x72"];
+        $EE = $VH["miniorange_oauth_client_email_attr"];
         UK:
-        if (!isset($VH["\155\151\156\151\157\x72\x61\x6e\x67\145\137\x6f\x61\x75\x74\x68\137\143\x6c\151\x65\x6e\x74\137\x6e\x61\155\145\x5f\x61\x74\x74\x72"])) {
+        if (!isset($VH["miniorange_oauth_client_name_attr"])) {
             goto rK;
         }
-        $nJ = $VH["\155\x69\x6e\151\157\x72\141\x6e\x67\145\x5f\x6f\141\x75\x74\150\137\143\154\x69\145\x6e\164\137\x6e\141\155\145\137\141\164\164\x72"];
+        $nJ = $VH["miniorange_oauth_client_name_attr"];
         rK:
-        $id = self::getAccessToken($VH["\x61\x63\x63\x65\x73\x73\x5f\x74\157\x6b\x65\x6e\x5f\145\x70"], "\141\x75\164\150\x6f\x72\151\172\141\x74\151\x6f\156\x5f\143\157\x64\x65", $VH["\x63\154\151\145\156\164\x5f\151\144"], $VH["\x63\154\151\x65\156\164\137\163\145\143\x72\145\164"], $ES, $VH["\x63\141\x6c\154\142\141\143\153\x5f\x75\x72\151"]);
+        $id = self::getAccessToken($VH["access_token_ep"], "authorization_code", $VH["client_id"], $VH["client_secret"], $ES, $VH["callback_uri"]);
         if ($id) {
             goto SN;
         }
-        print_r("\111\156\166\141\154\151\144\x20\x74\x6f\153\145\x6e\x20\x72\x65\x63\x65\x69\166\x65\144\x2e");
+        print_r("Invalid token received.");
         die;
         SN:
-        $pY = $VH["\165\x73\145\162\x5f\151\156\146\157\x5f\x65\160"];
-        if (!(substr($pY, -1) == "\x3d")) {
+        $pY = $VH["user_info_ep"];
+        if (!(substr($pY, -1) == "=")) {
             goto M1;
         }
         $pY .= $id;
         M1:
         $D9 = self::getResourceOwner($pY, $id);
-        if (!(isset($_COOKIE["\104\x72\x75\160\x61\154\137\166\151\x73\151\x74\157\162\x5f\155\x6f\x5f\157\141\165\164\x68\137\164\x65\x73\164"]) && $_COOKIE["\x44\162\165\160\x61\x6c\x5f\x76\151\x73\151\164\157\x72\137\x6d\157\x5f\x6f\141\x75\x74\x68\x5f\x74\145\x73\x74"] == true)) {
+        if (!(isset($_COOKIE["Drupal_visitor_mo_oauth_test"]) && $_COOKIE["Drupal_visitor_mo_oauth_test"] == true)) {
             goto LX;
         }
-        user_cookie_save(array("\x6d\157\x5f\x6f\x61\165\164\150\x5f\x74\x65\163\164" => false));
-        echo "\74\x73\x74\x79\x6c\145\76\x74\141\x62\x6c\x65\x7b\x62\157\x72\x64\145\x72\55\143\x6f\x6c\154\141\160\163\x65\x3a\40\143\157\154\x6c\x61\160\x73\145\x3b\x7d\x74\x61\142\x6c\145\54\x20\x74\x64\x2c\x20\164\x68\40\x7b\x62\x6f\162\144\145\162\x3a\40\61\x70\x78\x20\163\x6f\x6c\151\144\40\x62\154\141\143\x6b\73\x70\x61\144\144\x69\156\x67\x3a\64\x70\x78\175\x3c\x2f\x73\164\171\154\x65\76";
-        echo "\x3c\150\x32\x3e\124\x65\x73\x74\x20\x43\157\156\146\151\x67\x75\x72\x61\x74\x69\x6f\x6e\74\x2f\x68\x32\76\x3c\x74\141\142\154\x65\x3e\74\164\162\76\74\x74\150\76\x41\164\164\x72\151\142\x75\x74\x65\40\116\141\x6d\145\74\57\164\x68\x3e\x3c\x74\x68\x3e\101\x74\164\x72\x69\x62\x75\x74\145\x20\126\x61\154\165\145\x3c\57\x74\x68\x3e\x3c\x2f\164\x72\x3e";
+        user_cookie_save(array("mo_oauth_test" => false));
+        echo "<style>table{border-collapse: collapse;}table, td, th {border: 1px solid black;padding:4px}</style>";
+        echo "<h2>Test Configuration</h2><table><tr><th>Attribute Name</th><th>Attribute Value</th></tr>";
         self::testattrmappingconfig('', $D9);
-        echo "\74\57\x74\x61\x62\x6c\x65\76";
+        echo "</table>";
         die;
         return new Response();
         LX:
         $In = array();
-        $Fb = \Drupal::config("\x6d\x69\156\x69\x6f\x72\x61\x6e\x67\x65\137\x6f\141\165\x74\150\137\143\154\x69\145\156\x74\x2e\163\145\x74\x74\x69\156\x67\x73")->get("\x6d\151\156\x69\157\x72\x61\156\x67\x65\137\141\x74\x74\x72\61\137\156\x61\155\x65");
-        $Ag = \Drupal::config("\155\151\156\151\157\x72\x61\156\147\x65\x5f\157\x61\165\164\150\x5f\143\x6c\151\145\156\x74\x2e\x73\x65\x74\164\x69\156\147\x73")->get("\x6d\151\156\x69\157\x72\x61\156\x67\145\137\157\x61\165\164\x68\137\x61\164\x74\x72\x31\x5f\156\141\155\145");
-        $eJ = \Drupal::config("\x6d\x69\x6e\151\157\162\x61\x6e\147\x65\137\157\x61\165\x74\150\x5f\x63\154\x69\145\156\164\56\x73\145\164\x74\x69\x6e\147\163")->get("\x6d\151\156\151\x6f\x72\141\x6e\147\145\x5f\141\164\164\162\x32\137\x6e\x61\x6d\x65");
-        $eq = \Drupal::config("\155\x69\x6e\x69\x6f\162\x61\x6e\x67\145\137\x6f\141\165\164\150\137\x63\x6c\151\x65\x6e\164\x2e\x73\x65\x74\164\151\156\x67\x73")->get("\155\151\x6e\151\157\162\141\x6e\147\145\137\x6f\141\x75\x74\x68\x5f\141\164\x74\x72\x32\x5f\x6e\141\155\145");
-        $mb = \Drupal::config("\x6d\x69\x6e\x69\157\162\141\x6e\x67\145\x5f\157\x61\x75\164\x68\137\143\154\x69\x65\x6e\164\x2e\x73\145\164\x74\151\156\147\163")->get("\155\151\x6e\x69\157\162\x61\x6e\x67\x65\x5f\141\x74\164\x72\x33\137\156\x61\155\x65");
-        $IM = \Drupal::config("\155\x69\156\x69\x6f\162\x61\156\x67\x65\x5f\x6f\x61\165\x74\150\137\143\x6c\x69\x65\x6e\x74\56\163\x65\164\164\x69\x6e\147\163")->get("\x6d\151\x6e\151\157\x72\x61\x6e\147\145\x5f\x6f\x61\165\164\150\137\x61\x74\x74\162\x33\137\x6e\x61\155\x65");
-        $qM = \Drupal::config("\155\151\x6e\151\x6f\162\141\x6e\147\x65\137\157\x61\165\x74\x68\x5f\143\x6c\151\x65\x6e\164\56\163\145\x74\164\151\156\x67\x73")->get("\155\x69\156\151\157\162\x61\156\x67\x65\x5f\141\x74\164\x72\64\137\156\141\x6d\145");
-        $MR = \Drupal::config("\x6d\x69\x6e\151\157\x72\141\156\147\x65\137\157\x61\165\x74\x68\x5f\x63\x6c\151\x65\x6e\x74\56\x73\x65\x74\164\x69\156\147\x73")->get("\x6d\x69\x6e\151\x6f\162\x61\x6e\x67\x65\x5f\157\141\x75\164\x68\x5f\x61\164\164\162\64\x5f\156\x61\155\145");
-        $WN = \Drupal::config("\x6d\x69\x6e\151\157\x72\x61\x6e\147\x65\137\157\x61\165\x74\x68\x5f\x63\x6c\x69\x65\x6e\164\56\163\x65\x74\x74\x69\156\147\163")->get("\155\x69\x6e\x69\x6f\162\x61\156\x67\x65\137\157\141\165\x74\150\137\162\x6f\154\145\137\x61\164\x74\162\137\156\x61\x6d\x65");
+        $Fb = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr1_name");
+        $Ag = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr1_name");
+        $eJ = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr2_name");
+        $eq = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr2_name");
+        $mb = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr3_name");
+        $IM = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr3_name");
+        $qM = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr4_name");
+        $MR = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr4_name");
+        $WN = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
         if (!(!empty($Fb) && !empty($Ag))) {
             goto CN;
         }
@@ -137,15 +137,15 @@ class miniorange_oauth_clientController extends ControllerBase
         $Lc = '';
         $Ps = null;
         $Ax = array();
-        if (!(\Drupal::config("\x6d\151\156\x69\157\x72\141\x6e\x67\x65\x5f\x6f\x61\165\x74\150\x5f\x63\x6c\151\145\x6e\x74\x2e\x73\145\164\164\x69\x6e\x67\x73")->get("\x72\x6f\x6c\145\x6d\141\x70") != '')) {
+        if (!(\Drupal::config("miniorange_oauth_client.settings")->get("rolemap") != '')) {
             goto RX;
         }
-        $Lc = \Drupal::config("\155\151\x6e\151\157\x72\141\x6e\x67\145\137\x6f\141\x75\164\x68\x5f\143\154\151\145\156\164\x2e\163\145\x74\164\x69\x6e\x67\x73")->get("\x72\157\x6c\145\155\141\160");
+        $Lc = \Drupal::config("miniorange_oauth_client.settings")->get("rolemap");
         RX:
-        if (!(\Drupal::config("\x6d\x69\156\x69\157\162\x61\x6e\147\145\137\x6f\x61\x75\x74\x68\137\143\154\x69\145\156\x74\56\x73\145\x74\164\151\x6e\147\x73")->get("\x6d\151\x6e\151\x6f\162\x61\x6e\147\x65\137\157\141\165\164\x68\137\x72\x6f\154\x65\137\141\x74\x74\162\137\156\141\155\145") != '')) {
+        if (!(\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name") != '')) {
             goto Wz;
         }
-        $mV = \Drupal::config("\155\151\156\151\x6f\x72\x61\x6e\147\145\x5f\157\141\165\x74\150\x5f\x63\154\x69\x65\156\x74\56\163\145\164\164\151\x6e\x67\x73")->get("\155\151\x6e\x69\x6f\x72\x61\156\147\145\x5f\x6f\141\x75\x74\150\137\x72\x6f\154\145\137\x61\164\x74\x72\x5f\156\141\155\145");
+        $mV = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
         Wz:
         if (empty($D9[$mV])) {
             goto Zi;
@@ -157,11 +157,11 @@ class miniorange_oauth_clientController extends ControllerBase
         QI:
         goto P2;
         Zi:
-        if (!(strpos($mV, "\56") !== false)) {
+        if (!(strpos($mV, ".") !== false)) {
             goto WN;
         }
         $gS = $D9;
-        $YX = explode("\x2e", $mV);
+        $YX = explode(".", $mV);
         $nN = 0;
         Zk:
         if (!($nN < sizeof($YX))) {
@@ -188,12 +188,12 @@ class miniorange_oauth_clientController extends ControllerBase
         if (!(isset($mV) && !empty($mV) && isset($Ps))) {
             goto Ec;
         }
-        $Ps[0] = preg_replace("\57\134\x73\x2b\57", '', $Ps[0]);
-        $O4 = strpos($Ps[0], "\x2c");
+        $Ps[0] = preg_replace("/\s+/", '', $Ps[0]);
+        $O4 = strpos($Ps[0], ",");
         if (!(sizeof($Ps) == 1 && $O4 !== false)) {
             goto Xk;
         }
-        $wc = explode("\54", $Ps[0]);
+        $wc = explode(",", $Ps[0]);
         $Ps = $wc;
         Xk:
         $nN = 0;
@@ -240,34 +240,50 @@ class miniorange_oauth_clientController extends ControllerBase
         if (!empty($UQ)) {
             goto kl;
         }
-        Utilities::save_SSO_report_data("\106\x41\x49\114\125\x52\x45\56\x20\105\155\x61\151\x6c\x20\x6e\x6f\x74\x20\x6d\x61\x70\x70\x65\x64", $o6 ? $o6 : "\55", "\55");
-        echo "\74\x64\151\166\x20\163\164\x79\154\145\75\42\x66\157\156\164\x2d\146\x61\x6d\x69\x6c\x79\72\x43\x61\x6c\x69\142\162\x69\73\160\141\x64\144\x69\x6e\x67\x3a\60\40\x33\x25\73\x22\76";
-        echo "\x3c\x64\151\x76\40\x73\164\x79\154\x65\x3d\42\x63\157\154\x6f\x72\x3a\40\x23\141\x39\64\64\64\x32\73\x62\141\143\x6b\x67\162\x6f\165\x6e\144\x2d\143\x6f\154\157\162\72\x20\x23\x66\62\144\x65\x64\x65\73\160\x61\144\x64\151\156\x67\72\40\61\x35\160\170\x3b\x6d\x61\x72\147\x69\x6e\x2d\x62\x6f\164\x74\x6f\x6d\72\40\62\x30\x70\x78\73\x74\x65\x78\x74\55\141\154\151\147\x6e\x3a\x63\145\156\164\x65\162\x3b\x62\x6f\x72\144\x65\162\x3a\61\x70\170\40\x73\x6f\x6c\x69\144\40\x23\105\x36\102\63\x42\x32\x3b\146\157\x6e\x74\55\x73\x69\172\145\x3a\x31\70\160\x74\73\x22\x3e\40\105\x52\x52\117\x52\74\x2f\x64\151\x76\76\xa\40\40\40\x20\40\40\x20\40\40\x20\40\x20\x20\40\x20\40\40\40\x20\x20\40\40\40\x20\40\x20\40\x20\x20\x20\40\40\74\144\151\x76\40\163\x74\171\x6c\145\75\x22\x63\x6f\x6c\x6f\162\72\40\43\141\x39\64\64\64\62\73\x66\x6f\156\164\55\163\x69\x7a\x65\x3a\x31\x34\160\164\x3b\x20\155\141\162\147\x69\x6e\x2d\142\157\164\164\157\x6d\x3a\x32\x30\x70\170\x3b\x22\76\74\160\x3e\x3c\163\x74\162\157\x6e\147\x3e\x45\x72\162\157\162\x3a\x20\x3c\57\x73\164\x72\x6f\x6e\x67\x3e\x45\x6d\141\151\154\x20\141\x64\x64\x72\145\x73\x73\x20\x64\x6f\x65\163\40\x6e\157\164\x20\x72\x65\143\145\151\x76\x65\x64\56\74\57\x70\x3e\xa\x20\x20\40\40\40\40\x20\x20\x20\40\40\x20\40\40\x20\40\x20\40\x20\x20\40\x20\40\x20\x20\40\40\x20\40\x20\x20\40\40\x20\x20\x20\74\160\76\103\x68\145\x63\x6b\x20\x79\157\165\162\40\x3c\x62\x3e\101\164\164\162\151\x62\165\x74\145\x20\x4d\x61\160\x70\151\x6e\147\x3c\57\142\76\x20\x63\x6f\x6e\146\151\x67\x75\x72\x61\164\151\x6f\x6e\x2e\74\57\160\x3e\xa\x20\x20\40\40\40\x20\x20\40\x20\40\40\x20\40\40\40\x20\x20\x20\40\x20\40\x20\40\40\40\40\x20\x20\x20\40\40\40\40\40\x20\40\74\160\x3e\x3c\163\x74\x72\x6f\x6e\147\76\120\x6f\163\163\151\142\x6c\x65\40\103\141\165\x73\x65\x3a\40\74\57\163\x74\162\x6f\x6e\147\x3e\105\x6d\x61\151\154\40\101\x74\x74\162\x69\142\165\x74\145\x20\x66\x69\x65\154\144\40\151\163\40\x6e\x6f\x74\x20\x63\157\x6e\x66\x69\x67\x75\162\145\144\x2e\74\x2f\160\x3e\12\40\x20\40\40\40\x20\40\x20\40\x20\40\40\x20\40\x20\x20\40\x20\40\x20\40\x20\40\40\40\x20\40\x20\40\x20\40\40\x3c\57\x64\151\x76\x3e\12\x20\40\40\40\40\x20\40\x20\40\40\40\x20\x20\x20\x20\x20\x20\40\40\x20\40\x20\40\40\x20\x20\x20\40\x20\x20\40\x20\74\144\x69\166\x20\x73\164\171\154\145\75\42\x6d\x61\162\x67\x69\156\x3a\63\45\73\x64\x69\163\x70\x6c\x61\171\x3a\x62\x6c\x6f\x63\x6b\73\164\145\170\x74\55\141\x6c\x69\147\x6e\72\x63\145\x6e\164\145\x72\x3b\x22\x3e\x3c\57\144\151\166\x3e\xa\x20\40\40\40\x20\40\x20\x20\40\x20\x20\40\x20\40\40\x20\40\40\x20\40\40\40\x20\x20\40\40\x20\x20\40\40\x20\x20\x3c\x64\x69\166\40\163\164\171\x6c\145\x3d\x22\155\x61\162\x67\151\156\x3a\63\45\x3b\x64\151\163\x70\154\x61\171\72\142\154\157\143\153\x3b\164\x65\x78\164\55\141\154\x69\147\156\72\x63\145\156\x74\145\162\x3b\42\x3e\xa\40\x20\40\40\x20\40\40\40\40\40\40\40\40\40\40\x20\40\40\40\40\x20\x20\40\x20\40\40\x20\x20\x20\x20\40\40\x20\40\x20\x20\74\151\x6e\x70\x75\x74\x20\163\164\x79\x6c\x65\x3d\x22\x70\141\144\144\x69\x6e\x67\x3a\61\x25\x3b\167\x69\x64\164\x68\x3a\61\x30\x30\160\x78\x3b\x62\x61\x63\153\x67\x72\x6f\x75\x6e\144\72\x20\x23\x30\60\x39\61\103\x44\40\156\x6f\156\x65\40\162\145\160\x65\141\x74\40\x73\143\x72\157\x6c\154\x20\60\45\x20\60\x25\x3b\x63\165\x72\x73\157\x72\x3a\40\x70\157\x69\156\x74\145\x72\73\x66\x6f\x6e\164\x2d\x73\x69\x7a\145\x3a\x31\x35\x70\x78\73\142\157\x72\x64\x65\x72\55\167\x69\x64\164\x68\72\40\x31\x70\170\73\x62\x6f\x72\x64\145\162\55\163\x74\171\x6c\x65\x3a\x20\163\157\x6c\x69\144\73\x62\x6f\162\x64\x65\x72\55\x72\x61\x64\151\165\x73\x3a\40\x33\x70\x78\73\x77\150\151\x74\x65\55\163\x70\141\x63\145\72\x20\x6e\x6f\167\162\141\160\x3b\x62\x6f\170\x2d\x73\151\x7a\x69\x6e\147\72\40\142\x6f\162\144\145\x72\55\x62\157\x78\73\x62\157\162\x64\x65\x72\55\x63\x6f\154\157\x72\72\x20\x23\x30\60\x37\63\x41\101\73\x62\157\170\55\x73\x68\x61\x64\157\x77\x3a\x20\60\x70\x78\40\x31\160\170\x20\60\160\170\x20\x72\x67\x62\x61\x28\61\62\x30\54\x20\62\x30\x30\54\40\x32\63\60\x2c\40\x30\56\66\51\40\151\156\x73\145\164\x3b\x63\157\x6c\157\162\72\40\x23\x46\x46\x46\73\x22\164\171\160\x65\x3d\x22\x62\x75\x74\164\157\x6e\42\40\x76\x61\154\x75\x65\x3d\x22\x44\157\156\145\42\40\x6f\156\103\x6c\151\x63\153\x3d\42\163\x65\x6c\x66\56\x63\x6c\157\163\145\50\x29\73\x22\76\xa\40\40\40\x20\40\x20\40\x20\40\40\40\x20\x20\40\x20\x20\40\x20\x20\x20\40\x20\40\40\x20\40\40\40\x20\40\40\x20\74\57\144\x69\166\76";
+        Utilities::save_SSO_report_data("FAILURE. Email not mapped", $o6 ? $o6 : "-", "-");
+        echo "<div style='font-family:Calibri;padding:0 3%;'>";
+        echo "<div style='color: #a94442;background-color: #f2dede;padding:15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                    \xa 
+                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Email address does not received.
+                </p>\xa<p>Check your <b>Attribute Mapping</b> configuration.</p>
+                    \xa<p><strong>Possible Cause: </strong>Email Attribute field is not configured.</p>
+                </div>
+                <div style='margin:3%;display:block;text-align:center;'></div>
+                \xa
+                <div style='margin:3%;display:block;text-align:center;'>
+                \xa
+                <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='button' value='Done' onClick='self.close();'>
+                \xa
+            </div>";
         die;
         return new Response();
+
         kl:
-        $XZ = \Drupal::config("\155\x69\x6e\x69\157\x72\x61\x6e\x67\145\x5f\x6f\141\165\x74\x68\137\143\x6c\x69\x65\x6e\x74\56\163\145\x74\164\151\x6e\147\x73")->get("\x6d\151\156\151\x6f\x72\x61\156\147\x65\x5f\x6f\141\x75\x74\150\x5f\x63\154\x69\x65\x6e\164\x5f\x61\x6c\x6c\x6f\167\x5f\x64\157\155\x61\151\156\x73");
-        $E3 = \Drupal::config("\x6d\151\156\x69\x6f\162\x61\x6e\x67\x65\x5f\157\141\165\164\150\137\x63\x6c\151\x65\156\x74\x2e\163\145\164\x74\x69\156\147\x73")->get("\x6d\x69\156\151\157\x72\x61\156\147\x65\x5f\x6f\141\x75\164\150\x5f\143\154\x69\x65\x6e\164\x5f\162\x65\163\164\x72\x69\x63\x74\x5f\x64\x6f\x6d\x61\x69\156\163");
-        $N4 = strtolower(substr($UQ, strpos($UQ, "\100") + 1));
+        $XZ = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_allow_domains");
+        $E3 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_restrict_domains");
+        $N4 = strtolower(substr($UQ, strpos($UQ, "@") + 1));
         global $base_url;
-        if (!empty(\Drupal::config("\155\x69\x6e\151\157\162\x61\156\147\x65\137\x6f\141\165\164\150\x5f\x63\x6c\x69\x65\156\x74\56\x73\x65\164\x74\x69\156\147\x73")->get("\155\x69\x6e\151\x6f\162\x61\x6e\x67\x65\x5f\x6f\141\x75\x74\150\137\x63\154\151\x65\156\x74\137\142\x61\163\x65\137\x75\x72\x6c"))) {
+        if (!empty(\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url"))) {
             goto ew;
         }
         $OK = $base_url;
         goto ZX;
         ew:
-        $OK = \Drupal::config("\x6d\x69\x6e\x69\157\162\141\x6e\147\145\x5f\x6f\141\165\164\x68\137\143\154\x69\x65\156\x74\x2e\163\145\x74\x74\151\x6e\147\163")->get("\x6d\151\156\x69\157\x72\141\156\147\145\137\157\x61\x75\164\150\137\x63\x6c\151\145\x6e\164\x5f\142\x61\163\145\137\x75\162\x6c");
+        $OK = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url");
         ZX:
         if (empty($XZ)) {
             goto AB;
         }
-        $XZ = explode("\x3b", preg_replace("\x2f\134\163\x2b\57", '', strtolower($XZ)));
+        $XZ = explode(";", preg_replace("/\s+/", '', strtolower($XZ)));
         if (in_array($N4, $XZ)) {
             goto DW;
         }
-        Utilities::save_SSO_report_data("\106\x41\x49\114\x55\x52\x45\56\40\x44\x6f\x6d\141\x69\x6e\40\122\x65\x73\x74\x72\x69\143\164\145\144", $o6 ? $o6 : "\x2d", $UQ);
-        echo "\x3c\144\151\166\40\x73\164\171\x6c\145\x3d\42\146\x6f\x6e\164\x2d\x66\141\155\x69\154\171\72\x43\x61\x6c\151\x62\162\x69\73\x70\141\x64\x64\x69\156\x67\x3a\x30\x20\x33\45\x3b\x22\76";
-        echo "\x3c\x64\x69\x76\40\x73\x74\x79\x6c\x65\x3d\x22\x63\x6f\x6c\x6f\162\72\40\43\141\x39\64\x34\x34\62\x3b\142\141\143\x6b\147\162\157\165\156\144\55\x63\157\154\157\x72\72\x20\x23\146\62\144\145\x64\145\73\160\x61\144\144\151\x6e\147\72\40\61\65\x70\x78\x3b\155\x61\x72\147\151\156\x2d\142\157\164\164\x6f\155\x3a\40\62\60\160\x78\x3b\x74\145\170\164\x2d\x61\x6c\151\x67\156\x3a\x63\x65\156\x74\x65\x72\73\142\157\x72\x64\x65\162\x3a\61\x70\170\x20\x73\x6f\x6c\151\x64\40\43\x45\66\x42\63\x42\x32\73\146\x6f\x6e\x74\x2d\x73\x69\172\145\x3a\x31\70\x70\164\73\x22\x3e\40\105\122\x52\x4f\122\74\x2f\144\151\166\x3e\12\x20\40\40\x20\40\x20\40\x20\40\x20\x20\x20\40\x20\40\x20\40\x20\40\x20\x20\40\x20\40\40\40\40\40\x20\x20\x20\x20\74\144\151\x76\x20\163\x74\171\x6c\145\x3d\x22\143\157\154\x6f\162\72\x20\43\141\x39\64\x34\64\x32\x3b\x66\x6f\x6e\164\x2d\163\151\172\145\72\x31\64\x70\164\x3b\40\x6d\141\x72\x67\151\156\x2d\142\157\164\x74\x6f\155\x3a\x32\x30\x70\170\73\42\x3e\x3c\x70\76\74\163\x74\x72\x6f\156\147\x3e\105\x72\162\157\162\x3a\x20\x3c\57\163\164\x72\157\x6e\x67\x3e\104\x6f\x6d\141\151\156\40\x72\145\163\x74\x72\x69\143\x74\x69\x6f\x6e\40\151\163\40\x65\156\x61\142\x6c\145\x64\56\74\57\160\76\12\x20\40\x20\40\40\x20\x20\40\x20\40\40\x20\40\x20\x20\40\40\40\x20\x20\40\x20\x20\40\x20\40\40\40\40\40\40\40\x20\x20\40\x20\x3c\x70\76\x50\x6c\145\x61\x73\x65\x20\x63\x6f\x6e\164\141\x63\x74\40\x79\157\x75\x72\40\x61\x64\155\151\x6e\151\163\164\x72\141\164\157\162\56\x3c\x2f\x70\x3e\xa\40\40\x20\40\x20\x20\40\40\x20\x20\40\x20\40\40\x20\40\40\40\x20\x20\x20\40\x20\x20\40\x20\x20\40\40\x20\x20\x20\x20\x20\x20\x20\74\160\76\74\x73\164\x72\157\x6e\147\76\120\157\163\x73\151\x62\154\145\40\x43\x61\165\x73\145\72\40\x3c\x2f\163\164\x72\x6f\156\x67\76\131\157\165\x72\40\144\x6f\x6d\151\156\x20\x69\x73\40\x6e\x6f\164\40\x61\x6c\154\x6f\x77\145\144\40\164\x6f\x20\154\x6f\147\x69\156\x2e\74\x2f\x70\x3e\xa\x20\40\x20\x20\40\40\40\x20\40\x20\40\40\40\x20\x20\40\x20\x20\40\x20\40\40\x20\x20\x20\40\x20\x20\40\40\40\x20\x3c\x2f\144\x69\166\76\12\40\x20\40\x20\40\40\40\x20\x20\x20\40\x20\x20\x20\x20\40\x20\40\x20\x20\x20\40\x20\40\x20\x20\40\x20\40\40\40\40\74\144\151\x76\40\x73\x74\171\x6c\x65\75\x22\x6d\141\x72\x67\151\x6e\72\x33\45\x3b\144\151\163\x70\154\x61\171\72\142\x6c\x6f\x63\153\x3b\x74\145\x78\x74\55\x61\x6c\151\147\156\x3a\143\x65\x6e\x74\145\x72\x3b\x22\x3e\x3c\x2f\144\151\x76\x3e\xa\40\40\x20\x20\40\40\40\40\40\40\x20\x20\x20\40\x20\x20\40\40\x20\40\x20\40\x20\40\40\x20\x20\x20\x20\x20\x20\x20\x3c\x64\151\x76\x20\x73\164\x79\154\145\75\42\155\141\x72\147\x69\x6e\x3a\63\x25\73\x64\151\163\x70\154\x61\x79\x3a\142\154\x6f\x63\153\73\x74\145\170\x74\x2d\141\x6c\151\x67\156\72\143\145\x6e\164\x65\162\73\42\76\xa\40\x20\40\x20\x20\x20\x20\x20\40\40\40\40\x20\x20\x20\40\x20\40\x20\40\40\x20\x20\40\x20\40\40\x20\x20\x20\40\40\74\x66\x6f\x72\155\x20\141\143\164\x69\157\156\75\x22" . $OK . "\42\40\155\x65\x74\x68\157\144\x20\75\x22\160\x6f\163\x74\42\76\xa\40\x20\x20\40\x20\40\40\x20\40\x20\x20\x20\40\40\x20\40\40\x20\x20\x20\40\40\40\40\40\x20\40\x20\40\x20\x20\x20\40\40\40\40\74\151\156\160\165\x74\x20\163\x74\171\x6c\145\75\42\160\141\x64\x64\151\x6e\x67\72\61\45\73\167\x69\144\164\x68\x3a\61\60\x30\160\170\x3b\x62\x61\x63\x6b\147\x72\x6f\165\156\x64\72\40\x23\x30\60\x39\x31\x43\104\x20\x6e\x6f\156\x65\x20\x72\145\x70\145\x61\x74\x20\163\143\x72\x6f\154\x6c\x20\x30\x25\x20\60\x25\73\143\x75\162\x73\x6f\162\72\x20\160\x6f\151\x6e\x74\x65\162\73\x66\157\x6e\164\55\163\151\x7a\x65\72\61\x35\160\170\73\142\x6f\x72\144\145\x72\x2d\x77\x69\144\x74\150\x3a\40\61\x70\170\73\142\x6f\x72\x64\145\162\x2d\x73\164\171\154\145\x3a\40\x73\x6f\x6c\x69\x64\x3b\x62\x6f\162\144\x65\162\55\x72\x61\x64\151\165\x73\x3a\40\63\x70\x78\x3b\167\x68\x69\x74\x65\x2d\163\x70\141\143\145\72\x20\x6e\157\x77\x72\x61\x70\x3b\142\157\x78\55\x73\151\x7a\x69\x6e\147\x3a\x20\142\x6f\x72\x64\145\x72\55\x62\x6f\x78\x3b\142\x6f\x72\x64\x65\162\x2d\143\157\154\x6f\162\x3a\x20\43\x30\x30\67\x33\101\101\x3b\x62\157\170\x2d\163\150\141\144\x6f\167\72\x20\60\160\170\x20\61\160\170\40\x30\160\170\x20\162\x67\142\141\x28\61\62\60\54\40\62\x30\60\54\40\x32\63\x30\54\x20\x30\56\x36\x29\x20\151\156\163\145\x74\x3b\143\157\154\157\162\72\40\43\x46\106\x46\73\42\164\x79\160\145\x3d\x22\163\165\x62\x6d\151\x74\x22\40\166\141\154\165\145\x3d\x22\x44\x6f\156\145\42\x3e\xa\x20\x20\40\40\x20\40\40\40\40\x20\40\x20\40\40\40\x20\40\40\x20\x20\40\x20\x20\40\x20\40\x20\40\40\40\40\x20\74\x2f\146\x6f\162\x6d\x3e\x3c\57\x64\151\166\76";
+        Utilities::save_SSO_report_data("FAILURE. Domain Restricted", $o6 ? $o6 : "-", $UQ);
+        echo '<div style="font-family:Calibri;padding:0 3%;">';
+        echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+            <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Domain restriction is enabled.</p>
+                <p>Please contact your administrator.</p>\xa<p><strong>Possible Cause: </strong>Your domin is not allowed to login.</p>\xa</div>
+            <div style='margin:3%;display:block;text-align:center;'></div>\xa<div style='margin:3%;display:block;text-align:center;'>\xa<form action='' . $OK . '' method ='post'>\xa<input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='submit' value='Done'>\xa</form></div>";
         die;
         return new Response();
         DW:
@@ -275,13 +291,20 @@ class miniorange_oauth_clientController extends ControllerBase
         if (empty($E3)) {
             goto Im;
         }
-        $E3 = explode("\73", preg_replace("\x2f\x5c\x73\x2b\57", '', strtolower($E3)));
+        $E3 = explode(";", preg_replace("/\s+/", '', strtolower($E3)));
         if (!in_array($N4, $E3)) {
             goto b9;
         }
-        Utilities::save_SSO_report_data("\106\101\x49\x4c\125\122\x45\x2e\x20\x44\157\155\x61\x69\x6e\40\x52\145\x73\164\x72\x69\x63\164\x65\x64", $o6 ? $o6 : "\55", $UQ);
-        echo "\x3c\x64\x69\x76\x20\x73\164\x79\x6c\145\75\42\x66\x6f\x6e\164\55\146\141\155\x69\x6c\171\x3a\103\x61\154\x69\142\x72\x69\73\x70\141\144\x64\x69\156\x67\72\x30\40\x33\x25\x3b\42\76";
-        echo "\74\144\x69\166\40\x73\x74\171\x6c\145\75\42\143\x6f\154\x6f\x72\72\40\x23\141\x39\x34\64\64\x32\x3b\x62\141\x63\x6b\x67\162\157\x75\156\144\55\x63\157\154\157\162\x3a\x20\43\x66\x32\x64\145\x64\145\73\160\x61\144\144\x69\x6e\147\72\x20\x31\x35\x70\170\73\155\x61\x72\147\151\x6e\x2d\x62\157\x74\164\x6f\x6d\72\40\x32\60\x70\170\73\164\x65\x78\164\55\x61\154\x69\147\x6e\72\143\x65\x6e\x74\145\162\73\x62\x6f\x72\x64\145\x72\72\61\160\x78\x20\163\x6f\x6c\x69\x64\40\x23\x45\x36\102\x33\102\62\x3b\x66\157\156\x74\x2d\163\x69\x7a\x65\72\x31\70\x70\x74\73\x22\76\40\105\122\x52\x4f\122\x3c\x2f\x64\151\166\x3e\12\40\x20\x20\x20\x20\x20\x20\x20\x20\x20\40\x20\x20\x20\x20\x20\x20\x20\x20\40\x20\40\x20\40\40\40\40\x20\x20\x20\x20\40\74\144\151\166\x20\163\x74\x79\154\x65\x3d\x22\143\157\x6c\x6f\x72\x3a\x20\x23\x61\x39\64\64\64\62\x3b\x66\x6f\156\x74\x2d\163\151\172\145\x3a\61\x34\x70\x74\x3b\x20\155\141\162\x67\151\156\55\142\157\164\x74\x6f\x6d\x3a\62\60\x70\170\73\x22\x3e\74\160\76\74\x73\x74\x72\157\x6e\x67\76\105\162\162\157\x72\72\x20\x3c\57\x73\x74\162\x6f\x6e\147\x3e\x44\157\155\141\x69\x6e\40\162\145\163\x74\162\x69\x63\x74\x69\157\156\40\x69\x73\40\145\x6e\141\x62\x6c\x65\x64\56\74\x2f\x70\76\12\40\40\x20\40\40\40\x20\x20\x20\x20\x20\40\x20\x20\x20\40\40\40\40\40\x20\x20\40\40\x20\40\x20\40\40\x20\40\x20\x20\40\x20\x20\74\x70\76\x50\154\145\x61\x73\x65\x20\x63\157\x6e\x74\141\143\x74\x20\x79\157\x75\162\x20\141\144\155\151\156\151\163\164\x72\141\164\x6f\x72\56\74\57\160\x3e\xa\x20\x20\x20\x20\40\40\x20\40\40\x20\40\40\x20\40\x20\40\x20\x20\40\40\x20\40\40\40\40\x20\40\40\x20\40\40\x20\40\x20\40\x20\x3c\160\x3e\x3c\163\164\162\x6f\x6e\147\76\120\x6f\x73\163\151\x62\x6c\145\x20\x43\141\165\x73\x65\72\x20\x3c\x2f\x73\164\x72\157\x6e\147\76\131\x6f\165\x72\x20\144\157\x6d\x69\x6e\x20\151\x73\x20\x6e\157\164\40\141\154\x6c\x6f\167\x65\x64\40\164\x6f\40\154\x6f\147\151\x6e\x2e\x3c\57\160\x3e\xa\40\40\x20\x20\40\40\40\40\x20\x20\x20\x20\40\40\x20\x20\40\x20\x20\x20\x20\40\40\x20\x20\x20\40\40\x20\x20\40\x20\x3c\57\144\151\166\76\12\x20\40\40\x20\40\40\40\x20\x20\x20\x20\40\40\40\40\x20\40\40\x20\40\40\x20\x20\40\40\40\x20\x20\40\40\x20\40\74\144\x69\x76\x20\163\x74\x79\x6c\145\x3d\42\155\141\162\x67\x69\156\x3a\x33\x25\73\144\x69\x73\160\x6c\x61\x79\72\142\154\x6f\x63\x6b\73\164\145\170\164\x2d\x61\154\151\x67\156\72\143\145\156\164\x65\162\73\42\76\74\x2f\144\151\166\76\12\40\x20\x20\x20\40\40\x20\40\x20\x20\x20\x20\40\40\x20\40\40\40\40\x20\40\40\40\x20\x20\40\40\40\x20\x20\x20\x20\74\144\x69\x76\x20\x73\164\171\154\x65\x3d\x22\155\x61\x72\147\x69\156\72\x33\45\x3b\144\151\x73\160\154\141\171\x3a\x62\x6c\157\x63\153\73\164\145\170\164\x2d\x61\154\151\x67\x6e\x3a\x63\145\156\x74\x65\x72\73\x22\76\12\40\40\x20\40\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\40\40\40\40\x20\x20\40\x20\x20\x20\x20\40\40\x20\x20\40\x20\x20\74\146\157\162\x6d\x20\141\143\164\151\x6f\156\75\42" . $OK . "\x22\x20\155\145\x74\x68\x6f\x64\40\75\42\x70\157\163\x74\42\76\12\40\40\40\x20\x20\x20\x20\x20\x20\40\40\40\40\40\40\40\40\x20\x20\40\x20\40\x20\x20\x20\40\40\40\40\x20\x20\x20\x3c\151\156\x70\x75\x74\40\163\x74\x79\154\x65\75\42\x70\x61\144\144\151\x6e\147\x3a\x31\x25\73\167\x69\x64\164\150\72\61\60\60\160\x78\73\142\x61\x63\153\147\162\x6f\165\156\144\x3a\40\x23\60\x30\71\61\x43\x44\40\156\x6f\156\x65\x20\x72\145\x70\145\141\x74\x20\x73\x63\162\157\154\x6c\40\x30\45\x20\60\45\73\x63\165\162\163\157\162\x3a\x20\160\157\x69\x6e\x74\145\162\73\146\157\156\164\x2d\x73\151\172\145\72\61\x35\x70\x78\73\142\157\x72\x64\145\162\55\167\x69\144\164\x68\72\x20\61\x70\x78\x3b\142\x6f\162\x64\145\x72\55\x73\164\x79\154\145\x3a\40\x73\157\x6c\x69\x64\73\x62\x6f\x72\x64\x65\162\x2d\x72\x61\x64\x69\x75\x73\x3a\40\x33\x70\x78\x3b\x77\150\x69\x74\145\x2d\x73\x70\x61\x63\145\x3a\x20\x6e\157\167\x72\x61\160\73\142\x6f\x78\x2d\x73\151\x7a\151\156\147\x3a\40\x62\157\162\x64\145\162\x2d\142\157\170\x3b\x62\x6f\162\x64\x65\x72\x2d\x63\157\154\x6f\162\x3a\x20\43\x30\60\x37\63\101\x41\x3b\142\x6f\170\55\x73\150\x61\144\157\167\x3a\40\x30\160\x78\x20\61\160\x78\40\x30\x70\170\40\162\147\x62\141\50\61\62\x30\54\x20\62\x30\x30\54\40\62\63\60\54\40\x30\x2e\x36\51\40\151\x6e\x73\145\164\x3b\x63\x6f\x6c\x6f\162\72\40\43\106\x46\106\73\x22\x74\171\x70\x65\x3d\x22\163\165\x62\155\151\x74\42\x20\166\x61\x6c\165\145\x3d\x22\104\x6f\x6e\x65\x22\x3e\12\x20\40\x20\x20\x20\x20\x20\40\40\40\x20\40\40\x20\40\x20\40\x20\x20\x20\x20\40\40\x20\x20\40\x20\40\40\x20\x20\40\74\57\x66\x6f\162\x6d\76\x3c\57\x64\x69\x76\x3e";
+        Utilities::save_SSO_report_data("FAILURE. Domain Restricted", $o6 ? $o6 : "-", $UQ);
+        echo "<div style='font-family:Calibri;padding:0 3%;'>";
+        echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Domain restriction is enabled.</p>
+                                    <p>Please contact your administrator.</p>\xa <p><strong>Possible Cause: </strong>Your domin is not allowed to login.</p>\xa                                </div>
+                                <div style='margin:3%;display:block;text-align:center;'></div>
+                                <div style='margin:3%;display:block;text-align:center;'>
+                                <form action='' . $OK . '' method ='post'>
+                                <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='submit' value='Done'>
+                                </form></div>";
         die;
         return new Response();
         b9:
@@ -302,8 +325,8 @@ class miniorange_oauth_clientController extends ControllerBase
         cV:
         TN:
         global $user;
-        $zN = \Drupal::config("\155\151\x6e\151\x6f\x72\141\x6e\147\145\137\157\x61\165\164\150\137\x63\x6c\151\x65\x6e\x74\56\x73\x65\x74\x74\151\156\147\163")->get("\x6d\x69\x6e\x69\157\x72\x61\x6e\147\x65\x5f\157\141\x75\164\150\x5f\143\x6c\x69\145\156\164\x5f\141\165\164\157\137\x63\x72\x65\x61\164\145\137\x75\163\145\162\163");
-        $Z0 = \Drupal::config("\155\151\156\151\x6f\162\141\156\x67\x65\x5f\157\141\x75\x74\150\x5f\x63\x6c\151\145\156\x74\56\x73\x65\164\x74\151\x6e\147\163")->get("\155\151\x6e\x69\x6f\x72\141\x6e\x67\145\x5f\157\141\165\164\150\x5f\x64\x65\x66\141\x75\154\164\137\x72\157\x6c\x65");
+        $zN = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_auto_create_users");
+        $Z0 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_default_role");
         $Qa = user_role_names(TRUE);
         $Qa = array_values($Qa);
         $Z0 = $Qa[$Z0];
@@ -318,15 +341,21 @@ class miniorange_oauth_clientController extends ControllerBase
         if ($zN) {
             goto e7;
         }
-        Utilities::save_SSO_report_data("\106\101\111\x4c\125\122\x45\x2e\x20\122\145\x67\151\163\x74\162\141\164\151\157\x6e\x20\104\x69\163\x61\x62\x6c\x65\144", $o6, $UQ);
-        echo "\74\144\x69\166\40\163\x74\x79\154\x65\75\42\x66\157\x6e\x74\x2d\x66\141\x6d\151\x6c\171\72\103\x61\x6c\151\x62\162\x69\x3b\x70\141\x64\x64\x69\156\147\x3a\x30\x20\63\45\73\x22\x3e";
-        echo "\x3c\144\x69\x76\x20\x73\x74\171\154\x65\75\42\x63\157\154\x6f\x72\72\40\43\141\71\64\x34\64\x32\73\x62\x61\143\153\147\x72\157\x75\156\x64\55\x63\x6f\154\x6f\x72\72\40\43\146\x32\x64\145\x64\145\x3b\x70\x61\x64\x64\151\x6e\147\72\x20\x31\x35\160\x78\73\155\141\x72\147\x69\x6e\x2d\142\157\x74\164\157\155\x3a\40\62\60\x70\x78\x3b\x74\145\x78\164\x2d\141\x6c\151\x67\x6e\x3a\143\x65\x6e\164\x65\x72\x3b\x62\x6f\162\144\145\x72\x3a\x31\x70\x78\x20\163\157\x6c\151\144\40\43\x45\x36\102\x33\102\x32\x3b\146\157\156\164\x2d\163\x69\x7a\145\72\x31\x38\x70\x74\x3b\x22\76\40\105\x52\122\117\x52\x3c\x2f\144\151\x76\76\12\40\40\40\x20\x20\40\40\40\x20\40\40\40\x20\x20\40\x20\x20\x20\40\x20\40\x20\40\40\x20\40\40\x20\40\x20\40\40\74\144\x69\166\40\x73\x74\171\154\x65\x3d\x22\x63\x6f\x6c\x6f\x72\72\x20\x23\x61\x39\x34\64\64\x32\x3b\146\157\x6e\164\x2d\x73\x69\x7a\x65\72\x31\64\160\164\x3b\40\x6d\x61\x72\147\151\156\x2d\x62\157\164\x74\157\x6d\x3a\x32\x30\x70\x78\73\x22\x3e\74\x70\76\74\x73\x74\162\157\x6e\147\x3e\x45\x72\x72\157\162\x3a\x20\x3c\57\163\164\162\157\156\147\x3e\101\x63\143\x6f\x75\156\x74\x20\x64\157\145\x73\40\156\157\x74\40\x65\x78\151\163\164\40\167\151\164\150\40\x79\x6f\165\x72\40\165\163\x65\x72\156\141\x6d\x65\x2e\x3c\57\160\x3e\xa\40\40\40\40\40\x20\40\40\x20\40\x20\x20\x20\40\x20\40\x20\40\x20\40\40\x20\40\x20\40\40\40\40\40\40\40\40\x20\40\40\40\x3c\160\76\x50\x6c\145\141\x73\x65\x20\x43\157\156\x74\x61\x63\164\x20\171\x6f\x75\x72\40\x61\144\155\x69\x6e\151\x73\164\162\x61\164\157\162\x3c\x2f\160\76\12\x20\40\x20\x20\x20\40\x20\40\x20\x20\40\40\x20\40\40\40\40\40\40\40\x20\40\x20\40\x20\x20\40\x20\x20\40\x20\x20\x20\40\x20\x20\x3c\160\x3e\74\163\164\x72\157\x6e\x67\76\x50\x6f\x73\x73\x69\x62\x6c\x65\x20\x43\x61\165\163\145\72\x20\74\57\163\164\162\x6f\156\x67\x3e\x41\165\x74\x6f\x20\143\x72\x65\141\x74\151\x6f\x6e\40\x6f\x66\x20\165\163\x65\162\40\x69\x73\x20\156\157\x74\40\x61\154\x6c\x6f\167\x65\x64\x20\x69\146\x20\x75\x73\145\x72\40\x64\x6f\145\x73\x20\156\x6f\x74\x20\145\x78\151\x73\164\56\x3c\57\160\76\xa\x20\x20\40\x20\40\x20\x20\x20\x20\40\x20\x20\40\x20\40\x20\x20\x20\x20\x20\40\40\40\40\40\40\x20\40\x20\x20\40\40\x3c\57\x64\151\166\76\12\x20\40\x20\x20\40\40\40\40\40\x20\40\x20\x20\40\x20\40\x20\x20\40\40\40\x20\40\40\x20\40\x20\40\40\40\40\40\74\x64\x69\x76\x20\163\164\x79\154\x65\75\42\x6d\x61\x72\147\151\156\x3a\63\x25\73\144\151\x73\160\x6c\141\171\72\x62\154\157\x63\153\73\x74\145\170\x74\x2d\141\154\x69\147\x6e\72\143\145\156\164\145\162\73\x22\76\74\x2f\144\x69\x76\x3e\12\x20\40\x20\x20\x20\x20\40\x20\x20\40\40\40\x20\x20\40\40\x20\x20\40\x20\40\40\40\40\x20\40\x20\x20\40\x20\40\40\x3c\x64\x69\x76\x20\163\164\x79\154\x65\x3d\x22\x6d\141\162\x67\151\156\72\x33\x25\x3b\x64\x69\x73\160\x6c\141\171\x3a\142\154\157\x63\x6b\73\164\145\x78\x74\55\x61\154\151\x67\156\x3a\x63\x65\x6e\164\145\x72\73\42\x3e\12\x20\x20\x20\x20\40\40\40\40\x20\40\x20\x20\40\40\40\x20\x20\40\40\40\40\40\x20\40\40\x20\40\x20\40\x20\40\x20\40\40\x20\x20\74\151\156\160\x75\x74\40\x73\x74\x79\154\x65\x3d\x22\160\141\x64\x64\151\x6e\147\72\61\45\73\x77\x69\144\164\150\x3a\61\60\x30\x70\170\73\x62\x61\143\x6b\x67\162\x6f\165\x6e\144\72\40\43\x30\60\x39\61\103\x44\x20\156\157\x6e\145\x20\x72\x65\x70\x65\x61\164\x20\163\x63\x72\157\154\x6c\x20\60\45\40\x30\x25\73\143\165\x72\x73\x6f\162\x3a\x20\160\x6f\x69\x6e\164\x65\x72\x3b\146\157\156\x74\55\163\x69\x7a\145\72\61\65\x70\170\x3b\142\x6f\x72\144\x65\162\x2d\167\151\144\164\150\72\x20\x31\x70\x78\73\x62\x6f\162\144\145\162\x2d\163\164\x79\x6c\x65\x3a\40\x73\x6f\154\151\x64\73\x62\157\x72\144\145\x72\55\x72\x61\144\151\165\x73\72\x20\x33\x70\x78\73\x77\150\151\x74\145\x2d\x73\160\x61\143\x65\72\x20\156\x6f\x77\162\x61\160\73\142\157\x78\55\163\151\172\x69\x6e\147\72\40\142\157\x72\144\145\162\55\x62\157\x78\x3b\x62\x6f\x72\144\145\162\55\x63\x6f\x6c\157\x72\x3a\x20\x23\x30\60\x37\x33\101\101\73\x62\x6f\x78\x2d\163\x68\x61\x64\x6f\x77\x3a\40\60\160\x78\40\x31\160\x78\40\60\160\x78\40\162\x67\142\x61\x28\61\x32\x30\x2c\40\x32\x30\x30\x2c\40\62\63\60\54\40\60\x2e\66\x29\40\151\x6e\x73\145\x74\73\x63\157\x6c\x6f\x72\x3a\x20\x23\x46\x46\106\x3b\42\x74\x79\x70\x65\x3d\x22\x62\165\164\x74\157\x6e\x22\40\166\x61\x6c\x75\x65\75\x22\x44\157\156\145\x22\x20\x6f\x6e\x43\x6c\x69\143\x6b\75\x22\163\x65\154\146\56\x63\x6c\157\x73\x65\50\x29\73\42\x3e\12\40\40\x20\40\x20\40\x20\40\40\40\x20\x20\40\40\40\x20\x20\40\x20\x20\x20\x20\40\40\40\40\40\x20\x20\x20\x20\x20\74\57\144\x69\x76\x3e";
+        Utilities::save_SSO_report_data("FAILURE. Registration Disabled", $o6, $UQ);
+        echo "<div style='font-family:Calibri;padding:0 3%;'>";
+        echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Account does not exist with your username.</p>\xa<p>Please Contact your administrator</p>
+                                    <p><strong>Possible Cause: </strong>Auto creation of user is not allowed if user does not exist.</p>\xa</div>
+                                <div style='margin:3%;display:block;text-align:center;'></div>
+                                <div style='margin:3%;display:block;text-align:center;'>
+                                    <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='button' value='Done' onClick='self.close();'>
+                                </div>";
         die;
         return new Response();
         goto BV;
         e7:
         $VZ = user_password(8);
-        $pt = array("\x6e\x61\x6d\x65" => $o6, "\155\x61\x69\x6c" => $UQ, "\x70\141\163\163" => $VZ, "\163\164\141\164\165\163" => 1, "\162\x6f\x6c\145\163" => $Z0);
+        $pt = array("name" => $o6, "mail" => $UQ, "pass" => $VZ, "status" => 1, "roles" => $Z0);
         $KY = User::create($pt);
         $KY->save();
         BV:
@@ -355,28 +384,28 @@ class miniorange_oauth_clientController extends ControllerBase
         if (empty($Vg)) {
             goto ag;
         }
-        $KY->{$Fb}["\165\156\144"][0]["\166\x61\x6c\165\145"] = $Vg;
+        $KY->{$Fb}["und"][0]["value"] = $Vg;
         ag:
         if (empty($hE)) {
             goto Tl;
         }
-        $KY->{$eJ}["\x75\156\144"][0]["\166\141\x6c\x75\145"] = $hE;
+        $KY->{$eJ}["und"][0]["value"] = $hE;
         Tl:
         if (empty($P_)) {
             goto ax;
         }
-        $KY->{$mb}["\165\156\x64"][0]["\166\141\154\165\x65"] = $P_;
+        $KY->{$mb}["und"][0]["value"] = $P_;
         ax:
         if (empty($Zr)) {
             goto ik;
         }
-        $KY->{$qM}["\165\x6e\144"][0]["\166\141\154\165\x65"] = $Zr;
+        $KY->{$qM}["und"][0]["value"] = $Zr;
         ik:
         $KY->save();
         if (is_null($KY)) {
             goto zt;
         }
-        $eI = \Drupal::configFactory()->getEditable("\x6d\151\x6e\x69\x6f\162\141\x6e\147\145\x5f\157\x61\x75\x74\x68\137\x63\154\151\145\156\x74\x2e\x73\145\x74\x74\x69\156\147\163")->get("\x6d\151\x6e\151\x6f\x72\x61\x6e\147\145\137\157\x61\165\x74\x68\137\x64\151\163\x61\142\154\x65\x5f\162\x6f\154\x65\x5f\x75\160\144\x61\x74\x65");
+        $eI = \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->get("miniorange_oauth_disable_role_update");
         $KY = \Drupal\user\Entity\User::load($KY->id());
         $RY = $KY->getRoles();
         $kZ = array();
@@ -409,7 +438,7 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!array_key_exists($on, $Qx)) {
                 goto hG;
             }
-            $KY->addRole(str_replace("\40", "\x5f", strtolower($Qx[$on])));
+            $KY->addRole(str_replace(" ", "_", strtolower($Qx[$on])));
             $KY->save();
             hG:
             Rq:
@@ -420,21 +449,21 @@ class miniorange_oauth_clientController extends ControllerBase
         if (!(sizeof($KY->getRoles()) == 1)) {
             goto fD;
         }
-        $KY->addRole(str_replace("\40", "\x5f", strtolower($Z0)));
+        $KY->addRole(str_replace(" ", "_", strtolower($Z0)));
         $KY->save();
         fD:
         if (!(isset($Ax) && !empty($Ax))) {
             goto Dh;
         }
         foreach ($Ax as $Dy => $on) {
-            $KY->addRole(str_replace("\x20", "\x5f", strtolower($on)));
+            $KY->addRole(str_replace(" ", "_", strtolower($on)));
             $KY->save();
             c0:
         }
         mP:
         Dh:
-        $xp = \Drupal::config("\155\x69\x6e\151\x6f\x72\x61\156\x67\145\x5f\x6f\x61\165\164\x68\137\x63\154\x69\145\x6e\164\56\x73\x65\164\x74\151\156\x67\x73")->get("\155\151\156\x69\x6f\162\x61\x6e\147\145\137\x6f\x61\165\x74\150\137\143\x6c\151\x65\x6e\164\137\x64\x65\146\141\165\154\x74\x5f\x72\x65\154\x61\171\x73\x74\141\x74\145");
-        $Hr = \Drupal::config("\155\x69\156\151\x6f\162\141\156\x67\145\x5f\x6f\141\x75\164\x68\137\143\154\x69\x65\156\x74\x2e\x73\x65\x74\164\151\156\147\x73")->get("\143\x75\x72\162\x65\x6e\164\137\x6c\x69\156\x6b");
+        $xp = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_default_relaystate");
+        $Hr = \Drupal::config("miniorange_oauth_client.settings")->get("current_link");
         if ($xp != '') {
             goto xh;
         }
@@ -447,14 +476,15 @@ class miniorange_oauth_clientController extends ControllerBase
         xh:
         $OK = $xp;
         cO:
-        Utilities::save_SSO_report_data("\123\125\103\x43\x45\x53\x53", $o6, $UQ);
+        Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
-        $x1["\x72\x65\x64\x69\x72\x65\143\x74"] = $OK;
+        $x1["redirect"] = $OK;
         user_login_finalize($KY);
-        $CI = new RedirectResponse($x1["\162\145\x64\x69\162\x65\x63\x74"]);
+        $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
-        return new Response();
+        return new Response(); 
     }
+    
     public static function getAccessToken($Xe, $Fk, $wO, $Oc, $ES, $xp)
     {
         $io = curl_init($Xe);
