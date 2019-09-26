@@ -10,6 +10,10 @@
    */
   Drupal.behaviors.exampleBehavior = {
     attach: function (context, settings) {
+      
+      //only file pdf
+      $('.file--mime-application-pdf a').attr('target', '_blank');
+
 
 /*      $("#events .share a").click(function(){
         $('.share-social-media').addClass('visible-block');

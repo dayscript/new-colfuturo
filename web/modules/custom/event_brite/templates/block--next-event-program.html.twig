@@ -1,4 +1,38 @@
-<div class="row">
+{% for group in events %}
+  {% set end = group|length %}
+  {% for key, event in group %}
+  <div class="medium-6 end columns">
+    <div class="container-events">
+      <div>
+        <div class="type">
+          <p>Online</p>
+        </div>
+        <div class="share">
+          <a href="#">Compartir</a>
+        </div>
+        <div class="date">
+          <p>{{ event.start.local | date('U') | format_date('colfuturo_d_m_y_') }}</p>
+        </div>
+        <div class="time">
+          <p>{{ event.start.local | date('h:i A') }} - {{ event.end.local | date('h:i A') }}</p>
+        </div>
+        <div class="address">
+          <p>address</p>
+        </div>
+        <div class="title">
+          <h3>
+            {{ event.name.text }}
+          </h3>
+        </div>
+      </div>
+      <div class="medium-12 columns text-center ">
+        <a href="{{ event.url }}" class="button" target="_blank">Regístrate</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endfor %}
+<!-- <div class="row">
   <div id="events">
   {% for group in events %}
   <div>
@@ -10,7 +44,7 @@
           <div class="type">
             <p>Online</p>
           </div>
-          <div class="share">
+           <div class="share">
             <a href="#">Compartir</a>
           </div>
           <div class="date">
@@ -37,4 +71,4 @@
   </div>
   {% endfor %}
   </div>
-</div>
+</div> -->
