@@ -539,6 +539,8 @@ progress[value]::-webkit-progress-bar {
   z-index: -1;
 }
 
-.progress-meter {
-  left: -15px;
-} 
+#block-gestioncifras{
+  .progress{
+    padding: 0;
+  }
+}
