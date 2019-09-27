@@ -497,7 +497,7 @@ class miniorange_oauth_clientController extends ControllerBase
         curl_setopt($io, CURLOPT_HTTPHEADER, array("Authorization: Basic " . base64_encode($wO . ":" . $Oc), "Accept: application/json"));
         curl_setopt($io, CURLOPT_POSTFIELDS, "redirect_uri=" . urlencode($xp) . "&grant_type=" . $Fk . "&client_id=" . $wO . "&client_secret=" . $Oc . "&code=" . $ES);
         $Uc = curl_exec($io);
-        dump($io);
+        
         if (!curl_error($io)) {
             goto Nz;
         }
@@ -552,6 +552,7 @@ class miniorange_oauth_clientController extends ControllerBase
         curl_setopt($io, CURLOPT_POST, false);
         curl_setopt($io, CURLOPT_HTTPHEADER, array("Authorization: Bearer " . $X0));
         $Uc = curl_exec($io);
+        dump($Uc);
         if (!curl_error($io)) {
             goto E4;
         }
