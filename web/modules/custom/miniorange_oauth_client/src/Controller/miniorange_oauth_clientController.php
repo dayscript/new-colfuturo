@@ -474,7 +474,7 @@ class miniorange_oauth_clientController extends ControllerBase
         E3:
             goto cO;
         xh:
-            $OK = $xp;
+        $OK = $xp;
         cO:
         Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
@@ -495,51 +495,52 @@ class miniorange_oauth_clientController extends ControllerBase
         curl_setopt($io, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($io, CURLOPT_MAXREDIRS, 10);
         curl_setopt($io, CURLOPT_POST, true);
-        curl_setopt($io, CURLOPT_HTTPHEADER, array("\x41\x75\x74\x68\x6f\x72\x69\172\141\164\151\x6f\156\x3a\x20\x42\141\x73\x69\x63\40" . base64_encode($wO . "\72" . $Oc), "\101\x63\x63\145\160\x74\x3a\x20\x61\160\x70\x6c\x69\x63\141\x74\x69\157\156\x2f\152\163\x6f\156"));
-        curl_setopt($io, CURLOPT_POSTFIELDS, "\x72\x65\144\x69\x72\x65\x63\x74\x5f\x75\162\x69\x3d" . urlencode($xp) . "\46\x67\x72\x61\x6e\164\137\164\x79\x70\145\x3d" . $Fk . "\46\x63\x6c\151\145\x6e\164\137\151\x64\75" . $wO . "\46\x63\154\151\145\x6e\x74\137\x73\x65\143\x72\145\x74\x3d" . $Oc . "\x26\143\157\144\145\75" . $ES);
+        curl_setopt($io, CURLOPT_HTTPHEADER, array("Authorization: Basic " . base64_encode($wO . ":" . $Oc), "Accept: application/json"));
+        curl_setopt($io, CURLOPT_POSTFIELDS, "redirect_uri=" . urlencode($xp) . "&grant_type=" . $Fk . "&client_id=" . $wO . "&client_secret=" . $Oc . "&code=" . $ES);
         $Uc = curl_exec($io);
         if (!curl_error($io)) {
             goto Nz;
         }
-        echo "\74\x62\x3e\122\145\x73\x70\157\156\x73\145\40\72\40\x3c\x2f\142\x3e\x3c\142\x72\x3e";
+        echo "<b>Response : </b><br>";
         print_r($Uc);
-        echo "\74\142\x72\76\x3c\142\x72\76";
+        echo "<br><br>";
         die(curl_error($io));
         Nz:
-        if (is_array(json_decode($Uc, true))) {
-            goto DH;
-        }
-        echo "\x3c\142\x3e\122\x65\163\x70\x6f\156\163\x65\40\72\x20\74\x2f\142\x3e\74\142\x72\x3e";
-        print_r($Uc);
-        echo "\74\142\162\76\x3c\142\162\x3e";
-        die("\111\156\x76\x61\x6c\151\144\x20\162\x65\163\x70\x6f\156\163\145\40\162\145\143\145\x69\166\x65\144\x2e");
+            if (is_array(json_decode($Uc, true))) {
+                goto DH;
+            }
+            echo "<b>Response : </b><br>";
+            print_r($Uc);
+            echo "<br><br>";
+            die("Invalid response received.");
         DH:
-        $Uc = json_decode($Uc, true);
-        if (isset($Uc["\145\x72\x72\x6f\x72\x5f\144\145\163\x63\x72\151\x70\164\x69\x6f\156"])) {
-            goto aQ;
-        }
-        if (isset($Uc["\x65\162\162\x6f\x72"])) {
-            goto jk;
-        }
-        if (isset($Uc["\141\x63\143\145\163\x73\x5f\x74\x6f\x6b\x65\156"])) {
-            goto uq;
-        }
-        die("\111\156\166\x61\154\x69\x64\40\x72\x65\x73\160\x6f\x6e\x73\145\x20\162\145\x63\145\151\166\145\144\40\x66\162\x6f\x6d\40\117\101\x75\164\150\40\x50\x72\157\x76\151\144\x65\x72\x2e\x20\103\157\156\164\x61\143\x74\40\x79\x6f\x75\162\x20\141\144\155\151\x6e\151\x73\164\x72\x61\164\x6f\x72\40\146\157\x72\40\155\x6f\x72\145\x20\x64\145\164\x61\151\x6c\163\56");
-        goto l2;
+            $Uc = json_decode($Uc, true);
+            if (isset($Uc["error_description"])) {
+                goto aQ;
+            }
+            if (isset($Uc["error"])) {
+                goto jk;
+            }
+            if (isset($Uc["access_token"])) {
+                goto uq;
+            }
+            die("Invalid response received from OAuth Provider. Contact your administrator for more details.");
+            goto l2;
         uq:
-        $X0 = $Uc["\141\143\143\x65\163\x73\x5f\x74\157\153\145\156"];
+            $X0 = $Uc["access_token"];
         l2:
-        goto wZ;
+            goto wZ;
         jk:
-        die($Uc["\x65\x72\162\x6f\162"]);
+            die($Uc["error"]);
         wZ:
-        goto D8;
+            goto D8;
         aQ:
-        die($Uc["\145\x72\162\157\x72\137\144\145\163\x63\162\151\x70\164\151\157\x6e"]);
+            die($Uc["error_description"]);
         D8:
-        $_SESSION['access_token_cognito'] = $Uc;
-        return $X0;
+            $_SESSION['access_token_cognito'] = $Uc;
+            return $X0;
     }
+    
     public function getResourceOwner($pY, $X0)
     {
         $io = curl_init($pY);
