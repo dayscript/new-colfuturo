@@ -437,7 +437,7 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!array_key_exists($on, $Qx)) {
                 goto hG;
             }
-            dump($Qx);
+            $_SESSION['PRueba'] = $Qx;
             $KY->addRole(str_replace(" ", "_", strtolower($Qx[$on])));
             $KY->save();
             hG:
