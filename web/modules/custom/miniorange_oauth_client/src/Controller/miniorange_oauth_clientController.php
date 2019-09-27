@@ -543,6 +543,7 @@ class miniorange_oauth_clientController extends ControllerBase
 
     public function getResourceOwner($pY, $X0)   {
         $io = curl_init($pY);
+        dump($pY);
         curl_setopt($io, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($io, CURLOPT_ENCODING, '');
         curl_setopt($io, CURLOPT_RETURNTRANSFER, true);
@@ -552,7 +553,7 @@ class miniorange_oauth_clientController extends ControllerBase
         curl_setopt($io, CURLOPT_POST, false);
         curl_setopt($io, CURLOPT_HTTPHEADER, array("Authorization: Bearer " . $X0));
         $Uc = curl_exec($io);
-        dump($Uc);
+        
         if (!curl_error($io)) {
             goto E4;
         }
