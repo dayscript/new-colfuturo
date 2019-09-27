@@ -23,396 +23,396 @@ class miniorange_oauth_clientController extends ControllerBase
             goto q6;
         }
         session_start();
+        
         q6:
-        if (!isset($ES)) {
-            goto Ml;
-        }
-        $f6 = '';
-        if (isset($_SESSION["appname"]) && !empty($_SESSION["appname"])) {
-            goto bK;
-        }
-        if (!(isset($NA) && !empty($NA))) {
-            goto pW;
-        }
-        $f6 = base64_decode($NA);
+            if (!isset($ES)) {
+                goto Ml;
+            }
+            $f6 = '';
+            if (isset($_SESSION["appname"]) && !empty($_SESSION["appname"])) {
+                goto bK;
+            }
+            if (!(isset($NA) && !empty($NA))) {
+                goto pW;
+            }
+            $f6 = base64_decode($NA);
         pW:
-        goto gH;
+            goto gH;
         bK:
-        $f6 = $_SESSION["appname"];
+            $f6 = $_SESSION["appname"];
         gH:
-        if (!empty($f6)) {
-            goto ly;
-        }
-        die("No request found for this application.");
+            if (!empty($f6)) {
+                goto ly;
+            }
+            die("No request found for this application.");
         ly:
-        goto Cb;
+            goto Cb;
         Ml:
-        if (isset($_GET["error_description"])) {
-            goto MG;
-        }
-        if (!isset($_GET["error"])) {
-            goto rC;
-        }
-        die($_GET["error"]);
+            if (isset($_GET["error_description"])) {
+                goto MG;
+            }
+            if (!isset($_GET["error"])) {
+                goto rC;
+            }
+            die($_GET["error"]);
         rC:
-        goto nA;
+            goto nA;
         MG:
-        die($_GET["error_description"]);
+            die($_GET["error_description"]);
         nA:
-        die("Invalid response");
+            die("Invalid response");
         Cb:
         Fh:
-        $VH = array();
-        $VH = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_appval");
-        $nJ = '';
-        $EE = '';
-        $o6 = '';
-        $UQ = '';
-        if (!isset($VH["miniorange_oauth_client_email_attr"])) {
-            goto UK;
-        }
-        $EE = $VH["miniorange_oauth_client_email_attr"];
+            $VH = array();
+            $VH = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_appval");
+            $nJ = '';
+            $EE = '';
+            $o6 = '';
+            $UQ = '';
+            if (!isset($VH["miniorange_oauth_client_email_attr"])) {
+                goto UK;
+            }
+            $EE = $VH["miniorange_oauth_client_email_attr"];
         UK:
-        if (!isset($VH["miniorange_oauth_client_name_attr"])) {
-            goto rK;
-        }
-        $nJ = $VH["miniorange_oauth_client_name_attr"];
+            if (!isset($VH["miniorange_oauth_client_name_attr"])) {
+                goto rK;
+            }
+            $nJ = $VH["miniorange_oauth_client_name_attr"];
         rK:
-        $id = self::getAccessToken($VH["access_token_ep"], "authorization_code", $VH["client_id"], $VH["client_secret"], $ES, $VH["callback_uri"]);
-        if ($id) {
-            goto SN;
-        }
-        print_r("Invalid token received.");
-        die;
+            $id = self::getAccessToken($VH["access_token_ep"], "authorization_code", $VH["client_id"], $VH["client_secret"], $ES, $VH["callback_uri"]);
+            if ($id) {
+                goto SN;
+            }
+            print_r("Invalid token received.");
+            die;
         SN:
-        $pY = $VH["user_info_ep"];
-        if (!(substr($pY, -1) == "=")) {
-            goto M1;
-        }
-        $pY .= $id;
+            $pY = $VH["user_info_ep"];
+            if (!(substr($pY, -1) == "=")) {
+                goto M1;
+            }
+            $pY .= $id;
         M1:
-        $D9 = self::getResourceOwner($pY, $id);
-        if (!(isset($_COOKIE["Drupal_visitor_mo_oauth_test"]) && $_COOKIE["Drupal_visitor_mo_oauth_test"] == true)) {
-            goto LX;
-        }
-        user_cookie_save(array("mo_oauth_test" => false));
-        echo "<style>table{border-collapse: collapse;}table, td, th {border: 1px solid black;padding:4px}</style>";
-        echo "<h2>Test Configuration</h2><table><tr><th>Attribute Name</th><th>Attribute Value</th></tr>";
-        self::testattrmappingconfig('', $D9);
-        echo "</table>";
-        die;
-        return new Response();
+            $D9 = self::getResourceOwner($pY, $id);
+            if (!(isset($_COOKIE["Drupal_visitor_mo_oauth_test"]) && $_COOKIE["Drupal_visitor_mo_oauth_test"] == true)) {
+                goto LX;
+            }
+            user_cookie_save(array("mo_oauth_test" => false));
+            echo "<style>table{border-collapse: collapse;}table, td, th {border: 1px solid black;padding:4px}</style>";
+            echo "<h2>Test Configuration</h2><table><tr><th>Attribute Name</th><th>Attribute Value</th></tr>";
+            self::testattrmappingconfig('', $D9);
+            echo "</table>";
+            die;
+            return new Response();
         LX:
-        $In = array();
-        $Fb = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr1_name");
-        $Ag = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr1_name");
-        $eJ = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr2_name");
-        $eq = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr2_name");
-        $mb = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr3_name");
-        $IM = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr3_name");
-        $qM = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr4_name");
-        $MR = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr4_name");
-        $WN = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
-        if (!(!empty($Fb) && !empty($Ag))) {
-            goto CN;
-        }
-        $In[$Fb] = $Ag;
+            $In = array();
+            $Fb = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr1_name");
+            $Ag = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr1_name");
+            $eJ = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr2_name");
+            $eq = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr2_name");
+            $mb = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr3_name");
+            $IM = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr3_name");
+            $qM = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_attr4_name");
+            $MR = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_attr4_name");
+            $WN = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
+            if (!(!empty($Fb) && !empty($Ag))) {
+                goto CN;
+            }
+            $In[$Fb] = $Ag;
         CN:
-        if (!(!empty($eJ) && !empty($eq))) {
-            goto wE;
-        }
-        $In[$eJ] = $eq;
+            if (!(!empty($eJ) && !empty($eq))) {
+                goto wE;
+            }
+            $In[$eJ] = $eq;
         wE:
-        if (!(!empty($mb) && !empty($IM))) {
-            goto hZ;
-        }
-        $In[$mb] = $IM;
+            if (!(!empty($mb) && !empty($IM))) {
+                goto hZ;
+            }
+            $In[$mb] = $IM;
         hZ:
-        if (!(!empty($qM) && !empty($MR))) {
-            goto z1;
-        }
-        $In[$qM] = $MR;
+            if (!(!empty($qM) && !empty($MR))) {
+                goto z1;
+            }
+            $In[$qM] = $MR;
         z1:
-        $mV = '';
-        $Lc = '';
-        $Ps = null;
-        $Ax = array();
-        if (!(\Drupal::config("miniorange_oauth_client.settings")->get("rolemap") != '')) {
-            goto RX;
-        }
-        $Lc = \Drupal::config("miniorange_oauth_client.settings")->get("rolemap");
+            $mV = '';
+            $Lc = '';
+            $Ps = null;
+            $Ax = array();
+            if (!(\Drupal::config("miniorange_oauth_client.settings")->get("rolemap") != '')) {
+                goto RX;
+            }
+            $Lc = \Drupal::config("miniorange_oauth_client.settings")->get("rolemap");
         RX:
-        if (!(\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name") != '')) {
-            goto Wz;
-        }
-        $mV = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
+            if (!(\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name") != '')) {
+                goto Wz;
+            }
+            $mV = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
         Wz:
-        if (empty($D9[$mV])) {
-            goto Zi;
-        }
-        if (empty($D9[$mV])) {
-            goto QI;
-        }
-        $Hk = $D9[$mV];
+            if (empty($D9[$mV])) {
+                goto Zi;
+            }
+            if (empty($D9[$mV])) {
+                goto QI;
+            }
+            $Hk = $D9[$mV];
         QI:
-        goto P2;
+            goto P2;
         Zi:
-        if (!(strpos($mV, ".") !== false)) {
-            goto WN;
-        }
-        $gS = $D9;
-        $YX = explode(".", $mV);
-        $nN = 0;
+            if (!(strpos($mV, ".") !== false)) {
+                goto WN;
+            }
+            $gS = $D9;
+            $YX = explode(".", $mV);
+            $nN = 0;
         Zk:
-        if (!($nN < sizeof($YX))) {
-            goto TE;
-        }
-        $Jq = $YX[$nN];
-        $gS = $gS[$Jq];
-        $Hk = $gS;
+            if (!($nN < sizeof($YX))) {
+                goto TE;
+            }
+            $Jq = $YX[$nN];
+            $gS = $gS[$Jq];
+            $Hk = $gS;
         ht:
-        $nN++;
-        goto Zk;
+            $nN++;
+            goto Zk;
         TE:
         WN:
         P2:
-        $Ps = array();
-        if (!is_array($Hk)) {
-            goto PS;
-        }
-        $Ps = $Hk;
-        goto WZ;
-        PS:
-        $Ps[0] = $Hk;
-        WZ:
-        if (!(isset($mV) && !empty($mV) && isset($Ps))) {
-            goto Ec;
-        }
-        $Ps[0] = preg_replace("/\s+/", '', $Ps[0]);
-        $O4 = strpos($Ps[0], ",");
-        if (!(sizeof($Ps) == 1 && $O4 !== false)) {
-            goto Xk;
-        }
-        $wc = explode(",", $Ps[0]);
-        $Ps = $wc;
-        Xk:
-        $nN = 0;
-        nD:
-        if (!($nN < sizeof($Ps))) {
-            goto z5;
-        }
-        $ZB[$nN] = $Ps[$nN];
-        Bk:
-        $nN++;
-        goto nD;
-        z5:
-        $Ax = array();
-        $nN = 0;
-        AF:
-        if (!($nN < sizeof($ZB))) {
-            goto MM;
-        }
-        foreach ($Lc as $Dy => $on) {
-            if (!(!empty($Dy) && !is_null($Dy) && !strcasecmp($ZB[$nN], $Dy))) {
-                goto TI;
+            $Ps = array();
+            if (!is_array($Hk)) {
+                goto PS;
             }
-            $S5 = array_search($on, user_roles());
-            $Ax[$S5] = $on;
-            TI:
-            LN:
-        }
+            $Ps = $Hk;
+            goto WZ;
+        PS:
+            $Ps[0] = $Hk;
+        WZ:
+            if (!(isset($mV) && !empty($mV) && isset($Ps))) {
+                goto Ec;
+            }
+            $Ps[0] = preg_replace("/\s+/", '', $Ps[0]);
+            $O4 = strpos($Ps[0], ",");
+            if (!(sizeof($Ps) == 1 && $O4 !== false)) {
+                goto Xk;
+            }
+            $wc = explode(",", $Ps[0]);
+            $Ps = $wc;
+        Xk:
+            $nN = 0;
+        nD:
+            if (!($nN < sizeof($Ps))) {
+                goto z5;
+            }
+            $ZB[$nN] = $Ps[$nN];
+        Bk:
+            $nN++;
+            goto nD;
+        z5:
+            $Ax = array();
+            $nN = 0;
+        AF:
+            if (!($nN < sizeof($ZB))) {
+                goto MM;
+            }
+            foreach ($Lc as $Dy => $on) {
+                if (!(!empty($Dy) && !is_null($Dy) && !strcasecmp($ZB[$nN], $Dy))) {
+                    goto TI;
+                }
+                $S5 = array_search($on, user_roles());
+                $Ax[$S5] = $on;
+                TI:
+                LN:
+            }
         ow:
         pA:
-        $nN++;
-        goto AF;
+            $nN++;
+            goto AF;
         MM:
         Ec:
-        if (empty($EE)) {
-            goto L6;
-        }
-        $UQ = self::getnestedattribute($D9, $EE);
+            if (empty($EE)) {
+                goto L6;
+            }
+            $UQ = self::getnestedattribute($D9, $EE);
         L6:
-        if (empty($nJ)) {
-            goto y6;
-        }
-        $o6 = self::getnestedattribute($D9, $nJ);
+            if (empty($nJ)) {
+                goto y6;
+            }
+            $o6 = self::getnestedattribute($D9, $nJ);
         y6:
-        if (!empty($UQ)) {
-            goto kl;
-        }
-        Utilities::save_SSO_report_data("FAILURE. Email not mapped", $o6 ? $o6 : "-", "-");
-        echo "<div style='font-family:Calibri;padding:0 3%;'>";
-        echo "<div style='color: #a94442;background-color: #f2dede;padding:15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
-                    \xa 
-                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Email address does not received.
-                </p>\xa<p>Check your <b>Attribute Mapping</b> configuration.</p>
-                    \xa<p><strong>Possible Cause: </strong>Email Attribute field is not configured.</p>
-                </div>
-                <div style='margin:3%;display:block;text-align:center;'></div>
-                \xa
-                <div style='margin:3%;display:block;text-align:center;'>
-                \xa
-                <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='button' value='Done' onClick='self.close();'>
-                \xa
-            </div>";
-        die;
-        return new Response();
-
+            if (!empty($UQ)) {
+                goto kl;
+            }
+            Utilities::save_SSO_report_data("FAILURE. Email not mapped", $o6 ? $o6 : "-", "-");
+            echo "<div style='font-family:Calibri;padding:0 3%;'>";
+            echo "<div style='color: #a94442;background-color: #f2dede;padding:15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                        \xa 
+                    <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Email address does not received.
+                    </p>\xa<p>Check your <b>Attribute Mapping</b> configuration.</p>
+                        \xa<p><strong>Possible Cause: </strong>Email Attribute field is not configured.</p>
+                    </div>
+                    <div style='margin:3%;display:block;text-align:center;'></div>
+                    \xa
+                    <div style='margin:3%;display:block;text-align:center;'>
+                    \xa
+                    <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='button' value='Done' onClick='self.close();'>
+                    \xa
+                </div>";
+            die;
+            return new Response();
         kl:
-        $XZ = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_allow_domains");
-        $E3 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_restrict_domains");
-        $N4 = strtolower(substr($UQ, strpos($UQ, "@") + 1));
-        global $base_url;
-        if (!empty(\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url"))) {
-            goto ew;
-        }
-        $OK = $base_url;
-        goto ZX;
+            $XZ = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_allow_domains");
+            $E3 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_restrict_domains");
+            $N4 = strtolower(substr($UQ, strpos($UQ, "@") + 1));
+            global $base_url;
+            if (!empty(\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url"))) {
+                goto ew;
+            }
+            $OK = $base_url;
+            goto ZX;
         ew:
-        $OK = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url");
+            $OK = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url");
         ZX:
-        if (empty($XZ)) {
-            goto AB;
-        }
-        $XZ = explode(";", preg_replace("/\s+/", '', strtolower($XZ)));
-        if (in_array($N4, $XZ)) {
-            goto DW;
-        }
-        Utilities::save_SSO_report_data("FAILURE. Domain Restricted", $o6 ? $o6 : "-", $UQ);
-        echo '<div style="font-family:Calibri;padding:0 3%;">';
-        echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
-            <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Domain restriction is enabled.</p>
-                <p>Please contact your administrator.</p>\xa<p><strong>Possible Cause: </strong>Your domin is not allowed to login.</p>\xa</div>
-            <div style='margin:3%;display:block;text-align:center;'></div>\xa<div style='margin:3%;display:block;text-align:center;'>\xa<form action='' . $OK . '' method ='post'>\xa<input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='submit' value='Done'>\xa</form></div>";
-        die;
-        return new Response();
+            if (empty($XZ)) {
+                goto AB;
+            }
+            $XZ = explode(";", preg_replace("/\s+/", '', strtolower($XZ)));
+            if (in_array($N4, $XZ)) {
+                goto DW;
+            }
+            Utilities::save_SSO_report_data("FAILURE. Domain Restricted", $o6 ? $o6 : "-", $UQ);
+            echo '<div style="font-family:Calibri;padding:0 3%;">';
+            echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Domain restriction is enabled.</p>
+                    <p>Please contact your administrator.</p>\xa<p><strong>Possible Cause: </strong>Your domin is not allowed to login.</p>\xa</div>
+                <div style='margin:3%;display:block;text-align:center;'></div>\xa<div style='margin:3%;display:block;text-align:center;'>\xa<form action='' . $OK . '' method ='post'>\xa<input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='submit' value='Done'>\xa</form></div>";
+            die;
+            return new Response();
         DW:
         AB:
-        if (empty($E3)) {
-            goto Im;
-        }
-        $E3 = explode(";", preg_replace("/\s+/", '', strtolower($E3)));
-        if (!in_array($N4, $E3)) {
-            goto b9;
-        }
-        Utilities::save_SSO_report_data("FAILURE. Domain Restricted", $o6 ? $o6 : "-", $UQ);
-        echo "<div style='font-family:Calibri;padding:0 3%;'>";
-        echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
-                                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Domain restriction is enabled.</p>
-                                    <p>Please contact your administrator.</p>\xa <p><strong>Possible Cause: </strong>Your domin is not allowed to login.</p>\xa                                </div>
-                                <div style='margin:3%;display:block;text-align:center;'></div>
-                                <div style='margin:3%;display:block;text-align:center;'>
-                                <form action='' . $OK . '' method ='post'>
-                                <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='submit' value='Done'>
-                                </form></div>";
-        die;
-        return new Response();
+            if (empty($E3)) {
+                goto Im;
+            }
+            $E3 = explode(";", preg_replace("/\s+/", '', strtolower($E3)));
+            if (!in_array($N4, $E3)) {
+                goto b9;
+            }
+            Utilities::save_SSO_report_data("FAILURE. Domain Restricted", $o6 ? $o6 : "-", $UQ);
+            echo "<div style='font-family:Calibri;padding:0 3%;'>";
+            echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                                    <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Domain restriction is enabled.</p>
+                                        <p>Please contact your administrator.</p>\xa <p><strong>Possible Cause: </strong>Your domin is not allowed to login.</p>\xa                                </div>
+                                    <div style='margin:3%;display:block;text-align:center;'></div>
+                                    <div style='margin:3%;display:block;text-align:center;'>
+                                    <form action='' . $OK . '' method ='post'>
+                                    <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='submit' value='Done'>
+                                    </form></div>";
+            die;
+            return new Response();
         b9:
         Im:
-        $KY = '';
-        if (empty($UQ)) {
-            goto sd;
-        }
-        $KY = user_load_by_mail($UQ);
+            $KY = '';
+            if (empty($UQ)) {
+                goto sd;
+            }
+            $KY = user_load_by_mail($UQ);
         sd:
-        if (!($KY == null)) {
-            goto TN;
-        }
-        if (!(!empty($o6) && isset($o6))) {
-            goto cV;
-        }
-        $KY = user_load_by_name($o6);
+            if (!($KY == null)) {
+                goto TN;
+            }
+            if (!(!empty($o6) && isset($o6))) {
+                goto cV;
+            }
+            $KY = user_load_by_name($o6);
         cV:
         TN:
-        global $user;
-        $zN = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_auto_create_users");
-        $Z0 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_default_role");
-        $Qa = user_role_names(TRUE);
-        $Qa = array_values($Qa);
-        $Z0 = $Qa[$Z0];
-        if (!empty($o6)) {
-            goto tc;
-        }
-        $o6 = $UQ;
+            global $user;
+            $zN = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_auto_create_users");
+            $Z0 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_default_role");
+            $Qa = user_role_names(TRUE);
+            $Qa = array_values($Qa);
+            $Z0 = $Qa[$Z0];
+            if (!empty($o6)) {
+                goto tc;
+            }
+            $o6 = $UQ;
         tc:
-        if (isset($KY->uid)) {
-            goto tU;
-        }
-        if ($zN) {
-            goto e7;
-        }
-        Utilities::save_SSO_report_data("FAILURE. Registration Disabled", $o6, $UQ);
-        echo "<div style='font-family:Calibri;padding:0 3%;'>";
-        echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
-                                <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Account does not exist with your username.</p>\xa<p>Please Contact your administrator</p>
-                                    <p><strong>Possible Cause: </strong>Auto creation of user is not allowed if user does not exist.</p>\xa</div>
-                                <div style='margin:3%;display:block;text-align:center;'></div>
-                                <div style='margin:3%;display:block;text-align:center;'>
-                                    <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='button' value='Done' onClick='self.close();'>
-                                </div>";
-        die;
-        return new Response();
-        goto BV;
+            if (isset($KY->uid)) {
+                goto tU;
+            }
+            if ($zN) {
+                goto e7;
+            }
+            Utilities::save_SSO_report_data("FAILURE. Registration Disabled", $o6, $UQ);
+            echo "<div style='font-family:Calibri;padding:0 3%;'>";
+            echo "<div style='color: #a94442;background-color: #f2dede;padding: 15px;margin-bottom: 20px;text-align:center;border:1px solid #E6B3B2;font-size:18pt;'> ERROR</div>
+                                    <div style='color: #a94442;font-size:14pt; margin-bottom:20px;'><p><strong>Error: </strong>Account does not exist with your username.</p>\xa<p>Please Contact your administrator</p>
+                                        <p><strong>Possible Cause: </strong>Auto creation of user is not allowed if user does not exist.</p>\xa</div>
+                                    <div style='margin:3%;display:block;text-align:center;'></div>
+                                    <div style='margin:3%;display:block;text-align:center;'>
+                                        <input style='padding:1%;width:100px;background: #0091CD none repeat scroll 0% 0%;cursor: pointer;font-size:15px;border-width: 1px;border-style: solid;border-radius: 3px;white-space: nowrap;box-sizing: border-box;border-color: #0073AA;box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.6) inset;color: #FFF;'type='button' value='Done' onClick='self.close();'>
+                                    </div>";
+            die;
+            return new Response();
+            goto BV;
         e7:
-        $VZ = user_password(8);
-        $pt = array("name" => $o6, "mail" => $UQ, "pass" => $VZ, "status" => 1, "roles" => $Z0);
-        $KY = User::create($pt);
-        $KY->save();
+            $VZ = user_password(8);
+            $pt = array("name" => $o6, "mail" => $UQ, "pass" => $VZ, "status" => 1, "roles" => $Z0);
+            $KY = User::create($pt);
+            $KY->save();
         BV:
         tU:
-        $user = \Drupal\user\Entity\User::load($KY->id());
-        if (empty($Ag)) {
-            goto f0;
-        }
-        $Vg = self::getnestedattribute($D9, $Ag);
+            $user = \Drupal\user\Entity\User::load($KY->id());
+            if (empty($Ag)) {
+                goto f0;
+            }
+            $Vg = self::getnestedattribute($D9, $Ag);
         f0:
-        if (empty($eq)) {
-            goto uW;
-        }
-        $hE = self::getnestedattribute($D9, $eq);
+            if (empty($eq)) {
+                goto uW;
+            }
+            $hE = self::getnestedattribute($D9, $eq);
         uW:
-        if (empty($IM)) {
-            goto IF1;
-        }
-        $P_ = self::getnestedattribute($D9, $IM);
+            if (empty($IM)) {
+                goto IF1;
+            }
+            $P_ = self::getnestedattribute($D9, $IM);
         IF1:
-        if (empty($MR)) {
-            goto r4;
-        }
-        $Zr = self::getnestedattribute($D9, $MR);
+            if (empty($MR)) {
+                goto r4;
+            }
+            $Zr = self::getnestedattribute($D9, $MR);
         r4:
-        if (empty($Vg)) {
-            goto ag;
-        }
-        $KY->{$Fb}["und"][0]["value"] = $Vg;
+            if (empty($Vg)) {
+                goto ag;
+            }
+            $KY->{$Fb}["und"][0]["value"] = $Vg;
         ag:
-        if (empty($hE)) {
-            goto Tl;
-        }
-        $KY->{$eJ}["und"][0]["value"] = $hE;
+            if (empty($hE)) {
+                goto Tl;
+            }
+            $KY->{$eJ}["und"][0]["value"] = $hE;
         Tl:
-        if (empty($P_)) {
-            goto ax;
-        }
-        $KY->{$mb}["und"][0]["value"] = $P_;
+            if (empty($P_)) {
+                goto ax;
+            }
+            $KY->{$mb}["und"][0]["value"] = $P_;
         ax:
-        if (empty($Zr)) {
-            goto ik;
-        }
-        $KY->{$qM}["und"][0]["value"] = $Zr;
+            if (empty($Zr)) {
+                goto ik;
+            }
+            $KY->{$qM}["und"][0]["value"] = $Zr;
         ik:
-        $KY->save();
-        if (is_null($KY)) {
-            goto zt;
-        }
-        $eI = \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->get("miniorange_oauth_disable_role_update");
-        $KY = \Drupal\user\Entity\User::load($KY->id());
-        $RY = $KY->getRoles();
-        $kZ = array();
-        if (!$eI) {
-            goto oH;
-        }
-        $kZ = array_intersect($RY, $Qx);
+            $KY->save();
+            if (is_null($KY)) {
+                goto zt;
+            }
+            $eI = \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->get("miniorange_oauth_disable_role_update");
+            $KY = \Drupal\user\Entity\User::load($KY->id());
+            $RY = $KY->getRoles();
+            $kZ = array();
+            if (!$eI) {
+                goto oH;
+            }
+            $kZ = array_intersect($RY, $Qx);
         oH:
         foreach ($RY as $Dy => $on) {
             if (empty($kZ)) {
@@ -423,10 +423,10 @@ class miniorange_oauth_clientController extends ControllerBase
             }
             goto Rt;
             Mi:
-            $KY->removeRole($on);
-            goto Rt;
+                $KY->removeRole($on);
+                goto Rt;
             VM:
-            $KY->removeRole($on);
+                $KY->removeRole($on);
             Rt:
             pm:
         }
@@ -446,35 +446,35 @@ class miniorange_oauth_clientController extends ControllerBase
         lw:
         ry:
         zt:
-        if (!(sizeof($KY->getRoles()) == 1)) {
-            goto fD;
-        }
-        $KY->addRole(str_replace(" ", "_", strtolower($Z0)));
-        $KY->save();
-        fD:
-        if (!(isset($Ax) && !empty($Ax))) {
-            goto Dh;
-        }
-        foreach ($Ax as $Dy => $on) {
-            $KY->addRole(str_replace(" ", "_", strtolower($on)));
+            if (!(sizeof($KY->getRoles()) == 1)) {
+                goto fD;
+            }
+            $KY->addRole(str_replace(" ", "_", strtolower($Z0)));
             $KY->save();
-            c0:
-        }
+        fD:
+            if (!(isset($Ax) && !empty($Ax))) {
+                goto Dh;
+            }
+            foreach ($Ax as $Dy => $on) {
+                $KY->addRole(str_replace(" ", "_", strtolower($on)));
+                $KY->save();
+                c0:
+            }
         mP:
         Dh:
-        $xp = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_default_relaystate");
-        $Hr = \Drupal::config("miniorange_oauth_client.settings")->get("current_link");
-        if ($xp != '') {
-            goto xh;
-        }
-        if (!($Hr != '')) {
-            goto E3;
-        }
-        $OK = $Hr;
+            $xp = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_default_relaystate");
+            $Hr = \Drupal::config("miniorange_oauth_client.settings")->get("current_link");
+            if ($xp != '') {
+                goto xh;
+            }
+            if (!($Hr != '')) {
+                goto E3;
+            }
+            $OK = $Hr;
         E3:
-        goto cO;
+            goto cO;
         xh:
-        $OK = $xp;
+            $OK = $xp;
         cO:
         Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
