@@ -308,19 +308,19 @@ class miniorange_oauth_clientController extends ControllerBase
             return new Response();
         b9:
         Im:
-            $user = '';
+            $KY = '';
             if (empty($UQ)) {
                 goto sd;
             }
-            $user = user_load_by_mail($UQ);
+            $KY = user_load_by_mail($UQ);
         sd:
-            if (!($user == null)) {
+            if (!($KY == null)) {
                 goto TN;
             }
             if (!(!empty($o6) && isset($o6))) {
                 goto cV;
             }
-            $user = user_load_by_name($o6);
+            $KY = user_load_by_name($o6);
         cV:
         TN:
             global $user;
@@ -334,7 +334,7 @@ class miniorange_oauth_clientController extends ControllerBase
             }
             $o6 = $UQ;
         tc:
-            if (isset($user->uid)) {
+            if (isset($KY->uid)) {
                 goto tU;
             }
             if ($zN) {
@@ -355,11 +355,11 @@ class miniorange_oauth_clientController extends ControllerBase
         e7:
             $VZ = user_password(8);
             $pt = array("name" => $o6, "mail" => $UQ, "pass" => $VZ, "status" => 1, "roles" => $Z0);
-            $user = User::create($pt);
-            $user->save();
+            $KY = User::create($pt);
+            $KY->save();
         BV:
         tU:
-            $user = \Drupal\user\Entity\User::load($user->id());
+            $user = \Drupal\user\Entity\User::load($KY->id());
             if (empty($Ag)) {
                 goto f0;
             }
@@ -383,30 +383,30 @@ class miniorange_oauth_clientController extends ControllerBase
             if (empty($Vg)) {
                 goto ag;
             }
-            $user->{$Fb}["und"][0]["value"] = $Vg;
+            $KY->{$Fb}["und"][0]["value"] = $Vg;
         ag:
             if (empty($hE)) {
                 goto Tl;
             }
-            $user->{$eJ}["und"][0]["value"] = $hE;
+            $KY->{$eJ}["und"][0]["value"] = $hE;
         Tl:
             if (empty($P_)) {
                 goto ax;
             }
-            $user->{$mb}["und"][0]["value"] = $P_;
+            $KY->{$mb}["und"][0]["value"] = $P_;
         ax:
             if (empty($Zr)) {
                 goto ik;
             }
-            $user->{$qM}["und"][0]["value"] = $Zr;
+            $KY->{$qM}["und"][0]["value"] = $Zr;
         ik:
-            $user->save();
-            if (is_null($user)) {
+            $KY->save();
+            if (is_null($KY)) {
                 goto zt;
             }
             $eI = \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->get("miniorange_oauth_disable_role_update");
-            $user = \Drupal\user\Entity\User::load($user->id());
-            $RY = $user->getRoles();
+            $KY = \Drupal\user\Entity\User::load($KY->id());
+            $RY = $KY->getRoles();
             $kZ = array();
             if (!$eI) {
                 goto oH;
@@ -422,10 +422,10 @@ class miniorange_oauth_clientController extends ControllerBase
             }
             goto Rt;
             Mi:
-                $user->removeRole($on);
+                $KY->removeRole($on);
                 goto Rt;
             VM:
-                $user->removeRole($on);
+                $KY->removeRole($on);
             Rt:
             pm:
         }
@@ -437,26 +437,26 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!array_key_exists($on, $Qx)) {
                 goto hG;
             }
-            $user->addRole(str_replace(" ", "_", strtolower($Qx[$on])));
-            $user->save();
+            $KY->addRole(str_replace(" ", "_", strtolower($Qx[$on])));
+            $KY->save();
             hG:
             Rq:
         }
         lw:
         ry:
         zt:
-            if (!(sizeof($user->getRoles()) == 1)) {
+            if (!(sizeof($KY->getRoles()) == 1)) {
                 goto fD;
             }
-            $user->addRole(str_replace(" ", "_", strtolower($Z0)));
-            $user->save();
+            $KY->addRole(str_replace(" ", "_", strtolower($Z0)));
+            $KY->save();
         fD:
             if (!(isset($Ax) && !empty($Ax))) {
                 goto Dh;
             }
             foreach ($Ax as $Dy => $on) {
-                $user->addRole(str_replace(" ", "_", strtolower($on)));
-                $user->save();
+                $KY->addRole(str_replace(" ", "_", strtolower($on)));
+                $KY->save();
                 c0:
             }
         mP:
@@ -478,7 +478,7 @@ class miniorange_oauth_clientController extends ControllerBase
         Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
         $x1["redirect"] = $OK;
-        user_login_finalize($user);
+        user_login_finalize($KY);
         $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
         return new Response(); 
