@@ -362,6 +362,7 @@ a#superfish-main-toggle{
     h1{
         padding-right: 46%;
         color: $white;
+        font-size: 3vw;
         a{
             color: $white;
             text-decoration: none;
@@ -430,6 +431,9 @@ a#superfish-main-toggle{
         }
         div{
             background: rgba(134, 151, 145, 0)!important;
+        }
+        @media only screen and (max-width: 1450px){
+            display: none;
         }
     }
     .owl-pagination .owl-page.active span {

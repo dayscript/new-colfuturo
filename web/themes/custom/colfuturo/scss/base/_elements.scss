@@ -544,3 +544,9 @@ progress[value]::-webkit-progress-bar {
     padding: 0;
   }
 }
+
+strong.term-searched{
+  background: $primary-color;
+  color: $white;
+  font-weight: 500;
+}

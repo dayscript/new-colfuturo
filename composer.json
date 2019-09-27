@@ -53,6 +53,7 @@
         "drupal/redirect_after_login": "^2.5",
         "drupal/responsive_menu": "^2.6",
         "drupal/scheduler": "^1.1",
+        "drupal/search_api": "^1.14",
         "drupal/shs": "^1.0",
         "drupal/social_media_links": "^2.6",
         "drupal/stickynav": "^1.1",
