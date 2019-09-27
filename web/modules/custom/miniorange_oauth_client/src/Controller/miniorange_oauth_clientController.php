@@ -437,7 +437,6 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!array_key_exists($on, $Qx)) {
                 goto hG;
             }
-            $_SESSION['PRueba'] = $Qx;
             $KY->addRole(str_replace(" ", "_", strtolower($Qx[$on])));
             $KY->save();
             hG:
@@ -486,6 +485,7 @@ class miniorange_oauth_clientController extends ControllerBase
     }
     
     public static function getAccessToken($Xe, $Fk, $wO, $Oc, $ES, $xp)  {
+        dump($Xe);
         $io = curl_init($Xe);
         curl_setopt($io, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($io, CURLOPT_ENCODING, '');
