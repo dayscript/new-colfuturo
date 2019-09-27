@@ -485,7 +485,7 @@ class miniorange_oauth_clientController extends ControllerBase
     }
     
     public static function getAccessToken($Xe, $Fk, $wO, $Oc, $ES, $xp)  {
-        dump($Xe);
+        
         $io = curl_init($Xe);
         curl_setopt($io, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($io, CURLOPT_ENCODING, '');
@@ -497,6 +497,7 @@ class miniorange_oauth_clientController extends ControllerBase
         curl_setopt($io, CURLOPT_HTTPHEADER, array("Authorization: Basic " . base64_encode($wO . ":" . $Oc), "Accept: application/json"));
         curl_setopt($io, CURLOPT_POSTFIELDS, "redirect_uri=" . urlencode($xp) . "&grant_type=" . $Fk . "&client_id=" . $wO . "&client_secret=" . $Oc . "&code=" . $ES);
         $Uc = curl_exec($io);
+        dump($io);
         if (!curl_error($io)) {
             goto Nz;
         }
