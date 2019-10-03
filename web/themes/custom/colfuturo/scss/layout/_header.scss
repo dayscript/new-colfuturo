@@ -249,30 +249,31 @@ section#block-logoblanco-2 {
             position: relative;
             margin-top: -7px;
             width: 50px; 
-            &::after{
-                position: absolute;
-                content: "";
-                width: 28px;
-                height: 28px;
-                background: url(../images/login.png);
-                top: 0;
-                left: 0;
-                cursor: pointer;
-
-            }
-            a{
-                text-indent: -10000px;
-                display: inline-block;
-                padding: 0rem 0.1rem 0rem 1.5625rem;
-                width: 50px;
-                &:hover, &:focus{
-                    background-color: none;
+/*                 &::after{
+                    position: absolute;
+                    content: "";
+                    width: 28px;
+                    height: 28px;
+                    background: url(../images/login.png);
+                    top: 0;
+                    left: 0;
+                    cursor: pointer;
+                } */
+                a{
+                    text-indent: -10000px;
+                    display: inline-block;
+                    padding: 0rem 0.1rem 0rem 1.5625rem;
+                    width: 50px;
+                    background: url(../images/login.png);
+                    background-repeat: no-repeat;
+                    &:hover, &:focus{
+                        background-color: none;
+                    }
+                    &:before{
+                        display: none;
+                    }
                 }
-                &:before{
-                    display: none;
-                }
             }
-    }
     }
     .we-mega-menu-ul>.we-mega-menu-li.active-trail>a:hover, .we-mega-menu-ul>.we-mega-menu-li.active-trail>a:focus {
         background-color: rgba(255, 255, 255, 0);

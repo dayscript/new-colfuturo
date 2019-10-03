@@ -1000,19 +1000,6 @@ section#block-views-block-encabezado-noticias-block-1 {
         }
     }
 }
-#block-micuenta{
-    ul{
-        list-style: none;
-        
-        li, a{
-            font-family: "Roboto",Helvetica,Roboto,Arial,sans-serif;
-            font-weight: 500;
-            font-size: 0.9rem;
-            background-color: #fefefe;
-            padding: 0rem 1.5625rem 0rem 1.5625rem;
-        }
-    }
-}
 //BLOCK REBECA
 #block-blockrebeca{
             position: fixed;
@@ -1032,8 +1019,95 @@ section#block-views-block-encabezado-noticias-block-1 {
     }
 }
 
-.section-servicios-corporativos{
-    .banner{
-        margin-bottom: 2rem;
+.user-logged-in{
+    .login{
+        display: none;
     }
 }
+
+#block-navegacionprincipal-3{
+    li.profile{
+            position: relative;
+            margin-top: -7px;
+            width: 50px;
+        > a{
+            text-indent: -10000px;
+            display: inline-block;
+            padding: 0rem 0.1rem 0rem 1.5625rem;
+            width: 50px;
+            background: url(../images/login.png);
+            background-repeat: no-repeat;
+            &:hover, &:focus{
+                background-color: none;
+            }
+            &:before{
+                display: none;
+            }
+        }
+        .we-mega-menu-submenu{
+            border-top: solid $primary-color;
+            right: 0;
+            left: auto;
+            max-width: 20rem;
+            padding: 2rem;
+            .block-inner > h2{
+                    display: none;
+            }
+        }
+        #block-micuenta{
+            h2 {
+                font-size: 1rem;
+            }
+            p{
+                padding: 0.7rem;
+            }
+            hr{
+               margin: 1rem auto; 
+            }
+            ul.options{
+                padding: 0.7rem;
+                margin-bottom: 1rem;
+                li{
+                    list-style: none;
+                    > a{
+                        padding: 0;
+                    }
+                }
+            }
+            a.button{
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 0 1rem 0;
+                font-family: inherit;
+                padding: 0.85em 1.4em !important;
+                -webkit-appearance: none;
+                border: 1px solid transparent;
+                border-radius: 8px;
+                transition: background-color 0.25s ease-out,color 0.25s ease-out;
+                font-size: 0.9rem;
+                line-height: 1;
+                text-align: center;
+                cursor: pointer;
+                background-color: $secondary-color;
+                color: $white;
+                &:hover{
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+/* #block-micuenta{
+    ul{
+        list-style: none;
+        
+        li, a{
+            font-family: "Roboto",Helvetica,Roboto,Arial,sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            background-color: #fefefe;
+            padding: 0rem 1.5625rem 0rem 1.5625rem;
+        }
+    }
+} */
