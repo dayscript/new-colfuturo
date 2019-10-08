@@ -1,5 +1,5 @@
 event_brite.content:
-  path: '/event-brite'
+  path: '/eventbrite'
   defaults:
     _controller: 'Drupal\event_brite\Controller\EventBriteController::content'
     _title: 'Hello world'
