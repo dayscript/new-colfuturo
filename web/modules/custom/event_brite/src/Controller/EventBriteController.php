@@ -77,15 +77,27 @@ class EventBriteController extends ControllerBase {
 	$events = json_decode($events)->events;
 
 	foreach($events as $key => $event){
-		$node = Node::create(array(
-		    'type' => 'eventos',
-		    'title' => $event->name->text,
-		    'langcode' => 'en',
-		    'uid' => '1',
-		    'status' => 1,
-		    //'field_fields' => array(),
-		));
+		$node = Node::create([
+			'type' => 'eventos',
+			'title' => $event->name->text,
+			'body' => [
+				'value' => $event->description->html,
+				'format' => 'full_html',
+			],
+			'field_fecha' => [
+				'value' => $event->start->local,
+			  	'end_value' => $event->end->local,
+			],
+			'field_link' => [
+				'uri' =>  $event->url,
+				'title' => 'Regístrate',
+				'attributes'=>''
+			],
+			'field_idevento' => $event->id,
+			'uid' => 0,
+		]);
 		$node->save();
+
 /*		$query = new EntityFieldQuery();
 		$query->entityCondition('entity_type', 'node')
 		->entityCondition('bundle', 'eventos')
@@ -118,5 +130,6 @@ class EventBriteController extends ControllerBase {
 		$node_wrapper->field_excepciones_ubicacion[] = 53;
 		$node_wrapper->save();*/
 	}
+	return drupal_set_message("Node with nid " . $node->id() . " saved!\n");
 	}
 }
