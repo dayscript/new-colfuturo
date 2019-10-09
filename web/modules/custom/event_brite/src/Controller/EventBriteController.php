@@ -6,6 +6,7 @@
 namespace Drupal\event_brite\Controller;
  
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\node\Entity\Node;
  
 class EventBriteController extends ControllerBase {
 
@@ -76,7 +77,16 @@ class EventBriteController extends ControllerBase {
 	$events = json_decode($events)->events;
 
 	foreach($events as $key => $event){
-		$query = new EntityFieldQuery();
+		$node = Node::create(array(
+		    'type' => 'eventos',
+		    'title' => $event->name->text,
+		    'langcode' => 'en',
+		    'uid' => '1',
+		    'status' => 1,
+		    //'field_fields' => array(),
+		));
+		$node->save();
+/*		$query = new EntityFieldQuery();
 		$query->entityCondition('entity_type', 'node')
 		->entityCondition('bundle', 'eventos')
 		->fieldCondition('field_idevento', 'value', $event->id, '=');
@@ -98,7 +108,7 @@ class EventBriteController extends ControllerBase {
 		);
 		$date_start = str_replace('Z','',str_replace( 'T',' ',$event->start->utc ));
 		$date_end = str_replace('Z','',str_replace( 'T',' ',$event->end->utc ));
-		$node_wrapper->field_fecha2 = array(
+		$node_wrapper->field_fecha = array(
 			'value' => $date_start, 
 			'value2' => $date_end,
 			'timezone' => 'America/Bogota',
@@ -106,7 +116,7 @@ class EventBriteController extends ControllerBase {
 			'date_type' => 'datetime'
 		);
 		$node_wrapper->field_excepciones_ubicacion[] = 53;
-		$node_wrapper->save();
+		$node_wrapper->save();*/
 	}
 	}
 }
