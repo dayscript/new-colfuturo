@@ -77,6 +77,17 @@ class EventBriteController extends ControllerBase {
 	$events = json_decode($events)->events;
 
 	foreach($events as $key => $event){
+		switch ($event->organizer_id) {
+		    case 20071073871:
+		    	$organizador = 197;
+		        break;
+		    case 27056775865:
+				$organizador = 198;
+		        break;
+		    case 27056802047:
+				$organizador = 199;
+		        break;
+		}
 		$node = Node::create([
 			'type' => 'eventos',
 			'title' => $event->name->text,
@@ -93,23 +104,9 @@ class EventBriteController extends ControllerBase {
 				'title' => 'Regístrate',
 				'attributes'=>''
 			],
-			switch ($event->organizer_id) {
-/*			    case 20071073871:
-					'organizador' => [
-						'target_id' => 197,
-					],
-			        break;
-			    case 27056775865:
-					'organizador' => [
-						'target_id' => 198,
-					],
-			        break;
-			    case 27056802047:
-					'organizador' => [
-						'target_id' => 199,
-					],
-			        break;*/
-			}
+			'organizador' => [
+				'target_id' => $organizador,
+			],
 			'field_idevento' => $event->id,
 			'uid' => 0,
 		]);
