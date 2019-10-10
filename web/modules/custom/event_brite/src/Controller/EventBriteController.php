@@ -97,17 +97,17 @@ class EventBriteController extends ControllerBase {
 			    case 20071073871:
 					'organizador' => [
 						'target_id' => 197,
-					],
+					];
 			        break;
 			    case 27056775865:
 					'organizador' => [
 						'target_id' => 198,
-					],
+					];
 			        break;
 			    case 27056802047:
 					'organizador' => [
 						'target_id' => 199,
-					],
+					];
 			        break;
 			}
 			'field_idevento' => $event->id,
