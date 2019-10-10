@@ -24,12 +24,6 @@
     .off-canvas-content{
         background: #f0f1f1;
     }
-    form#views-exposed-form-proximos-eventos-page-1{
-        padding-right: 0.7rem;
-        padding-left: 0.7rem;
-        width: 33.33333%;
-        margin-bottom: 1.2rem;
-    }
     .container-events{
         margin-bottom: 2rem;
     }
@@ -386,6 +380,12 @@ h2{
 //Eventos
 .block-events{
         background: $light-gray;
+    form{
+        padding-right: .9375rem;
+        padding-left: .9375rem;
+        width: 33.33333%;
+        margin-bottom: 1.2rem;
+    }
     h2{
         max-width: $global-width;
         margin-right: auto;

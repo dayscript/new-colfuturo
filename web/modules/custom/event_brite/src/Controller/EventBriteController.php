@@ -77,15 +77,94 @@ class EventBriteController extends ControllerBase {
 	$events = json_decode($events)->events;
 
 	foreach($events as $key => $event){
+		$query = \Drupal::entityQuery('node')
+			->condition('type', 'eventos')
+			->condition('field_idevento.value', $event->id, '=');
+		$result = $query->execute();
+
 		switch ($event->organizer_id) {
 		    case 20071073871:
-		    	$organizador = 197;
+		    	$organizador = 200;
 		        break;
 		    case 27056775865:
-				$organizador = 198;
+				$organizador = 201;
 		        break;
 		    case 27056802047:
-				$organizador = 199;
+				$organizador = 202;
+		        break;
+		}
+
+		dpm($result);
+		dpm($result[0]);
+		dpm(key($result['0']));
+		
+
+
+		if(!$result){
+			dpm('NOOOOO EXISTEN NODOS CREADOS');
+			$node = \Drupal::entityTypeManager()->getStorage('node')->create([
+				'type' => 'eventos',
+/*				'title' => $event->name->text,
+				'body' => [
+					'value' => $event->description->html,
+					'format' => 'full_html',
+				],
+				'field_fecha' => [
+					'value' => $event->start->local,
+				  	'end_value' => $event->end->local,
+				],
+				'field_link' => [
+					'uri' =>  $event->url,
+					'title' => 'Regístrate',
+					'attributes'=>''
+				],
+				'field_organizador' => [
+					'target_id' => $organizador,
+				],
+				'field_idevento' => $event->id,
+				'uid' => 0,*/
+			]);
+		}else{
+			dpm('EXISTEN NODOS CREADOS');
+			$node = \Drupal::entityTypeManager()->getStorage('node')->load(1110);
+			dpm($node);
+
+		}
+			$node->title = $event->name->text;
+
+			$node->body->value = $event->description->html;
+			$node->body->format = 'full_html';
+
+			$node->field_fecha->value = $event->start->local;
+			$node->field_fecha->end_value = $event->end->local;
+
+			$node->field_link = $event->url;
+			$node->field_link->title = 'Regístrate';
+			$node->field_link->options = [];
+
+			$node->field_organizador->target_id = $organizador;
+
+			$node->field_idevento = $event->id;
+		//$node->save();
+		break;
+
+
+
+
+
+
+
+
+/*
+		switch ($event->organizer_id) {
+		    case 20071073871:
+		    	$organizador = 200;
+		        break;
+		    case 27056775865:
+				$organizador = 201;
+		        break;
+		    case 27056802047:
+				$organizador = 202;
 		        break;
 		}
 		$node = Node::create([
@@ -104,13 +183,22 @@ class EventBriteController extends ControllerBase {
 				'title' => 'Regístrate',
 				'attributes'=>''
 			],
-			'organizador' => [
+			'field_organizador' => [
 				'target_id' => $organizador,
 			],
 			'field_idevento' => $event->id,
 			'uid' => 0,
 		]);
 		$node->save();
+*/
+
+
+
+
+
+
+
+
 
 /*		$query = new EntityFieldQuery();
 		$query->entityCondition('entity_type', 'node')
@@ -144,6 +232,10 @@ class EventBriteController extends ControllerBase {
 		$node_wrapper->field_excepciones_ubicacion[] = 53;
 		$node_wrapper->save();*/
 	}
-	return drupal_set_message("Node with nid " . $node->id() . " saved!\n");
+	//return drupal_set_message("Node with nid " . $node->id() . " saved!\n");
+	    return [
+      '#type' => 'markup',
+      '#markup' => $this->t('Hello, World!'),
+    ];
 	}
 }
