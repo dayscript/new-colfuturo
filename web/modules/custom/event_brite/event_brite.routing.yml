@@ -1,7 +1,7 @@
-event_brite.content:
-  path: '/event-brite'
+event_brite.getEventsToEventBrite:
+  path: '/eventbrite'
   defaults:
-    _controller: 'Drupal\event_brite\Controller\EventBriteController::content'
+    _controller: 'Drupal\event_brite\Controller\EventBriteController::getEventsToEventBrite'
     _title: 'Hello world'
   requirements:
     _permission: 'access content'
