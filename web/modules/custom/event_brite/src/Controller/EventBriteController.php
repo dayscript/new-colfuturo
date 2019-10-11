@@ -93,149 +93,35 @@ class EventBriteController extends ControllerBase {
 				$organizador = 202;
 		        break;
 		}
-
-		dpm($result);
-		dpm($result[0]);
-		dpm(key($result['0']));
+		//dpm($result);
+		$getNid = key($result);
+		//dpm($result[$getNid]);
 		
-
-
 		if(!$result){
-			dpm('NOOOOO EXISTEN NODOS CREADOS');
+			//dpm('Se crearon nodos');
 			$node = \Drupal::entityTypeManager()->getStorage('node')->create([
 				'type' => 'eventos',
-/*				'title' => $event->name->text,
-				'body' => [
-					'value' => $event->description->html,
-					'format' => 'full_html',
-				],
-				'field_fecha' => [
-					'value' => $event->start->local,
-				  	'end_value' => $event->end->local,
-				],
-				'field_link' => [
-					'uri' =>  $event->url,
-					'title' => 'Regístrate',
-					'attributes'=>''
-				],
-				'field_organizador' => [
-					'target_id' => $organizador,
-				],
-				'field_idevento' => $event->id,
-				'uid' => 0,*/
 			]);
 		}else{
-			dpm('EXISTEN NODOS CREADOS');
-			$node = \Drupal::entityTypeManager()->getStorage('node')->load(1110);
-			dpm($node);
-
+			//dpm('Se actualizaron nodos');
+			$node = \Drupal::entityTypeManager()->getStorage('node')->load($result[$getNid]);
 		}
 			$node->title = $event->name->text;
-
 			$node->body->value = $event->description->html;
 			$node->body->format = 'full_html';
-
 			$node->field_fecha->value = $event->start->local;
 			$node->field_fecha->end_value = $event->end->local;
-
 			$node->field_link = $event->url;
 			$node->field_link->title = 'Regístrate';
 			$node->field_link->options = [];
-
 			$node->field_organizador->target_id = $organizador;
-
 			$node->field_idevento = $event->id;
-		//$node->save();
-		break;
-
-
-
-
-
-
-
-
-/*
-		switch ($event->organizer_id) {
-		    case 20071073871:
-		    	$organizador = 200;
-		        break;
-		    case 27056775865:
-				$organizador = 201;
-		        break;
-		    case 27056802047:
-				$organizador = 202;
-		        break;
-		}
-		$node = Node::create([
-			'type' => 'eventos',
-			'title' => $event->name->text,
-			'body' => [
-				'value' => $event->description->html,
-				'format' => 'full_html',
-			],
-			'field_fecha' => [
-				'value' => $event->start->local,
-			  	'end_value' => $event->end->local,
-			],
-			'field_link' => [
-				'uri' =>  $event->url,
-				'title' => 'Regístrate',
-				'attributes'=>''
-			],
-			'field_organizador' => [
-				'target_id' => $organizador,
-			],
-			'field_idevento' => $event->id,
-			'uid' => 0,
-		]);
-		$node->save();
-*/
-
-
-
-
-
-
-
-
-
-/*		$query = new EntityFieldQuery();
-		$query->entityCondition('entity_type', 'node')
-		->entityCondition('bundle', 'eventos')
-		->fieldCondition('field_idevento', 'value', $event->id, '=');
-		$result = $query->execute();
-		if(count($result) == 0 ){
-			$node = entity_create('node', array('type' => 'eventos'));
-			$node->uid = 0;
-		}else{
-			$node = node_load(key($result['node']));
-		}
-		$node_wrapper = entity_metadata_wrapper('node', $node);
-		$node_wrapper->title = $event->name->text;
-		$node_wrapper->body  = array( 'value' => $event->description->html,'format' => 'full_html');
-		$node_wrapper->field_idevento = $event->id;
-		$node_wrapper->field_link = array(
-			'url' =>  $event->url,
-			'title' => ' Ingrase Aquí',
-			'attributes'=>''
-		);
-		$date_start = str_replace('Z','',str_replace( 'T',' ',$event->start->utc ));
-		$date_end = str_replace('Z','',str_replace( 'T',' ',$event->end->utc ));
-		$node_wrapper->field_fecha = array(
-			'value' => $date_start, 
-			'value2' => $date_end,
-			'timezone' => 'America/Bogota',
-			'timezone_db' => 'UTC',
-			'date_type' => 'datetime'
-		);
-		$node_wrapper->field_excepciones_ubicacion[] = 53;
-		$node_wrapper->save();*/
+			$node->save();
+			//break;
 	}
-	//return drupal_set_message("Node with nid " . $node->id() . " saved!\n");
-	    return [
+	return [
       '#type' => 'markup',
-      '#markup' => $this->t('Hello, World!'),
+      '#markup' => $this->t('Importacion completa'),
     ];
 	}
 }
