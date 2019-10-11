@@ -81,7 +81,9 @@ class EventBriteController extends ControllerBase {
 			->condition('type', 'eventos')
 			->condition('field_idevento.value', $event->id, '=');
 		$result = $query->execute();
-
+		$getNid = key($result);
+		//dpm($result);
+		//dpm($result[$getNid]);
 		switch ($event->organizer_id) {
 		    case 20071073871:
 		    	$organizador = 200;
@@ -93,10 +95,6 @@ class EventBriteController extends ControllerBase {
 				$organizador = 202;
 		        break;
 		}
-		//dpm($result);
-		$getNid = key($result);
-		//dpm($result[$getNid]);
-		
 		if(!$result){
 			//dpm('Se crearon nodos');
 			$node = \Drupal::entityTypeManager()->getStorage('node')->create([
