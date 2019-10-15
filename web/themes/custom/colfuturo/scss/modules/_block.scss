@@ -796,12 +796,44 @@ h2{
     }
 }
 //Detalle de noticias
-.section-noticias-de-colfuturo,
+.section-noticias-de-colfuturo{
+    .block-colfuturo-content {
+            padding-bottom: 60px;
+            padding-top: 60px; 
+            padding-left: 12rem;
+            padding-right: 12rem;
+            @media only screen and (max-width: 600px){
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 0.9rem;
+                padding-right: 0.9rem;
+            }
+            .field-node--field-image{
+                img{
+                    margin-bottom: 2rem;
+                    margin-top: 1rem;
+                    @media only screen and (max-width: 600px){
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+            .field-node--field-categoria {
+                display: inline-block;
+                float: left;
+                margin-right: 1rem;
+                font-size: 0.9rem;
+            }
+            .field-node--node-post-date {
+                color: $medium-gray;
+                font-size: 0.9rem;
+            }
+    }
+}
+//Detalle de Convenios y beneficiarios
 body.node--type-beneficiarios,
 body.node--type-convenios{
     .block-colfuturo-content {
             padding-bottom: 60px;
-            padding-top: 60px; 
             padding-left: 12rem;
             padding-right: 12rem;
             @media only screen and (max-width: 600px){
