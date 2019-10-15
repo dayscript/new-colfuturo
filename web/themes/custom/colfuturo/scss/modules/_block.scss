@@ -796,7 +796,9 @@ h2{
     }
 }
 //Detalle de noticias
-.section-noticias-de-colfuturo{
+.section-noticias-de-colfuturo,
+body.node--type-beneficiarios,
+body.node--type-convenios{
     .block-colfuturo-content {
             padding-bottom: 60px;
             padding-top: 60px; 
