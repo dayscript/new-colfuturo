@@ -39,3 +39,12 @@ miniorange_oauth_client.appVal:
   version: VERSION
   js:
     js/appVal.js: {}
+
+miniorange_oauth_client.login_form:
+  version: VERSION
+  css:
+    layout:
+      https://dpp0gtxikpq3y.cloudfront.net/us-west-2_mOeiWXTVX/64dhaqtme7udmbkm0a6l3ccb37/20190905172305/assets/CSS/custom-css.css: {type:external, minified:true}
+      css/customCSS.css:
+
+  

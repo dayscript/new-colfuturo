@@ -69,6 +69,13 @@ miniorange_oauth_client.mo_login:
   requirements:
     _access: 'TRUE'
 
+miniorange_oauth_client.cognito_login:
+  path: /d_login
+  defaults:
+    _controller: \Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController::colfuturo_login_form
+  requirements:
+    _access: 'TRUE'
+
 miniorange_oauth_client.moLogin:
   path: /moLogin
   defaults:
@@ -87,5 +94,37 @@ miniorange_oauth_client.oauth_client_logout:
   path: /user/logout
   defaults:
     _controller: '\Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController::oauth_client_logout'
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.miniorange_login_form:
+  path: '/miniorange_oauth_client/form'
+  defaults:
+    _form: '\Drupal\miniorange_oauth_client\Form\MiniorangeLoginForm'
+    _title: 'MiniorangeLoginForm'
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.miniorange_login_form:
+  path: '/miniorange_oauth_client/form/miniorange_login'
+  defaults:
+    _form: '\Drupal\miniorange_oauth_client\Form\MiniorangeLoginForm'
+    _title: 'MiniorangeLoginForm'
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.miniorange_login_form:
+  path: '/miniorange_oauth_client/form'
+  defaults:
+    _form: '\Drupal\miniorange_oauth_client\Form\MiniorangeLoginForm'
+    _title: 'MiniorangeLoginForm'
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.miniorange_login_form:
+  path: '/miniorange_oauth_client/form'
+  defaults:
+    _form: '\Drupal\miniorange_oauth_client\Form\MiniorangeLoginForm'
+    _title: 'MiniorangeLoginForm'
   requirements:
     _access: 'TRUE'

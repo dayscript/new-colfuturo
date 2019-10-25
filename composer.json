@@ -73,6 +73,7 @@
         "drupal/zurb_foundation": "^6.0",
         "drush/drush": "^9.7",
         "hussainweb/drupal-composer-helper": "^1.0",
+        "pmill/aws-cognito": "^0.2.8",
         "symfony/var-dumper": "~3.4"
     },
     "require-dev": {

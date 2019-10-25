@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="modal-dialog">
+        <div class="modal-content background-customizable modal-content-mobile visible-md visible-lg">
+            <div>
+                <div>
+                    <div class="banner-customizable">
+                        <center>
+                            <img alt="logo" class="logo-customizable" src="https://dpp0gtxikpq3y.cloudfront.net/us-west-2_mOeiWXTVX/64dhaqtme7udmbkm0a6l3ccb37/20190905172305/assets/images/image.jpg">
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <span class="textDescription-customizable ">{{form.description}}</span>
+                                <form  {{ form.attributes }}>
+                                    {{ form.form_build_id }}
+                                    {{ form.form_token }}
+                                    {{ form.form_id }}
+                                    {# <label for="signInFormUsername" class="label-customizable">Identification</label> #}
+                                    <div>
+                                        {{ form.identification }}  
+                                    </div>
+
+                                    {# <label for="signInFormPassword" class="label-customizable">Password</label> #}
+                                    <div>
+                                        {{ form.password }}  
+                                    </div>
+                                    
+                                    <input type="hidden" class="form-control inputField-customizable" name="cognitoAsfData">
+                                    
+                                    <a class="redirect-customizable" href="/forgotPassword?client_id=64dhaqtme7udmbkm0a6l3ccb37&amp;scope=openid&amp;redirect_uri=https://colfuturo-new.demodayscript.com/mo_login&amp;response_type=code&amp;state=Q3VzdG9t">Forgot your password?</a>
+                                    
+                                    {{ form.submit }}
+                                    
+                                    <br>
+                                    <div>
+                                        <p class="redirect-customizable">
+                                            <span>Need an account?</span>&nbsp;<a href="/signup?client_id=64dhaqtme7udmbkm0a6l3ccb37&amp;scope=openid&amp;redirect_uri=https://colfuturo-new.demodayscript.com/mo_login&amp;response_type=code&amp;state=Q3VzdG9t">Sign up</a>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
