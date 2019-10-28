@@ -104,10 +104,10 @@ class miniorange_oauth_clientController extends ControllerBase
             die;
         SN:
             $pY = $VH["user_info_ep"];
+            
             if (!(substr($pY, -1) == "=")) {
                 goto M1;
             }
-            $pY .= $id;
         M1:
             //Custom
             if(!$bypass){
@@ -116,6 +116,7 @@ class miniorange_oauth_clientController extends ControllerBase
                 $cognito = \Drupal::service('colfuturo_apps.aws_cognito');
                 $D9 = $cognito->client->decodeAccessToken($_SESSION['miniorange_congito_oauth2']['IdToken']);
             }
+            
             //Custom
             if (!(isset($_COOKIE["Drupal_visitor_mo_oauth_test"]) && $_COOKIE["Drupal_visitor_mo_oauth_test"] == true)) {
                 goto LX;
@@ -224,12 +225,12 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!is_array($Hk)) {
                 goto PS;
             }
-            $Ps = $Hk;
+            
             goto WZ;
         PS:
             $Ps[0] = $Hk;
-        WZ:
             
+        WZ:
             if (!(isset($mV) && !empty($mV) && isset($Ps))) {
                 goto Ec;
             }
@@ -257,18 +258,26 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!($nN < sizeof($ZB))) {
                 goto MM;
             }
+            // $Lc => Roles from drupal mini map
+            // $Ps => Roles from cognito
+            
             foreach ($Lc as $Dy => $on) {
                 // if (!(!empty($Dy) && !is_null($Dy) && !strcasecmp($ZB[$nN], $Dy))) {
                 //     goto TI;
                 // }
-                $user_roles = user_roles();
-                //$S5 = array_search($on, user_roles());
-                $S5 = ( array_key_exists($Dy, $user_roles) ) ? $Dy:array_search($on, $user_roles);
-                $Ax[$S5] = $on;
+                $user_roles = $Ps; //user_roles();
+                
+                $S5 = array_search($on, $Ps);
+                //$S5 = ( array_key_exists($Dy, $user_roles) ) ? $Dy:array_search($on, $user_roles);
+                if($S5 !== false){
+                    $Ax[$Dy] = $on;
+                }
+                
                 $nN++;
                 TI:
                 LN:
             }
+            
         ow:
         pA:
             $nN++;
@@ -466,6 +475,7 @@ class miniorange_oauth_clientController extends ControllerBase
             
             $kZ = array_intersect($RY, $Qx);
         oH:
+        
         foreach ($RY as $Dy => $on) {
             if (empty($kZ)) {
                 goto Mi;
@@ -482,6 +492,7 @@ class miniorange_oauth_clientController extends ControllerBase
             Rt:
             pm:
         }
+        
         tu:
         if (!(isset($Ax) && !empty($Ax))) {
             goto ry;
@@ -508,6 +519,8 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!(isset($Ax) && !empty($Ax))) {
                 goto Dh;
             }
+            
+            //$Ax => roles from cognito
             foreach ($Ax as $Dy => $on) {
                 $KY->addRole(str_replace(" ", "_", strtolower($Dy)));
                 $KY->save();
