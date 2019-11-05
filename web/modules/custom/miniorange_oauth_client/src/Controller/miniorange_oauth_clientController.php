@@ -10,9 +10,23 @@ use Drupal\miniorange_oauth_client\Utilities;
 use Symfony\Component\HttpFoundation\Response;
 use Drupal\Component\Render\FormattableMarkup;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+
+use Symfony\Component\HttpFoundation\HeaderBag;
+
+
 class miniorange_oauth_clientController extends ControllerBase
 {
     public static function miniorange_oauth_client_mo_login()  {
+        
+        $bypass = false;
+        // custom 
+        if(!is_null($_SESSION['miniorange_congito_oauth2'])){
+            $id = $_SESSION['miniorange_congito_oauth2']['AccessToken'];
+            $bypass = true;
+            goto Fh;
+        }
+        //custom
+
         $ES = Html::escape($_GET["code"]);
         $NA = Html::escape($_GET["state"]);
         if (!(isset($ES) && isset($NA))) {
@@ -78,7 +92,11 @@ class miniorange_oauth_clientController extends ControllerBase
             }
             $nJ = $VH["miniorange_oauth_client_name_attr"];
         rK:
-            $id = self::getAccessToken($VH["access_token_ep"], "authorization_code", $VH["client_id"], $VH["client_secret"], $ES, $VH["callback_uri"]);
+            // Custom
+            if(!isset($id)){
+                $id = self::getAccessToken($VH["access_token_ep"], "authorization_code", $VH["client_id"], $VH["client_secret"], $ES, $VH["callback_uri"]);
+            }
+            // Custom
             if ($id) {
                 goto SN;
             }
@@ -86,12 +104,20 @@ class miniorange_oauth_clientController extends ControllerBase
             die;
         SN:
             $pY = $VH["user_info_ep"];
+            
             if (!(substr($pY, -1) == "=")) {
                 goto M1;
             }
-            $pY .= $id;
         M1:
-            $D9 = self::getResourceOwner($pY, $id);
+            //Custom
+            if(!$bypass){
+                $D9 = self::getResourceOwner($pY, $id);
+            }else{
+                $cognito = \Drupal::service('colfuturo_apps.aws_cognito');
+                $D9 = $cognito->client->decodeAccessToken($_SESSION['miniorange_congito_oauth2']['IdToken']);
+            }
+            
+            //Custom
             if (!(isset($_COOKIE["Drupal_visitor_mo_oauth_test"]) && $_COOKIE["Drupal_visitor_mo_oauth_test"] == true)) {
                 goto LX;
             }
@@ -147,13 +173,32 @@ class miniorange_oauth_clientController extends ControllerBase
             }
             $mV = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_role_attr_name");
         Wz:
-            if (empty($D9[$mV])) {
-                goto Zi;
-            }
-            if (empty($D9[$mV])) {
-                goto QI;
-            }
-            $Hk = $D9[$mV];
+            //Custom
+            // $token = '*';
+            // $string = $mV; // array index with token to search;
+            // $token_pos = NULL;
+            // foreach( $D9 as $index => $value ){
+            //     if($token_pos = strpos($string,$token)){
+            //         for($i = 0 ; $i <= count($D9)-1 ;$i++){
+            //             $string[$token_pos] = $i;   
+            //             if(isset($D9[$string]) ){
+            //                 $roles[] = $D9[$string];
+            //             }
+            //         }
+            //     }else{
+            //         continue;
+            //     }
+            // }
+            
+            // if(is_null($roles)){ //Custom
+                if (empty($D9[$mV])) {
+                    goto Zi;
+                }
+                if (empty($D9[$mV])) {
+                    goto QI;
+                }
+            // }//Custom
+            $Hk = (is_array($D9[$mV])) ? implode(',',$D9[$mV]) : $D9[$mV];
         QI:
             goto P2;
         Zi:
@@ -180,10 +225,11 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!is_array($Hk)) {
                 goto PS;
             }
-            $Ps = $Hk;
+            
             goto WZ;
         PS:
             $Ps[0] = $Hk;
+            
         WZ:
             if (!(isset($mV) && !empty($mV) && isset($Ps))) {
                 goto Ec;
@@ -212,15 +258,26 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!($nN < sizeof($ZB))) {
                 goto MM;
             }
+            // $Lc => Roles from drupal mini map
+            // $Ps => Roles from cognito
+            
             foreach ($Lc as $Dy => $on) {
-                if (!(!empty($Dy) && !is_null($Dy) && !strcasecmp($ZB[$nN], $Dy))) {
-                    goto TI;
+                // if (!(!empty($Dy) && !is_null($Dy) && !strcasecmp($ZB[$nN], $Dy))) {
+                //     goto TI;
+                // }
+                $user_roles = $Ps; //user_roles();
+                
+                $S5 = array_search($on, $Ps);
+                //$S5 = ( array_key_exists($Dy, $user_roles) ) ? $Dy:array_search($on, $user_roles);
+                if($S5 !== false){
+                    $Ax[$Dy] = $on;
                 }
-                $S5 = array_search($on, user_roles());
-                $Ax[$S5] = $on;
+                
+                $nN++;
                 TI:
                 LN:
             }
+            
         ow:
         pA:
             $nN++;
@@ -383,22 +440,26 @@ class miniorange_oauth_clientController extends ControllerBase
             if (empty($Vg)) {
                 goto ag;
             }
-            $KY->{$Fb}["und"][0]["value"] = $Vg;
+            //$KY->{$Fb}["und"][0]["value"] = $Vg;
+            $KY->{$Fb} = $Vg;
         ag:
             if (empty($hE)) {
                 goto Tl;
             }
-            $KY->{$eJ}["und"][0]["value"] = $hE;
+            //$KY->{$eJ}["und"][0]["value"] = $hE;
+            $KY->{$eJ} = $hE;
         Tl:
             if (empty($P_)) {
                 goto ax;
             }
-            $KY->{$mb}["und"][0]["value"] = $P_;
+            //$KY->{$mb}["und"][0]["value"] = $P_;
+            $KY->{$mb} = $P_;
         ax:
             if (empty($Zr)) {
                 goto ik;
             }
-            $KY->{$qM}["und"][0]["value"] = $Zr;
+            //$KY->{$qM}["und"][0]["value"] = $Zr;
+            $KY->{$qM} = $Zr;
         ik:
             $KY->save();
             if (is_null($KY)) {
@@ -411,8 +472,10 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!$eI) {
                 goto oH;
             }
+            
             $kZ = array_intersect($RY, $Qx);
         oH:
+        
         foreach ($RY as $Dy => $on) {
             if (empty($kZ)) {
                 goto Mi;
@@ -429,10 +492,12 @@ class miniorange_oauth_clientController extends ControllerBase
             Rt:
             pm:
         }
+        
         tu:
         if (!(isset($Ax) && !empty($Ax))) {
             goto ry;
         }
+        
         foreach ($Ax as $Dy => $on) {
             if (!array_key_exists($on, $Qx)) {
                 goto hG;
@@ -454,8 +519,10 @@ class miniorange_oauth_clientController extends ControllerBase
             if (!(isset($Ax) && !empty($Ax))) {
                 goto Dh;
             }
+            
+            //$Ax => roles from cognito
             foreach ($Ax as $Dy => $on) {
-                $KY->addRole(str_replace(" ", "_", strtolower($on)));
+                $KY->addRole(str_replace(" ", "_", strtolower($Dy)));
                 $KY->save();
                 c0:
             }
@@ -537,13 +604,13 @@ class miniorange_oauth_clientController extends ControllerBase
         aQ:
             die($Uc["error_description"]);
         D8:
-            $_SESSION['access_token_cognito'] = $Uc;
+            //$_SESSION['access_token_cognito'] = $Uc;
             return $X0;
     }
 
     public function getResourceOwner($pY, $X0)   {
+        
         $io = curl_init($pY);
-        dump($pY);
         curl_setopt($io, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($io, CURLOPT_ENCODING, '');
         curl_setopt($io, CURLOPT_RETURNTRANSFER, true);
@@ -552,6 +619,7 @@ class miniorange_oauth_clientController extends ControllerBase
         curl_setopt($io, CURLOPT_MAXREDIRS, 10);
         curl_setopt($io, CURLOPT_POST, false);
         curl_setopt($io, CURLOPT_HTTPHEADER, array("Authorization: Bearer " . $X0));
+        
         $Uc = curl_exec($io);
         
         if (!curl_error($io)) {
@@ -648,6 +716,8 @@ class miniorange_oauth_clientController extends ControllerBase
         aY:
     }
     public static function mo_oauth_client_initiateLogin() {
+        
+
         \Drupal::service("page_cache_kill_switch")->trigger();
         \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->set("navigation_url", $_SERVER["HTTP_REFERER"])->save();
         $y6 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_auth_client_app_name");
@@ -667,11 +737,37 @@ class miniorange_oauth_clientController extends ControllerBase
         r3:
         $_SESSION["oauth2state"] = $NA;
         $_SESSION["appname"] = $y6;
-        header("Location: " . $KA);
-        $CI = new RedirectResponse($KA);
+        
+        /**/
+        $CI = new RedirectResponse('/d_login');
         $CI->send();
         return new Response(); 
+        /**/
+
+
+        // header("Location: " . $KA);
+        // $CI = new RedirectResponse($KA);
+        // $CI->send();
+        // return new Response(); 
+        
     }
+
+    public static function colfuturo_login_form(){
+        
+        // class namespace and name and load form
+        $form_class = '\Drupal\miniorange_oauth_client\Form\MiniorangeLoginForm';
+        $form = \Drupal::formBuilder()->getForm($form_class);
+        
+        //load renderer Drupal Service and redender form
+        $renderer = \Drupal::service('renderer');
+        $form_renderer = $renderer->render($form);
+
+        return [
+            '#markup' => $form_renderer
+        ];
+
+    }
+
     public static function test_mo_config() {
         if (\Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_license_key") != NULL) {
             goto OR1;

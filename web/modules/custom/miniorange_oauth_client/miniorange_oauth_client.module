@@ -3,6 +3,8 @@
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController;
+
+
 function miniorange_oauth_client_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $UG)
 {
     global $base_url;
@@ -33,9 +35,9 @@ function miniorange_oauth_client_form_alter(&$form, \Drupal\Core\Form\FormStateI
     $EW = FALSE;
     hw:
     $be = $_GET;
-    if (substr($_SERVER["\x52\105\x51\125\105\x53\x54\137\x55\x52\111"], "\x6d\157\x5f\154\x6f\x67\151\x6e") == false) {
-        goto hg;
-    }
+    // if (substr($_SERVER["REQUEST_URI"], "mo_login") == false) { // always return null
+    //     goto hg;
+    // }
     $CI = true;
     goto FX;
     hg:
@@ -89,4 +91,53 @@ function miniorange_oauth_client_form_alter(&$form, \Drupal\Core\Form\FormStateI
     $form["\x6c\157\147\151\156\165\x72\154"] = array(array("\43\155\x61\162\x6b\x75\x70" => "\74\x61\x20\x68\162\x65\146\75\42" . $yi . "\x22\76\x4c\x6f\x67\151\156\40\165\163\x69\x6e\x67\x20" . $Bs . "\x3c\57\141\76"));
     jw:
     E9:
+}
+
+function miniorange_oauth_client_theme($existing, $type, $theme, $path)
+{
+    return [
+        'miniorange_oauth_client_login_form' =>
+            [
+                'render element' => 'form',
+            ],
+        'miniorange_oauth_client_register_form' =>
+        [
+            'render element' => 'form',
+        ],
+        'miniorange_oauth_client_verify_form' =>
+        [
+            'render element' => 'form',
+        ],
+        'miniorange_oauth_client_forgot_password_form' =>
+        [
+            'render element' => 'form',
+        ],
+        'miniorange_oauth_client_confirm_forgot_password_form' =>
+        [
+            'render element' => 'form',
+        ]
+    ];
+
+} 
+
+
+function miniorange_oauth_client_preprocess_page(&$vars, $hook){
+
+    //load the current path
+    $route_name = \Drupal::routeMatch()->getRouteName();
+
+    // verify the path, only for login with cognito
+
+
+    if(    $route_name === 'miniorange_oauth_client.cognito_login' 
+        || $route_name === 'miniorange_oauth_client.cognito_register'
+        || $route_name === 'miniorange_oauth_client.cognito_verify'  
+        || $route_name === 'miniorange_oauth_client.cognito_forgot_password'
+        || $route_name === 'miniorange_oauth_client.cognito_confirm_forgot_password'
+     )
+    {
+        foreach(['header','meta_header','footer_first','footer_middle','footer_last'] as $region){
+            unset($vars['page'][$region]);
+        }
+    }
 }

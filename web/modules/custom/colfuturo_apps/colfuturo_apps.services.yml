@@ -1,0 +1,7 @@
+services:
+  logger.channel.colfuturo_apps:
+    parent: logger.channel_base
+    arguments: ['colfuturo_apps']
+  colfuturo_apps.aws_cognito:
+    class: Drupal\colfuturo_apps\AwsCognitoService
+    arguments: []

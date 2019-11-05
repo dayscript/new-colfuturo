@@ -54,10 +54,7 @@
 
 # Ignore Drupal's file directory
 web/sites/default/files
-
-# Ignore configuration files that may contain sensitive information.
-web/sites/*/settings*.php
-web/sites/*/services*.yml
+web/sites/default/settings.php
 
 # Pantheon commits a settings.php for environment-specific settings.
 # Place local settings in settings.local.php
