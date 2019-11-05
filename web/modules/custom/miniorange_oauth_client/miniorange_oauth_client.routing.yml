@@ -76,6 +76,34 @@ miniorange_oauth_client.cognito_login:
   requirements:
     _access: 'TRUE'
 
+miniorange_oauth_client.cognito_register:
+  path: /d_register
+  defaults:
+    _form: \Drupal\miniorange_oauth_client\Form\MiniorangeRegisterForm
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.cognito_verify:
+  path: /d_verify/{identification}
+  defaults:
+    _form: \Drupal\miniorange_oauth_client\Form\MiniorangeVerifyForm
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.cognito_forgot_password:
+  path: /d_forgot_password
+  defaults:
+    _form: \Drupal\miniorange_oauth_client\Form\MiniorangeForgotPasswordForm
+  requirements:
+    _access: 'TRUE'
+
+miniorange_oauth_client.cognito_confirm_forgot_password:
+  path: /d_forgot_password/{identification}
+  defaults:
+    _form: \Drupal\miniorange_oauth_client\Form\MiniorangeConfirmForgotPasswordForm
+  requirements:
+    _access: 'TRUE'
+
 miniorange_oauth_client.moLogin:
   path: /moLogin
   defaults:
