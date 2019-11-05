@@ -15,7 +15,7 @@ use Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController;
 /**
  * Class HelloForm.
  */
-class MiniorangeLoginForm extends FormBase {
+class MiniorangeConfirmForgotPasswordForm extends FormBase {
 
   /**
    * Drupal\Core\Messenger\MessengerInterface definition.
@@ -32,7 +32,6 @@ class MiniorangeLoginForm extends FormBase {
   ) {
     $this->aws_cognito = $aws_cognito;
     $this->register_uri = \Drupal\Core\Url::fromRoute('miniorange_oauth_client.cognito_register')->getInternalPath();
-    $this->forgot_password =  \Drupal\Core\Url::fromRoute('miniorange_oauth_client.cognito_forgot_password')->getInternalPath();
   }
 
   public static function create(ContainerInterface $container) {
@@ -46,7 +45,7 @@ class MiniorangeLoginForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'miniorange_login_form';
+    return 'miniorange_forgot_password_form';
   }
 
   /**
@@ -54,23 +53,28 @@ class MiniorangeLoginForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     
+    $identification = \Drupal::routeMatch()->getParameter('identification');
     
     $form['description'] = [
         '#type' => 'item',
-        '#description' => $this->t('Inicie con su numero identificación y contraseña'),
+        '#description' => $this->t('Into the code and your new password'),
     ];
 
 
     $form['identification'] = [
+      '#type' => 'hidden',
+      '#value' => $identification,
+    ];
+
+    $form['code'] = [
       '#type' => 'number',
-      '#title' => $this->t('Identification'),
+      '#title' => $this->t('code'),
       '#maxlength' => 13,
       '#size' => 20,
       '#attributes' => array('class' => array('form-control', 'inputField-customizable')),
-      '#required' => true
     ];
-    
-    $form['password'] = [
+
+    $form['new_password'] = [
       '#title' => $this->t('Password'),
       '#type' => 'password',
       '#attributes' => array('class' => array('form-control', 'inputField-customizable')),
@@ -86,23 +90,11 @@ class MiniorangeLoginForm extends FormBase {
       
     ];
 
-    $form['forgot_password'] = array(
-      '#type' => 'markup',
-      '#markup' => '<a class="redirect-customizable" href="'.$this->forgot_password.'">Olvidé mi contraseña?</a>',
-    );
-
-    $form['register_uri'] = array( 
-      '#type' => 'markup',
-      '#markup' => '<p class="redirect-customizable">
-                        <span>Necesita una cuenta?</span>&nbsp;<a href="'.$this->register_uri.'">Registrarse</a>
-                    </p>',
-    );
-
-    $form['#theme'] = 'miniorange_oauth_client_login_form';
+    $form['#theme'] = 'miniorange_oauth_client_confirm_forgot_password_form';
     $form['#attached']['library'][] = 'miniorange_oauth_client/miniorange_oauth_client.login_form';
 
 
-    return $form;
+    return $form; 
   }
 
   /**
@@ -111,36 +103,21 @@ class MiniorangeLoginForm extends FormBase {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
 
-    \Drupal::service("page_cache_kill_switch")->trigger();
-    \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->set("navigation_url", $_SERVER["HTTP_REFERER"])->save();
-    $y6 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_auth_client_app_name");
-    $NA = base64_encode($y6);
-    $_SESSION["oauth2state"] = $NA;
-    $_SESSION["appname"] = $y6;
+    try{
+      
+      $response = $this->aws_cognito->client->resetPassword(
+        $form_state->getValue('code'), 
+        $form_state->getValue('identification'),
+        $form_state->getValue('new_password')
+      );
 
-    // Display result.
-    $cognito = \Drupal::service('colfuturo_apps.aws_cognito');
+    }catch(\Exception $e){
 
-    try {
-        $authenticationResponse = $cognito->client->authenticate(
-                $form_state->getValue('identification'), 
-                $form_state->getValue('password')
-            );
-    } catch (ChallengeException $e) {
-        if ($e->getChallengeName() === CognitoClient::CHALLENGE_NEW_PASSWORD_REQUIRED) {
-            $authenticationResponse = $cognito->client->respondToNewPasswordRequiredChallenge($username, 'password_new', $e->getSession());
-        }
-    } catch (PasswordResetRequiredException $e) {
-        die("PASSWORD RESET REQUIRED");
-        
-    } catch( \Exception $e ){
       $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
       $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
-      $form_state->setError($form['identification'], $this->t($message->message) );
+      $form_state->setError($form['code'], $message->message);
       return;
     }
-
-    $_SESSION['miniorange_congito_oauth2'] = $authenticationResponse;
 
   }
 
@@ -149,7 +126,8 @@ class MiniorangeLoginForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     
-    $form_state->setRedirect('miniorange_oauth_client.mo_login');
+    
+    $form_state->setRedirect('miniorange_oauth_client.cognito_login');
     
   }
 

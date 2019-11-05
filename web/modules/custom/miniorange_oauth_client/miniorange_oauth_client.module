@@ -35,9 +35,9 @@ function miniorange_oauth_client_form_alter(&$form, \Drupal\Core\Form\FormStateI
     $EW = FALSE;
     hw:
     $be = $_GET;
-    if (substr($_SERVER["\x52\105\x51\125\105\x53\x54\137\x55\x52\111"], "\x6d\157\x5f\154\x6f\x67\151\x6e") == false) {
-        goto hg;
-    }
+    // if (substr($_SERVER["REQUEST_URI"], "mo_login") == false) { // always return null
+    //     goto hg;
+    // }
     $CI = true;
     goto FX;
     hg:
@@ -99,7 +99,23 @@ function miniorange_oauth_client_theme($existing, $type, $theme, $path)
         'miniorange_oauth_client_login_form' =>
             [
                 'render element' => 'form',
-            ]
+            ],
+        'miniorange_oauth_client_register_form' =>
+        [
+            'render element' => 'form',
+        ],
+        'miniorange_oauth_client_verify_form' =>
+        [
+            'render element' => 'form',
+        ],
+        'miniorange_oauth_client_forgot_password_form' =>
+        [
+            'render element' => 'form',
+        ],
+        'miniorange_oauth_client_confirm_forgot_password_form' =>
+        [
+            'render element' => 'form',
+        ]
     ];
 
 } 
@@ -111,7 +127,15 @@ function miniorange_oauth_client_preprocess_page(&$vars, $hook){
     $route_name = \Drupal::routeMatch()->getRouteName();
 
     // verify the path, only for login with cognito
-    if($route_name === 'miniorange_oauth_client.cognito_login'){
+
+
+    if(    $route_name === 'miniorange_oauth_client.cognito_login' 
+        || $route_name === 'miniorange_oauth_client.cognito_register'
+        || $route_name === 'miniorange_oauth_client.cognito_verify'  
+        || $route_name === 'miniorange_oauth_client.cognito_forgot_password'
+        || $route_name === 'miniorange_oauth_client.cognito_confirm_forgot_password'
+     )
+    {
         foreach(['header','meta_header','footer_first','footer_middle','footer_last'] as $region){
             unset($vars['page'][$region]);
         }

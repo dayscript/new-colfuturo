@@ -22,24 +22,11 @@
                                     {{ form.form_id }}
                                     {# <label for="signInFormUsername" class="label-customizable">Identification</label> #}
                                     <div>
-                                        {{ form.identification }}  
+                                        {{ form.code }}  
                                     </div>
-
                                     {# <label for="signInFormPassword" class="label-customizable">Password</label> #}
-                                    <div>
-                                        {{ form.password }}  
-                                    </div>
-                                    
-                                    <input type="hidden" class="form-control inputField-customizable" name="cognitoAsfData">
-                                    
-                                    {{form.forgot_password}}
-                                    
                                     {{ form.submit }}
                                     
-                                    <br>
-                                    <div>
-                                        {{ form.register_uri }}
-                                    </div>
                                 </form>
                             </div>
                         </div>

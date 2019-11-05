@@ -25,20 +25,28 @@
                                         {{ form.identification }}  
                                     </div>
 
+                                    <div>
+                                        {{ form.name }}  
+                                    </div>
+
+                                    <div>
+                                        {{ form.family_name }}  
+                                    </div>
+
+                                    <div>
+                                        {{ form.email }}  
+                                    </div>
+
                                     {# <label for="signInFormPassword" class="label-customizable">Password</label> #}
                                     <div>
                                         {{ form.password }}  
                                     </div>
                                     
                                     <input type="hidden" class="form-control inputField-customizable" name="cognitoAsfData">
-                                    
-                                    {{form.forgot_password}}
-                                    
                                     {{ form.submit }}
-                                    
                                     <br>
                                     <div>
-                                        {{ form.register_uri }}
+                                        {{form.login_uri}}
                                     </div>
                                 </form>
                             </div>
