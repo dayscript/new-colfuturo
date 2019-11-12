@@ -62,7 +62,7 @@ class MiniorangeRegisterForm extends FormBase {
     
     $form['description'] = [
         '#type' => 'item',
-        '#description' => $this->t('Register'),
+        '#description' => $this->t('Complete the info'),
     ];
 
 
@@ -119,7 +119,7 @@ class MiniorangeRegisterForm extends FormBase {
     $form['login_uri'] = array( 
       '#type' => 'markup',
       '#markup' => '<p class="redirect-customizable">
-                    <span>Ya tiene una cuenta?</span>&nbsp;<a href="' . $this->login_uri . '">Inicie Aquí</a>
+                    <span>'.$this->t('I need a acccount?').'</span>&nbsp;<a href="' . $this->login_uri . '">'.$this->t('Sign Up').'</a>
                     </p>',
     );
 
@@ -143,7 +143,7 @@ class MiniorangeRegisterForm extends FormBase {
     //Validate Mail
 
     if(user_load_by_mail($form_state->getValue('email'))){
-      $form_state->setError($form['email'], $this->t('This email '.$form_state->getValue('email').' is already'));
+      $form_state->setError($form['email'], $this->t('This email @email is already', [ '@email' => $form_state->getValue('email')] ) );
       return;
     }
 
