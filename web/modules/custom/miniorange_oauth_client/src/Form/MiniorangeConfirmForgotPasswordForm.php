@@ -57,7 +57,7 @@ class MiniorangeConfirmForgotPasswordForm extends FormBase {
     
     $form['description'] = [
         '#type' => 'item',
-        '#description' => $this->t('Into the code and your new password'),
+        '#description' => $this->t('Enter the code sent to your email and your new password'),
     ];
 
 
@@ -75,7 +75,7 @@ class MiniorangeConfirmForgotPasswordForm extends FormBase {
     ];
 
     $form['new_password'] = [
-      '#title' => $this->t('Password'),
+      '#title' => $this->t('New Password'),
       '#type' => 'password',
       '#attributes' => array('class' => array('form-control', 'inputField-customizable')),
       '#required' => true
@@ -115,7 +115,7 @@ class MiniorangeConfirmForgotPasswordForm extends FormBase {
 
       $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
       $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
-      $form_state->setError($form['code'], $message->message);
+      $form_state->setError($form['code'], $this->t($message->message));
       return;
     }
 
@@ -126,7 +126,8 @@ class MiniorangeConfirmForgotPasswordForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     
-    
+    drupal_set_message($this->t('The password has changed succesfull, please login'), 'success');
+
     $form_state->setRedirect('miniorange_oauth_client.cognito_login');
     
   }

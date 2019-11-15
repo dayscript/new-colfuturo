@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController;
 use pmill\AwsCognito\Exception\ChallengeException as ChallengeException;
 use pmill\AwsCognito\Exception\PasswordResetRequiredException as PasswordResetRequiredException;
+use Aws\CognitoIdentityProvider\Exception\CognitoIdentityProviderException as CognitoIdentityProviderException;
+
 
 
 
@@ -125,36 +127,62 @@ class MiniorangeLoginForm extends FormBase {
     $_SESSION["oauth2state"] = $NA;
     $_SESSION["appname"] = $y6;
 
-    // Display result.
-    $cognito = \Drupal::service('colfuturo_apps.aws_cognito');
-
+    
     try {
-        $authenticationResponse = $cognito->client->authenticate(
+        $authenticationResponse = $this->aws_cognito->client->authenticate(
                 $form_state->getValue('identification'), 
                 $form_state->getValue('password')
             );
     } catch (ChallengeException $e) {
         
         if ($e->getChallengeName() === 'NEW_PASSWORD_REQUIRED') {
+
+            drupal_set_message($this->t("Is necesary set new password"), 'warning');
             
             $_SESSION['access_token_cognito'] = $e->getSession();
             $_SESSION['access_identification_cognito'] = $form_state->getValue('identification');
-            $route = Url::fromRoute('miniorange_oauth_client.cognito_reset_password');
-            $response = new RedirectResponse($route->toString());
-            $response->send();
-            return;
-          }
+
+            $form_state->{'RedirectForChallenge'} = 'ChallengeException' ;
+
+            return true;
+        }
         
     } catch (PasswordResetRequiredException $e) {
       
-      die("PASSWORD RESET REQUIRED");
+      try {
 
+        $response = $this->aws_cognito->client->sendForgottenPasswordRequest($form_state->getValue('identification'));
+        
+      } catch(\ Exception $e){
+        
+        $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
+        $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
+        $form_state->setError($form['identification'], $this->t($message->message) );
+        return;
+      
+      }
+      
+      drupal_set_message( $this->t("Is necesary set new password"), 'warning');
+      
+      $form_state->{'RedirectForChallenge'} = 'PasswordResetRequiredException' ;
+
+      return true;
+
+
+    } catch( CognitoIdentityProviderException $e){
+      
+      $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
+      $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
+      $form_state->setError($form['identification'], $this->t($message->message) );
+      return;
+    
     } catch( \Exception $e ){
       
       $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
       $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
       $form_state->setError($form['identification'], $this->t($message->message) );
       return;
+
     }
 
     $_SESSION['miniorange_congito_oauth2'] = $authenticationResponse;
@@ -166,8 +194,30 @@ class MiniorangeLoginForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     
-    $form_state->setRedirect('miniorange_oauth_client.mo_login');
     
+    if($form_state->{'RedirectForChallenge'}){
+      
+      switch ($form_state->{'RedirectForChallenge'}) {
+
+        case 'ChallengeException':
+          $form_state->setRedirect('miniorange_oauth_client.cognito_reset_password');
+          break;
+
+        case 'PasswordResetRequiredException':
+          $form_state->setRedirect(
+            'miniorange_oauth_client.cognito_confirm_forgot_password', 
+            ['identification' => $form_state->getValue('identification')]
+          );
+          break;
+        
+        default:
+          # code...
+          break;
+      }
+
+    }else{
+      $form_state->setRedirect('miniorange_oauth_client.mo_login');
+    }
   }
 
 }

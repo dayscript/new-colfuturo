@@ -80,7 +80,7 @@ class MiniorangeForgotPasswordForm extends FormBase {
     $form['register_uri'] = array( 
       '#type' => 'markup',
       '#markup' => '<p class="redirect-customizable">
-                        <span>Necesita una cuenta?</span>&nbsp;<a href="'.$this->register_uri.'">'.$this->t('Sign Up').'</a>
+                        <span>'.$this->t('I need a acccount?').'</span>&nbsp;<a href="'.$this->register_uri.'">'.$this->t('Sign Up').'</a>
                     </p>',
     );
 
@@ -102,7 +102,10 @@ class MiniorangeForgotPasswordForm extends FormBase {
       $response = $this->aws_cognito->client->sendForgottenPasswordRequest($form_state->getValue('identification'));
 
     }catch(\Exception $e){
-      $form_state->setError($form['identification'],'Try again');
+
+      $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
+      $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
+      $form_state->setError($form['identification'], $this->t($message->message) );
       return;
     }
 
