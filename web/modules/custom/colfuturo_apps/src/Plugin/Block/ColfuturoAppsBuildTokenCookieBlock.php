@@ -43,7 +43,7 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
         'library' => array('colfuturo_apps/colfuturo_apps'),
         'drupalSettings'  => [
             'colfuturo_apps' => [
-              'colftuturo_apps_cognito' => $_SESSION['access_token_cognito'],
+              'colftuturo_apps_cognito' => $_SESSION['miniorange_congito_oauth2'],
               'item_class' => '.colfu-app'
               ]
             ]
