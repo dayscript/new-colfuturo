@@ -58,7 +58,7 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
   public function SetTokenCognito(){
       user_cookie_save(
         [ 
-        'drupal-session-cognito' => $_SESSION['access_token_cognito']['id_token'] 
+        'drupal-session-cognito' => $_SESSION['access_token_cognito']['IdToken'] 
         ] 
       );
       $this->is_token =  true;
