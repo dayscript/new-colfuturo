@@ -20,7 +20,10 @@
 
 
  @mixin  breadcrumbs {
-    #block-breadcrumbs{
-        position: relative; 
+    
+    .l-help {
+        #block-breadcrumbs{
+            position: relative; 
+        }
     }
  }
