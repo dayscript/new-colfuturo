@@ -1,28 +1,26 @@
 @mixin  breadcrumbs {
-   
+    .l-help section#block-breadcrumbs {
+        position: relative!important;
+    }
  }
 
 
- .section-d-login .l-help section#block-breadcrumbs {
-    position: relative!important;
+ .section-d-login {
+    @include breadcrumbs();
+ }
+ .section-d-register{
+    @include breadcrumbs();
+}
+.section-d-forgot{
+    @include breadcrumbs();
+}
+.section-d-reset-password{
+    @include breadcrumbs();
+}
+.section-d-reset-password{
+    @include breadcrumbs();
 }
 
-body {
 
-    
-    .section-d-register{
-        @include breadcrumbs();
-    }
-    .section-d-forgot{
-        @include breadcrumbs();
-    }
-    .section-d-reset-password{
-        @include breadcrumbs();
-    }
-    .section-d-reset-password{
-        @include breadcrumbs();
-    }
-
- }
 
 
