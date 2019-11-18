@@ -3,16 +3,13 @@
  }
 
 
+ .section-d-login .l-help section#block-breadcrumbs {
+    position: relative!important;
+}
+
 body {
 
-    .section-d-login{
-        .l-help {
-            #block-breadcrumbs{
-                position: relative!important; 
-            }
-        }
-        // @include breadcrumbs();
-    }
+    
     .section-d-register{
         @include breadcrumbs();
     }
