@@ -20,7 +20,9 @@
 .section-d-reset-password{
     @include breadcrumbs();
 }
-
+.section-d-register{
+    @include breadcrumbs();
+}
 
 
 
