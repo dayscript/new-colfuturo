@@ -182,7 +182,6 @@ class MiniorangeLoginForm extends FormBase {
       $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
       $form_state->setError($form['identification'], $this->t($message->message) );
       return;
-
     }
 
     $_SESSION['miniorange_congito_oauth2'] = $authenticationResponse;
