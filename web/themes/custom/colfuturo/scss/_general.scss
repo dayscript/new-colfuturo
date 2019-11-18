@@ -1,0 +1,26 @@
+ body {
+
+    .section-d-login{
+        @include breadcrumbs();
+    }
+    .section-d-register{
+        @include breadcrumbs();
+    }
+    .section-d-forgot{
+        @include breadcrumbs();
+    }
+    .section-d-reset-password{
+        @include breadcrumbs();
+    }
+    .section-d-reset-password{
+        @include breadcrumbs();
+    }
+
+ }
+
+
+ @mixin  breadcrumbs {
+    #block-breadcrumbs{
+        position: relative; 
+    }
+ }

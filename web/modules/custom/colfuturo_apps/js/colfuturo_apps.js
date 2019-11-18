@@ -13,10 +13,10 @@ Drupal.behaviors.colfuturo_apps = {
 
         //     $(item).html('<div class="medium-12 columns text-center"><img src="/core/themes/stable/images/core/loading-small.gif"/></div>')
             
-        //     redirect({
-        //       url: $(item).attr('link'),
-        //       id_token: colfuturo_apps.colftuturo_apps_cognito.IdToken
-        //     });
+            redirect({
+              url: $(item).attr('link'),
+              id_token: colfuturo_apps.colftuturo_apps_cognito.IdToken
+            });
 
         //     $(item).html(html)  
 
