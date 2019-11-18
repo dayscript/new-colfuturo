@@ -804,7 +804,7 @@ class miniorange_oauth_clientController extends ControllerBase
         z6:
         $OK = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_oauth_client_base_url");
         YY:
-        $xY = $OK . "/user/login";
+        $xY = $OK . "/";
         \Drupal::service("session_manager")->destroy();
         $NM = \Drupal::request();
         $NM->getSession()->clear();

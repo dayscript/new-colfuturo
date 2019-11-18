@@ -76,6 +76,14 @@ miniorange_oauth_client.cognito_login:
   requirements:
     _access: 'TRUE'
 
+miniorange_oauth_client.cognito_reset_password:
+  path: /d_reset_password
+  defaults:
+    _form: \Drupal\miniorange_oauth_client\Form\MiniorangeResetPasswordForm
+  requirements:
+    _access: 'TRUE'
+
+
 miniorange_oauth_client.cognito_register:
   path: /d_register
   defaults:

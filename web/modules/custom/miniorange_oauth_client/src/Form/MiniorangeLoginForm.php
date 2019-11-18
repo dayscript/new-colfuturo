@@ -2,7 +2,7 @@
 
 namespace Drupal\miniorange_oauth_client\Form;
 
-
+use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -10,6 +10,11 @@ use Drupal\colfuturo_apps\AwsCognitoService;
 use Drupal\colfuturo_apps\InterfaceAwsCognitoService;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController;
+use pmill\AwsCognito\Exception\ChallengeException as ChallengeException;
+use pmill\AwsCognito\Exception\PasswordResetRequiredException as PasswordResetRequiredException;
+use Aws\CognitoIdentityProvider\Exception\CognitoIdentityProviderException as CognitoIdentityProviderException;
+
+
 
 
 /**
@@ -57,7 +62,7 @@ class MiniorangeLoginForm extends FormBase {
     
     $form['description'] = [
         '#type' => 'item',
-        '#description' => $this->t('Inicie con su numero identificación y contraseña'),
+        '#description' => $this->t('Into login and password'),
     ];
 
 
@@ -88,13 +93,13 @@ class MiniorangeLoginForm extends FormBase {
 
     $form['forgot_password'] = array(
       '#type' => 'markup',
-      '#markup' => '<a class="redirect-customizable" href="'.$this->forgot_password.'">Olvidé mi contraseña?</a>',
+      '#markup' => '<a class="redirect-customizable" href="'.$this->forgot_password.'">'.$this->t('forgot password').'</a>',
     );
 
     $form['register_uri'] = array( 
       '#type' => 'markup',
       '#markup' => '<p class="redirect-customizable">
-                        <span>Necesita una cuenta?</span>&nbsp;<a href="'.$this->register_uri.'">Registrarse</a>
+                        <span>'.$this->t('I need a acccount?').'</span>&nbsp;<a href="'.$this->register_uri.'">'.$this->t('Sign Up').'</a>
                     </p>',
     );
 
@@ -110,7 +115,11 @@ class MiniorangeLoginForm extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
-
+    
+    if(!$_SESSION){
+      session_start();
+    }
+    
     \Drupal::service("page_cache_kill_switch")->trigger();
     \Drupal::configFactory()->getEditable("miniorange_oauth_client.settings")->set("navigation_url", $_SERVER["HTTP_REFERER"])->save();
     $y6 = \Drupal::config("miniorange_oauth_client.settings")->get("miniorange_auth_client_app_name");
@@ -118,26 +127,62 @@ class MiniorangeLoginForm extends FormBase {
     $_SESSION["oauth2state"] = $NA;
     $_SESSION["appname"] = $y6;
 
-    // Display result.
-    $cognito = \Drupal::service('colfuturo_apps.aws_cognito');
-
+    
     try {
-        $authenticationResponse = $cognito->client->authenticate(
+        $authenticationResponse = $this->aws_cognito->client->authenticate(
                 $form_state->getValue('identification'), 
                 $form_state->getValue('password')
             );
     } catch (ChallengeException $e) {
-        if ($e->getChallengeName() === CognitoClient::CHALLENGE_NEW_PASSWORD_REQUIRED) {
-            $authenticationResponse = $cognito->client->respondToNewPasswordRequiredChallenge($username, 'password_new', $e->getSession());
-        }
-    } catch (PasswordResetRequiredException $e) {
-        die("PASSWORD RESET REQUIRED");
         
-    } catch( \Exception $e ){
+        if ($e->getChallengeName() === 'NEW_PASSWORD_REQUIRED') {
+
+            drupal_set_message($this->t("Is necesary set new password"), 'warning');
+            
+            $_SESSION['access_token_cognito'] = $e->getSession();
+            $_SESSION['access_identification_cognito'] = $form_state->getValue('identification');
+
+            $form_state->{'RedirectForChallenge'} = 'ChallengeException' ;
+
+            return true;
+        }
+        
+    } catch (PasswordResetRequiredException $e) {
+      
+      try {
+
+        $response = $this->aws_cognito->client->sendForgottenPasswordRequest($form_state->getValue('identification'));
+        
+      } catch(\ Exception $e){
+        
+        $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
+        $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
+        $form_state->setError($form['identification'], $this->t($message->message) );
+        return;
+      
+      }
+      
+      drupal_set_message( $this->t("Is necesary set new password"), 'warning');
+      
+      $form_state->{'RedirectForChallenge'} = 'PasswordResetRequiredException' ;
+
+      return true;
+
+
+    } catch( CognitoIdentityProviderException $e){
+      
       $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
       $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
       $form_state->setError($form['identification'], $this->t($message->message) );
       return;
+    
+    } catch( \Exception $e ){
+      
+      $message = ($e->previous) ? $e->previous->getMessage(): $e->getMessage();
+      $message = json_decode(trim(end(explode("-",end(explode("\n",$message))))));
+      $form_state->setError($form['identification'], $this->t($message->message) );
+      return;
+
     }
 
     $_SESSION['miniorange_congito_oauth2'] = $authenticationResponse;
@@ -149,8 +194,30 @@ class MiniorangeLoginForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     
-    $form_state->setRedirect('miniorange_oauth_client.mo_login');
     
+    if($form_state->{'RedirectForChallenge'}){
+      
+      switch ($form_state->{'RedirectForChallenge'}) {
+
+        case 'ChallengeException':
+          $form_state->setRedirect('miniorange_oauth_client.cognito_reset_password');
+          break;
+
+        case 'PasswordResetRequiredException':
+          $form_state->setRedirect(
+            'miniorange_oauth_client.cognito_confirm_forgot_password', 
+            ['identification' => $form_state->getValue('identification')]
+          );
+          break;
+        
+        default:
+          # code...
+          break;
+      }
+
+    }else{
+      $form_state->setRedirect('miniorange_oauth_client.mo_login');
+    }
   }
 
 }

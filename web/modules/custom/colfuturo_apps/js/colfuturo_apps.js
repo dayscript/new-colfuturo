@@ -5,31 +5,33 @@ Drupal.behaviors.colfuturo_apps = {
         var colfuturo_apps = settings.colfuturo_apps;
 
         
-        $(colfuturo_apps.item_class).on(
-          'app_redirect', 
-          (event, item) => { 
+        // $(colfuturo_apps.item_class).on(
+        //   'app_redirect', 
+        //   (event, item) => { 
             
-            var html = $(item).html();
+        //     var html = $(item).html();
 
-            var data = {'nombre':'Test'}
-
-            $(item).html('<div class="medium-12 columns text-center"><img src="/core/themes/stable/images/core/loading-small.gif"/></div>')
+        //     $(item).html('<div class="medium-12 columns text-center"><img src="/core/themes/stable/images/core/loading-small.gif"/></div>')
             
-            redirect({
-              url: $(item).attr('link'),
-              id_token: colfuturo_apps.colftuturo_apps_cognito.id_token
-            });
+        //     redirect({
+        //       url: $(item).attr('link'),
+        //       id_token: colfuturo_apps.colftuturo_apps_cognito.IdToken
+        //     });
 
-            $(item).html(html)  
+        //     $(item).html(html)  
 
-          }
-        )
+        //   }
+        // )
 
         $(colfuturo_apps.item_class).each(  function() {
-          $(this).click(
-            () => { 
-              $(this).trigger('app_redirect',[this]) 
-            })
+          $(this).attr('href', $(this).attr('link').replace(' ','') + '?id_token=' + colfuturo_apps.colftuturo_apps_cognito.IdToken ) 
+          $(this).attr('target', '_blank' ) 
+
+          // $(this).click(
+          //   () => { 
+          
+          //     // $(this).trigger('app_redirect',[this]) 
+          //   })
         })
       }
 
@@ -41,23 +43,24 @@ Drupal.behaviors.colfuturo_apps = {
         //   action: params.url,
         //   target: '_blank'
         // }).appendTo('document').submit();
-
-        var form = document.createElement("form");
-            form.setAttribute("method", "get");
-            form.setAttribute("action", params.url);
-            form.setAttribute("target", "_blank");
         
-        document.body.appendChild(form);
         
-        var input = document.createElement('input');
-            input.setAttribute('name', 'id_token');
-            input.setAttribute('value', params.id_token)
-            input.setAttribute('type', 'hidden')
+        if(typeof params.url != 'undefined') {
+          var form = document.createElement("form");
+              form.setAttribute("method", "get");
+              form.setAttribute("action", params.url);
+              form.setAttribute("target", "_blank");
+          
+          document.body.appendChild(form);
+          
+          var input = document.createElement('input');
+              input.setAttribute('name', 'id_token');
+              input.setAttribute('value', params.id_token)
+              input.setAttribute('type', 'hidden')
 
-        form.appendChild(input);
-        form.submit();
-
-        return true;
+          form.appendChild(input);
+          form.submit();
+        }
       }
 
     }

@@ -62,7 +62,7 @@ class MiniorangeRegisterForm extends FormBase {
     
     $form['description'] = [
         '#type' => 'item',
-        '#description' => $this->t('Register'),
+        '#description' => $this->t('Complete the info'),
     ];
 
 
@@ -109,6 +109,13 @@ class MiniorangeRegisterForm extends FormBase {
       '#required' => true
     ];
 
+    $form['confirm_password'] = [
+      '#title' => $this->t('Confirm Password'),
+      '#type' => 'password',
+      '#attributes' => array('class' => array('form-control', 'inputField-customizable')),
+      '#required' => true
+    ];
+
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
@@ -119,7 +126,7 @@ class MiniorangeRegisterForm extends FormBase {
     $form['login_uri'] = array( 
       '#type' => 'markup',
       '#markup' => '<p class="redirect-customizable">
-                    <span>Ya tiene una cuenta?</span>&nbsp;<a href="' . $this->login_uri . '">Inicie Aquí</a>
+                    <span>'.$this->t('You have a account?').'</span>&nbsp;<a href="' . $this->login_uri . '">'.$this->t('Sign In').'</a>
                     </p>',
     );
 
@@ -143,7 +150,7 @@ class MiniorangeRegisterForm extends FormBase {
     //Validate Mail
 
     if(user_load_by_mail($form_state->getValue('email'))){
-      $form_state->setError($form['email'], $this->t('This email '.$form_state->getValue('email').' is already'));
+      $form_state->setError($form['email'], $this->t('This email @email is already', [ '@email' => $form_state->getValue('email')] ) );
       return;
     }
 
@@ -159,15 +166,24 @@ class MiniorangeRegisterForm extends FormBase {
       return;
     }
 
+    if( $form_state->getValue('password')  !=  $form_state->getValue('confirm_password')){
+      $form_state->setError($form['confirm_password'], $this->t('The field password and field confirm password did not mach'));
+      return;
+    } 
+
+
 
     try {
       $cognito->client->registerUser(
         $form_state->getValue('identification'),
         $form_state->getValue('password'),
         [
-          'email'       => $form_state->getValue('email'),
-          'name'        => $form_state->getValue('name'),
-          'family_name' => $form_state->getValue('family_name'),
+          'email'             => $form_state->getValue('email'),
+          'name'              => $form_state->getValue('name'),
+          'family_name'       => $form_state->getValue('family_name'),
+          'custom:Nombres'    => $form_state->getValue('name'),
+          'custom:Apellidos'  => $form_state->getValue('family_name'),
+          
         ]
       );
       $cognito->client->addUserToGroup($form_state->getValue('identification'), 'Potencial');
