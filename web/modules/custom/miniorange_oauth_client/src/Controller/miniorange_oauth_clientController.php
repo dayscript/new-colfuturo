@@ -545,9 +545,10 @@ class miniorange_oauth_clientController extends ControllerBase
         Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
         $x1["redirect"] = $OK;
-        user_login_finalize($KY);
         dump($OK);
         die;
+        user_login_finalize($KY);
+        
 
         $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
