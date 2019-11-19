@@ -552,19 +552,21 @@ class miniorange_oauth_clientController extends ControllerBase
             }
         }
 
-        dump($redirect);
+        
 
-        if(isset($redirect)  && !$redirect){
-            header("Location: http://servicioslocales.colfuturo.org:31035/Formulario-Interno/potencial/formularioDatosCognito.jsp?id_token=".$_SESSION['miniorange_congito_oauth2']['IdToken']);
+        if(isset($redirect)  && $redirect){
+            
+            $CI = new RedirectResponse('http://servicioslocales.colfuturo.org:31035/Formulario-Interno/potencial/formularioDatosCognito.jsp?id_token='.$_SESSION['miniorange_congito_oauth2']['IdToken']);
+            return new Response(); 
            
         }
-        die;
+        
         
         $x1["redirect"] = $OK;
         user_login_finalize($KY);
         $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
-        return new Response(); 
+        
     }
     
     public static function getAccessToken($Xe, $Fk, $wO, $Oc, $ES, $xp)  {
