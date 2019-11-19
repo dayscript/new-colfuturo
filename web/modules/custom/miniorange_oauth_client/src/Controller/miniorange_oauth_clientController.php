@@ -552,10 +552,13 @@ class miniorange_oauth_clientController extends ControllerBase
             }
         }
 
+        dump($redirect);
+
         if(isset($redirect)  && !$redirect){
             header("Location: http://servicioslocales.colfuturo.org:31035/Formulario-Interno/potencial/formularioDatosCognito.jsp?id_token=".$_SESSION['miniorange_congito_oauth2']['IdToken']);
-            
+           
         }
+        die;
         
         $x1["redirect"] = $OK;
         user_login_finalize($KY);
