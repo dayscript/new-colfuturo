@@ -545,7 +545,9 @@ class miniorange_oauth_clientController extends ControllerBase
         Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
         //Redirección;
+        
         $x1["redirect"] = $OK;
+        dump($cognito->client->getUser($D9['cognito:username']));
         dump($D9);
         dump($OK);
         die;
