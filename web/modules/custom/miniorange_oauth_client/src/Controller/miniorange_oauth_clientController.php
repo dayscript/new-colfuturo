@@ -547,21 +547,14 @@ class miniorange_oauth_clientController extends ControllerBase
         //Redirección;
         
         foreach($cognito->client->getUser($D9['cognito:username'])['UserAttributes'] as $key => $attribute){
-            if($attribute['Name'] == 'custom:Datos_formulario'){
-                $OK = 'www.google.com';
+            if( $attribute['Name'] == 'custom:Datos_formulario' && $attribute['Value'] == '1' ){
+                $OK = $OK;
+            }else{
+                $OK = 'http://servicioslocales.colfuturo.org:31035/Formulario-Interno/potencial/formularioDatosCognito.jsp?id_token='.$_SESSION['miniorange_congito_oauth2']['IdToken'] ;
             }
         }
-
         $x1["redirect"] = $OK;
-        dump($cognito->client->getUser($D9['cognito:username'])['UserAttributes']);
-        dump($D9);
-        dump($OK);
-        die;
-        
-        
         user_login_finalize($KY);
-        
-
         $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
         return new Response(); 
