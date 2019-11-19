@@ -545,18 +545,18 @@ class miniorange_oauth_clientController extends ControllerBase
         Utilities::save_SSO_report_data("SUCCESS", $o6, $UQ);
         $x1 = array();
         //Redirección;
-        
+        $redirect = true;
         foreach($cognito->client->getUser($D9['cognito:username'])['UserAttributes'] as $key => $attribute){
             if( $attribute['Name'] == 'custom:Datos_formulario' && $attribute['Value'] == '1' ){
-                $OK = $OK;
-            }else{
-                $OK = 'http://servicioslocales.colfuturo.org:31035/Formulario-Interno/potencial/formularioDatosCognito.jsp?id_token='.$_SESSION['miniorange_congito_oauth2']['IdToken'] ;
+                $redirect = false;
             }
         }
 
-        dump($cognito->client->getUser($D9['cognito:username'])['UserAttributes']);
-        dump($OK);
-
+        if(isset($redirect)  && !$redirect){
+            header("Location: http://servicioslocales.colfuturo.org:31035/Formulario-Interno/potencial/formularioDatosCognito.jsp?id_token=".$_SESSION['miniorange_congito_oauth2']['IdToken']);
+            
+        }
+        
         $x1["redirect"] = $OK;
         user_login_finalize($KY);
         $CI = new RedirectResponse($x1["redirect"]);
