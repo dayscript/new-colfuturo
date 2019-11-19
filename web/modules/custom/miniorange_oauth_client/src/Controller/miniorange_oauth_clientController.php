@@ -553,7 +553,7 @@ class miniorange_oauth_clientController extends ControllerBase
         // }
 
         $x1["redirect"] = $OK;
-        dump($cognito->client->getUser($D9['cognito:username'])->data);
+        dump($cognito->client->getUser($D9['cognito:username'])['UserAttributes']);
         dump($D9);
         dump($OK);
         die;
