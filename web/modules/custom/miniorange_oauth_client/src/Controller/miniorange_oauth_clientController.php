@@ -546,6 +546,9 @@ class miniorange_oauth_clientController extends ControllerBase
         $x1 = array();
         $x1["redirect"] = $OK;
         user_login_finalize($KY);
+        dump($OK);
+        die;
+
         $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
         return new Response(); 
