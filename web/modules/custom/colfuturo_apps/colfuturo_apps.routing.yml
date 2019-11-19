@@ -1,0 +1,7 @@
+colfuturo_apps.settings:
+  path: '/admin/colfuturo_apps/settings'
+  defaults:
+    _form: '\Drupal\colfuturo_apps\Form\ColfuturoAppsSettingsForm'
+    _title: 'Colfuturo Apps Settings'
+  requirements:
+    _permission: 'administer site configuration'
