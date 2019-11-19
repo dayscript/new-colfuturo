@@ -546,14 +546,14 @@ class miniorange_oauth_clientController extends ControllerBase
         $x1 = array();
         //Redirección;
         
-        foreach($cognito->client->getUser($D9['cognito:username'])->data['UserAttributes'] as $key => $attribute){
-            if($attribute['Name'] == 'custom:Datos_formulario'){
-                $OK = 'www.google.com';
-            }
-        }
+        // foreach($cognito->client->getUser($D9['cognito:username'])->data['UserAttributes'] as $key => $attribute){
+        //     if($attribute['Name'] == 'custom:Datos_formulario'){
+        //         $OK = 'www.google.com';
+        //     }
+        // }
 
         $x1["redirect"] = $OK;
-        dump($cognito->client->getUser($D9['cognito:username'])->data['UserAttributes']);
+        dump($cognito->client->getUser($D9['cognito:username'])->data);
         dump($D9);
         dump($OK);
         die;
