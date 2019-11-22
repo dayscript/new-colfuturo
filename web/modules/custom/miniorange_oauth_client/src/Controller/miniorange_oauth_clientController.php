@@ -554,13 +554,10 @@ class miniorange_oauth_clientController extends ControllerBase
         }
 
         if(isset($redirect)  && $redirect){
-            
             $config = \Drupal::config('colfuturo_apps_settings_form.settings');
-
             $CI = new RedirectResponse($config->get('uri_redirect').'?id_token='.$_SESSION['miniorange_congito_oauth2']['IdToken']);
             $CI->send();
             return new Response(); 
-           
         }
         
         
