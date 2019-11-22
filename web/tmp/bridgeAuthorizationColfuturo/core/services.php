@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     $gruposReguistrados[] = $grupo["GroupName"];
                                 }
                             }
-                            $roles_Array = split(",", $rolesAttributos);
+                            $roles_Array = explode(",", $rolesAttributos);
                             // Recore los roles enviados si no esta en los que se encuentran en cognito lo agrega
                             foreach ($roles_Array as $rol) {
                                 if (!empty($rol) && !is_null($rol)) {
