@@ -31,5 +31,9 @@ function colfuturo_apps_theme() {
     'colfuturo_apps' => [
       'render element' => 'children',
     ],
+
+    'rebeca_colfuturo_apps_block' => [
+      'variables' => ['vars' => NULL],
+    ],
   ];
 }
