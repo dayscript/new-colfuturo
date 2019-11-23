@@ -63,14 +63,14 @@ class AwsCognitoService implements InterfaceAwsCognitoService {
     
     return [
       'credentials' => [
-          'key' => 'AKIAJFTJ4Z7ZMR5I7R6A',
-          'secret' => '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',
+          'key' => '',
+          'secret' => '',
       ],
       'region' => 'us-west-2',
       'version' => 'latest',
-      'app_client_id' => '70km23tfrhojm2r2plgbrcbfrc',
-      'app_client_secret' => '1bhh4d70ujroi420i8lknsufo0cdhpnd03mmi9dmlp8rdr1mo7pi',
-      'user_pool_id' => 'us-west-2_hrDe5iCd1',
+      'app_client_id' => '',
+      'app_client_secret' => '',
+      'user_pool_id' => '',
     ];
   
   }
