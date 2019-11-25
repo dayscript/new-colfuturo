@@ -61,16 +61,19 @@ class AwsCognitoService implements InterfaceAwsCognitoService {
    */
   public function getConfig()  {
     
+
+    $config = \Drupal::config('colfuturo_apps_settings_form.settings');
+
     return [
       'credentials' => [
-          'key' => 'AKIAJFTJ4Z7ZMR5I7R6A',
-          'secret' => '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',
+          'key' => $config->get('amazon_access_key_id'),
+          'secret' => $config->get('amazon_secret_access_key'),
       ],
-      'region' => 'us-west-2',
-      'version' => 'latest',
-      'app_client_id' => '70km23tfrhojm2r2plgbrcbfrc',
-      'app_client_secret' => '1bhh4d70ujroi420i8lknsufo0cdhpnd03mmi9dmlp8rdr1mo7pi',
-      'user_pool_id' => 'us-west-2_hrDe5iCd1',
+      'region' => $config->get('region'),
+      'version' => $config->get('version'),
+      'app_client_id' => $config->get('app_client_id'),
+      'app_client_secret' => $config->get('app_client_secret'),
+      'user_pool_id' => $config->get('user_pool_id'),
     ];
   
   }
