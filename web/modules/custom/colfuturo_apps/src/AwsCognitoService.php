@@ -60,7 +60,6 @@ class AwsCognitoService implements InterfaceAwsCognitoService {
    * @throws 
    */
   public function getConfig()  {
-    
 
     $config = \Drupal::config('colfuturo_apps_settings_form.settings');
 
@@ -75,8 +74,5 @@ class AwsCognitoService implements InterfaceAwsCognitoService {
       'app_client_secret' => $config->get('app_client_secret'),
       'user_pool_id' => $config->get('user_pool_id'),
     ];
-  
   }
-
-
 }

@@ -8,6 +8,7 @@
         "drupal/admin_toolbar": "^1.27",
         "drupal/adminimal_theme": "^1.4",
         "drupal/anchor_link": "^1.6",
+        "drupal/autologout": "^1.0",
         "drupal/back_to_top": "^1.0",
         "drupal/better_exposed_filters": "^3.0",
         "drupal/bg_image_formatter": "^1.10",
