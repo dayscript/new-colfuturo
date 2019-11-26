@@ -1160,3 +1160,35 @@ section#block-views-block-encabezado-noticias-block-1 {
         }
     }
 }
+
+//Block en vivo
+#block-views-block-proximos-eventos-block-5{
+    .views-row{
+        a{
+            color: $white;
+            text-decoration: none;
+            .event-live{
+                background-color: $primary-color;
+                text-align: center;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                text-transform: uppercase;
+                position: relative;
+                &:hover{
+                    background-color: $secondary-color !important;
+                }
+                span{
+                    &:after{
+                        background-image: url(../images/live.png);
+                        content: "";
+                        width: 31px;
+                        height: 24px;
+                        top: 5px;
+                        margin-left: 0.8rem;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+}
