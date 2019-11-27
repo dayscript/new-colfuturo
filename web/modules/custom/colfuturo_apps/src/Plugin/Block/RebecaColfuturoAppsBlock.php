@@ -87,7 +87,7 @@ class RebecaColfuturoAppsBlock extends BlockBase implements ContainerFactoryPlug
     $link_rebeca = 'http://rebeca.agenti.com.co/rebeca/?ID='. $this->currentUser->getDisplayName() . '&NAME1=' . $user->field_nombres->value. '&NAME2=""' . '&EMAIL=' . $this->currentUser->getEmail() . '&STATUS=""';
     
     if( in_array('beneficiario_pcb', $this->currentUser->getRoles() ) ){
-      $link_rebeca = 'http://rebeca.agenti.com.co/rebecapcb/?ID='. $this->currentUser->getDisplayName() . '&NAME1=' . $user->field_nombres->value . '&NAME2=""' . '&EMAIL=' . $this->currentUser->getEmail() . '&STATUS=""';
+      $link_rebeca = 'http://rebecapcb.agenti.com.co/rebecapcb/?ID='. $this->currentUser->getDisplayName() . '&NAME1=' . $user->field_nombres->value . '&NAME2=""' . '&EMAIL=' . $this->currentUser->getEmail() . '&STATUS=""';
     }
 
     $build['#theme'] = 'rebeca_colfuturo_apps_block';
