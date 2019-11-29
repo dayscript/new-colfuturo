@@ -1073,6 +1073,14 @@ section#block-views-block-encabezado-noticias-block-1 {
     .login{
         display: none;
     }
+    #block-navegacionprincipal-3{
+        li.profile{
+            > a{
+                background: url(../images/login.png);
+                background-repeat: no-repeat;
+            }
+        }
+    }
 }
 
 #block-navegacionprincipal-3{
@@ -1085,7 +1093,7 @@ section#block-views-block-encabezado-noticias-block-1 {
             display: inline-block;
             padding: 0rem 0.1rem 0rem 1.5625rem;
             width: 50px;
-            background: url(../images/login.png);
+            background: url(../images/login-gray.png);
             background-repeat: no-repeat;
             &:hover, &:focus{
                 background-color: none;

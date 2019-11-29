@@ -230,7 +230,7 @@ section#block-logoblanco-2 {
                 content: "";
                 width: 28px;
                 height: 28px;
-                background: url(../images/search.png);
+                background: url(../images/search-gray.png);
                 top: 0;
                 left: 0;
                 cursor: pointer;
@@ -264,10 +264,12 @@ section#block-logoblanco-2 {
                     display: inline-block;
                     padding: 0rem 0.1rem 0rem 1.5625rem;
                     width: 50px;
-                    background: url(../images/login.png);
+                    background: url(../images/login-gray.png);
                     background-repeat: no-repeat;
                     &:hover, &:focus{
                         background-color: none;
+                        background: url(../images/login.png);
+                        background-repeat: no-repeat;
                     }
                     &:before{
                         display: none;
