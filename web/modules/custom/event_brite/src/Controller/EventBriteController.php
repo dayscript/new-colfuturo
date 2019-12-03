@@ -73,7 +73,8 @@ class EventBriteController extends ControllerBase {
 		"16"=>'Visita',
 	];
 	//$events = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=4Y2ZJL5AREIS7R5BWABK');
-	$events = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=Z5PUBQ6ROR7OYZM7YARV');
+	//$events = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=Z5PUBQ6ROR7OYZM7YARV');
+	$events = file_get_contents('https://www.eventbriteapi.com/v3/users/me/events/?token=JKZTJHNWOLTO65L7EIYC');
 	$events = json_decode($events)->events;
 
 	foreach($events as $key => $event){
@@ -85,13 +86,13 @@ class EventBriteController extends ControllerBase {
 		//dpm($result);
 		//dpm($result[$getNid]);
 		switch ($event->organizer_id) {
-		    case 20071073871:
+		    case 28651177091:
 		    	$organizador = 200;
 		        break;
-		    case 27056775865:
+		    case 28651235497:
 				$organizador = 201;
 		        break;
-		    case 27056802047:
+		    case 28651271749:
 				$organizador = 202;
 		        break;
 		}
