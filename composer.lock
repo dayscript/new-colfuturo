@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2933d8e8401e2110ca9e4e86f6641f4",
+    "content-hash": "9bce8da66bf7b992a8123316c1f4f7b4",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6781,17 +6781,17 @@
         },
         {
             "name": "drupal/vapn",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/vapn.git",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/vapn-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "8dc5fa946902b4b28bd4df4568177cf2c5f37a87"
+                "url": "https://ftp.drupal.org/files/projects/vapn-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "4dba57cd2dcc3d22c48172199916b0981164601f"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -6802,8 +6802,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1557133386",
+                    "version": "8.x-1.2",
+                    "datestamp": "1575367384",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
