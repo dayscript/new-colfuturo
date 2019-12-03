@@ -72,6 +72,7 @@
         }
     }
     #block-colfuturo-content{
+        margin-top: 2rem;
         .views-row{
             border-bottom: 1px solid #CCCCCC;
             border-top: none;
@@ -97,6 +98,17 @@
                     }
                 }
             }
+        }
+    }
+    .node--type-biblioteca-rebeca{
+        .field-name-field-image{
+            .field-item{
+                text-align: center;
+            }
+        }
+        .field-label{
+            font-weight: bold;
+            font-size: 1.2rem;
         }
     }
 }
