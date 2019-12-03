@@ -65,7 +65,7 @@
         "drupal/token_filter": "^1.1",
         "drupal/twig_vardumper": "^1.1",
         "drupal/url_redirect": "^2.61",
-        "drupal/vapn": "^1.1",
+        "drupal/vapn": "^1.2",
         "drupal/vardumper": "^1.4",
         "drupal/video_embed_field": "^2.1",
         "drupal/views_extras": "^1.1",
