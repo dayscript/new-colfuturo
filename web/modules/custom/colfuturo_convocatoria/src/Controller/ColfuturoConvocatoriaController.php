@@ -52,6 +52,9 @@ class ColfuturoConvocatoriaController extends ControllerBase {
    *   Return Hello string.
    */
   public function index() {
+
+    dump($_SESSION);
+
     return [
       '#type' => 'markup',
       '#markup' => $this->t('Implement method: index')

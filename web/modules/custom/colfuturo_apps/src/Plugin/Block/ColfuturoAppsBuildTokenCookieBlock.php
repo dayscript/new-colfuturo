@@ -24,7 +24,7 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
 
   public function __construct(){
     $this->is_token = false;
-    $this->SetTokenCognito();
+    // $this->SetTokenCognito();
 
   }
   /**
@@ -32,18 +32,22 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
    */
   public function build() {
 
+    $session = \Drupal::request()->getSession();
+    $miniorange_congito_oauth2 = json_decode($session->get('miniorange_congito_oauth2'), true);
+
     $build = [];
     $build['colfuturo_apps_build_token_cookie_block']['#markup'] = 'Implement ColfuturoAppsBuildTokenCookieBlock.';
     $build['#cache'] = [
       'max-age' => 0,
     ];
+    
 
     if($this->is_token || 0 == 0){
       $build['#attached'] = array(
         'library' => array('colfuturo_apps/colfuturo_apps'),
         'drupalSettings'  => [
             'colfuturo_apps' => [
-              'colftuturo_apps_cognito' => $_SESSION['miniorange_congito_oauth2'],
+              'colftuturo_apps_cognito' => $miniorange_congito_oauth2['miniorange_congito_oauth2'],
               'item_class' => '.colfu-app-clic'
               ]
             ]
@@ -55,14 +59,14 @@ class ColfuturoAppsBuildTokenCookieBlock extends BlockBase {
   }
 
 
-  public function SetTokenCognito(){
-      user_cookie_save(
-        [ 
-        'drupal-session-cognito' => $_SESSION['access_token_cognito']['IdToken'] 
-        ] 
-      );
-      $this->is_token =  true;
-    }
+  // public function SetTokenCognito(){
+  //     user_cookie_save(
+  //       [ 
+  //       'drupal-session-cognito' => $_SESSION['access_token_cognito']['IdToken'] 
+  //       ] 
+  //     );
+  //     $this->is_token =  true;
+  //   }
   
 
 }

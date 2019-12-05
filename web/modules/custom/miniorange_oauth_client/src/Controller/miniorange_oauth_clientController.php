@@ -10,6 +10,7 @@ use Drupal\miniorange_oauth_client\Utilities;
 use Symfony\Component\HttpFoundation\Response;
 use Drupal\Component\Render\FormattableMarkup;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\HttpFoundation\HeaderBag;
 
@@ -19,9 +20,11 @@ class miniorange_oauth_clientController extends ControllerBase
     public static function miniorange_oauth_client_mo_login()  {
         
         $bypass = false;
+        $session = \Drupal::request()->getSession();
+        $miniorange_congito_oauth2 = json_decode($session->get('miniorange_congito_oauth2'), true);
         // custom 
-        if(!is_null($_SESSION['miniorange_congito_oauth2'])){
-            $id = $_SESSION['miniorange_congito_oauth2']['AccessToken'];
+        if(!is_null($miniorange_congito_oauth2)){
+            $id = $miniorange_congito_oauth2['AccessToken'];
             $bypass = true;
             goto Fh;
         }
@@ -114,7 +117,7 @@ class miniorange_oauth_clientController extends ControllerBase
                 $D9 = self::getResourceOwner($pY, $id);
             }else{
                 $cognito = \Drupal::service('colfuturo_apps.aws_cognito');
-                $D9 = $cognito->client->decodeAccessToken($_SESSION['miniorange_congito_oauth2']['IdToken']);
+                $D9 = $cognito->client->decodeAccessToken($miniorange_congito_oauth2['IdToken']);
             }
             
             //Custom
@@ -555,13 +558,22 @@ class miniorange_oauth_clientController extends ControllerBase
 
         if(isset($redirect)  && $redirect){
             $config = \Drupal::config('colfuturo_apps_settings_form.settings');
-            $CI = new RedirectResponse($config->get('uri_redirect').'?id_token='.$_SESSION['miniorange_congito_oauth2']['IdToken']);
+            $CI = new RedirectResponse($config->get('uri_redirect').'?id_token='.$miniorange_congito_oauth2['IdToken']);
             $CI->send();
             return new Response(); 
         }
         
+        $previousUrl = \Drupal::request()->server->get('HTTP_REFERER') ?? NULL;
+        if( !is_null($previousUrl) ){
+            $previousUrl = parse_url($previousUrl, PHP_URL_PATH);
+            user_login_finalize($KY);
+            $CI = new RedirectResponse($previousUrl);
+            $CI->send();
+            return new Response(); 
+        }
         
         $x1["redirect"] = $OK;
+        
         user_login_finalize($KY);
         $CI = new RedirectResponse($x1["redirect"]);
         $CI->send();
