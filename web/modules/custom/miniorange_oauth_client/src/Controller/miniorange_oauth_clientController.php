@@ -569,7 +569,7 @@ class miniorange_oauth_clientController extends ControllerBase
         if( !is_null($previousUrl) ){
             $previousUrl = parse_url($previousUrl, PHP_URL_PATH);
             if( $previousUrl != '/d_login' ){
-                user_login_finalize($KY);
+                //user_login_finalize($KY);
                 $CI = new RedirectResponse($previousUrl);
                 $CI->send();
                 return new Response(); 
