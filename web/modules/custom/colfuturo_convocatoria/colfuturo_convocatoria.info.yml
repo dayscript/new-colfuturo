@@ -1,0 +1,7 @@
+name: 'Colfuturo Convocatoria'
+type: module
+description: 'This modules extends the convocatory funcionality'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - views

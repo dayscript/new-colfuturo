@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains colfuturo_convocatoria.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function colfuturo_convocatoria_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the colfuturo_convocatoria module.
+    case 'help.page.colfuturo_convocatoria':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This modules extends the convocatory funcionality') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function colfuturo_convocatoria_theme() {
+  return [
+    'colfuturo_convocatoria' => [
+      'render element' => 'children',
+    ],
+  ];
+}
