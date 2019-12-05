@@ -187,7 +187,6 @@ class MiniorangeLoginForm extends FormBase {
 
     $session = \Drupal::request()->getSession();
     $session->set('miniorange_congito_oauth2', json_encode($authenticationResponse));
-    //$_SESSION['miniorange_congito_oauth2'] = $authenticationResponse;
 
   }
 
