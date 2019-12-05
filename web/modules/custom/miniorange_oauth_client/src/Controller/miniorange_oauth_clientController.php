@@ -566,10 +566,12 @@ class miniorange_oauth_clientController extends ControllerBase
         $previousUrl = \Drupal::request()->server->get('HTTP_REFERER') ?? NULL;
         if( !is_null($previousUrl) ){
             $previousUrl = parse_url($previousUrl, PHP_URL_PATH);
-            user_login_finalize($KY);
-            $CI = new RedirectResponse($previousUrl);
-            $CI->send();
-            return new Response(); 
+            if( $previousUrl != '/d_login' ){
+                user_login_finalize($KY);
+                $CI = new RedirectResponse($previousUrl);
+                $CI->send();
+                return new Response(); 
+            }
         }
         
         $x1["redirect"] = $OK;
