@@ -1075,9 +1075,12 @@ section#block-views-block-encabezado-noticias-block-1 {
     }
     #block-navegacionprincipal-3{
         li.profile{
-            > a{
+            display: block;
+            > a,
+            > span{
                 background: url(../images/login.png);
                 background-repeat: no-repeat;
+                height: 30px;
             }
         }
     }
@@ -1085,10 +1088,12 @@ section#block-views-block-encabezado-noticias-block-1 {
 
 #block-navegacionprincipal-3{
     li.profile{
+            display: none;
             position: relative;
             margin-top: -7px;
             width: 50px;
-        > a{
+        > a,
+        > span{
             text-indent: -10000px;
             display: inline-block;
             padding: 0rem 0.1rem 0rem 1.5625rem;

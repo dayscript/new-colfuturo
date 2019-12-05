@@ -358,8 +358,8 @@ a#superfish-main-toggle{
     z-index: 4;
     left: 0;
     right: 0;
-    bottom: 2rem; 
-    transform: translateY(-50%);
+    bottom: 50%; 
+    transform: translateY(50%);
     padding-right: 0.7rem;
     padding-left: 0.7rem;
     h1{
