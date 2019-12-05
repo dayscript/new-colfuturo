@@ -564,6 +564,8 @@ class miniorange_oauth_clientController extends ControllerBase
         }
         
         $previousUrl = \Drupal::request()->server->get('HTTP_REFERER') ?? NULL;
+        dump($previousUrl);
+        die;
         if( !is_null($previousUrl) ){
             $previousUrl = parse_url($previousUrl, PHP_URL_PATH);
             if( $previousUrl != '/d_login' ){
