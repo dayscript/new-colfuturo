@@ -1,6 +1,6 @@
 
 colfuturo_convocatoria.colfuturo_convocatoria_controller_interno:
-  path: '/convocatoria/interno'
+  path: '/convocatoria/interna'
   defaults:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::interno'
     _title: 'interno'
@@ -8,7 +8,7 @@ colfuturo_convocatoria.colfuturo_convocatoria_controller_interno:
     _permission: 'user is login'
 
 colfuturo_convocatoria.colfuturo_convocatoria_controller_externo:
-  path: '/convocatoria/externo'
+  path: '/convocatoria/externa'
   defaults:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::externo'
     _title: 'externo'
