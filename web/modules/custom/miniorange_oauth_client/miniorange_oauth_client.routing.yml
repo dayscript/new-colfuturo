@@ -69,6 +69,13 @@ miniorange_oauth_client.mo_login:
   requirements:
     _access: 'TRUE'
 
+miniorange_oauth_client.mo_login_without_login_redirect:
+  path: /mo_login_without_login_redirect
+  defaults:
+    _controller: \Drupal\miniorange_oauth_client\Controller\miniorange_oauth_clientController::miniorange_oauth_client_mo_login
+  requirements:
+    _access: 'TRUE'
+
 miniorange_oauth_client.cognito_login:
   path: /d_login
   defaults:

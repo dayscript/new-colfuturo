@@ -217,7 +217,18 @@ class MiniorangeLoginForm extends FormBase {
       }
 
     }else{
-      $form_state->setRedirect('miniorange_oauth_client.mo_login');
+      $current_path = \Drupal::service('path.current')->getPath() ?? NULL;
+      
+      if(!is_null($current_path) && $current_path == '/convocatoria/externa' ){
+        $form_state->setRedirect('miniorange_oauth_client.mo_login_without_login_redirect');  
+        
+      }else{
+        $form_state->setRedirect('miniorange_oauth_client.mo_login');
+      }
+
+      
+    
+    
     }
   }
 
