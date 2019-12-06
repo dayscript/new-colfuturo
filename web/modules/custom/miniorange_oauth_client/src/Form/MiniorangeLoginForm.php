@@ -225,10 +225,6 @@ class MiniorangeLoginForm extends FormBase {
       }else{
         $form_state->setRedirect('miniorange_oauth_client.mo_login');
       }
-
-      
-    
-    
     }
   }
 
