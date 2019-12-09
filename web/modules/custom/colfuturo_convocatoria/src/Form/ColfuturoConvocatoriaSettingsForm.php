@@ -41,7 +41,7 @@ class ColfuturoConvocatoriaSettingsForm extends ConfigFormBase {
     $config = $this->config(static::SETTINGS);
     
     if( isset( $form_state ) && is_null($form_state->get('num_fields') ) ){
-      $form_state->set('num_fields', 0);
+      $form_state->set('num_fields', count($config->get('paths_values.uri')));
     }
 
 
@@ -55,7 +55,7 @@ class ColfuturoConvocatoriaSettingsForm extends ConfigFormBase {
       '#type'   => 'field_set',
       '#title'  => $this->t('Path Values'),
       '#prefix' => '<div id="paths-values-fields-wrapper">',
-      '#sufix' => '</div>',
+      '#suffix' => '</div>',
     ];
 
     for($i = 0; $i <= $form_state->get('num_fields') ; $i++){

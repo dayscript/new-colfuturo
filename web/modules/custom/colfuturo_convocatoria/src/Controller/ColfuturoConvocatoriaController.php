@@ -103,4 +103,32 @@ class ColfuturoConvocatoriaController extends ControllerBase {
     $CI->send();
     return new Response(); 
   }
+
+
+  /**
+   * Index.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function semillero_externo() {
+
+    $CI = new RedirectResponse('http://169.47.71.245:32266/Formulario-Externo/semillero/login.jsp' . '&id_token=' . $this->session['IdToken'] );
+    $CI->send();
+    return new Response(); 
+  }
+
+   /**
+   * Index.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function semillero_interno() {
+
+    $CI = new RedirectResponse('http://169.47.71.245:32266/Formulario-Interno/semillero/login.jsp' . '&id_token=' . $this->session['IdToken'] );
+    $CI->send();
+    return new Response(); 
+  }
+  
 }

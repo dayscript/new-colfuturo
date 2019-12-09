@@ -8,7 +8,7 @@ colfuturo_convocatoria.colfuturo_convocatoria_settings_form:
     _permission: 'administrator'
 
 colfuturo_convocatoria.colfuturo_convocatoria_controller_interno:
-  path: '/convocatoria/interna'
+  path: '/programas/programa-credito-beca/convocatoria/interna'
   defaults:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::interno'
     _title: 'interno'
@@ -16,10 +16,26 @@ colfuturo_convocatoria.colfuturo_convocatoria_controller_interno:
     _permission: 'user is login'
 
 colfuturo_convocatoria.colfuturo_convocatoria_controller_externo:
-  path: '/convocatoria/externa'
+  path: '/programas/programa-credito-beca/convocatoria/externa'
   defaults:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::externo'
     _title: 'externo'
+  requirements:
+    _permission: 'user is login'
+
+colfuturo_convocatoria.colfuturo_semillero_controller_interno:
+  path: '/programas/programa-semillero-de-talentos/convocatoria/externa'
+  defaults:
+    _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::semillero_interno'
+    _title: 'interno'
+  requirements:
+    _permission: 'user is login'
+
+colfuturo_convocatoria.colfuturo_semillero_controller_externo:
+  path: '/programas/programa-semillero-de-talentos/convocatoria/externa'
+  defaults:
+    _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::semillero_externo'
+    _title: 'interno'
   requirements:
     _permission: 'user is login'
 
@@ -30,7 +46,6 @@ colfuturo_convocatoria.colfuturo_asesoria_agenta_tu_cita_controller:
     _title: 'externo'
   requirements:
     _permission: 'user is login'
-
 
 colfuturo_convocatoria.colfuturo_asesoria_solicita_tu_cita_controller:
   path: '/asesoria/solicita-tu-cita'
