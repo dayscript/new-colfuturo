@@ -73,9 +73,34 @@ class ColfuturoConvocatoriaController extends ControllerBase {
    */
   public function externo() {
 
-    $CI = new RedirectResponse('http://jboss.colfuturo.org/convocatoria/login.jsf' . '?id_token=' . $this->session['IdToken'] );
+    $CI = new RedirectResponse('http://169.47.71.245:31613/convocatoria/login.jsf' . '?id_token=' . $this->session['IdToken'] );
     $CI->send();
     return new Response(); 
   }
 
+  /**
+   * Index.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function agenda() {
+
+    $CI = new RedirectResponse('https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1' . '&id_token=' . $this->session['IdToken'] );
+    $CI->send();
+    return new Response(); 
+  }
+
+  /**
+   * Index.
+   *
+   * @return string
+   *   Return Hello string.
+   */
+  public function solicita() {
+
+    $CI = new RedirectResponse('https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1' . '&id_token=' . $this->session['IdToken'] );
+    $CI->send();
+    return new Response(); 
+  }
 }

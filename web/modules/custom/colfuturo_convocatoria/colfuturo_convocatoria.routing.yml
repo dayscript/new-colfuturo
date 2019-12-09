@@ -1,4 +1,12 @@
 
+colfuturo_convocatoria.colfuturo_convocatoria_settings_form:
+  path: '/admin/colfuturo-convocatoria/settings'
+  defaults:
+    _form: '\Drupal\colfuturo_convocatoria\Form\ColfuturoConvocatoriaSettingsForm'
+    _title: 'Colfuturo Convocatoria Settings'
+  requirements:
+    _permission: 'administrator'
+
 colfuturo_convocatoria.colfuturo_convocatoria_controller_interno:
   path: '/convocatoria/interna'
   defaults:
@@ -14,3 +22,35 @@ colfuturo_convocatoria.colfuturo_convocatoria_controller_externo:
     _title: 'externo'
   requirements:
     _permission: 'user is login'
+
+colfuturo_convocatoria.colfuturo_asesoria_agenta_tu_cita_controller:
+  path: '/asesoria/agenda-tu-cita'
+  defaults:
+    _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::agenda'
+    _title: 'externo'
+  requirements:
+    _permission: 'user is login'
+
+
+colfuturo_convocatoria.colfuturo_asesoria_solicita_tu_cita_controller:
+  path: '/asesoria/solicita-tu-cita'
+  defaults:
+    _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::solicita'
+    _title: 'externo'
+  requirements:
+    _permission: 'user is login'
+colfuturo_convocatoria.colfuturo_convocatoria_settings_form:
+  path: '/colfuturo_convocatoria/form/colfuturo_convocatoria_settings'
+  defaults:
+    _form: '\Drupal\colfuturo_convocatoria\Form\ColfuturoConvocatoriaSettingsForm'
+    _title: 'ColfuturoConvocatoriaSettingsForm'
+  requirements:
+    _access: 'TRUE'
+
+colfuturo_convocatoria.colfuturo_convocatoria_settings_form:
+  path: '/colfuturo_convocatoria/form/colfuturo_convocatoria_settings'
+  defaults:
+    _form: '\Drupal\colfuturo_convocatoria\Form\ColfuturoConvocatoriaSettingsForm'
+    _title: 'ColfuturoConvocatoriaSettingsForm'
+  requirements:
+    _access: 'TRUE'

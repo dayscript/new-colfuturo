@@ -4,34 +4,10 @@ Drupal.behaviors.colfuturo_apps = {
       if(typeof settings.colfuturo_apps != 'undefined'){
         var colfuturo_apps = settings.colfuturo_apps;
 
-        
-        // $(colfuturo_apps.item_class).on(
-        //   'app_redirect', 
-        //   (event, item) => { 
-            
-        //     var html = $(item).html();
-
-        //     $(item).html('<div class="medium-12 columns text-center"><img src="/core/themes/stable/images/core/loading-small.gif"/></div>')
-            
-            // redirect({
-            //   url: $(item).attr('link'),
-            //   id_token: colfuturo_apps.colftuturo_apps_cognito.IdToken
-            // });
-
-        //     $(item).html(html)  
-
-        //   }
-        // )
-
         $(colfuturo_apps.item_class).each(  function() {
           $(this).attr('href', $(this).attr('link').replace(' ','') + '?id_token=' + colfuturo_apps.colftuturo_apps_cognito.IdToken ) 
           $(this).attr('target', '_blank' ) 
 
-          // $(this).click(
-          //   () => { 
-          
-          //     // $(this).trigger('app_redirect',[this]) 
-          //   })
         })
       }
 
