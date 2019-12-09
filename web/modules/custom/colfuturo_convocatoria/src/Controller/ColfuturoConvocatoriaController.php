@@ -73,7 +73,10 @@ class ColfuturoConvocatoriaController extends ControllerBase {
    */
   public function externo() {
 
-    $CI = new RedirectResponse('http://169.47.71.245:31613/convocatoria/login.jsf' . '?id_token=' . $this->session['IdToken'] );
+    dump('http://169.47.71.245:31613/convocatoria/login.jsf' . '?id_token=' . $this->session['IdToken']);
+    die;
+
+    $CI = new RedirectResponse( 'http://169.47.71.245:31613/convocatoria/login.jsf' . '?id_token=' . $this->session['IdToken'] );
     $CI->send();
     return new Response(); 
   }
