@@ -143,7 +143,7 @@ function miniorange_oauth_client_preprocess_page(&$vars, $hook){
         || $route_name === 'miniorange_oauth_client.cognito_reset_password'
      )
     {
-        foreach(['header','meta_header','footer_first','footer_middle','footer_last'] as $region){
+        foreach(['header','meta_header','footer_first','footer_middle','footer_last','sidebar_first'] as $region){
             unset($vars['page'][$region]);
         }
     }

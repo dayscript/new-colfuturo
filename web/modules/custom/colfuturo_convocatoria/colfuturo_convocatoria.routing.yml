@@ -5,7 +5,7 @@ colfuturo_convocatoria.colfuturo_convocatoria_settings_form:
     _form: '\Drupal\colfuturo_convocatoria\Form\ColfuturoConvocatoriaSettingsForm'
     _title: 'Colfuturo Convocatoria Settings'
   requirements:
-    _permission: 'administrator'
+    _permission: 'administer site configuration'
 
 colfuturo_convocatoria.colfuturo_convocatoria_controller_interno:
   path: '/programas/programa-credito-beca/convocatoria/interna'
@@ -24,7 +24,7 @@ colfuturo_convocatoria.colfuturo_convocatoria_controller_externo:
     _permission: 'user is login'
 
 colfuturo_convocatoria.colfuturo_semillero_controller_interno:
-  path: '/programas/programa-semillero-de-talentos/convocatoria/externa'
+  path: '/programas/programa-semillero-de-talentos/convocatoria/interna'
   defaults:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::semillero_interno'
     _title: 'interno'
