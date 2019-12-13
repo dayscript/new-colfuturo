@@ -39,13 +39,13 @@ colfuturo_convocatoria.colfuturo_semillero_controller_externo:
   requirements:
     _permission: 'user is login'
 
-colfuturo_convocatoria.colfuturo_asesoria_agenta_tu_cita_controller:
+colfuturo_convocatoria.colfuturo_asesoria_agenta_tu_cita_controller: 
   path: '/asesoria/agenda-tu-cita'
   defaults:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::agenda'
     _title: 'externo'
   requirements:
-    _permission: 'user is login'
+    _permission: 'access content'
 
 colfuturo_convocatoria.colfuturo_asesoria_solicita_tu_cita_controller:
   path: '/asesoria/solicita-tu-cita'
