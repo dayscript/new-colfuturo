@@ -94,7 +94,9 @@ class ColfuturoConvocatoriaController extends ControllerBase {
     // // $CI->send();
     // // return new Response(); 
 
-    return 'ASDadsa';
+    return array(
+      '#markup' => '<p>This is html markup</p>',
+    );
   }
 
   /**
