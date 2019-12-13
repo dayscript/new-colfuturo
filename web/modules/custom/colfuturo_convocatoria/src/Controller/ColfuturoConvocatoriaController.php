@@ -91,7 +91,7 @@ class ColfuturoConvocatoriaController extends ControllerBase {
       'rutaEnvio' => 'https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1'
     );
 
-    $resourse  = 'https://jboss2.colfuturo.org/Formulario-Externo/potencial/formulario/formInfoFormularios.jsf?'.$data;
+    $resourse  = 'https://jboss2.colfuturo.org/Formulario-Externo/potencial/formulario/formInfoFormularios.jsf?'.http_build_query($data);
     $output = '<iframe id="IframeCIta" src="'.$resourse.'" style="height:328px;width:750px;"></iframe>';
     $response = new Response();
     $response->setContent($output);
@@ -114,6 +114,7 @@ class ColfuturoConvocatoriaController extends ControllerBase {
 
     $resourse  = 'https://jboss2.colfuturo.org/Formulario-Externo/potencial/formulario/formInfoFormularios.jsf?'.http_build_query($data);
     $output = '<iframe id="IframeCIta" src="'.$resourse.'" style="height:328px;width:750px;"></iframe>';
+
     $response = new Response();
     $response->setContent($output);
     return $response;
