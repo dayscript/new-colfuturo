@@ -94,7 +94,7 @@ class ColfuturoConvocatoriaController extends ControllerBase {
     // // $CI->send();
     // // return new Response(); 
     $response = new Response();
-    $response->setContent($output);
+    $response->setContent($resourse);
     //$response->headers->set('Content-Type', 'text/xml');
     return $response;
   }
