@@ -45,7 +45,7 @@ colfuturo_convocatoria.colfuturo_asesoria_agenta_tu_cita_controller:
     _controller: '\Drupal\colfuturo_convocatoria\Controller\ColfuturoConvocatoriaController::agenda'
     _title: 'externo'
   requirements:
-    _permission: 'access content'
+    _permission: 'user is login'
 
 colfuturo_convocatoria.colfuturo_asesoria_solicita_tu_cita_controller:
   path: '/asesoria/solicita-tu-cita'
