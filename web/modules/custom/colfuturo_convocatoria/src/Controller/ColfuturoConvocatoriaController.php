@@ -86,18 +86,17 @@ class ColfuturoConvocatoriaController extends ControllerBase {
    */
   public function agenda() {
 
-    $rutaEnvio = 'https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1';
-    $data = array( 'id_token' => $this->session['IdToken']);
+    $data = array(
+      'id_token' => $this->session['IdToken'],
+      'rutaEnvio' => 'https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1'
+    );
 
-    $resourse  = 'https://jboss2.colfuturo.org/Formulario-Externo/potencial/formulario/formInfoFormularios.jsf?id_token='.$this->session['IdToken'].'&rutaEnvio='.$rutaEnvio;
+    $resourse  = 'https://jboss2.colfuturo.org/Formulario-Externo/potencial/formulario/formInfoFormularios.jsf?'.$data;
     $output = '<iframe id="IframeCIta" src="'.$resourse.'" style="height:328px;width:750px;"></iframe>';
-    // // $CI = new RedirectResponse('https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1' . '&id_token=' . $this->session['IdToken'] );
-    // // $CI->send();
-    // // return new Response(); 
     $response = new Response();
     $response->setContent($output);
-    //$response->headers->set('Content-Type', 'text/xml');
     return $response;
+
   }
 
   /**
@@ -108,9 +107,16 @@ class ColfuturoConvocatoriaController extends ControllerBase {
    */
   public function solicita() {
 
-    $CI = new RedirectResponse('https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1' . '&id_token=' . $this->session['IdToken'] );
-    $CI->send();
-    return new Response(); 
+    $data = array(
+      'id_token' => $this->session['IdToken'],
+      'rutaEnvio' => 'https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1'
+    );
+
+    $resourse  = 'https://jboss2.colfuturo.org/Formulario-Externo/potencial/formulario/formInfoFormularios.jsf?'.$data;
+    $output = '<iframe id="IframeCIta" src="'.$resourse.'" style="height:328px;width:750px;"></iframe>';
+    $response = new Response();
+    $response->setContent($output);
+    return $response;
   }
 
 
