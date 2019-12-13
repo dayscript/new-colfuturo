@@ -8,8 +8,7 @@ use Drupal\Core\Routing\CurrentRouteMatch;
 use Drupal\Core\Session\AccountProxyInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\RedirectCommand;
+
 
 /**
  * Class ColfuturoConvocatoriaController.
@@ -98,9 +97,10 @@ class ColfuturoConvocatoriaController extends ControllerBase {
     // $response = new Response();
     // $response->setContent($output);
     // return $response;
-    $return = new AjaxResponse();
-    return $return->addCommand(new RedirectCommand('/d_login'));
 
+    header('Location: /d_login');
+    
+    return;
   }
 
   /**
