@@ -93,10 +93,10 @@ class ColfuturoConvocatoriaController extends ControllerBase {
     // // $CI = new RedirectResponse('https://app.acuityscheduling.com/schedule.php?owner=13746351&notembedded=1' . '&id_token=' . $this->session['IdToken'] );
     // // $CI->send();
     // // return new Response(); 
-
-    return array(
-      '#markup' => '<p>This is html markup</p>',
-    );
+    $response = new Response();
+    $response->setContent('<h1>Hello world</h1>');
+    //$response->headers->set('Content-Type', 'text/xml');
+    return $response;
   }
 
   /**
