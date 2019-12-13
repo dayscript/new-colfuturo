@@ -96,7 +96,7 @@ class ColfuturoConvocatoriaController extends ControllerBase {
     // $response = new Response();
     // $response->setContent($output);
     // return $response;
-    return (new AjaxResponse())->addCommand(new RedirectCommand($redirect->getTargetUrl('miniorange_oauth_client.cognito_login')));
+    return (new AjaxResponse())->addCommand(new RedirectCommand('/d_login'));
 
   }
 
